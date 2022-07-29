@@ -4,17 +4,6 @@
 
 <head>
   <?php
-  //continuidad de sesión
-  session_start();
-  //si existe la sesión 
-  if (!isset($_SESSION['usuario'])) {
-    // lo mandamos a que se logee
-  ?>
-    <script type="text/javascript">
-      location.href = "../error_login.html";
-    </script>
-  <?php
-  }
   include 'templates/head.php';
   ?>
 </head>
