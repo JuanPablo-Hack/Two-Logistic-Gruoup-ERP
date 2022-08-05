@@ -5,8 +5,14 @@
 <head>
     <?php
     include 'templates/head.php';
-    include 'php/consultas.php';
-    $row =  mysqli_fetch_array(get_trabajador(1));
+    include 'php/conexion.php';
+    $id_trabajador = 1;
+    $sql = "SELECT * FROM trabajador WHERE id = $id_trabajador";
+    $resultado = $conexion->query($sql);
+    $row = mysqli_fetch_array($resultado);
+    $sql8 = "SELECT * FROM roles";
+    $result8 = mysqli_query($conexion, $sql8);
+
     ?>
 </head>
 
@@ -33,18 +39,16 @@
                         <!-- Content -->
 
                         <div class="container-xxl flex-grow-1 container-p-y">
-                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Variables del Sistema/</span> Agregar Usuarios</h4>
-
-                            <!-- Basic Layout -->
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Variables del Sistema/</span> Editar Usuarios</h4>
                             <div class="row">
-
                                 <div class="col-xl">
                                     <div class="card mb-12">
                                         <div class="card-header d-flex justify-content-between align-items-center">
-                                            <h5 class="mb-0">Alta de usuario</h5>
+                                            <h5 class="mb-0">Editar de usuario</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AgregarUsuario">
+                                            <form id="EditarUsuario">
+                                                <input type="hidden" name="id" value="<?php echo $id_trabajador ?>">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Nombre Completo</label>
                                                     <div class="input-group input-group-merge">
@@ -83,17 +87,25 @@
                                                     </div>
                                                 </div>
                                                 <br>
+                                                <?php
+
+                                                $rol = $row['rol'];
+                                                $sql = "SELECT * FROM roles WHERE id = $rol";
+                                                $resultado = $conexion->query($sql);
+                                                $row2 = mysqli_fetch_array($resultado);
+                                                ?>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Rol de usuario</label>
                                                     <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="rol" required>
-                                                        <option value="<?php echo $Row['rol'] ?>"><?php echo $clasificacion; ?></option>
+
                                                         <?php
-                                                        while ($Row1 = mysqli_fetch_array($result6)) {
+                                                        while ($Row1 = mysqli_fetch_array($result8)) {
                                                         ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['rol']; ?></option>
                                                         <?php
                                                         }
                                                         ?>
+                                                        <option value="<?php echo $row['rol'] ?>" selected style="display: none;"><?php echo $row2['rol'] ?></option>
                                                     </select>
                                                 </div>
                                                 <br>
@@ -152,6 +164,76 @@
     <script src="./js/main.js"></script>
     <script src="./js/controller.js"></script>
     <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document
+                .getElementById("EditarUsuario")
+                .addEventListener("submit", EditarUsuario);
+        });
+        async function EditarUsuario(e) {
+            e.preventDefault();
+            var form = document.getElementById("EditarUsuario");
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger",
+                },
+                buttonsStyling: false,
+            });
+            swalWithBootstrapButtons
+                .fire({
+                    title: "Estas seguro que la información es la correcta?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Si, editar trabajador",
+                    cancelButtonText: "No, cancelar!",
+                    reverseButtons: true,
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        let data = new FormData(form);
+                        data.append("accion", "editar");
+                        fetch("php/usuarios_controller.php", {
+                                method: "POST",
+                                body: data,
+                            })
+                            .then((result) => result.text())
+                            .then((result) => {
+                                if (result == 1) {
+                                    swalWithBootstrapButtons.fire(
+                                        "Agregado!",
+                                        "El usuario ha sido agregado en la base de datos.",
+                                        "success"
+                                    );
+                                    form.reset();
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                } else {
+                                    swalWithBootstrapButtons.fire(
+                                        "Error",
+                                        "Hemos tenido un error a la base de datos o la conexión.",
+                                        "error"
+                                    );
+                                    form.reset();
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                }
+                            });
+                    } else if (
+                        /* Read more about handling dismissals below */
+                        result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        swalWithBootstrapButtons.fire(
+                            "Cancelado",
+                            "Revise su información de nuevo",
+                            "error"
+                        );
+                    }
+                });
+        }
+    </script>
 
 </body>
 
