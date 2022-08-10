@@ -22,7 +22,7 @@
 
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Area Administrativa</span>
+            <span class="menu-header-text">Area Comercial</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -31,12 +31,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="pages-account-settings-account.html" class="menu-link">
+                    <a href="crear_proveedores.php" class="menu-link">
                         <div data-i18n="Account">Alta de Proveedores</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <a href="listar_proveedores.php" class="menu-link">
                         <div data-i18n="Notifications">Listar Proveedores</div>
                     </a>
                 </li>
@@ -49,16 +49,34 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                    <a href="agregar_cliente.php" class="menu-link">
                         <div data-i18n="Basic">Alta de Cliente</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="auth-register-basic.html" class="menu-link" target="_blank">
+                    <a href="listar_clientes.php" class="menu-link">
                         <div data-i18n="Basic">Listar Clientes</div>
                     </a>
                 </li>
-                
+
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-calendar"></i>
+                <div data-i18n="Misc">Cotizaciones</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="pages-misc-error.html" class="menu-link">
+                        <div data-i18n="Error">Alta de Cotizaciones</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="pages-misc-under-maintenance.html" class="menu-link">
+                        <div data-i18n="Under Maintenance">Listar Cotizaciones</div>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-item">
@@ -118,7 +136,7 @@
                         <div data-i18n="Alerts">Bitacora de viajes</div>
                     </a>
                 </li>
-                
+
             </ul>
         </li>
 
@@ -159,12 +177,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="forms-basic-inputs.html" class="menu-link">
+                    <a href="agregar_usuario.php" class="menu-link">
                         <div data-i18n="Basic Inputs">Alta de Trabajadores</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="forms-input-groups.html" class="menu-link">
+                    <a href="listar_usuarios.php" class="menu-link">
                         <div data-i18n="Input groups">Lista de Trabajadores</div>
                     </a>
                 </li>

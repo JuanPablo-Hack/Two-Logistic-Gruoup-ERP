@@ -28,10 +28,10 @@
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Comercial /</span> Lista de clientes</h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Comercial /</span> Lista de proveedores</h4>
                         <!-- Bordered Table -->
                         <div class="card">
-                            <h5 class="card-header">Lista de clientes </h5>
+                            <h5 class="card-header">Lista de proveedores </h5>
                             <div class="card-body">
                                 <div class="table-responsive text-nowrap">
                                     <table class="table table-bordered">

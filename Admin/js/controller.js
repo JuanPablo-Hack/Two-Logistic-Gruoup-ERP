@@ -118,4 +118,5 @@ function eliminarUsuario(id) {
       }
     });
 }
+/* Modulo para la creación de clientes */
 

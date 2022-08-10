@@ -3,4 +3,3 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("AgregarUsuario")
     .addEventListener("submit", CrearUsuario);
 });
-

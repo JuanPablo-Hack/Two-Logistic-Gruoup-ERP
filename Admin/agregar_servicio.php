@@ -31,7 +31,7 @@
                         <!-- Content -->
 
                         <div class="container-xxl flex-grow-1 container-p-y">
-                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Comercial/</span> Agregar Clientes</h4>
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Comercial/</span> Agregar Servicio</h4>
 
                             <!-- Basic Layout -->
                             <div class="row">
@@ -39,65 +39,14 @@
                                 <div class="col-xl">
                                     <div class="card mb-12">
                                         <div class="card-header d-flex justify-content-between align-items-center">
-                                            <h5 class="mb-0">Alta de cliente</h5>
+                                            <h5 class="mb-0">Alta de Servicio</h5>
                                         </div>
                                         <div class="card-body">
                                             <form id="AltaCliente">
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Razón Social</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="razon_social" required />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-company">RFC</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="rfc" required />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Nombre del contacto</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto" required />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-company">Cargo</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="cargo" required />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-email">Email</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email" required />
-                                                        <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
-                                                    </div>
-                                                    <div class="form-text">Tienes que poner un correo electrónico válido.</div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" required />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-company">Domicilio</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="domicilio" required />
-                                                    </div>
-                                                </div>
 
                                                 <br>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de mercancia</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
                                                     <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
                                                         <option selected>Selecciona un mercancia</option>
                                                         <option value="1">Administrador</option>
@@ -106,23 +55,40 @@
                                                     </select>
                                                 </div>
                                                 <br>
-
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Estado empresarial</label>
-                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="estado" required>
-                                                        <option selected>Selecciona un estado</option>
-                                                        <option value="1">Persona Física</option>
-                                                        <option value="2">Persona Moral</option>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Contrato</label>
+                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
+                                                        <option selected>Selecciona un mercancia</option>
+                                                        <option value="1">Administrador</option>
+                                                        <option value="2">Comercial</option>
+                                                        <option value="3">Operador</option>
                                                     </select>
                                                 </div>
                                                 <br>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-company">Nombre del representante</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" required />
-                                                    </div>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>
+                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
+                                                        <option selected>Selecciona un mercancia</option>
+                                                        <option value="1">Administrador</option>
+                                                        <option value="2">Comercial</option>
+                                                        <option value="3">Operador</option>
+                                                    </select>
                                                 </div>
+                                                <br>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Operador</label>
+                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
+                                                        <option selected>Selecciona un mercancia</option>
+                                                        <option value="1">Administrador</option>
+                                                        <option value="2">Comercial</option>
+                                                        <option value="3">Operador</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                </div>
+                                                <br>
                                                 <button type="submit" class="btn btn-primary">Agregar Usuario</button>
                                             </form>
                                         </div>
