@@ -14,7 +14,7 @@
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
         <li class="menu-item active">
-            <a href="index.html" class="menu-link">
+            <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-desktop"></i>
                 <div data-i18n="Analytics">Panel de control</div>
             </a>
@@ -104,12 +104,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="pages-misc-error.html" class="menu-link">
+                    <a href="agregar_servicio.php" class="menu-link">
                         <div data-i18n="Error">Alta de Servicios</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="pages-misc-under-maintenance.html" class="menu-link">
+                    <a href="listar_servicios.php" class="menu-link">
                         <div data-i18n="Under Maintenance">Listar Servicios</div>
                     </a>
                 </li>
@@ -195,12 +195,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="form-layouts-vertical.html" class="menu-link">
+                    <a href="agregar_tiposervicio.php" class="menu-link">
                         <div data-i18n="Vertical Form">Alta de tipo de servicio</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="form-layouts-horizontal.html" class="menu-link">
+                    <a href="listar_tiposervicios.php" class="menu-link">
                         <div data-i18n="Horizontal Form">Tipos de servicios</div>
                     </a>
                 </li>
@@ -220,6 +220,24 @@
                 <li class="menu-item">
                     <a href="form-layouts-horizontal.html" class="menu-link">
                         <div data-i18n="Horizontal Form">Lista de unidades</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-buildings"></i>
+                <div data-i18n="Form Layouts">Tipo de Contenedores</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="agregar_tipocontenedor.php" class="menu-link">
+                        <div data-i18n="Vertical Form">Alta de tipo de contenedores</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="listar_tipocontenedor.php" class="menu-link">
+                        <div data-i18n="Horizontal Form">Lista de tipos de contenedores</div>
                     </a>
                 </li>
             </ul>
