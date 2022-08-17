@@ -5,6 +5,15 @@
 <head>
     <?php
     include 'templates/head.php';
+    include 'php/conexion.php';
+    $sql = "SELECT * FROM clientes";
+    $result = mysqli_query($conexion, $sql);
+    $sql2 = "SELECT * FROM cotizaciones";
+    $result2 = mysqli_query($conexion, $sql2);
+    $sql3 = "SELECT * FROM contratos";
+    $result3 = mysqli_query($conexion, $sql3);
+    $sql4 = "SELECT * FROM trabajador WHERE rol=3";
+    $result4 = mysqli_query($conexion, $sql4);
     ?>
 </head>
 
@@ -47,41 +56,57 @@
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
-                                                        <option selected>Selecciona un mercancia</option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Comercial</option>
-                                                        <option value="3">Operador</option>
+                                                    <select class="form-control" name='operador'>
+                                                        <option value="0">Sin Asignar</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Contrato</label>
-                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
-                                                        <option selected>Selecciona un mercancia</option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Comercial</option>
-                                                        <option value="3">Operador</option>
+                                                    <select class="form-control" name='operador'>
+                                                        <option value="0">Sin Asignar</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result2)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'TSL-COT-' . $Row1['id']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <br>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>
-                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
-                                                        <option selected>Selecciona un mercancia</option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Comercial</option>
-                                                        <option value="3">Operador</option>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Contrato</label>
+                                                    <select class="form-control" name='operador'>
+                                                        <option value="0">Sin Asignar</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result3)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'TSL-CON-' . $Row1['id']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Operador</label>
-                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
-                                                        <option selected>Selecciona un mercancia</option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Comercial</option>
-                                                        <option value="3">Operador</option>
+                                                    <select class="form-control" name='operador'>
+                                                        <option value="0">Sin Asignar</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result4)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div>

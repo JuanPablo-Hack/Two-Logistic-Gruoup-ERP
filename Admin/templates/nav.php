@@ -68,12 +68,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="pages-misc-error.html" class="menu-link">
+                    <a href="agregar_cotizacion.php" class="menu-link">
                         <div data-i18n="Error">Alta de Cotizaciones</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="pages-misc-under-maintenance.html" class="menu-link">
+                    <a href="listar_cotizaciones.php" class="menu-link">
                         <div data-i18n="Under Maintenance">Listar Cotizaciones</div>
                     </a>
                 </li>
@@ -86,12 +86,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="pages-misc-error.html" class="menu-link">
+                    <a href="agregar_contrato.php" class="menu-link">
                         <div data-i18n="Error">Alta de Contratos</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="pages-misc-under-maintenance.html" class="menu-link">
+                    <a href="listar_contratos.php" class="menu-link">
                         <div data-i18n="Under Maintenance">Listar Contratos</div>
                     </a>
                 </li>

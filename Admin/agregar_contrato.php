@@ -5,6 +5,11 @@
 <head>
     <?php
     include 'templates/head.php';
+    include 'php/conexion.php';
+    $sql = "SELECT * FROM clientes";
+    $result = mysqli_query($conexion, $sql);
+    $sql2 = "SELECT * FROM proveedores";
+    $result2 = mysqli_query($conexion, $sql2);
     ?>
 </head>
 
@@ -47,11 +52,28 @@
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
-                                                        <option selected>Selecciona un mercancia</option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Comercial</option>
-                                                        <option value="3">Operador</option>
+                                                    <select class="form-control" name='operador'>
+                                                        <option value="0">Sin Asignar</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>
+                                                    <select class="form-control" name='operador'>
+                                                        <option value="0">Sin Asignar</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result2)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div>
