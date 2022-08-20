@@ -42,7 +42,7 @@
                                             <h5 class="mb-0">Alta de proveedor</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AltaCliente">
+                                            <form id="AltaProveedor">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Razón Social</label>
                                                     <div class="input-group input-group-merge">
@@ -81,13 +81,6 @@
                                                     <div class="form-text">Tienes que poner un correo electrónico válido.</div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" required />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-company">Domicilio</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
@@ -106,9 +99,8 @@
                                                     </select>
                                                 </div>
                                                 <br>
-
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Estado empresarial</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Regimen Fiscal</label>
                                                     <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="estado" required>
                                                         <option selected>Selecciona un estado</option>
                                                         <option value="1">Persona Física</option>
@@ -179,12 +171,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("AltaCliente")
-                .addEventListener("submit", AltaCliente);
+                .getElementById("AltaProveedor")
+                .addEventListener("submit", AltaProveedor);
         });
-        async function AltaCliente(e) {
+        async function AltaProveedor(e) {
             e.preventDefault();
-            var form = document.getElementById("AltaCliente");
+            var form = document.getElementById("AltaProveedor");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -205,7 +197,7 @@
                     if (result.isConfirmed) {
                         let data = new FormData(form);
                         data.append("accion", "agregar");
-                        fetch("php/clientes_controller.php", {
+                        fetch("php/proveedor_controller.php", {
                                 method: "POST",
                                 body: data,
                             })
