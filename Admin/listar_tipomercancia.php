@@ -28,32 +28,29 @@
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Comercial /</span> Lista de cotizaciones</h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Variables de Entorno /</span> Lista de tipo de servicios</h4>
                         <!-- Bordered Table -->
                         <div class="card">
-                            <h5 class="card-header">Lista de cotizaciones </h5>
+                            <h5 class="card-header">Lista de tipo de servicios </h5>
                             <div class="card-body">
                                 <div class="table-responsive text-nowrap">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Cliente</th>
-                                                <th>No. de Conceptos</th>
-                                                <th>Concepto</th>
-                                                <th>Actions</th>
+                                                <th>ID</th>
+                                                <th>Nombre</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $sql = "SELECT * FROM cotizaciones";
+                                            $sql = "SELECT * FROM tipo_mercancia";
                                             $resultado = $conexion->query($sql);
                                             while ($mostrar = mysqli_fetch_array($resultado)) {
                                             ?>
                                                 <tr>
-
-                                                    <td><?php echo $mostrar['id_cliente'] ?></td>
-                                                    <td><?php echo $mostrar['no_conceptos'] ?></td>
-                                                    <td><?php echo $mostrar['arreglo'] ?></td>
+                                                    <td><?php echo $mostrar['id'] ?></td>
+                                                    <td><?php echo $mostrar['nombre'] ?></td>
                                                     <td>
                                                         <div class="dropdown">
                                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

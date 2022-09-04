@@ -1,3 +1,8 @@
+<?php
+include 'php/conexion.php';
+$sql = "SELECT * FROM tipo_mercancia";
+$result = $conexion->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
@@ -80,7 +85,7 @@
                                                     </div>
                                                     <div class="form-text">Tienes que poner un correo electrónico válido.</div>
                                                 </div>
-                                              
+
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-company">Domicilio</label>
                                                     <div class="input-group input-group-merge">
@@ -92,16 +97,20 @@
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de mercancia</label>
-                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
-                                                        <option selected>Selecciona un mercancia</option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Comercial</option>
-                                                        <option value="3">Operador</option>
+                                                    <select class="form-control" name='mercancia'>
+                                                        <option value="0">Selecciona un tipo de mercancia</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
-                                                
+
                                                 <br>
-                                                
+
 
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Estado empresarial</label>
