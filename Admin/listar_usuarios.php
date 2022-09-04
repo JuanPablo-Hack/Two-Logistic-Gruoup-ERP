@@ -7,6 +7,7 @@
     include 'templates/head.php';
     include 'php/conexion.php'
     ?>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 </head>
 
 <body>
@@ -34,7 +35,7 @@
                             <h5 class="card-header">Lista de usuarios </h5>
                             <div class="card-body">
                                 <div class="table-responsive text-nowrap">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="table">
                                         <thead>
                                             <tr>
                                                 <th>Nombre Completo</th>
@@ -127,6 +128,12 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="js/controller.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
 </body>
 
 </html>

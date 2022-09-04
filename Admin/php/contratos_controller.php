@@ -1,7 +1,7 @@
 <?php
 switch ($_POST['accion']) {
     case 'agregar':
-        agregar_trabajador($_POST['razon_social'], $_POST['rfc'], $_POST['contacto'], $_POST['cargo'], $_POST['email'], $_POST['domicilio'], $_POST['mercancia'], $_POST['estado'], $_POST['nombre_representante']);
+        agregar_contrato($_POST['razon_social'], $_POST['rfc'], $_POST['contacto']);
         break;
     case 'editar':
         agregar_trabajador($_POST['id'], $_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], sha1($_POST['contra']), $_POST['rol']);
@@ -10,10 +10,10 @@ switch ($_POST['accion']) {
         eliminar_trabajador($_POST['id']);
         break;
 }
-function agregar_trabajador($razon_social, $rfc, $contacto, $cargo, $email, $domicilio, $mercancia, $estado, $nombre_representante)
+function agregar_contrato($id_cliente, $id_proveedor, $descripcion)
 {
     include 'conexion.php';
-    $sql = "INSERT INTO clientes (razon_social, rfc, cargo, contacto, correo, domicilio, tipo_mercancia, estado_empresarial, nombre_representante) VALUES ('$razon_social', '$rfc', '$cargo', '$contacto', '$email', '$domicilio', '$mercancia', '$estado', '$nombre_representante')";
+    $sql = "INSERT INTO `contratos` (id_cliente, id_proveedor, descripcion) VALUES ('$id_cliente', '$id_proveedor', '$descripcion')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

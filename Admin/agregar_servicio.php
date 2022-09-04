@@ -56,7 +56,7 @@
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <select class="form-control" name='cliente'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result)) {
@@ -69,8 +69,8 @@
                                                 </div>
                                                 <br>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Contrato</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Cotización</label>
+                                                    <select class="form-control" name='cotizacion'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result2)) {
@@ -84,7 +84,7 @@
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Contrato</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <select class="form-control" name='contrato'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result3)) {
@@ -109,9 +109,15 @@
                                                         ?>
                                                     </select>
                                                 </div>
+                                                <div class="mb-3 row">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Fecha de Servicio</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" type="date" id="html5-date-input" name="fecha_servicio" />
+                                                    </div>
+                                                </div>
                                                 <div>
                                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
                                                 <button type="submit" class="btn btn-primary">Agregar Usuario</button>
@@ -196,7 +202,7 @@
                     if (result.isConfirmed) {
                         let data = new FormData(form);
                         data.append("accion", "agregar");
-                        fetch("php/clientes_controller.php", {
+                        fetch("php/servicios_controller.php", {
                                 method: "POST",
                                 body: data,
                             })

@@ -7,6 +7,7 @@
     include 'templates/head.php';
     include 'php/conexion.php'
     ?>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 </head>
 
 <body>
@@ -34,34 +35,46 @@
                             <h5 class="card-header">Lista de clientes </h5>
                             <div class="card-body">
                                 <div class="table-responsive text-nowrap">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="table">
                                         <thead>
                                             <tr>
-                                                <th>Razón Social</th>
-                                                <th>RFC</th>
-                                                <th>Representante</th>
-                                                <th>Correo</th>
-                                                <th>Cargo</th>
-                                                <th>Teléfono</th>
+                                                <th>Cliente</th>
+                                                <th>Contrato</th>
+                                                <th>Cotizacion</th>
+                                                <th>Operador</th>
+                                                <th>Fecha Servicio</th>
+                                                <th>Estado</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $sql = "SELECT * FROM clientes";
+                                            $sql = "SELECT * FROM servicios";
                                             $resultado = $conexion->query($sql);
                                             while ($mostrar = mysqli_fetch_array($resultado)) {
                                             ?>
                                                 <tr>
 
-                                                    <td><?php echo $mostrar['razon_social'] ?></td>
-                                                    <td><?php echo $mostrar['rfc'] ?></td>
-                                                    <td><?php echo $mostrar['contacto'] ?></td>
-                                                    <td><?php echo $mostrar['correo'] ?></td>
-                                                    <td><?php echo $mostrar['cargo'] ?></td>
+                                                    <td><a href="./detalles_cliente.php?id_cliente=<?php echo $mostrar['id_cliente'] ?>"><?php
+                                                                                                                                            $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
+                                                                                                                                            $result1 = mysqli_query($conexion, $sql1);
+                                                                                                                                            $Row = mysqli_fetch_array($result1);
+                                                                                                                                            echo $Row['razon_social'];
+                                                                                                                                            ?></a></td>
+                                                    <td><?php echo 'TSL-CON-2022-' . $mostrar['id_contrato'] ?></td>
+                                                    <td><?php echo 'TSL-COT-2022-' . $mostrar['id_cotizacion'] ?></td>
+                                                    <td><a href="./detalles_cliente.php?id_cliente=<?php echo $mostrar['id_cliente'] ?>"><?php
+                                                                                                                                            $sql1 = "SELECT * FROM trabajador WHERE id='" . $mostrar['id_operador'] . "'";
+                                                                                                                                            $result1 = mysqli_query($conexion, $sql1);
+                                                                                                                                            $Row = mysqli_fetch_array($result1);
+                                                                                                                                            echo $Row['nombre'];
+                                                                                                                                            ?></a></td>
+
+                                                    <td><?php echo $mostrar['fecha_servicio'] ?></td>
+                                                    <td><?php echo 'En progreso'; ?></td>
 
 
-                                                    <td><?php echo $mostrar['tel'] ?></td>
+
                                                     <td>
                                                         <div class="dropdown">
                                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -125,6 +138,12 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="js/controller.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
 </body>
 
 </html>

@@ -47,12 +47,12 @@
                                             <h5 class="mb-0">Alta de Contrato</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AltaCliente">
+                                            <form id="AltaContratos">
 
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <select class="form-control" name='cliente'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result)) {
@@ -65,7 +65,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <select class="form-control" name='proveedor'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result2)) {
@@ -78,7 +78,7 @@
                                                 </div>
                                                 <div>
                                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
                                                 <button type="submit" class="btn btn-primary">Agregar Usuario</button>
@@ -137,12 +137,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("AltaCliente")
-                .addEventListener("submit", AltaCliente);
+                .getElementById("AltaContratos")
+                .addEventListener("submit", AltaContratos);
         });
-        async function AltaCliente(e) {
+        async function AltaContratos(e) {
             e.preventDefault();
-            var form = document.getElementById("AltaCliente");
+            var form = document.getElementById("AltaContratos");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -163,7 +163,7 @@
                     if (result.isConfirmed) {
                         let data = new FormData(form);
                         data.append("accion", "agregar");
-                        fetch("php/clientes_controller.php", {
+                        fetch("php/contratos_controller.php", {
                                 method: "POST",
                                 body: data,
                             })

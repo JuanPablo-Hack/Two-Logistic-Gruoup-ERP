@@ -80,13 +80,7 @@
                                                     </div>
                                                     <div class="form-text">Tienes que poner un correo electrónico válido.</div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" required />
-                                                    </div>
-                                                </div>
+                                              
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-company">Domicilio</label>
                                                     <div class="input-group input-group-merge">
@@ -105,7 +99,9 @@
                                                         <option value="3">Operador</option>
                                                     </select>
                                                 </div>
+                                                
                                                 <br>
+                                                
 
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Estado empresarial</label>
