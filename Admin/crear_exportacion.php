@@ -8,8 +8,10 @@
     include 'php/conexion.php';
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conexion, $sql);
-    $sql2 = "SELECT * FROM proveedores";
+    $sql2 = "SELECT * FROM tipo_mercancia";
     $result2 = mysqli_query($conexion, $sql2);
+    $sql3 = "SELECT * FROM tipo_carga";
+    $result3 = mysqli_query($conexion, $sql3);
     ?>
 </head>
 
@@ -47,7 +49,7 @@
                                             <h5 class="mb-0">Alta de Exportación</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AltaContratos">
+                                            <form id="AltaExportaciones" enctype="multipart/form-data">
 
                                                 <br>
                                                 <div class="mb-3">
@@ -68,46 +70,55 @@
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de mercancia</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
                                                         <option selected>Selecciona un cliente</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result2)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Carga</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="carga" required onchange="cambiar_conceptos()">
                                                         <option selected>Selecciona un cliente</option>
-                                                        <option value="1">Buque</option>
-                                                        <option value="2">Viaje</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result3)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Factura</label>
-                                                    <input class="form-control" type="file" id="formFile">
+                                                    <input class="form-control" type="file" id="formFile" name="factura">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Lista de Embarque</label>
-                                                    <input class="form-control" type="file" id="formFile">
+                                                    <input class="form-control" type="file" id="formFile" name="lista_embarque">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">BL</label>
-                                                    <input class="form-control" type="file" id="formFile">
+                                                    <input class="form-control" type="file" id="formFile" name="bl">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Ficha Técnica</label>
-                                                    <input class="form-control" type="file" id="formFile">
+                                                    <input class="form-control" type="file" id="formFile" name="ficha_tec">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Póliza de Seguro</label>
-                                                    <input class="form-control" type="file" id="formFile">
+                                                    <input class="form-control" type="file" id="formFile" name="poliza_seguro">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Póliza de Transporte</label>
-                                                    <input class="form-control" type="file" id="formFile">
+                                                    <input class="form-control" type="file" id="formFile" name="poliza_transporte">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Hoja de Seguridad</label>
-                                                    <input class="form-control" type="file" id="formFile">
+                                                    <input class="form-control" type="file" id="formFile" name="hoja_seguridad">
                                                 </div>
                                                 <div>
                                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
@@ -170,12 +181,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("AltaContratos")
-                .addEventListener("submit", AltaContratos);
+                .getElementById("AltaExportaciones")
+                .addEventListener("submit", AltaExportaciones);
         });
-        async function AltaContratos(e) {
+        async function AltaExportaciones(e) {
             e.preventDefault();
-            var form = document.getElementById("AltaContratos");
+            var form = document.getElementById("AltaExportaciones");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -188,7 +199,7 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar actividad",
+                    confirmButtonText: "Si, agregar exportación",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -196,7 +207,7 @@
                     if (result.isConfirmed) {
                         let data = new FormData(form);
                         data.append("accion", "agregar");
-                        fetch("php/contratos_controller.php", {
+                        fetch("php/exportaciones_controller.php", {
                                 method: "POST",
                                 body: data,
                             })
