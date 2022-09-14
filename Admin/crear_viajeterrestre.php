@@ -8,8 +8,16 @@
     include 'php/conexion.php';
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conexion, $sql);
-    $sql2 = "SELECT * FROM proveedores";
+    $sql2 = "SELECT * FROM servicios";
     $result2 = mysqli_query($conexion, $sql2);
+    $sql3 = "SELECT * FROM agencias_aduanales";
+    $result3 = mysqli_query($conexion, $sql3);
+    $sql4 = "SELECT * FROM tipo_mercancia";
+    $result4 = mysqli_query($conexion, $sql4);
+    $sql5 = "SELECT * FROM tipo_plataforma";
+    $result5 = mysqli_query($conexion, $sql5);
+    $sql6 = "SELECT * FROM transporte";
+    $result6 = mysqli_query($conexion, $sql6);
     ?>
 </head>
 
@@ -47,7 +55,7 @@
                                             <h5 class="mb-0">Alta de Viaje Terrestre</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AltaContratos">
+                                            <form id="AltaViajeTerrestre">
 
                                                 <br>
                                                 <div class="mb-3">
@@ -65,12 +73,12 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">ID. Del Servicio</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
                                                         <option value="0">Selecciona un cliente</option>
                                                         <?php
-                                                        while ($Row1 = mysqli_fetch_array($result)) {
+                                                        while ($Row1 = mysqli_fetch_array($result2)) {
                                                         ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'SERVICIO' . $Row1['id']; ?></option>
                                                         <?php
                                                         }
                                                         ?>
@@ -81,7 +89,7 @@
                                                     <label class="form-label" for="basic-icon-default-fullname">Terminal</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="terminal" required />
                                                     </div>
                                                 </div>
 
@@ -89,14 +97,14 @@
                                                     <label class="form-label" for="basic-icon-default-fullname">Fecha del servicio</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre" required />
+                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="fecha_servicio" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Hora</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="hora" required />
                                                     </div>
                                                 </div>
 
@@ -105,12 +113,12 @@
                                                     <label class="form-label" for="basic-icon-default-fullname">No. Contenedor</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="no_contenedor" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Viaje</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_viaje" required onchange="cambiar_conceptos()">
                                                         <option selected>Selecciona un cliente</option>
                                                         <option value="1">Local</option>
                                                         <option value="2">Foraneo</option>
@@ -118,37 +126,57 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Agente Aduanal</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="agente_aduanal" required onchange="cambiar_conceptos()">
                                                         <option selected>Selecciona un cliente</option>
-                                                        <option value="1">Buque</option>
-                                                        <option value="2">Viaje</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result3)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Mercancia</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_mercancia" required onchange="cambiar_conceptos()">
                                                         <option selected>Selecciona un cliente</option>
-                                                        <option value="1">Buque</option>
-                                                        <option value="2">Viaje</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result4)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Plataforma</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_plataforma" required onchange="cambiar_conceptos()">
                                                         <option selected>Selecciona un cliente</option>
-                                                        <option value="1">Buque</option>
-                                                        <option value="2">Viaje</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result5)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Transporte</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="transporte" required onchange="cambiar_conceptos()">
                                                         <option selected>Selecciona un cliente</option>
-                                                        <option value="1">Buque</option>
-                                                        <option value="2">Viaje</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result6)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
-                                               
+
                                                 <div>
                                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
@@ -210,12 +238,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("AltaContratos")
-                .addEventListener("submit", AltaContratos);
+                .getElementById("AltaViajeTerrestre")
+                .addEventListener("submit", AltaViajeTerrestre);
         });
-        async function AltaContratos(e) {
+        async function AltaViajeTerrestre(e) {
             e.preventDefault();
-            var form = document.getElementById("AltaContratos");
+            var form = document.getElementById("AltaViajeTerrestre");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -228,7 +256,7 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar actividad",
+                    confirmButtonText: "Si, agregar viaje",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -236,7 +264,7 @@
                     if (result.isConfirmed) {
                         let data = new FormData(form);
                         data.append("accion", "agregar");
-                        fetch("php/contratos_controller.php", {
+                        fetch("php/viajesterrestres_controller.php", {
                                 method: "POST",
                                 body: data,
                             })
