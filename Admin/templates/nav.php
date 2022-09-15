@@ -216,18 +216,38 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
-                        <div data-i18n="Perfect Scrollbar">Entrada de Productos</div>
+                    <a href="alta_almacenaje.php" class="menu-link">
+                        <div data-i18n="Perfect Scrollbar">Alta de Almacenaje</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="extended-ui-text-divider.html" class="menu-link">
-                        <div data-i18n="Text Divider">Salida de Productos</div>
+                    <a href="almacenaje.php" class="menu-link">
+                        <div data-i18n="Text Divider">Bitacora de Almacenaje</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="extended-ui-text-divider.html" class="menu-link">
-                        <div data-i18n="Text Divider">Bitacora de Inventario</div>
+                    <a href="alta_traspaleo.php" class="menu-link">
+                        <div data-i18n="Text Divider">Alta de Traspaleo</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="traspaleo.php" class="menu-link">
+                        <div data-i18n="Text Divider">Bitacora de Traspaleo</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="entrada_producto.php" class="menu-link">
+                        <div data-i18n="Text Divider">Entraba de Producto</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="salida_producto.php" class="menu-link">
+                        <div data-i18n="Text Divider">Salida de Producto</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="bitacora_productos.php" class="menu-link">
+                        <div data-i18n="Text Divider">Bitacora de Productos</div>
                     </a>
                 </li>
             </ul>

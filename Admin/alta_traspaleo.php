@@ -38,7 +38,7 @@
                         <!-- Content -->
 
                         <div class="container-xxl flex-grow-1 container-p-y">
-                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa/</span> Entrada de Producto</h4>
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa/</span>Alta de Traspaleo</h4>
 
                             <!-- Basic Layout -->
                             <div class="row">
@@ -46,10 +46,10 @@
                                 <div class="col-xl">
                                     <div class="card mb-12">
                                         <div class="card-header d-flex justify-content-between align-items-center">
-                                            <h5 class="mb-0">Entrada de Producto</h5>
+                                            <h5 class="mb-0">Alta de Traspaleo</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AltaviajeMaritimo">
+                                            <form id="AltaTraspaleo">
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
                                                     <select class="form-select" aria-label="Default select example" required name='cliente'>
@@ -64,7 +64,34 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">ID. Del Servicio</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Producto</label>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
+                                                        <option value="0">Selecciona un cliente</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result3)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'SERVICIO-' . $Row1['id']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Peso</label>
+                                                    <div class="input-group input-group-merge">
+
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Cubicaje</label>
+                                                    <div class="input-group input-group-merge">
+
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de embalaje</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
                                                         <option value="0">Selecciona un cliente</option>
                                                         <?php
@@ -86,65 +113,58 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Viaje</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_viaje" required onchange="cambiar_conceptos()">
-                                                        <option selected>Selecciona un cliente</option>
-                                                        <option value="1">Buque</option>
-                                                        <option value="2">Viaje</option>
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Puerto de Carga</label>
-                                                    <div class="input-group input-group-merge">
-
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Puerto de Destino</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">Razón Social</label>
                                                     <div class="input-group input-group-merge">
 
                                                         <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Cierre Documental</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">CAAT</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="cierre" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">VGM</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">RFC</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="vgm" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Despacho</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">Nombre del Operador</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="despacho" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Peso</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">Placas</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="peso" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Bultos</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">No. Remolque o Caja</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="bultos" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
                                                     </div>
                                                 </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Teléfono</label>
+                                                    <div class="input-group input-group-merge">
+
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
+                                                    </div>
+                                                </div>
+                                                <!-- TODO: Poner aquí un dropzone  -->
 
                                                 <div>
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Observaciones</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
@@ -204,12 +224,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("AltaviajeMaritimo")
-                .addEventListener("submit", AltaviajeMaritimo);
+                .getElementById("AltaTraspaleo")
+                .addEventListener("submit", AltaTraspaleo);
         });
-        async function AltaviajeMaritimo(e) {
+        async function AltaTraspaleo(e) {
             e.preventDefault();
-            var form = document.getElementById("AltaviajeMaritimo");
+            var form = document.getElementById("AltaTraspaleo");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
