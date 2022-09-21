@@ -348,5 +348,59 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-plane"></i>
+                <div data-i18n="Form Layouts">Agentes Aduanales</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="agregar_agenciaaduanal.php" class="menu-link">
+                        <div data-i18n="Vertical Form">Alta de Agentes Aduanales</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="listar_agenciaaduanal.php" class="menu-link">
+                        <div data-i18n="Horizontal Form">Lista de Agentes Aduanales</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cabinet"></i>
+                <div data-i18n="Form Layouts">Tipos de carga</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="agregar_tipocarga.php" class="menu-link">
+                        <div data-i18n="Vertical Form">Alta de Tipos de carga</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="listar_tipocarga.php" class="menu-link">
+                        <div data-i18n="Horizontal Form">Lista de Tipos de carga</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-traffic-cone"></i>
+                <div data-i18n="Form Layouts">Tipos de plataformas</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="agregar_tipoplataforma.php" class="menu-link">
+                        <div data-i18n="Vertical Form">Alta de Tipos de plataformas</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="listar_tipoplataforma.php" class="menu-link">
+                        <div data-i18n="Horizontal Form">Lista de Tipos de plataformas</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </aside>
