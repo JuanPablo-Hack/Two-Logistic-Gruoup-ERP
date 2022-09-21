@@ -148,7 +148,7 @@
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
-                                                <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+                                                <button type="submit" class="btn btn-primary">Agregar Viaje</button>
                                             </form>
                                         </div>
                                     </div>
@@ -222,7 +222,7 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar actividad",
+                    confirmButtonText: "Si, agregar viaje",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -239,7 +239,7 @@
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
                                         "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "El viaje ha sido agregado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();

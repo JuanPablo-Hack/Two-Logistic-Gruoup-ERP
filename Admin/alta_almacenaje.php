@@ -8,9 +8,9 @@
     include 'php/conexion.php';
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conexion, $sql);
-    $sql2 = "SELECT * FROM proveedores";
+    $sql2 = "SELECT * FROM tipo_embalaje";
     $result2 = mysqli_query($conexion, $sql2);
-    $sql3 = "SELECT * FROM servicios";
+    $sql3 = "SELECT * FROM tipo_producto";
     $result3 = mysqli_query($conexion, $sql3);
     ?>
 </head>
@@ -64,13 +64,20 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Nombre de Producto</label>
+                                                    <div class="input-group input-group-merge">
+
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre_producto" required />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Producto</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_producto'>
                                                         <option value="0">Selecciona un cliente</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result3)) {
                                                         ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'SERVICIO-' . $Row1['id']; ?></option>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                                         <?php
                                                         }
                                                         ?>
@@ -80,24 +87,24 @@
                                                     <label class="form-label" for="basic-icon-default-fullname">Peso</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="peso" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Cubicaje</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="cubicaje" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de embalaje</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_embalaje'>
                                                         <option value="0">Selecciona un cliente</option>
                                                         <?php
-                                                        while ($Row1 = mysqli_fetch_array($result3)) {
+                                                        while ($Row1 = mysqli_fetch_array($result2)) {
                                                         ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'SERVICIO-' . $Row1['id']; ?></option>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                                         <?php
                                                         }
                                                         ?>
@@ -107,19 +114,19 @@
                                                     <label class="form-label" for="basic-icon-default-fullname">Días de almacenamiento</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="peso" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="dias_almacen" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Subir Imagen</label>
-                                                    <input class="form-control" type="file" id="formFile" name="hoja_seguridad">
+                                                    <input class="form-control" type="file" id="formFile" name="imagen">
                                                 </div>
                                                 <div>
                                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
-                                                <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+                                                <button type="submit" class="btn btn-primary">Agregar Almacenaje</button>
                                             </form>
                                         </div>
                                     </div>
@@ -193,7 +200,7 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar viaje",
+                    confirmButtonText: "Si, agregar almacenaje",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -201,7 +208,7 @@
                     if (result.isConfirmed) {
                         let data = new FormData(form);
                         data.append("accion", "agregar");
-                        fetch("php/viajesmaritimos_controller.php", {
+                        fetch("php/almacenaje_controller.php", {
                                 method: "POST",
                                 body: data,
                             })
@@ -210,7 +217,7 @@
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
                                         "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "El almacenaje ha sido agregado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();

@@ -49,7 +49,7 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $sql = "SELECT * FROM clientes";
+                                            $sql = "SELECT * FROM proveedores";
                                             $resultado = $conexion->query($sql);
                                             while ($mostrar = mysqli_fetch_array($resultado)) {
                                             ?>
@@ -70,7 +70,7 @@
                                                             </button>
                                                             <div class="dropdown-menu">
                                                                 <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarProveedor(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -131,6 +131,64 @@
         $(document).ready(function() {
             $('#table').DataTable();
         });
+    </script>
+    <script>
+        function eliminarProveedor(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger",
+                },
+                buttonsStyling: false,
+            });
+
+            swalWithBootstrapButtons
+                .fire({
+                    title: "Estas seguro?",
+                    text: "¡No podrás revertir esto!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Si, eliminar",
+                    cancelButtonText: "No, cancelar!",
+                    reverseButtons: true,
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        let data = new FormData();
+                        data.append("id", id);
+                        data.append("accion", "eliminar");
+                        fetch("php/proveedor_controller.php", {
+                                method: "POST",
+                                body: data,
+                            })
+                            .then((result) => result.text())
+                            .then((result) => {
+                                if (result == 1) {
+                                    swalWithBootstrapButtons.fire(
+                                        "Eliminado!",
+                                        "Su archivo ha sido eliminado.",
+                                        "success"
+                                    );
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 3000);
+                                }
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
+                    } else if (
+                        /* Read more about handling dismissals below */
+                        result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        swalWithBootstrapButtons.fire(
+                            "Cancelado",
+                            "Tu archivo ha sido salvado",
+                            "error"
+                        );
+                    }
+                });
+        }
     </script>
 </body>
 

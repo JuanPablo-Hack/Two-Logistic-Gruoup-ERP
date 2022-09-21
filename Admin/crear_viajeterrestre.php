@@ -182,7 +182,7 @@
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
-                                                <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+                                                <button type="submit" class="btn btn-primary">Agregar Viaje</button>
                                             </form>
                                         </div>
                                     </div>

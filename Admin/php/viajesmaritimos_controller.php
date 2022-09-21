@@ -24,7 +24,7 @@ function agregar_viajemaritimos($cliente, $servicio, $no_contenedores, $tipo_via
 function eliminar_viajemaritimos($id)
 {
     include './conexion.php';
-    $sql = "DELETE FROM trabajador WHERE id='" . $id . "'";
+    $sql = "DELETE FROM viajes_maritimos WHERE id='" . $id . "'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;

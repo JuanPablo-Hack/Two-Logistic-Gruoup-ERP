@@ -29,10 +29,10 @@
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Comercial /</span> Lista de clientes</h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Comercial /</span> Lista de Servicios</h4>
                         <!-- Bordered Table -->
                         <div class="card">
-                            <h5 class="card-header">Lista de clientes </h5>
+                            <h5 class="card-header">Lista de Servicios </h5>
                             <div class="card-body">
                                 <div class="table-responsive text-nowrap">
                                     <table class="table table-bordered" id="table">
@@ -55,20 +55,20 @@
                                             ?>
                                                 <tr>
 
-                                                    <td><a href="./detalles_cliente.php?id_cliente=<?php echo $mostrar['id_cliente'] ?>"><?php
-                                                                                                                                            $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
-                                                                                                                                            $result1 = mysqli_query($conexion, $sql1);
-                                                                                                                                            $Row = mysqli_fetch_array($result1);
-                                                                                                                                            echo $Row['razon_social'];
-                                                                                                                                            ?></a></td>
+                                                    <td><?php
+                                                        $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
+                                                        $result1 = mysqli_query($conexion, $sql1);
+                                                        $Row = mysqli_fetch_array($result1);
+                                                        echo $Row['razon_social'];
+                                                        ?></td>
                                                     <td><?php echo 'TSL-CON-2022-' . $mostrar['id_contrato'] ?></td>
                                                     <td><?php echo 'TSL-COT-2022-' . $mostrar['id_cotizacion'] ?></td>
-                                                    <td><a href="./detalles_cliente.php?id_cliente=<?php echo $mostrar['id_cliente'] ?>"><?php
-                                                                                                                                            $sql1 = "SELECT * FROM trabajador WHERE id='" . $mostrar['id_operador'] . "'";
-                                                                                                                                            $result1 = mysqli_query($conexion, $sql1);
-                                                                                                                                            $Row = mysqli_fetch_array($result1);
-                                                                                                                                            echo $Row['nombre'];
-                                                                                                                                            ?></a></td>
+                                                    <td><?php
+                                                        $sql1 = "SELECT * FROM trabajador WHERE id='" . $mostrar['id_operador'] . "'";
+                                                        $result1 = mysqli_query($conexion, $sql1);
+                                                        $Row = mysqli_fetch_array($result1);
+                                                        echo $Row['nombre'];
+                                                        ?></td>
 
                                                     <td><?php echo $mostrar['fecha_servicio'] ?></td>
                                                     <td><?php echo 'En progreso'; ?></td>
@@ -82,7 +82,7 @@
                                                             </button>
                                                             <div class="dropdown-menu">
                                                                 <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarServicio(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -143,6 +143,64 @@
         $(document).ready(function() {
             $('#table').DataTable();
         });
+    </script>
+    <script>
+        function eliminarServicio(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger",
+                },
+                buttonsStyling: false,
+            });
+
+            swalWithBootstrapButtons
+                .fire({
+                    title: "Estas seguro?",
+                    text: "¡No podrás revertir esto!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Si, eliminar",
+                    cancelButtonText: "No, cancelar!",
+                    reverseButtons: true,
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        let data = new FormData();
+                        data.append("id", id);
+                        data.append("accion", "eliminar");
+                        fetch("php/servicios_controller.php", {
+                                method: "POST",
+                                body: data,
+                            })
+                            .then((result) => result.text())
+                            .then((result) => {
+                                if (result == 1) {
+                                    swalWithBootstrapButtons.fire(
+                                        "Eliminado!",
+                                        "Su archivo ha sido eliminado.",
+                                        "success"
+                                    );
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 3000);
+                                }
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
+                    } else if (
+                        /* Read more about handling dismissals below */
+                        result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        swalWithBootstrapButtons.fire(
+                            "Cancelado",
+                            "Tu archivo ha sido salvado",
+                            "error"
+                        );
+                    }
+                });
+        }
     </script>
 </body>
 

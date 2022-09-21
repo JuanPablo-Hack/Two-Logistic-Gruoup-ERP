@@ -24,7 +24,7 @@ function agregar_viajeaereos($cliente, $servicio, $no_contenedores, $tipo_viaje,
 function eliminar_viajeaereos($id)
 {
     include './conexion.php';
-    $sql = "DELETE FROM trabajador WHERE id='" . $id . "'";
+    $sql = "DELETE FROM viajes_aereos WHERE id='" . $id . "'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;

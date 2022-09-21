@@ -10,6 +10,11 @@
     $result = mysqli_query($conexion, $sql);
     $sql2 = "SELECT * FROM tipos_servicios";
     $result2 = mysqli_query($conexion, $sql2);
+    $sql3 = "SELECT * FROM tipos_servicios";
+    $result3 = mysqli_query($conexion, $sql3);
+    $sql4 = "SELECT * FROM tipos_servicios";
+    $result4 = mysqli_query($conexion, $sql4);
+
     ?>
 </head>
 
@@ -47,11 +52,11 @@
                                             <h5 class="mb-0">Alta de Cotización</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AltaCliente">
+                                            <form id="AltaCotizacion">
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <select class="form-control" name='cliente'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result)) {
@@ -65,7 +70,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">No. de conceptos</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="no_conceptos" required onchange="cambiar_conceptos()">
                                                         <option selected>Selecciona un cliente</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -75,7 +80,7 @@
 
                                                 <div class="mb-3" style="display: none;" id="concepto_1">
                                                     <label for="exampleFormControlSelect1" class="form-label">Concepto no.1</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <select class="form-control" name='concepto_1'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result2)) {
@@ -89,10 +94,10 @@
 
                                                 <div class="mb-3" style="display: none;" id="concepto_2">
                                                     <label for="exampleFormControlSelect1" class="form-label">Concepto no.2</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <select class="form-control" name='concepto_2'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
-                                                        while ($Row1 = mysqli_fetch_array($result2)) {
+                                                        while ($Row1 = mysqli_fetch_array($result3)) {
                                                         ?>
                                                             <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                                         <?php
@@ -103,10 +108,10 @@
 
                                                 <div class="mb-3" style="display: none;" id="concepto_3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Concepto no.3</label>
-                                                    <select class="form-control" name='operador'>
+                                                    <select class="form-control" name='concepto_3'>
                                                         <option value="0">Sin Asignar</option>
                                                         <?php
-                                                        while ($Row1 = mysqli_fetch_array($result2)) {
+                                                        while ($Row1 = mysqli_fetch_array($result4)) {
                                                         ?>
                                                             <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                                         <?php
@@ -114,21 +119,6 @@
                                                         ?>
                                                     </select>
                                                 </div>
-
-                                                <div class="mb-3" style="display: none;" id="concepto_4">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Concepto no.4</label>
-                                                    <select class="form-control" name='operador'>
-                                                        <option value="0">Sin Asignar</option>
-                                                        <?php
-                                                        while ($Row1 = mysqli_fetch_array($result2)) {
-                                                        ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-
                                                 <button type="submit" class="btn btn-primary">Crear Cotizacion</button>
                                             </form>
                                         </div>
@@ -136,9 +126,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- / Content -->
-
-
 
                         <div class="content-backdrop fade"></div>
                     </div>
@@ -185,12 +172,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("AltaCliente")
-                .addEventListener("submit", AltaCliente);
+                .getElementById("AltaCotizacion")
+                .addEventListener("submit", AltaCotizacion);
         });
-        async function AltaCliente(e) {
+        async function AltaCotizacion(e) {
             e.preventDefault();
-            var form = document.getElementById("AltaCliente");
+            var form = document.getElementById("AltaCotizacion");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -203,7 +190,7 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar actividad",
+                    confirmButtonText: "Si, agregar cotizacion",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -211,7 +198,7 @@
                     if (result.isConfirmed) {
                         let data = new FormData(form);
                         data.append("accion", "agregar");
-                        fetch("php/clientes_controller.php", {
+                        fetch("php/cotizacion_controlle.php", {
                                 method: "POST",
                                 body: data,
                             })
@@ -220,7 +207,7 @@
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
                                         "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "La cotizacion ha sido agregada en la base de datos.",
                                         "success"
                                     );
                                     form.reset();
