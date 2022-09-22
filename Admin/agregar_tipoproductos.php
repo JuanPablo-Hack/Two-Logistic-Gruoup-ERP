@@ -5,11 +5,6 @@
 <head>
     <?php
     include 'templates/head.php';
-    include 'php/conexion.php';
-    $sql = "SELECT * FROM clientes";
-    $result = mysqli_query($conexion, $sql);
-    $sql2 = "SELECT * FROM tipo_producto";
-    $result2 = mysqli_query($conexion, $sql2);
     ?>
 </head>
 
@@ -36,7 +31,7 @@
                         <!-- Content -->
 
                         <div class="container-xxl flex-grow-1 container-p-y">
-                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa/</span>Entrada de Producto</h4>
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Variables de Sistema/</span> Agregar Tipo de Producto</h4>
 
                             <!-- Basic Layout -->
                             <div class="row">
@@ -44,63 +39,18 @@
                                 <div class="col-xl">
                                     <div class="card mb-12">
                                         <div class="card-header d-flex justify-content-between align-items-center">
-                                            <h5 class="mb-0">Entrada de Producto</h5>
+                                            <h5 class="mb-0">Alta de tipo de producto</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="EntradaProducto">
+                                            <form id="AltaTipoProducto">
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                                                    <select class="form-select" aria-label="Default select example" required name='cliente'>
-                                                        <option value="0">Selecciona un cliente</option>
-                                                        <?php
-                                                        while ($Row1 = mysqli_fetch_array($result)) {
-                                                        ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Nombre de Producto</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">Nombre</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre_producto" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre" required />
                                                     </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Producto</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_producto'>
-                                                        <option value="0">Selecciona un cliente</option>
-                                                        <?php
-                                                        while ($Row1 = mysqli_fetch_array($result2)) {
-                                                        ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Cantidad</label>
-                                                    <div class="input-group input-group-merge">
-
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="cantidad" required />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Fecha de Entrada</label>
-                                                    <div class="input-group input-group-merge">
-
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="fecha" required />
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Observaciones</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
-                                                </div>
-                                                <br>
-                                                <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                                                <button type="submit" class="btn btn-primary">Agregar tipo de producto</button>
                                             </form>
                                         </div>
                                     </div>
@@ -156,12 +106,13 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("EntradaProducto")
-                .addEventListener("submit", EntradaProducto);
+                .getElementById("AltaTipoProducto")
+                .addEventListener("submit", AltaTipoProducto);
         });
-        async function EntradaProducto(e) {
+        async function AltaTipoProducto(e) {
             e.preventDefault();
-            var form = document.getElementById("EntradaProducto");
+            console.log("Altatipocontenedor");
+            var form = document.getElementById("AltaTipoProducto");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -174,7 +125,7 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar producto",
+                    confirmButtonText: "Si, agregar tipo de producto",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -182,7 +133,7 @@
                     if (result.isConfirmed) {
                         let data = new FormData(form);
                         data.append("accion", "agregar");
-                        fetch("php/producto_controller.php", {
+                        fetch("php/tiposproductos_controller.php", {
                                 method: "POST",
                                 body: data,
                             })
@@ -191,7 +142,7 @@
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
                                         "Agregado!",
-                                        "El producto ha sido agregado en la base de datos.",
+                                        "El tipo de producto ha sido agregado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();

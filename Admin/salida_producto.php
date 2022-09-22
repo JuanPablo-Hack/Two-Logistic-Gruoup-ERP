@@ -6,12 +6,8 @@
     <?php
     include 'templates/head.php';
     include 'php/conexion.php';
-    $sql = "SELECT * FROM clientes";
+    $sql = "SELECT * FROM productos";
     $result = mysqli_query($conexion, $sql);
-    $sql2 = "SELECT * FROM proveedores";
-    $result2 = mysqli_query($conexion, $sql2);
-    $sql3 = "SELECT * FROM servicios";
-    $result3 = mysqli_query($conexion, $sql3);
     ?>
 </head>
 
@@ -39,7 +35,7 @@
 
                         <div class="container-xxl flex-grow-1 container-p-y">
                             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa/</span>Salida de Producto
-                        </h4>
+                            </h4>
 
                             <!-- Basic Layout -->
                             <div class="row">
@@ -53,12 +49,12 @@
                                             <form id="SalidaProducto">
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Material</label>
-                                                    <select class="form-select" aria-label="Default select example" required name='cliente'>
+                                                    <select class="form-select" aria-label="Default select example" required name='producto'>
                                                         <option value="0">Selecciona un cliente</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result)) {
                                                         ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                                         <?php
                                                         }
                                                         ?>
@@ -68,14 +64,14 @@
                                                     <label class="form-label" for="basic-icon-default-fullname">Cantidad de Salida</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="cantidad" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Fecha de Salida</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="vgm" required />
+                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="fecha" required />
                                                     </div>
                                                 </div>
                                                 <!-- TODO: Poner un dropzone aqui -->
@@ -158,15 +154,15 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar viaje",
+                    confirmButtonText: "Si, agregar salida de producto",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
                         let data = new FormData(form);
-                        data.append("accion", "agregar");
-                        fetch("php/viajesmaritimos_controller.php", {
+                        data.append("accion", "salida");
+                        fetch("php/producto_controller.php", {
                                 method: "POST",
                                 body: data,
                             })
@@ -175,7 +171,7 @@
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
                                         "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "La salida de producto ha sido agregado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();

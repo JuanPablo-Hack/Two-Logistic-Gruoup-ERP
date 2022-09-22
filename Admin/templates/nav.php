@@ -402,5 +402,41 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxl-product-hunt"></i>
+                <div data-i18n="Form Layouts">Tipos de productos</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="agregar_tipoproductos.php" class="menu-link">
+                        <div data-i18n="Vertical Form">Alta de Tipos de productos</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="listar_tipoproductos.php" class="menu-link">
+                        <div data-i18n="Horizontal Form">Lista de Tipos de productos</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-backpack"></i>
+                <div data-i18n="Form Layouts">Tipos de embalaje</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="agregar_tipoembalaje.php" class="menu-link">
+                        <div data-i18n="Vertical Form">Alta de Tipos de embalaje</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="listar_tipoembalaje.php" class="menu-link">
+                        <div data-i18n="Horizontal Form">Lista de Tipos de embalaje</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </aside>
