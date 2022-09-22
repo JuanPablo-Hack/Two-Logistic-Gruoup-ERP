@@ -31,7 +31,7 @@
                         <!-- Content -->
 
                         <div class="container-xxl flex-grow-1 container-p-y">
-                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Variables de Sistema/</span> Agregar Tipo de Servicio</h4>
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Variables de Sistema/</span> Agregar Tipo de contenedor</h4>
 
                             <!-- Basic Layout -->
                             <div class="row">
@@ -125,7 +125,7 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar actividad",
+                    confirmButtonText: "Si, agregar tipo de contenedor",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -142,7 +142,7 @@
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
                                         "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "El tipo de contenedor ha sido agregado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();

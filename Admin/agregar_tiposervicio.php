@@ -135,7 +135,7 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar actividad",
+                    confirmButtonText: "Si, agregar tipo de servicio",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -165,10 +165,10 @@
                                         "Hemos tenido un error a la base de datos o la conexión.",
                                         "error"
                                     );
-                                    // form.reset();
-                                    // setTimeout(function() {
-                                    //     location.reload();
-                                    // }, 2000);
+                                    form.reset();
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
                                 }
                             });
                     } else if (

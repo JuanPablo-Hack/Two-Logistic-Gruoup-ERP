@@ -24,7 +24,7 @@ function agregar_tiposervicio($nombre, $precio, $descripcion)
 function eliminar_trabajador($id)
 {
     include './conexion.php';
-    $sql = "DELETE FROM trabajador WHERE id='" . $id . "'";
+    $sql = "DELETE FROM tipos_servicios WHERE id='" . $id . "'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;

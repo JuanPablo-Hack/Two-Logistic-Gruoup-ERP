@@ -50,7 +50,7 @@
                                                         <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre" required />
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Agregar tipo de mercancia</button>
+                                                <button type="submit" class="btn btn-primary">Agregar Agencia Aduanal</button>
                                             </form>
                                         </div>
                                     </div>

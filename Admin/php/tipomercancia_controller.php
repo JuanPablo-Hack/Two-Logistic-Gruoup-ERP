@@ -24,7 +24,7 @@ function agregar_tipomercancia($nombre)
 function eliminar_tipomercancia($id)
 {
     include './conexion.php';
-    $sql = "DELETE FROM trabajador WHERE id='" . $id . "'";
+    $sql = "DELETE FROM tipo_mercancia WHERE id='" . $id . "'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;

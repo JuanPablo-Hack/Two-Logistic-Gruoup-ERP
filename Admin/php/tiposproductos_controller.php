@@ -24,7 +24,7 @@ function agregar_tipoproducto($nombre)
 function eliminar_tipoproducto($id)
 {
     include './conexion.php';
-    $sql = "DELETE FROM trabajador WHERE id='" . $id . "'";
+    $sql = "DELETE FROM tipo_producto WHERE id='" . $id . "'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;
