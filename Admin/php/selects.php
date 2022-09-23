@@ -71,6 +71,14 @@ function tipos_embalaje($id)
     return $result2;
 }
 
+function proveedor($id)
+{
+    include 'conexion.php';
+    $sql2 = "SELECT * FROM proveedores WHERE id = $id";
+    $result2 = mysqli_query($conexion, $sql2);
+    return $result2;
+}
+
 function clientes()
 {
     include 'conexion.php';

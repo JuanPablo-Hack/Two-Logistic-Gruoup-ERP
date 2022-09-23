@@ -5,6 +5,8 @@
 <head>
     <?php
     include 'templates/head.php';
+    include 'php/selects.php';
+    $row = mysqli_fetch_array(proveedor($_GET['id']));
     ?>
 </head>
 
@@ -42,40 +44,40 @@
                                             <h5 class="mb-0">Editar Proveedor</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AltaCliente">
+                                            <form id="EditarProveedor">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Razón Social</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="razon_social" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="razon_social" value="<?php echo $row['razon_social']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-company">RFC</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="rfc" required />
+                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="rfc" value="<?php echo $row['rfc']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Nombre del contacto</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto" value="<?php echo $row['contacto']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-company">Cargo</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="cargo" required />
+                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="cargo" value="<?php echo $row['cargo']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-email">Email</label>
                                                     <div class="input-group input-group-merge">
                                                         <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email" required />
+                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email" value="<?php echo $row['correo']; ?>" />
                                                         <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
                                                     </div>
                                                     <div class="form-text">Tienes que poner un correo electrónico válido.</div>
@@ -84,46 +86,32 @@
                                                     <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" required />
+                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" value="<?php echo $row['razon_social']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-company">Domicilio</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="domicilio" required />
+                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="domicilio" value="<?php echo $row['domicilio']; ?>" />
                                                     </div>
                                                 </div>
-
-                                                <br>
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de mercancia</label>
-                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="mercancia" required>
-                                                        <option selected>Selecciona un mercancia</option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Comercial</option>
-                                                        <option value="3">Operador</option>
-                                                    </select>
-                                                </div>
-                                                <br>
-
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Estado empresarial</label>
                                                     <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="estado" required>
-                                                        <option selected>Selecciona un estado</option>
+                                                        <option selected value="<?php echo $row['estado_empresarial']; ?>">Selecciona un estado</option>
                                                         <option value="1">Persona Física</option>
                                                         <option value="2">Persona Moral</option>
                                                     </select>
                                                 </div>
-                                                <br>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-company">Nombre del representante</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" required />
+                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" value="<?php echo $row['nombre_representante']; ?>" />
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+                                                <button type="submit" class="btn btn-primary">Editar sProveedor</button>
                                             </form>
                                         </div>
                                     </div>
@@ -179,12 +167,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("AltaCliente")
-                .addEventListener("submit", AltaCliente);
+                .getElementById("EditarProveedor")
+                .addEventListener("submit", EditarProveedor);
         });
-        async function AltaCliente(e) {
+        async function EditarProveedor(e) {
             e.preventDefault();
-            var form = document.getElementById("AltaCliente");
+            var form = document.getElementById("EditarProveedor");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
