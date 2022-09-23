@@ -35,7 +35,7 @@ function eliminar_agenciaaduanal($id)
 function editar_agenciaaduanal($id, $nombre)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `agencias_aduanales` SET `nombre` = '$nombre' WHERE `agencias_aduanales`.`id` = $id";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

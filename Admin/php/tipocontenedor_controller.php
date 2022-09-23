@@ -4,10 +4,10 @@ switch ($_POST['accion']) {
         agregar_tipocontenedor($_POST['nombre']);
         break;
     case 'editar':
-        agregar_trabajador($_POST['id'], $_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], sha1($_POST['contra']), $_POST['rol']);
+        editar_tipocontenedor($_POST['id'], $_POST['nombre']);
         break;
     case 'eliminar':
-        eliminar_trabajador($_POST['id']);
+        eliminar_tipocontenedor($_POST['id']);
         break;
 }
 function agregar_tipocontenedor($nombre)
@@ -21,7 +21,7 @@ function agregar_tipocontenedor($nombre)
         echo 2;
     }
 }
-function eliminar_trabajador($id)
+function eliminar_tipocontenedor($id)
 {
     include './conexion.php';
     $sql = "DELETE FROM tipos_contenedores WHERE id='" . $id . "'";
@@ -32,21 +32,14 @@ function eliminar_trabajador($id)
         echo 1;
     }
 }
-function editar_admin($id, $nombre, $cargo, $correo, $tel, $contra, $rol)
+function editar_tipocontenedor($id, $nombre)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `tipos_contenedores` SET `nombre` = '$nombre' WHERE `tipos_contenedores`.`id` = $id ";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
     } else {
         echo 2;
     }
-}
-function get_trabajador($id)
-{
-    include 'conexion.php';
-    $sql = "SELECT * FROM trabajador WHERE id = 1";
-    $resultado = $conexion->query($sql);
-    return $resultado;
 }

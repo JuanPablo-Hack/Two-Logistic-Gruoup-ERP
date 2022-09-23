@@ -5,7 +5,8 @@
 <head>
     <?php
     include 'templates/head.php';
-    include 'php/conexion.php'
+    include 'php/selects.php';
+    $row = mysqli_fetch_array(tipos_plataforma($_GET['id']));
     ?>
 </head>
 
@@ -27,54 +28,46 @@
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <!-- Content -->
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Variables de Entorno /</span> Lista de tipo de plataformas</h4>
-                        <!-- Bordered Table -->
-                        <div class="card">
-                            <h5 class="card-header">Lista de tipo de plataformas </h5>
-                            <div class="card-body">
-                                <div class="table-responsive text-nowrap">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nombre</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $sql = "SELECT * FROM tipo_plataforma";
-                                            $resultado = $conexion->query($sql);
-                                            while ($mostrar = mysqli_fetch_array($resultado)) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $mostrar['id'] ?></td>
-                                                    <td><?php echo $mostrar['nombre'] ?></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                                <i class="bx bx-dots-vertical-rounded"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu">
-                                                                <a href="editar_tipoplataforma.php?id=<?php echo $mostrar['id'] ?>" class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarTiposPlataforma(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            <?php
-                                            }
-                                            ?>
-                                        </tbody>
-                                    </table>
+
+                    <div class="content-wrapper">
+                        <!-- Content -->
+
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Variables de Sistema/</span> Editar Tipo de plataforma</h4>
+
+                            <!-- Basic Layout -->
+                            <div class="row">
+
+                                <div class="col-xl">
+                                    <div class="card mb-12">
+                                        <div class="card-header d-flex justify-content-between align-items-center">
+                                            <h5 class="mb-0">Editar de tipo de plataforma</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="Editartipoplataforma">
+                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Nombre</label>
+                                                    <div class="input-group input-group-merge">
+
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre" value="<?php echo $row['nombre']; ?>" />
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Editar tipo de plataforma</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!--/ Bordered Table -->
-                        <hr class="my-5" />
+                        <!-- / Content -->
+
+
+
+                        <div class="content-backdrop fade"></div>
                     </div>
                     <!-- / Content -->
+
                     <!-- Footer -->
                     <?php include 'templates/footer.php'; ?>
                     <!-- / Footer -->
@@ -114,7 +107,15 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script>
-        function eliminarTiposPlataforma(id) {
+        document.addEventListener("DOMContentLoaded", function() {
+            document
+                .getElementById("Editartipoplataforma")
+                .addEventListener("submit", Editartipoplataforma);
+        });
+        async function Editartipoplataforma(e) {
+            e.preventDefault();
+            console.log("Editartipoplataforma");
+            var form = document.getElementById("Editartipoplataforma");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -122,22 +123,19 @@
                 },
                 buttonsStyling: false,
             });
-
             swalWithBootstrapButtons
                 .fire({
-                    title: "Estas seguro?",
-                    text: "¡No podrás revertir esto!",
+                    title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, eliminar",
+                    confirmButtonText: "Si, editar tipo de plataforma",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
-                        let data = new FormData();
-                        data.append("id", id);
-                        data.append("accion", "eliminar");
+                        let data = new FormData(form);
+                        data.append("accion", "editar");
                         fetch("php/tipoplataforma_controller.php", {
                                 method: "POST",
                                 body: data,
@@ -146,17 +144,25 @@
                             .then((result) => {
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
-                                        "Eliminado!",
-                                        "Su archivo ha sido eliminado.",
+                                        "Registro Actualizado!",
+                                        "El tipo de plataforma ha sido actualizado en la base de datos.",
                                         "success"
                                     );
+                                    form.reset();
                                     setTimeout(function() {
                                         location.reload();
-                                    }, 3000);
+                                    }, 2000);
+                                } else {
+                                    swalWithBootstrapButtons.fire(
+                                        "Error",
+                                        "Hemos tenido un error a la base de datos o la conexión.",
+                                        "error"
+                                    );
+                                    form.reset();
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
                                 }
-                            })
-                            .catch((error) => {
-                                console.log(error);
                             });
                     } else if (
                         /* Read more about handling dismissals below */
@@ -164,13 +170,14 @@
                     ) {
                         swalWithBootstrapButtons.fire(
                             "Cancelado",
-                            "Tu archivo ha sido salvado",
+                            "Revise su información de nuevo",
                             "error"
                         );
                     }
                 });
         }
     </script>
+
 </body>
 
 </html>

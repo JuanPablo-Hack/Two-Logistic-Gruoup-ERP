@@ -35,7 +35,7 @@ function eliminar_tipoproducto($id)
 function editar_tipoproducto($id, $nombre)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `tipo_producto` SET `nombre` = '$nombre' WHERE `tipo_producto`.`id` = $id ";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

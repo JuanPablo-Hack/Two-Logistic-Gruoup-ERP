@@ -35,7 +35,7 @@ function eliminar_tipomercancia($id)
 function editar_tipomercancia($id, $nombre)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `tipo_mercancia` SET `nombre` = '$nombre' WHERE `tipo_mercancia`.`id` = $id ";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

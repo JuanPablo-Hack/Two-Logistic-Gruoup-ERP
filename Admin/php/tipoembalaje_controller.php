@@ -35,7 +35,7 @@ function eliminar_tipoembalaje($id)
 function editar_tipoembalaje($id, $nombre)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `tipo_embalaje` SET `nombre` = '$nombre' WHERE `tipo_embalaje`.`id` = $id ";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

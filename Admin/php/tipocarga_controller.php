@@ -35,7 +35,7 @@ function eliminar_tipocarga($id)
 function editar_tipocarga($id, $nombre)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `tipo_carga` SET `nombre` = '$nombre' WHERE `tipo_carga`.`id` = $id ";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

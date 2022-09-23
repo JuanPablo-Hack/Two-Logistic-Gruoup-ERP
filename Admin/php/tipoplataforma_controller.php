@@ -35,7 +35,7 @@ function eliminar_tipoplataforma($id)
 function editar_tipoplataforma($id, $nombre)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `tipo_plataforma` SET `nombre` = '$nombre' WHERE `tipo_plataforma`.`id` = $id ";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
