@@ -79,6 +79,14 @@ function proveedor($id)
     return $result2;
 }
 
+function cliente($id)
+{
+    include 'conexion.php';
+    $sql2 = "SELECT * FROM clientes WHERE id = $id";
+    $result2 = mysqli_query($conexion, $sql2);
+    return $result2;
+}
+
 function clientes()
 {
     include 'conexion.php';

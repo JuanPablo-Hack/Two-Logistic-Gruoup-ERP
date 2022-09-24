@@ -45,6 +45,7 @@
                                         </div>
                                         <div class="card-body">
                                             <form id="EditarProveedor">
+                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Razón Social</label>
                                                     <div class="input-group input-group-merge">
@@ -86,7 +87,7 @@
                                                     <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" value="<?php echo $row['razon_social']; ?>" />
+                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" value="<?php echo $row['tel']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
@@ -111,7 +112,7 @@
                                                         <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" value="<?php echo $row['nombre_representante']; ?>" />
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Editar sProveedor</button>
+                                                <button type="submit" class="btn btn-primary">Editar Proveedor</button>
                                             </form>
                                         </div>
                                     </div>
@@ -185,15 +186,15 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar actividad",
+                    confirmButtonText: "Si, editar proveedor",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
                         let data = new FormData(form);
-                        data.append("accion", "agregar");
-                        fetch("php/clientes_controller.php", {
+                        data.append("accion", "editar");
+                        fetch("php/proveedor_controller.php", {
                                 method: "POST",
                                 body: data,
                             })
@@ -201,8 +202,8 @@
                             .then((result) => {
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
-                                        "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "Actualizado!",
+                                        "El proveedor ha sido actualizado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();
@@ -215,10 +216,10 @@
                                         "Hemos tenido un error a la base de datos o la conexión.",
                                         "error"
                                     );
-                                    // form.reset();
-                                    // setTimeout(function() {
-                                    //     location.reload();
-                                    // }, 2000);
+                                    form.reset();
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
                                 }
                             });
                     } else if (

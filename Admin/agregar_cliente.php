@@ -85,7 +85,13 @@ $result = $conexion->query($sql);
                                                     </div>
                                                     <div class="form-text">Tienes que poner un correo electrónico válido.</div>
                                                 </div>
-
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
+                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" />
+                                                    </div>
+                                                </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-company">Domicilio</label>
                                                     <div class="input-group input-group-merge">
@@ -128,7 +134,7 @@ $result = $conexion->query($sql);
                                                         <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" required />
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+                                                <button type="submit" class="btn btn-primary">Agregar Cliente</button>
                                             </form>
                                         </div>
                                     </div>
@@ -202,7 +208,7 @@ $result = $conexion->query($sql);
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar actividad",
+                    confirmButtonText: "Si, agregar cliente",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
@@ -219,7 +225,7 @@ $result = $conexion->query($sql);
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
                                         "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "El cliente ha sido agregado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();
