@@ -1,90 +1,92 @@
 <?php
+include("conexion.php");
+$mysqli = $conexion;
 function tipos_servicios()
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM tipos_servicios";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM tipos_servicios";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function tipos_servicio($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM tipos_servicios WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM tipos_servicios WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function tipos_contenedor($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM tipos_contenedores WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM tipos_contenedores WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function tipos_mercancia($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM tipo_mercancia WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM tipo_mercancia WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function agencia_aduanal($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM agencias_aduanales WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM agencias_aduanales WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function tipos_carga($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM tipo_carga WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM tipo_carga WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function tipos_plataforma($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM tipo_plataforma WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM tipo_plataforma WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function tipos_producto($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM tipo_producto WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM tipo_producto WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function tipos_embalaje($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM tipo_embalaje WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM tipo_embalaje WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function proveedor($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM proveedores WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM proveedores WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function cliente($id)
 {
     include 'conexion.php';
-    $sql2 = "SELECT * FROM clientes WHERE id = $id";
-    $result2 = mysqli_query($conexion, $sql2);
-    return $result2;
+    $sql = "SELECT * FROM clientes WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
 }
 
 function clientes()
@@ -92,5 +94,95 @@ function clientes()
     include 'conexion.php';
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function contratos()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM contratos";
+    $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function cotizacion()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM cotizaciones";
+    $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function operadores()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM trabajador";
+    $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function servicios()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM servicios";
+    $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function servicio($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM servicios WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+
+function agencias_aduanales()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM agencias_aduanales";
+    $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function tipos_mercancias()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_mercancia";
+    $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function tipos_plataformas()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_plataforma";
+    $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function transportes()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM transporte";
+    $result = mysqli_query($conexion, $sql);
+    return $result;
+}
+
+function viajes_maritimo($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM viajes_maritimos WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+
+function viajes_terrestre($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM viajes_terrestres WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
     return $result;
 }

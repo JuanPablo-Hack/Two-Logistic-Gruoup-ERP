@@ -4,7 +4,7 @@ switch ($_POST['accion']) {
         agregar_servicio($_POST['cliente'], $_POST['cotizacion'], $_POST['contrato'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion']);
         break;
     case 'editar':
-        //agregar_servicios($_POST['id'], $_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], sha1($_POST['contra']), $_POST['rol']);
+        editar_servicio($_POST['id'], $_POST['cliente'], $_POST['cotizacion'], $_POST['contrato'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion']);
         break;
     case 'eliminar':
         eliminar_servicios($_POST['id']);
@@ -31,5 +31,17 @@ function eliminar_servicios($id)
         echo 2;
     } else {
         echo 1;
+    }
+}
+function editar_servicio($id, $id_cliente, $id_cotizacion, $id_contrato, $id_operador, $fecha_servicio, $descripcion)
+{
+
+    include 'conexion.php';
+    $sql = "UPDATE `servicios` SET `id_cliente` = '$id_cliente', `id_cotizacion` = '$id_cotizacion', `id_contrato` = '$id_contrato', `fecha_servicio` = '$fecha_servicio', `id_operador` = '$id_operador', `descripcion` = '$descripcion' WHERE `servicios`.`id` = $id";
+    $resultado = $conexion->query($sql);
+    if ($resultado) {
+        echo 1;
+    } else {
+        echo 2;
     }
 }

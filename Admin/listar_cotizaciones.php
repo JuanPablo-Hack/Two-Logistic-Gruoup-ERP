@@ -34,13 +34,13 @@
                             <h5 class="card-header">Lista de cotizaciones </h5>
                             <div class="card-body">
                                 <div class="table-responsive text-nowrap">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="table">
                                         <thead>
                                             <tr>
                                                 <th>Cliente</th>
                                                 <th>No. de Conceptos</th>
                                                 <th>Conceptos</th>
-                                                <th>Actions</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,8 +65,7 @@
                                                                 <i class="bx bx-dots-vertical-rounded"></i>
                                                             </button>
                                                             <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Eliminar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -121,6 +120,12 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
     <script>
         function eliminarUsuario(id) {
             const swalWithBootstrapButtons = Swal.mixin({
