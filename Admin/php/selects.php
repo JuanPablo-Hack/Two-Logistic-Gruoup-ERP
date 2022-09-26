@@ -186,3 +186,11 @@ function viajes_terrestre($id)
     $result = $GLOBALS["mysqli"]->query($sql);
     return $result;
 }
+
+function viaje_aereo($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM viajes_terrestres WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
