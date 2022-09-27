@@ -6,11 +6,13 @@
     <?php
     include 'templates/head.php';
     include 'php/selects.php';
-    $row = mysqli_fetch_array(viajes_aereo($_GET['id']));
+    $row = mysqli_fetch_array(almacenaje($_GET['id']));
     $clientes = clientes();
-    $servicios = servicios();
+    $tipos_productos = tipos_productos();
+    $tipos_embalajes = tipos_embalajes();
     ?>
 </head>
+<!-- TODO: Terminar de hacer el editar de esta vista con los rows en todos los campos -->
 
 <body>
     <!-- Layout wrapper -->
@@ -35,7 +37,7 @@
                         <!-- Content -->
 
                         <div class="container-xxl flex-grow-1 container-p-y">
-                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa/</span> Viajes Áereos</h4>
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa/</span>Editar de Almacenaje</h4>
 
                             <!-- Basic Layout -->
                             <div class="row">
@@ -43,15 +45,14 @@
                                 <div class="col-xl">
                                     <div class="card mb-12">
                                         <div class="card-header d-flex justify-content-between align-items-center">
-                                            <h5 class="mb-0">Editar de Viajes Áereos</h5>
+                                            <h5 class="mb-0">Editar de Almacenaje</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="EditarviajeAereo">
-                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                            <form id="EditarAlmacenaje">
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                                                    <select class="form-select" aria-label="Default select example" name='cliente'>
-                                                        <option value="<?php echo $row['cliente']; ?>">Selecciona un cliente</option>
+                                                    <select class="form-select" aria-label="Default select example" required name='cliente'>
+                                                        <option value="0">Selecciona un cliente</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($clientes)) {
                                                         ?>
@@ -62,91 +63,69 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">ID. Del Servicio</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name='servicio'>
-                                                        <option value="<?php echo $row['servicio']; ?>">Selecciona un cliente</option>
+                                                    <label class="form-label" for="basic-icon-default-fullname">Nombre de Producto</label>
+                                                    <div class="input-group input-group-merge">
+
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="nombre_producto" required />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Producto</label>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_producto'>
+                                                        <option value="0">Selecciona un cliente</option>
                                                         <?php
-                                                        while ($Row1 = mysqli_fetch_array($servicios)) {
+                                                        while ($Row1 = mysqli_fetch_array($tipos_productos)) {
                                                         ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'SERVICIO-' . $Row1['id']; ?></option>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                                         <?php
                                                         }
                                                         ?>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">No. de contenedores</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="no_contenedores" required onchange="cambiar_conceptos()">
-                                                        <option value="<?php echo $row['no_contenedores']; ?>" selected>Selecciona un cliente</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Viaje</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_viaje" required onchange="cambiar_conceptos()">
-                                                        <option value="<?php echo $row['tipo_viaje']; ?>" selected>Selecciona un cliente</option>
-                                                        <option value="1">Buque</option>
-                                                        <option value="2">Viaje</option>
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Puerto de Carga</label>
-                                                    <div class="input-group input-group-merge">
-
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" value="<?php echo $row['puerto_carga']; ?>" />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Puerto de Destino</label>
-                                                    <div class="input-group input-group-merge">
-
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_destino" value="<?php echo $row['puerto_destino']; ?>" />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Cierre Documental</label>
-                                                    <div class="input-group input-group-merge">
-
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="cierre" value="<?php echo $row['cierre']; ?>" />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">VGM</label>
-                                                    <div class="input-group input-group-merge">
-
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="vgm" value="<?php echo $row['vgm']; ?>" />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Despacho</label>
-                                                    <div class="input-group input-group-merge">
-
-                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="despacho" value="<?php echo $row['despacho']; ?>" />
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Peso</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="peso" value="<?php echo $row['peso']; ?>" />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="peso" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Bultos</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">Cubicaje</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="bultos" value="<?php echo $row['bultos']; ?>" />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="cubicaje" required />
                                                     </div>
                                                 </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de embalaje</label>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_embalaje'>
+                                                        <option value="0">Selecciona un cliente</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($tipos_embalajes)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Días de almacenamiento</label>
+                                                    <div class="input-group input-group-merge">
 
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="dias_almacen" required />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Subir Imagen</label>
+                                                    <input class="form-control" type="file" id="formFile" name="imagen">
+                                                </div>
                                                 <div>
                                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"><?php echo $row['descrip']; ?></textarea>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
-                                                <button type="submit" class="btn btn-primary">Editar Usuario</button>
+                                                <button type="submit" class="btn btn-primary">Editar Almacenaje</button>
                                             </form>
                                         </div>
                                     </div>
@@ -202,12 +181,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("EditarviajeAereo")
-                .addEventListener("submit", EditarviajeAereo);
+                .getElementById("EditarAlmacenaje")
+                .addEventListener("submit", EditarAlmacenaje);
         });
-        async function EditarviajeAereo(e) {
+        async function EditarAlmacenaje(e) {
             e.preventDefault();
-            var form = document.getElementById("EditarviajeAereo");
+            var form = document.getElementById("EditarAlmacenaje");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -220,15 +199,15 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, editar viaje",
+                    confirmButtonText: "Si, agregar almacenaje",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
                         let data = new FormData(form);
-                        data.append("accion", "editar");
-                        fetch("php/viajesaereos_controller.php", {
+                        data.append("accion", "agregar");
+                        fetch("php/almacenaje_controller.php", {
                                 method: "POST",
                                 body: data,
                             })
@@ -236,8 +215,8 @@
                             .then((result) => {
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
-                                        "Acutalizado!",
-                                        "El viaje ha sido actualizado en la base de datos.",
+                                        "Agregado!",
+                                        "El almacenaje ha sido agregado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();

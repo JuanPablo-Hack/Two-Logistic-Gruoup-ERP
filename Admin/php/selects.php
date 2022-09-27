@@ -9,6 +9,38 @@ function tipos_servicios()
     return $result;
 }
 
+function tipos_productos()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_producto";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+function tipos_embalajes()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_embalaje";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+function tipo_mercancias()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_mercancia";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+function tipo_cargas()
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_carga";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
 function tipos_servicio($id)
 {
     include 'conexion.php';
@@ -187,10 +219,50 @@ function viajes_terrestre($id)
     return $result;
 }
 
+function viajes_aereo($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM viajes_aereos WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
 function viaje_aereo($id)
 {
     include 'conexion.php';
     $sql = "SELECT * FROM viajes_terrestres WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+function importacion($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM importaciones WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+function exportacion($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM exportaciones WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+function almacenaje($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM almacenaje WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+function traspaleo($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM traspaleo WHERE id = $id";
     $result = $GLOBALS["mysqli"]->query($sql);
     return $result;
 }
