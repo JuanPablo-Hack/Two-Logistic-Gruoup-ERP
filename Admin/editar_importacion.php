@@ -12,7 +12,6 @@
     $tipo_cargas = tipo_cargas();
     ?>
 </head>
-<!-- TODO: Terminar de hacer el editar de esta vista con los rows en todos los campos -->
 
 <body>
     <div class="layout-wrapper layout-content-navbar">
@@ -28,16 +27,16 @@
                                 <div class="col-xl">
                                     <div class="card mb-12">
                                         <div class="card-header d-flex justify-content-between align-items-center">
-                                            <h5 class="mb-0">Alta de Importación</h5>
+                                            <h5 class="mb-0">Editar de Importación</h5>
                                         </div>
                                         <div class="card-body">
                                             <form id="EditarImportaciones" enctype="multipart/form-data">
-
+                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                                                        <option value="0">Selecciona un cliente</option>
+                                                        <option value="<?php echo $row['cliente']; ?>" selected>Selecciona un cliente</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($clientes)) {
                                                         ?>
@@ -51,7 +50,7 @@
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de mercancia</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
-                                                        <option selected>Selecciona un cliente</option>
+                                                        <option value="<?php echo $row['tipo_mercancia']; ?>" selected>Selecciona un cliente</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($tipo_mercancias)) {
                                                         ?>
@@ -64,7 +63,7 @@
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Carga</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="carga" required onchange="cambiar_conceptos()">
-                                                        <option selected>Selecciona un cliente</option>
+                                                        <option value="<?php echo $row['tipo_carga']; ?>" selected>Selecciona un cliente</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($tipo_cargas)) {
                                                         ?>
@@ -76,42 +75,42 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Factura</label>
-                                                    <input class="form-control" type="file" id="formFile" name="factura">
+                                                    <input class="form-control" type="file" id="formFile" name="factura" value="<?php echo $row['factura']; ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Lista de Embarque</label>
-                                                    <input class="form-control" type="file" id="formFile" name="lista_embarque">
+                                                    <input class="form-control" type="file" id="formFile" name="lista_embarque" value="<?php echo $row['lista_embarque']; ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">BL</label>
-                                                    <input class="form-control" type="file" id="formFile" name="bl">
+                                                    <input class="form-control" type="file" id="formFile" name="bl" value="<?php echo $row['bl']; ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Ficha Técnica</label>
-                                                    <input class="form-control" type="file" id="formFile" name="ficha_tec">
+                                                    <input class="form-control" type="file" id="formFile" name="ficha_tec" value="<?php echo $row['ficha_tec']; ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Póliza de Seguro</label>
-                                                    <input class="form-control" type="file" id="formFile" name="poliza_seguro">
+                                                    <input class="form-control" type="file" id="formFile" name="poliza_seguro" value="<?php echo $row['poliza_seguro']; ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Póliza de Transporte</label>
-                                                    <input class="form-control" type="file" id="formFile" name="poliza_transporte">
+                                                    <input class="form-control" type="file" id="formFile" name="poliza_transporte" value="<?php echo $row['poliza_transporte']; ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Carta Garantía</label>
-                                                    <input class="form-control" type="file" id="formFile" name="carta_garantia">
+                                                    <input class="form-control" type="file" id="formFile" name="carta_garantia" value="<?php echo $row['carta_garan']; ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Hoja de Seguridad</label>
-                                                    <input class="form-control" type="file" id="formFile" name="hoja_seguridad">
+                                                    <input class="form-control" type="file" id="formFile" name="hoja_seguridad" value="<?php echo $row['hoja_seguridad']; ?>">
                                                 </div>
                                                 <div>
                                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"><?php echo $row['descrip']; ?></textarea>
                                                 </div>
                                                 <br>
-                                                <button type="submit" class="btn btn-primary">Editar Usuario</button>
+                                                <button type="submit" class="btn btn-primary">Editar Importación</button>
                                             </form>
                                         </div>
                                     </div>
@@ -201,8 +200,8 @@
                             .then((result) => {
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
-                                        "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "Actualizado!",
+                                        "La importación ha sido actualizada en la base de datos.",
                                         "success"
                                     );
                                     form.reset();

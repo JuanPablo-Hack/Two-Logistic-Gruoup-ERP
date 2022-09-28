@@ -4,7 +4,7 @@ switch ($_POST['accion']) {
         agregar_viajeterrestres($_POST['cliente'], $_POST['servicio'], $_POST['terminal'], $_POST['fecha_servicio'], $_POST['hora'], $_POST['no_contenedor'], $_POST['tipo_viaje'], $_POST['agente_aduanal'], $_POST['tipo_mercancia'], $_POST['tipo_plataforma'], $_POST['transporte'], $_POST['descripcion']);
         break;
     case 'editar':
-        editar_viajeterrestres($_POST['id'], $_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], sha1($_POST['contra']), $_POST['rol']);
+        editar_viajeterrestres($_POST['id'], $_POST['cliente'], $_POST['servicio'], $_POST['terminal'], $_POST['fecha_servicio'], $_POST['hora'], $_POST['no_contenedor'], $_POST['tipo_viaje'], $_POST['agente_aduanal'], $_POST['tipo_mercancia'], $_POST['tipo_plataforma'], $_POST['transporte'], $_POST['descripcion']);
         break;
     case 'eliminar':
         eliminar_viajeterrestres($_POST['id']);
@@ -32,10 +32,10 @@ function eliminar_viajeterrestres($id)
         echo 1;
     }
 }
-function editar_viajeterrestres($id, $nombre, $cargo, $correo, $tel, $contra, $rol)
+function editar_viajeterrestres($id, $cliente, $servicio, $terminal, $fecha_servicio, $hora, $no_contenedor, $tipo_viaje, $agente_aduanal, $tipo_mercancia, $tipo_plataforma, $transporte, $descripcion)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `viajes_terrestres` SET `cliente` = '$cliente', `servicio` = '$servicio', `terminal` = '$terminal', `fecha_servicio` = '$fecha_servicio', `hora` = '$hora', `no_contenedor` = '$no_contenedor', `tipo_viaje` = '$tipo_viaje', `tipo_mercancia` = '$tipo_mercancia', `tipo_plataforma` = '$tipo_plataforma', `transporte` = '$transporte', `descrip` = '$descripcion' WHERE `viajes_terrestres`.`id` = $id ";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

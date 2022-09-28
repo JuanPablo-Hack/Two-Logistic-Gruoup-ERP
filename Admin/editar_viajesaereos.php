@@ -146,7 +146,7 @@
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"><?php echo $row['descrip']; ?></textarea>
                                                 </div>
                                                 <br>
-                                                <button type="submit" class="btn btn-primary">Editar Usuario</button>
+                                                <button type="submit" class="btn btn-primary">Editar Viaje</button>
                                             </form>
                                         </div>
                                     </div>

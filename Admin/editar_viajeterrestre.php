@@ -39,7 +39,7 @@
                         <!-- Content -->
 
                         <div class="container-xxl flex-grow-1 container-p-y">
-                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa/</span> Agregar Terrestres</h4>
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa/</span> Editar Terrestres</h4>
 
                             <!-- Basic Layout -->
                             <div class="row">
@@ -47,10 +47,10 @@
                                 <div class="col-xl">
                                     <div class="card mb-12">
                                         <div class="card-header d-flex justify-content-between align-items-center">
-                                            <h5 class="mb-0">Alta de Viaje Terrestre</h5>
+                                            <h5 class="mb-0">Editar de Viaje Terrestre</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form id="AltaViajeTerrestre">
+                                            <form id="EditarViajeTerrestre">
                                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
@@ -162,7 +162,7 @@
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="transporte" required onchange="cambiar_conceptos()">
                                                         <option value="<?php echo $row['transporte']; ?>" selected>Selecciona un cliente</option>
                                                         <?php
-                                                        while ($Row1 = mysqli_fetch_array($transporte)) {
+                                                        while ($Row1 = mysqli_fetch_array($transportes)) {
                                                         ?>
                                                             <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                                         <?php
@@ -176,7 +176,7 @@
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"><?php echo $row['descrip']; ?></textarea>
                                                 </div>
                                                 <br>
-                                                <button type="submit" class="btn btn-primary">Agregar Viaje</button>
+                                                <button type="submit" class="btn btn-primary">Editar Viaje</button>
                                             </form>
                                         </div>
                                     </div>
@@ -232,12 +232,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document
-                .getElementById("AltaViajeTerrestre")
-                .addEventListener("submit", AltaViajeTerrestre);
+                .getElementById("EditarViajeTerrestre")
+                .addEventListener("submit", EditarViajeTerrestre);
         });
-        async function AltaViajeTerrestre(e) {
+        async function EditarViajeTerrestre(e) {
             e.preventDefault();
-            var form = document.getElementById("AltaViajeTerrestre");
+            var form = document.getElementById("EditarViajeTerrestre");
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: "btn btn-success",
@@ -250,14 +250,14 @@
                     title: "Estas seguro que la información es la correcta?",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "Si, agregar viaje",
+                    confirmButtonText: "Si, editar viaje",
                     cancelButtonText: "No, cancelar!",
                     reverseButtons: true,
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
                         let data = new FormData(form);
-                        data.append("accion", "agregar");
+                        data.append("accion", "editar");
                         fetch("php/viajesterrestres_controller.php", {
                                 method: "POST",
                                 body: data,
@@ -266,8 +266,8 @@
                             .then((result) => {
                                 if (result == 1) {
                                     swalWithBootstrapButtons.fire(
-                                        "Agregado!",
-                                        "El usuario ha sido agregado en la base de datos.",
+                                        "Actualizado!",
+                                        "El viaje ha sido actualizado en la base de datos.",
                                         "success"
                                     );
                                     form.reset();

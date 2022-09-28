@@ -4,7 +4,7 @@ switch ($_POST['accion']) {
         agregar_importacion($_POST['cliente'], $_POST['mercancia'], $_POST['carga'], $_FILES['factura']['name'], $_FILES['lista_embarque']['name'], $_FILES['bl']['name'], $_FILES['ficha_tec']['name'], $_FILES['poliza_seguro']['name'], $_FILES['poliza_transporte']['name'], $_FILES['carta_garantia']['name'], $_FILES['hoja_seguridad']['name'], $_POST['descripcion']);
         break;
     case 'editar':
-        editar_importacion($_POST['id'], $_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], sha1($_POST['contra']), $_POST['rol']);
+        editar_importacion($_POST['id'], $_POST['cliente'], $_POST['mercancia'], $_POST['carga'], $_FILES['factura']['name'], $_FILES['lista_embarque']['name'], $_FILES['bl']['name'], $_FILES['ficha_tec']['name'], $_FILES['poliza_seguro']['name'], $_FILES['poliza_transporte']['name'], $_FILES['carta_garantia']['name'], $_FILES['hoja_seguridad']['name'], $_POST['descripcion']);
         break;
     case 'eliminar':
         eliminar_importacion($_POST['id']);
@@ -33,10 +33,10 @@ function eliminar_importacion($id)
         echo 1;
     }
 }
-function editar_importacion($id, $nombre, $cargo, $correo, $tel, $contra, $rol)
+function editar_importacion($id, $cliente, $mercancia, $carga, $factura, $lista_embarque, $bl, $ficha_tec, $poliza_seguro, $poliza_transporte, $carta_garantia, $hoja_seguridad, $descripcion)
 {
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "UPDATE `importaciones` SET `cliente` = '$cliente', `tipo_mercancia` = '$mercancia', `tipo_carga` = '$carga', `factura` = '$factura', `lista_embarque` = '$lista_embarque', `bl` = '$bl', `ficha_tec` = '$ficha_tec', `poliza_seguro` = '$poliza_seguro', `poliza_transporte` = '$poliza_transporte', `carta_garan` = '$carta_garantia', `hoja_seguridad` = '$hoja_seguridad', `descrip` = '$descripcion' WHERE `importaciones`.`id` = $id ";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
