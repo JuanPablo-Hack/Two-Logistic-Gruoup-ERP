@@ -13,11 +13,11 @@ function login($conexion, $user, $password)
         }
         if ($row['rol'] == 2) {
             header("HTTP/1.1 302 Moved Temporarily");
-            header("Location: ../Supervisor/");
+            header("Location: ../Comercial/");
         }
         if ($row['rol'] == 3) {
             header("HTTP/1.1 302 Moved Temporarily");
-            header("Location: ../Operador/");
+            header("Location: ../Operativo/");
         }
     } else {
         header("Location: ../error_login.html");

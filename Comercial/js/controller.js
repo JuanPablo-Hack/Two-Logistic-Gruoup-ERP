@@ -14,7 +14,7 @@ async function CrearUsuario(e) {
       title: "Estas seguro que la información es la correcta?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Si, agregar usuario",
+      confirmButtonText: "Si, agregar actividad",
       cancelButtonText: "No, cancelar!",
       reverseButtons: true,
     })
@@ -119,3 +119,4 @@ function eliminarUsuario(id) {
     });
 }
 /* Modulo para la creación de clientes */
+
