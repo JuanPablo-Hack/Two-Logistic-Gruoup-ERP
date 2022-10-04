@@ -61,11 +61,13 @@
                                                     <td><?php echo $mostrar['arreglo'] ?></td>
                                                     <td>
                                                         <div class="dropdown">
+
                                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                                                 <i class="bx bx-dots-vertical-rounded"></i>
                                                             </button>
                                                             <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Eliminar</a>
+                                                                <a class="dropdown-item" onclick="crearPDF(<?php echo $mostrar['id'] ?>)"><i class="bx bx-file"></i> Generar PDF</a>
+                                                                <a class="dropdown-item" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Eliminar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -182,6 +184,45 @@
                         );
                     }
                 });
+        }
+    </script>
+    <script>
+        function addScript(url) {
+            var script = document.createElement('script');
+            script.type = 'application/javascript';
+            script.src = url;
+            document.head.appendChild(script);
+        }
+        addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
+
+        function crearPDF(id) {
+            var opt = {
+                margin: 1,
+                filename: 'cotizacion.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 0.98
+                },
+                html2canvas: {
+                    scale: 3
+                },
+                jsPDF: {
+                    unit: 'in',
+                    format: 'a3',
+                    orientation: 'portrait'
+                }
+            };
+
+            $.ajax({
+                type: 'POST',
+                data: "id=" + id,
+                url: 'php/cotizacionesPDF.php',
+                success: function(r) {
+                    console.log(r);
+                    var worker = html2pdf().set(opt).from(r).toPdf().save();
+
+                }
+            });
         }
     </script>
 </body>
