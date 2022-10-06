@@ -307,3 +307,16 @@ echo '<!DOCTYPE html>
   </body>
 </html>
 ';
+//TODO: terminar las funciones de poner en la cotización
+function datoscliente($id)
+{
+  include 'conexion.php';
+  $sql = "UPDATE `clientes` SET `razon_social` = '$razon_social', `rfc` = '$rfc', `cargo` = '$cargo', `contacto` = '$contacto', `tel` = '$tel', `correo` = '$email', `domicilio` = '$domicilio', `estado_empresarial` = '$estado', `nombre_representante` = '$nombre_representante' WHERE `clientes`.`id` = $id ";
+  $resultado = $conexion->query($sql);
+}
+function datos_tipo_servicio($id)
+{
+  include 'conexion.php';
+  $sql = "UPDATE `clientes` SET `razon_social` = '$razon_social', `rfc` = '$rfc', `cargo` = '$cargo', `contacto` = '$contacto', `tel` = '$tel', `correo` = '$email', `domicilio` = '$domicilio', `estado_empresarial` = '$estado', `nombre_representante` = '$nombre_representante' WHERE `clientes`.`id` = $id ";
+  $resultado = $conexion->query($sql);
+}
