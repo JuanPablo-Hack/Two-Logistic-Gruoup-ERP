@@ -37,7 +37,7 @@
                 </li>
                 <li class="menu-item">
                     <a href="listar_proveedores.php" class="menu-link">
-                        <div data-i18n="Notifications">Listar Proveedores</div>
+                        <div data-i18n="Notifications">Lista de Proveedores</div>
                     </a>
                 </li>
             </ul>
@@ -55,7 +55,7 @@
                 </li>
                 <li class="menu-item">
                     <a href="listar_clientes.php" class="menu-link">
-                        <div data-i18n="Basic">Listar Clientes</div>
+                        <div data-i18n="Basic">Lista de Clientes</div>
                     </a>
                 </li>
 
@@ -74,7 +74,7 @@
                 </li>
                 <li class="menu-item">
                     <a href="listar_cotizaciones.php" class="menu-link">
-                        <div data-i18n="Under Maintenance">Listar Cotizaciones</div>
+                        <div data-i18n="Under Maintenance">Lista de Cotizaciones</div>
                     </a>
                 </li>
             </ul>
@@ -92,11 +92,18 @@
                 </li>
                 <li class="menu-item">
                     <a href="listar_contratos.php" class="menu-link">
-                        <div data-i18n="Under Maintenance">Listar Contratos</div>
+                        <div data-i18n="Under Maintenance">Lista de Contratos</div>
                     </a>
                 </li>
             </ul>
         </li>
+
+        <!-- Components -->
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Area Operativa</span></li>
+        <!-- Cards -->
+
+        <!-- User interface -->
+
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cube-alt"></i>
@@ -110,16 +117,11 @@
                 </li>
                 <li class="menu-item">
                     <a href="listar_servicios.php" class="menu-link">
-                        <div data-i18n="Under Maintenance">Listar Servicios</div>
+                        <div data-i18n="Under Maintenance">Lista de Servicios</div>
                     </a>
                 </li>
             </ul>
         </li>
-        <!-- Components -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Area Operativa</span></li>
-        <!-- Cards -->
-
-        <!-- User interface -->
         <li class="menu-item">
             <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-ship"></i>
@@ -188,31 +190,20 @@
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="crear_importacion.php" class="menu-link">
-                        <div data-i18n="Accordion">Alta de Importación</div>
+                        <div data-i18n="Accordion">Alta de despacho</div>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="listar_importacion.php" class="menu-link">
-                        <div data-i18n="Accordion">Bitacora de Importaciones</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="crear_exportacion.php" class="menu-link">
-                        <div data-i18n="Accordion">Alta de Exportación</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="listar_exportacion.php" class="menu-link">
-                        <div data-i18n="Accordion">Bitacora de Exportaciones</div>
+                        <div data-i18n="Accordion">Bitacora de despacho</div>
                     </a>
                 </li>
             </ul>
         </li>
-        <!-- Extended components -->
         <li class="menu-item">
             <a href="javascript:void(0)" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-paste"></i>
-                <div data-i18n="Extended UI">Inventario</div>
+                <i class="menu-icon tf-icons bx bxs-store"></i>
+                <div data-i18n="Extended UI">Bodega Externa</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -235,6 +226,15 @@
                         <div data-i18n="Text Divider">Bitacora de Traspaleo</div>
                     </a>
                 </li>
+            </ul>
+        </li>
+        <!-- Extended components -->
+        <li class="menu-item">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-paste"></i>
+                <div data-i18n="Extended UI">Inventario</div>
+            </a>
+            <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="entrada_producto.php" class="menu-link">
                         <div data-i18n="Text Divider">Entraba de Producto</div>

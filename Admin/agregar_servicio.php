@@ -8,12 +8,11 @@
     include 'php/conexion.php';
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conexion, $sql);
-    $sql2 = "SELECT * FROM cotizaciones";
-    $result2 = mysqli_query($conexion, $sql2);
-    $sql3 = "SELECT * FROM contratos";
-    $result3 = mysqli_query($conexion, $sql3);
+    $sql2 = "SELECT * FROM catalogo_servicios";
+    $result2 = $conexion->query($sql2);
     $sql4 = "SELECT * FROM trabajador WHERE rol=3";
     $result4 = mysqli_query($conexion, $sql4);
+
     ?>
 </head>
 
@@ -67,35 +66,7 @@
                                                         ?>
                                                     </select>
                                                 </div>
-                                                <br>
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Cotización</label>
-                                                    <select class="form-control" name='cotizacion'>
-                                                        <option value="0">Sin Asignar</option>
-                                                        <?php
-                                                        while ($Row1 = mysqli_fetch_array($result2)) {
-                                                        ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'TSL-COT-' . $Row1['id']; ?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <br>
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Contrato</label>
-                                                    <select class="form-control" name='contrato'>
-                                                        <option value="0">Sin Asignar</option>
-                                                        <?php
-                                                        while ($Row1 = mysqli_fetch_array($result3)) {
-                                                        ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'TSL-CON-' . $Row1['id']; ?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <br>
+
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Operador</label>
                                                     <select class="form-control" name='operador'>
@@ -113,6 +84,22 @@
                                                     <label for="exampleFormControlSelect1" class="form-label">Fecha de Servicio</label>
                                                     <div class="col-md-10">
                                                         <input class="form-control" type="date" id="html5-date-input" name="fecha_servicio" />
+                                                    </div>
+                                                </div>
+                                                <div class="row gy-3">
+                                                    <div class="col-md">
+                                                        <label for="exampleFormControlSelect1" class="form-label">Tipo de servicios</label>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result2)) {
+                                                        ?>
+                                                            <div class="form-check mt-3">
+                                                                <input class="form-check-input" type="checkbox" value="<?php echo $Row1['id']; ?>" id="defaultCheck1" name="check_lista[]" />
+                                                                <label class="form-check-label" for="defaultCheck1"> <?php echo $Row1['nombre']; ?> </label>
+                                                            </div>
+                                                        <?php
+                                                        }
+                                                        ?>
+
                                                     </div>
                                                 </div>
                                                 <div>

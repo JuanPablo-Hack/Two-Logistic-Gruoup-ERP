@@ -72,19 +72,18 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">ID. Del Servicio</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
-                                                        <option value="0">Selecciona un cliente</option>
+                                                        <option value="0">Selecciona una referencia</option>
                                                         <?php
-                                                        while ($Row1 = mysqli_fetch_array($result2)) {
+                                                        while ($Row1 = mysqli_fetch_array($result3)) {
                                                         ?>
-                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'SERVICIO' . $Row1['id']; ?></option>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo 'OTL-' . date('Y') . '-' . $Row1['id']; ?></option>
                                                         <?php
                                                         }
                                                         ?>
                                                     </select>
                                                 </div>
-
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Terminal</label>
                                                     <div class="input-group input-group-merge">
@@ -107,19 +106,34 @@
                                                         <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="hora" required />
                                                     </div>
                                                 </div>
-
-
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">No. Contenedor</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">No. de contenedores</label>
                                                     <div class="input-group input-group-merge">
-
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="no_contenedor" required />
+                                                        <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Tipo de contenedor</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="bultos" required />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Peso</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="peso" required />
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Bultos</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="bultos" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Viaje</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_viaje" required onchange="cambiar_conceptos()">
-                                                        <option selected>Selecciona un cliente</option>
+                                                        <option selected>Selecciona un tipo de viaje</option>
                                                         <option value="1">Local</option>
                                                         <option value="2">Foraneo</option>
                                                     </select>
@@ -127,7 +141,7 @@
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Agente Aduanal</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="agente_aduanal" required onchange="cambiar_conceptos()">
-                                                        <option selected>Selecciona un cliente</option>
+                                                        <option selected>Selecciona un agente aduanal</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result3)) {
                                                         ?>
@@ -140,7 +154,7 @@
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Mercancia</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_mercancia" required onchange="cambiar_conceptos()">
-                                                        <option selected>Selecciona un cliente</option>
+                                                        <option selected>Selecciona un tipo de mercancia</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result4)) {
                                                         ?>
@@ -153,7 +167,7 @@
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de Plataforma</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_plataforma" required onchange="cambiar_conceptos()">
-                                                        <option selected>Selecciona un cliente</option>
+                                                        <option selected>Selecciona un tipo de plataforma</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result5)) {
                                                         ?>
@@ -164,9 +178,9 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Transporte</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Transportista</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" name="transporte" required onchange="cambiar_conceptos()">
-                                                        <option selected>Selecciona un cliente</option>
+                                                        <option selected>Selecciona un transportista</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result6)) {
                                                         ?>
