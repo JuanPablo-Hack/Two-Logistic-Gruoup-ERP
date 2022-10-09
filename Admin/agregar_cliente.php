@@ -64,14 +64,14 @@ $result = $conexion->query($sql);
                                                     <label class="form-label" for="basic-icon-default-fullname">Nombre del contacto comercial</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_comer" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-email">Email</label>
                                                     <div class="input-group input-group-merge">
                                                         <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email" required />
+                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_comer" required />
                                                         <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
                                                     </div>
                                                     <div class="form-text">Tienes que poner un correo electrónico válido.</div>
@@ -80,7 +80,7 @@ $result = $conexion->query($sql);
                                                     <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" />
+                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel_comer" />
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -88,14 +88,14 @@ $result = $conexion->query($sql);
                                                     <label class="form-label" for="basic-icon-default-fullname">Nombre del contacto operativo</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_oper" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-email">Email</label>
                                                     <div class="input-group input-group-merge">
                                                         <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email" required />
+                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_oper" required />
                                                         <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
                                                     </div>
                                                     <div class="form-text">Tienes que poner un correo electrónico válido.</div>
@@ -104,7 +104,7 @@ $result = $conexion->query($sql);
                                                     <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" />
+                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel_oper" />
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -112,14 +112,14 @@ $result = $conexion->query($sql);
                                                     <label class="form-label" for="basic-icon-default-fullname">Nombre del contacto administrativo</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_admin" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-email">Email</label>
                                                     <div class="input-group input-group-merge">
                                                         <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email" required />
+                                                        <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_admin" required />
                                                         <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
                                                     </div>
                                                     <div class="form-text">Tienes que poner un correo electrónico válido.</div>
@@ -128,7 +128,7 @@ $result = $conexion->query($sql);
                                                     <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" />
+                                                        <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel_admin" />
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -139,7 +139,6 @@ $result = $conexion->query($sql);
                                                         <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="domicilio" required />
                                                     </div>
                                                 </div>
-
                                                 <div class="row gy-3">
                                                     <div class="col-md">
                                                         <label for="exampleFormControlSelect1" class="form-label">Tipo de servicios</label>
@@ -147,7 +146,7 @@ $result = $conexion->query($sql);
                                                         while ($Row1 = mysqli_fetch_array($result)) {
                                                         ?>
                                                             <div class="form-check mt-3">
-                                                                <input class="form-check-input" type="checkbox" value="<?php echo $Row1['id']; ?>" id="defaultCheck1" name="check_lista[]" />
+                                                                <input class="form-check-input" type="checkbox" value="<?php echo $Row1['nombre']; ?>" id="defaultCheck1" name="check_lista[]" />
                                                                 <label class="form-check-label" for="defaultCheck1"> <?php echo $Row1['nombre']; ?> </label>
                                                             </div>
                                                         <?php
@@ -155,22 +154,24 @@ $result = $conexion->query($sql);
                                                         ?>
 
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleFormControlSelect1" class="form-label">Estado empresarial</label>
-                                                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="estado" required>
-                                                            <option selected>Selecciona un estado</option>
-                                                            <option value="1">Persona Física</option>
-                                                            <option value="2">Persona Moral</option>
-                                                        </select>
+                                                </div>
+                                                <br>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Estado empresarial</label>
+                                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="estado" required>
+                                                        <option selected>Selecciona un estado</option>
+                                                        <option value="1">Persona Física</option>
+                                                        <option value="2">Persona Moral</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="basic-icon-default-company">Nombre del representante</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+                                                        <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" required />
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="basic-icon-default-company">Nombre del representante</label>
-                                                        <div class="input-group input-group-merge">
-                                                            <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                                            <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" required />
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">Agregar Cliente</button>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Agregar Cliente</button>
                                             </form>
                                         </div>
                                     </div>

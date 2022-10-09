@@ -41,9 +41,9 @@
                                             <tr>
                                                 <th>Razón Social</th>
                                                 <th>RFC</th>
-                                                <th>Representante</th>
-                                                <th>Correo</th>
-                                                <th>Cargo</th>
+                                                <th>Datos del Contacto Comercial</th>
+                                                <th>Datos del Contacto Operativo</th>
+                                                <th>Datos del Contacto Administrativo</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -57,9 +57,9 @@
 
                                                     <td><?php echo $mostrar['razon_social'] ?></td>
                                                     <td><?php echo $mostrar['rfc'] ?></td>
-                                                    <td><?php echo $mostrar['contacto'] ?></td>
-                                                    <td><?php echo $mostrar['correo'] ?></td>
-                                                    <td><?php echo $mostrar['cargo'] ?></td>
+                                                    <td><?php echo $mostrar['datos_comercial'] ?></td>
+                                                    <td><?php echo $mostrar['datos_operacion'] ?></td>
+                                                    <td><?php echo $mostrar['datos_admin'] ?></td>
 
 
 

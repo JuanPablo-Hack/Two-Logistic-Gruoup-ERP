@@ -71,7 +71,33 @@
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Producto</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Servicio</label>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_producto'>
+                                                        <option value="0">Selecciona un cliente</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result3)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Mercancia</label>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_producto'>
+                                                        <option value="0">Selecciona un cliente</option>
+                                                        <?php
+                                                        while ($Row1 = mysqli_fetch_array($result3)) {
+                                                        ?>
+                                                            <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tipo de Unidad</label>
                                                     <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_producto'>
                                                         <option value="0">Selecciona un cliente</option>
                                                         <?php
@@ -111,22 +137,50 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Días de almacenamiento</label>
+                                                    <label class="form-label" for="basic-icon-default-fullname">Fecha de entrada</label>
                                                     <div class="input-group input-group-merge">
-
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="dias_almacen" required />
+                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="dias_almacen" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="formFile" class="form-label">Subir Imagen</label>
-                                                    <input class="form-control" type="file" id="formFile" name="imagen">
+                                                    <label class="form-label" for="basic-icon-default-fullname">Fecha de salida</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="date" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="dias_almacen" required />
+                                                    </div>
                                                 </div>
+                                                <div class="row gy-3">
+                                                    <div class="col-md">
+                                                        <label for="exampleFormControlSelect1" class="form-label">Documentación</label>
+                                                        <div class="form-check mt-3">
+                                                            <input class="form-check-input" type="checkbox" value="Si" id="defaultCheck1" name="check_lista[]" />
+                                                            <label class="form-check-label" for="defaultCheck1"> Carta de Instrucciones</label>
+                                                        </div>
+                                                        <div class="form-check mt-3">
+                                                            <input class="form-check-input" type="checkbox" value="Si" id="defaultCheck1" name="check_lista[]" />
+                                                            <label class="form-check-label" for="defaultCheck1"> Factura</label>
+                                                        </div>
+                                                        <div class="form-check mt-3">
+                                                            <input class="form-check-input" type="checkbox" value="Si" id="defaultCheck1" name="check_lista[]" />
+                                                            <label class="form-check-label" for="defaultCheck1"> Packing List</label>
+                                                        </div>
+                                                        <div class="form-check mt-3">
+                                                            <input class="form-check-input" type="checkbox" value="Si" id="defaultCheck1" name="check_lista[]" />
+                                                            <label class="form-check-label" for="defaultCheck1"> Ficha Técnica</label>
+                                                        </div>
+                                                        <div class="form-check mt-3">
+                                                            <input class="form-check-input" type="checkbox" value="Si" id="defaultCheck1" name="check_lista[]" />
+                                                            <label class="form-check-label" for="defaultCheck1"> Fotografías</label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <br>
                                                 <div>
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
-                                                <button type="submit" class="btn btn-primary">Agregar Almacenaje</button>
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
                                             </form>
                                         </div>
                                     </div>
