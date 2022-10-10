@@ -1,7 +1,7 @@
 <?php
 switch ($_POST['accion']) {
     case 'agregar':
-        agregar_servicio($_POST['cliente'], $_POST['cotizacion'], $_POST['contrato'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion']);
+        agregar_servicio($_POST['cliente'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion'], $_POST['check_lista']);
         break;
     case 'editar':
         editar_servicio($_POST['id'], $_POST['cliente'], $_POST['cotizacion'], $_POST['contrato'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion']);
@@ -10,11 +10,15 @@ switch ($_POST['accion']) {
         eliminar_servicios($_POST['id']);
         break;
 }
-function agregar_servicio($id_cliente, $id_cotizacion, $id_contrato, $id_operador, $fecha_servicio, $descripcion)
+function agregar_servicio($id_cliente, $id_operador, $fecha_servicio, $descripcion, $tipos_servicios)
 {
-
+    $tipos_servicios = [];
+    foreach ($_POST['check_lista'] as $seleccion) {
+        array_push($tipos_servicios, $seleccion);
+    }
+    $datos_tipos_servicios = implode("<br>", $tipos_servicios);
     include 'conexion.php';
-    $sql = "INSERT INTO servicios (id_cliente, id_cotizacion, id_contrato, fecha_servicio, id_operador, descripcion) VALUES ('$id_cliente', '$id_cotizacion', '$id_contrato', '$fecha_servicio', '$id_operador', '$descripcion')";
+    $sql = "INSERT INTO `servicios` (`id`, `id_cliente`, `fecha_servicio`, `id_operador`, `tipos_servicios`, `descripcion`) VALUES (NULL, '$id_cliente', '$fecha_servicio', '$id_operador', '$datos_tipos_servicios', '$descripcion')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

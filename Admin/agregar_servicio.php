@@ -28,10 +28,6 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <?php include 'templates/profile.php'; ?>
-
-                <!-- / Navbar -->
-
-                <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <!-- Content -->
 
@@ -93,7 +89,7 @@
                                                         while ($Row1 = mysqli_fetch_array($result2)) {
                                                         ?>
                                                             <div class="form-check mt-3">
-                                                                <input class="form-check-input" type="checkbox" value="<?php echo $Row1['id']; ?>" id="defaultCheck1" name="check_lista[]" />
+                                                                <input class="form-check-input" type="checkbox" value="<?php echo $Row1['nombre']; ?>" id="defaultCheck1" name="check_lista[]" />
                                                                 <label class="form-check-label" for="defaultCheck1"> <?php echo $Row1['nombre']; ?> </label>
                                                             </div>
                                                         <?php
@@ -102,8 +98,9 @@
 
                                                     </div>
                                                 </div>
+                                                <br>
                                                 <div>
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                                                 </div>
                                                 <br>
