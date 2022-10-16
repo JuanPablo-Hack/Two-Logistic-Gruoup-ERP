@@ -1,7 +1,7 @@
 <?php
 switch ($_POST['accion']) {
     case 'agregar':
-        agregar_viajemaritimos($_POST['cliente'], $_POST['servicio'], $_POST['no_contenedores'], $_POST['tipo_viaje'], $_POST['puerto_carga'], $_POST['puerto_destino'], $_POST['cierre'], $_POST['vgm'], $_POST['peso'], $_POST['despacho'], $_POST['bultos'], $_POST['descripcion']);
+        agregar_viajemaritimos($_POST['cliente'], $_POST['servicio'], $_POST['booking'], $_POST['linea_naviera'], $_POST['no_contenedores'], $_POST['tipo_contenedor'], $_POST['buque'], $_POST['viaje'], $_POST['peso'], $_POST['bultos'], $_POST['puerto_carga'], $_POST['puerto_transbordo'], $_POST['puerto_destino'], $_POST['puerto_transito'], $_POST['tiempo_transito'], $_POST['cierre'], $_POST['vgm'], $_POST['despacho'], $_POST['liberacion'], $_POST['descripcion'], $_POST['check_lista']);
         break;
     case 'editar':
         editar_viajemaritimos($_POST['id'], $_POST['cliente'], $_POST['servicio'], $_POST['no_contenedores'], $_POST['tipo_viaje'], $_POST['puerto_carga'], $_POST['puerto_destino'], $_POST['cierre'], $_POST['vgm'], $_POST['peso'], $_POST['despacho'], $_POST['bultos'], $_POST['descripcion']);
@@ -10,10 +10,10 @@ switch ($_POST['accion']) {
         eliminar_viajemaritimos($_POST['id']);
         break;
 }
-function agregar_viajemaritimos($cliente, $servicio, $no_contenedores, $tipo_viaje, $puerto_carga, $puerto_destino, $cierre, $vgm, $despacho, $peso, $bultos, $descripcion)
+function agregar_viajemaritimos($cliente, $servicio, $booking, $linea_naviera, $no_contenedores, $tipo_contenedor, $buque, $viaje, $peso, $bultos, $puerto_carga, $puerto_transbordo, $puerto_destino, $puerto_transito, $tiempo_transito, $cierre, $vgm, $despacho, $liberacion, $descripcion, $check_lista)
 {
     include 'conexion.php';
-    $sql = "INSERT INTO `viajes_maritimos` (`cliente`, `servicio`, `no_contenedores`, `tipo_viaje`, `puerto_carga`, `puerto_destino`, `cierre`, `vgm`, `despacho`, `peso`, `bultos`, `descrip`) VALUES ('$cliente', '$servicio', '$no_contenedores', '$tipo_viaje', '$puerto_carga', '$puerto_destino', '$cierre', '$vgm','$despacho', '$peso', '$bultos', '$descripcion')";
+    $sql = "INSERT INTO `viajes_maritimos` (`id`, `cliente`, `servicio`, `booking`, `linea_naviera`, `no_contenedores`, `tipo_contenedor`, `buque`, `viaje`, `puerto_carga`, `puerto_destino`, `transbordo`, `transito`, `tiempo_transito`, `cierre`, `vgm`, `despacho`, `peso`, `bultos`, `carta_ins`, `tipo_liberacion`, `descrip`) VALUES (NULL, '$cliente', '$servicio', '$booking', '$linea_naviera', '$no_contenedores', '$tiempo_transito', '$buque', '$viaje', '$puerto_carga', '$puerto_destino', '$puerto_transbordo', '$puerto_transito', '$tiempo_transito', '$cierre', '$vgm', '$despacho', '$peso', '$bultos', '$check_lista', '$liberacion', '$descripcion')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

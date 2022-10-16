@@ -56,15 +56,12 @@
                                                     <td><?php echo $mostrar['precio'] ?></td>
                                                     <td><?php echo $mostrar['descripcion'] ?></td>
                                                     <td>
-                                                        <div class="dropdown">
-                                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                                <i class="bx bx-dots-vertical-rounded"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu">
-                                                                <a href="editar_tiposervicio.php?id=<?php echo $mostrar['id']; ?>" class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="eliminarTipoSercvicio(<?php echo $mostrar['id'] ?>)"><i class="bx bx-trash me-1"></i> Delete</a>
-                                                            </div>
-                                                        </div>
+                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#EditarUsuario<?php echo $mostrar['id'] ?>">
+                                                            <span class="tf-icons bx bx-pencil"></span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)">
+                                                            <span class="tf-icons bx bx-x-circle"></span>
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             <?php

@@ -77,6 +77,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                <?php include('templates/modals/usuarios/editar.php'); ?>
                                             <?php
                                             }
                                             ?>

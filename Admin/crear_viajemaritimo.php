@@ -81,38 +81,36 @@
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">No. Booking</label>
                                                     <div class="input-group input-group-merge">
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="booking" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Línea naviera</label>
                                                     <div class="input-group input-group-merge">
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="linea_naviera" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">No. de contenedores</label>
                                                     <div class="input-group input-group-merge">
-                                                        <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="no_contenedores" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="basic-icon-default-fullname">Tipo de contenedor</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="bultos" required />
-                                                    </div>
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Tipo de contenedores</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tipo_contenedor"></textarea>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Buque</label>
                                                     <div class="input-group input-group-merge">
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="buque" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Viaje</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="viaje" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
@@ -138,7 +136,7 @@
                                                     <label class="form-label" for="basic-icon-default-fullname">Puerto de Transbordo</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_transbordo" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
@@ -151,14 +149,14 @@
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Puerto de Tránsito</label>
                                                     <div class="input-group input-group-merge">
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_transito" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="basic-icon-default-fullname">Tiempo de Tránsito</label>
                                                     <div class="input-group input-group-merge">
 
-                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                                                        <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="tiempo_transito" required />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
@@ -186,15 +184,15 @@
                                                     <div class="col-md">
                                                         <label for="exampleFormControlSelect1" class="form-label">Documentación</label>
                                                         <div class="form-check mt-3">
-                                                            <input class="form-check-input" type="checkbox" value="Si" id="defaultCheck1" name="check_lista[]" />
-                                                            <label class="form-check-label" for="defaultCheck1"> Carta de Instrucciones</label>
+                                                            <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="check_lista" />
+                                                            <label class="form-check-label" for="defaultCheck1"> Carta instrucciones </label>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlSelect1" class="form-label">Tipo de liberación</label>
-                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
+                                                    <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='liberacion'>
                                                         <option value="0">Selecciona un cliente</option>
                                                         <?php
                                                         while ($Row1 = mysqli_fetch_array($result4)) {
