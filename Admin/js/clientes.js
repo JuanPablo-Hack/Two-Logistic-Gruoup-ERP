@@ -1,10 +1,37 @@
 function fnFormatDetails(oTable, nTr) {
   var aData = oTable.fnGetData(nTr);
   var sOut =
-    '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-  sOut += "<tr><td>Folio:</td><td>" + aData[1] + "</td></tr>";
-  sOut += "<tr><td>Departamento:</td><td>" + aData[2] + "</td></tr>";
-  sOut += "<tr><td>Ingeniero:</td><td>" + aData[3] + "</td></tr>";
+    '<table cellpadding="5" cellspacing="0" border="3" style="padding-left:50px;">';
+  sOut +=
+    "<tr><td>Razón Social:</td><td>" +
+    aData[1] +
+    "</td><td>RFC:</td><td>" +
+    aData[2] +
+    "</td><td>Domicilio:</td><td>" +
+    aData[3] +
+    "</td><td>Estado empresarial:</td><td>" +
+    aData[4] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>Representante Legal:</td><td>" +
+    aData[5] +
+    "</td><td>Contacto Comercial:</td><td>" +
+    aData[6] +
+    "</td><td>Contacto Operativo:</td><td>" +
+    aData[7] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>Contacto Administrativo:</td><td>" +
+    aData[8] +
+    "</td><td>Tipos de Servicio:</td><td>" +
+    aData[9] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>Días de Crédito:</td><td>" +
+    aData[10] +
+    "</td><td>Días de Almacenamiento:</td><td>" +
+    aData[11] +
+    "</td></tr>";
   sOut += "</table>";
 
   return sOut;
@@ -33,6 +60,8 @@ $(document).ready(function () {
         aTargets: [0],
       },
     ],
+    dom: "Bfrtip",
+    buttons: ["excel", "print"],
     aaSorting: [[1, "desc"]],
   });
   /* Add event listener for opening and closing details

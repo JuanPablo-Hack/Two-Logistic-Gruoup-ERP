@@ -13,7 +13,7 @@
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Cliente agregado con éxito!</div>
                 <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
-                <form id="AltaProveedor">
+                <form id="AltaCliente">
                     <div class="row g-2">
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-fullname">Razón Social</label>
@@ -126,6 +126,20 @@
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
                                 <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col mb-0">
+                            <label class="form-label" for="basic-icon-default-company">Días de Crédito</label>
+                            <div class="input-group input-group-merge">
+                                <input type="number" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="credito" required />
+                            </div>
+                        </div>
+                        <div class="col mb-0">
+                            <label class="form-label" for="basic-icon-default-company">Días de almacenamiento</label>
+                            <div class="input-group input-group-merge">
+                                <input type="number" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="almacenamiento" required />
                             </div>
                         </div>
                     </div>

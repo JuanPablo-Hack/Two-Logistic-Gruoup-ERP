@@ -31,11 +31,10 @@
                     <td><?php echo $mostrar['no_conceptos'] ?></td>
                     <td><?php echo $mostrar['arreglo'] ?></td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarCotizacion<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
+                        <button type="button" onclick="eliminarContrato(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Generar PDF"><i class='bx bxs-file-pdf'></i></button>
                         <button type="button" onclick="eliminarCotizacion(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
                     </td>
                 </tr>
-                <?php include 'templates/modals/cotizaciones/editar.php'; ?>
             <?php
             }
             ?>

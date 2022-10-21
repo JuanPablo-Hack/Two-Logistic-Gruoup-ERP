@@ -105,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row g-3">
+                    <div class="row g-2">
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-company">Domicilio</label>
                             <div class="input-group input-group-merge">
@@ -121,11 +121,19 @@
                                 <option value="2">Persona Moral</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="row g-2">
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-company">Nombre del representante</label>
                             <div class="input-group input-group-merge">
-                                <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+                                <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-user"></i></span>
                                 <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" required />
+                            </div>
+                        </div>
+                        <div class="col mb-0">
+                            <label class="form-label" for="basic-icon-default-company">CAAT</label>
+                            <div class="input-group input-group-merge">
+                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="caat" required />
                             </div>
                         </div>
                     </div>

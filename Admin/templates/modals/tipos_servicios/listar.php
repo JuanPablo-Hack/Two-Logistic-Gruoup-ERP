@@ -8,7 +8,7 @@
         <h5 class="card-header">Lista de tipo de servicios </h5>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
-                <table class="table table-bordered" id="table">
+                <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
                     <thead>
                         <tr>
                             <th>Nombre</th>

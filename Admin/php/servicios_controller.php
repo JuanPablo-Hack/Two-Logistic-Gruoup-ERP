@@ -16,7 +16,7 @@ function agregar_servicio($id_cliente, $id_operador, $fecha_servicio, $descripci
     foreach ($_POST['check_lista'] as $seleccion) {
         array_push($tipos_servicios, $seleccion);
     }
-    $datos_tipos_servicios = implode("<br>", $tipos_servicios);
+    $datos_tipos_servicios = implode(",", $tipos_servicios);
     include 'conexion.php';
     $sql = "INSERT INTO `servicios` (`id`, `id_cliente`, `fecha_servicio`, `id_operador`, `tipos_servicios`, `descripcion`) VALUES (NULL, '$id_cliente', '$fecha_servicio', '$id_operador', '$datos_tipos_servicios', '$descripcion')";
     $resultado = $conexion->query($sql);

@@ -12,8 +12,14 @@
                 <th>RFC</th>
                 <th>Domicilio</th>
                 <th>Estado Empresarial</th>
-                <th>Representante</th>
-                <th>Actions</th>
+                <th>Representante Legal</th>
+                <th style="display: none;">Contacto Comercial</th>
+                <th style="display: none;">Contacto Operativo</th>
+                <th style="display: none;">Contacto Administrativo</th>
+                <th style="display: none;">Tipos de Servicios</th>
+                <th style="display: none;">Días de crédito</th>
+                <th style="display: none;">Días de almacenamiento</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +33,19 @@
                     <td><?php echo $mostrar['razon_social'] ?></td>
                     <td><?php echo $mostrar['rfc'] ?></td>
                     <td><?php echo $mostrar['domicilio'] ?></td>
-                    <td><?php echo $mostrar['estado_empresarial'] ?></td>
+                    <td><?php
+                        $sql1 = "SELECT nombre FROM situacion_fiscal WHERE id='" . $mostrar['estado_empresarial'] . "'";
+                        $result1 = mysqli_query($conexion, $sql1);
+                        $Row = mysqli_fetch_array($result1);
+                        echo $Row['nombre'];
+                        ?></td>
                     <td><?php echo $mostrar['nombre_representante'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['datos_comercial'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['datos_operacion'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['datos_admin'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['tipo_servicio'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['credito'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['almacenamiento'] ?></td>
                     <td>
                         <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarCliente<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
                         <button type="button" onclick="eliminarCliente(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>

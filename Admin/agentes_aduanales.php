@@ -144,55 +144,55 @@
                     </li>
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Variables de Entorno</span></li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="usuarios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-group"></i>
                             <div data-i18n="Analytics">Usuarios</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="tipos_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
                             <div data-i18n="Analytics">Tipos de Servicios</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="tipo_contenedores.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-buildings"></i>
                             <div data-i18n="Analytics">Tipo de Contenedores</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="tipos_mercancias.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-copy-alt"></i>
                             <div data-i18n="Analytics">Tipo de Mercancia</div>
                         </a>
                     </li>
                     <li class="menu-item active">
-                        <a href="index.php" class="menu-link">
+                        <a href="agentes_aduanales.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-plane"></i>
                             <div data-i18n="Analytics">Agentes Aduanales</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="tipos_cargas.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cabinet"></i>
                             <div data-i18n="Analytics">Tipos de Carga</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="tipos_plataformas.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-traffic-cone"></i>
                             <div data-i18n="Analytics">Tipos de Plataformas</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="tipos_productos.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxl-product-hunt"></i>
                             <div data-i18n="Analytics">Tipos de Productos</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="tipos_embalaje.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-backpack"></i>
                             <div data-i18n="Analytics">Tipos de Embalaje</div>
                         </a>
@@ -232,6 +232,8 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="js/agentes_aduanales.js"></script>
 </body>
