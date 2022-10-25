@@ -13,7 +13,7 @@ $sql6 = "SELECT * FROM transporte";
 $result6 = mysqli_query($conexion, $sql6);
 ?>
 <form id="AltaviajeTerrestre">
-    <input type="hidden" value="Viaje Áereo" name="tipo_viaje">
+    <input type="hidden" value="Viaje Terrestre" name="tipo_viaje">
     <div class="row g-2">
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
@@ -69,7 +69,7 @@ $result6 = mysqli_query($conexion, $sql6);
         <div class="col mb-0">
             <label class="form-label" for="basic-icon-default-fullname">No. de contenedores</label>
             <div class="input-group input-group-merge">
-                <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="puerto_carga" required />
+                <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="no_contenedores" required />
             </div>
         </div>
         <div class="col mb-0">
@@ -78,7 +78,7 @@ $result6 = mysqli_query($conexion, $sql6);
         </div>
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Tipo de Viaje</label>
-            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_viaje" required onchange="cambiar_conceptos()">
+            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_viaje_terrestre" required>
                 <option selected>Selecciona un tipo de viaje</option>
                 <option value="1">Local</option>
                 <option value="2">Foraneo</option>
@@ -102,7 +102,7 @@ $result6 = mysqli_query($conexion, $sql6);
     <div class="row g-4">
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Agente Aduanal</label>
-            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="agente_aduanal" required onchange="cambiar_conceptos()">
+            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="agente_aduanal" required>
                 <option selected>Selecciona un agente aduanal</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result3)) {
@@ -115,7 +115,7 @@ $result6 = mysqli_query($conexion, $sql6);
         </div>
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Tipo de Mercancia</label>
-            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_mercancia" required onchange="cambiar_conceptos()">
+            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_mercancia" required>
                 <option selected>Selecciona un tipo de mercancia</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result4)) {
@@ -128,7 +128,7 @@ $result6 = mysqli_query($conexion, $sql6);
         </div>
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Tipo de Plataforma</label>
-            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_plataforma" required onchange="cambiar_conceptos()">
+            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_plataforma" required>
                 <option selected>Selecciona un tipo de plataforma</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result5)) {
@@ -141,7 +141,7 @@ $result6 = mysqli_query($conexion, $sql6);
         </div>
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Transportista</label>
-            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="transporte" required onchange="cambiar_conceptos()">
+            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="transporte" required>
                 <option selected>Selecciona un transportista</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result6)) {

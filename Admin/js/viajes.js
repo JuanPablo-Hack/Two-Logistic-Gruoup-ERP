@@ -2,9 +2,46 @@ function fnFormatDetails(oTable, nTr) {
   var aData = oTable.fnGetData(nTr);
   var sOut =
     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-  sOut += "<tr><td>Folio:</td><td>" + aData[1] + "</td></tr>";
-  sOut += "<tr><td>Departamento:</td><td>" + aData[2] + "</td></tr>";
-  sOut += "<tr><td>Ingeniero:</td><td>" + aData[3] + "</td></tr>";
+  sOut +=
+    "<tr><td>Booking:</td><td>" +
+    aData[9] +
+    "</td><td>Línea naviera:</td><td>" +
+    aData[10] +
+    "</td><td>No contenedores:</td><td>" +
+    aData[11] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>Tipo contenedores:</td><td>" +
+    aData[12] +
+    "</td><td>Buque:</td><td>" +
+    aData[13] +
+    "</td><td>Viaje:</td><td>" +
+    aData[14] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>Puerto carga:</td><td>" +
+    aData[15] +
+    "</td><td>Puerto transbordo:</td><td>" +
+    aData[16] +
+    "</td><td>Puerto destino:</td><td>" +
+    aData[17] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>Puerto transito:</td><td>" +
+    aData[18] +
+    "</td><td>Tiempo transito:</td><td>" +
+    aData[19] +
+    "</td><td>Cierre:</td><td>" +
+    aData[20] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>VGM:</td><td>" +
+    aData[21] +
+    "</td><td>Documentos:</td><td>" +
+    aData[22] +
+    "</td><td>Tipo liberacion:</td><td>" +
+    aData[23] +
+    "</td></tr>";
   sOut += "</table>";
 
   return sOut;
@@ -33,6 +70,8 @@ $(document).ready(function () {
         aTargets: [0],
       },
     ],
+    dom: "Bfrtip",
+    buttons: ["excel", "print"],
     aaSorting: [[1, "desc"]],
   });
   /* Add event listener for opening and closing details

@@ -2,11 +2,15 @@ function fnFormatDetails(oTable, nTr) {
   var aData = oTable.fnGetData(nTr);
   var sOut =
     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-  sOut += "<tr><td>Folio:</td><td>" + aData[1] + "</td></tr>";
-  sOut += "<tr><td>Departamento:</td><td>" + aData[2] + "</td></tr>";
-  sOut += "<tr><td>Ingeniero:</td><td>" + aData[3] + "</td></tr>";
+  sOut +=
+    "<tr><td>Entrada a Almacen:</td><td>" +
+    aData[7] +
+    "</td><td>Salida de Almacen:</td><td>" +
+    aData[8] +
+    "</td></tr>";
+  sOut += "<tr><td>Documentos:</td><td>" + aData[9] + "</td></tr>";
+  sOut += "<tr><td>Descripción:</td><td>" + aData[10] + "</td></tr>";
   sOut += "</table>";
-
   return sOut;
 }
 $(document).ready(function () {
@@ -30,6 +34,8 @@ $(document).ready(function () {
         aTargets: [0],
       },
     ],
+    dom: "Bfrtip",
+    buttons: ["excel", "print"],
     aaSorting: [[1, "desc"]],
   });
   /* Add event listener for opening and closing details
@@ -61,4 +67,68 @@ function cambiar_conceptos() {
       document.getElementById("concepto_2").style.display = "inherit";
       break;
   }
+}
+
+function entrada() {
+  document.getElementById("transporte_entrada").style.display = "inherit";
+}
+function salida() {
+  document.getElementById("transporte_salida").style.display = "inherit";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("AltaTraspaleo")
+    .addEventListener("submit", AltaTraspaleo);
+});
+async function AltaTraspaleo(e) {
+  e.preventDefault();
+  var form = document.getElementById("AltaTraspaleo");
+  let data = new FormData(form);
+  data.append("accion", "agregar");
+  fetch("php/traspaleo_controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((result) => result.text())
+    .then((result) => {
+      if (result == 1) {
+        document.getElementById("success").style.display = "inherit";
+        document.getElementById("decline").style.display = "none";
+        setTimeout(function () {
+          location.reload();
+        }, 2000);
+      } else {
+        document.getElementById("success").style.display = "none";
+        document.getElementById("decline").style.display = "inherit";
+      }
+    });
+}
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("AltaAlmacenaje")
+    .addEventListener("submit", AltaAlmacenaje);
+});
+async function AltaAlmacenaje(e) {
+  e.preventDefault();
+  var form = document.getElementById("AltaAlmacenaje");
+  let data = new FormData(form);
+  data.append("accion", "agregar");
+  fetch("php/almacenaje_controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((result) => result.text())
+    .then((result) => {
+      if (result == 1) {
+        document.getElementById("success").style.display = "inherit";
+        document.getElementById("decline").style.display = "none";
+        setTimeout(function () {
+          location.reload();
+        }, 2000);
+      } else {
+        document.getElementById("success").style.display = "none";
+        document.getElementById("decline").style.display = "inherit";
+      }
+    });
 }

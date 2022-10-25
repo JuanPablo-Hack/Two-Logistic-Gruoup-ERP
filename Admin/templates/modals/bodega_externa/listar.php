@@ -9,27 +9,51 @@
         <thead>
             <tr>
                 <th>Cliente</th>
-                <th>No. de Conceptos</th>
-                <th>Conceptos</th>
+                <th>Nombre del Producto</th>
+                <th>Peso</th>
+                <th>Cubicaje</th>
+                <th>Tipo de Producto</th>
+                <th>Tipo de embalaje</th>
+                <th style="display: none;">Entrada a Almacen</th>
+                <th style="display: none;">Salida de Almacen</th>
+                <th style="display: none;">Documentos</th>
+                <th style="display: none;">Descripción</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $sql = "SELECT * FROM cotizaciones";
+            $sql = "SELECT * FROM almacenaje";
             $resultado = $conexion->query($sql);
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
                 <tr>
 
                     <td><?php
-                        $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
+                        $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['cliente'] . "'";
                         $result1 = mysqli_query($conexion, $sql1);
                         $Row = mysqli_fetch_array($result1);
                         echo $Row['razon_social'];
                         ?></td>
-                    <td><?php echo $mostrar['no_conceptos'] ?></td>
-                    <td><?php echo $mostrar['arreglo'] ?></td>
+                    <td><?php echo $mostrar['nombre_producto'] ?></td>
+                    <td><?php echo $mostrar['peso'] ?></td>
+                    <td><?php echo $mostrar['cubicaje'] ?></td>
+                    <td><?php
+                        $sql1 = "SELECT * FROM tipo_producto WHERE id='" . $mostrar['tipo_producto'] . "'";
+                        $result1 = mysqli_query($conexion, $sql1);
+                        $Row = mysqli_fetch_array($result1);
+                        echo $Row['nombre'];
+                        ?></td>
+                    <td><?php
+                        $sql1 = "SELECT * FROM tipo_embalaje WHERE id='" . $mostrar['tipo_embalaje'] . "'";
+                        $result1 = mysqli_query($conexion, $sql1);
+                        $Row = mysqli_fetch_array($result1);
+                        echo $Row['nombre'];
+                        ?></td>
+                    <td style="display: none;"><?php echo $mostrar['dias_almacen'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['salida'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['documentos'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['descrip'] ?></td>
                     <td>
                         <button type="button" onclick="eliminarContrato(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Generar PDF"><i class='bx bxs-file-pdf'></i></button>
                         <button type="button" onclick="eliminarCotizacion(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>

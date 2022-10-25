@@ -20,19 +20,21 @@
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Despacho Aduanal agregado con éxito!</div>
                 <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
                 <form id="AltaProveedor">
+                    <input type="hidden" name="id" value="<?php echo $mostrar['id']; ?>">
+                    <input type="hidden" name="accion" value="editar">
                     <div class="row g-3">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Tipo de operación</label>
-                            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                                <option selected>Selecciona un tipo de operación</option>
-                                <option value="1">Importación</option>
-                                <option value="2">Exportación</option>
+                            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_oper'>
+                                <option selected value="<?php echo $mostrar['tipo_oper']; ?>">Selecciona un tipo de operación</option>
+                                <option value="Importación">Importación</option>
+                                <option value="Exportación">Exportación</option>
                             </select>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
                             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                                <option value="0">Selecciona un cliente</option>
+                                <option value="<?php echo $mostrar['cliente']; ?>">Selecciona un cliente</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
@@ -44,8 +46,8 @@
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>
-                            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                                <option value="0">Selecciona un proveedor</option>
+                            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='proveedor'>
+                                <option value="<?php echo $mostrar['proveedor']; ?>">Selecciona un proveedor</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result4)) {
                                 ?>
@@ -61,13 +63,13 @@
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-fullname">Aduana de despacho</label>
                             <div class="input-group input-group-merge">
-                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="bultos" required />
+                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="aduana" value="<?php echo $mostrar['aduana']; ?>" />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-fullname">Terminal portuaria</label>
                             <div class="input-group input-group-merge">
-                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="bultos" required />
+                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="terminal" value="<?php echo $mostrar['terminal']; ?>" />
                             </div>
                         </div>
                     </div>
@@ -75,8 +77,8 @@
                     <div class="row g-2">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Tipo de mercancia</label>
-                            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required onchange="cambiar_conceptos()">
-                                <option selected>Selecciona un tipo de mercancia</option>
+                            <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia">
+                                <option selected value="<?php echo $mostrar['tipo_mercancia']; ?>">Selecciona un tipo de mercancia</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result2)) {
                                 ?>
@@ -89,7 +91,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Tipo de Carga</label>
                             <select class="form-select" id="num_conceptos" aria-label="Default select example" name="carga" required onchange="cambiar_conceptos()">
-                                <option selected>Selecciona un tipo de carga</option>
+                                <option selected value="<?php echo $mostrar['tipo_carga']; ?>">Selecciona un tipo de carga</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result3)) {
                                 ?>
@@ -143,7 +145,7 @@
                     <div class="row">
                         <div class="col mb-0">
                             <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"><?php echo $mostrar['comentarios']; ?></textarea>
                         </div>
                     </div>
             </div>
