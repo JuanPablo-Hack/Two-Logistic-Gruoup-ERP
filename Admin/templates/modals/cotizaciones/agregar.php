@@ -20,7 +20,7 @@
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Cotizacion agregado con éxito!</div>
                 <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
-                <form action="php/test.php" method="post">
+                <form id="AltaCotizacion">
                     <div class="row g-2">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
@@ -47,101 +47,10 @@
                         </div>
                     </div>
                     <br>
-                    <div style="display: none;" id="concepto_1">
-                        <div class="row g-2">
-                            <div class="col mb-0">
-                                <label for="exampleFormControlSelect1" class="form-label">Concepto no.1</label>
-                                <select class="form-control" name='concepto_1'>
-                                    <option value="0">Sin Asignar</option>
-                                    <?php
-                                    while ($Row1 = mysqli_fetch_array($result2)) {
-                                    ?>
-                                        <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col mb-0">
-                                <label class="form-label" for="basic-icon-default-fullname">Cantidad</label>
-                                <div class="input-group input-group-merge">
+                    <div id="conceptos">
+                                
+                    </div>
 
-                                    <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_oper" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display: none;" id="concepto_2">
-                        <div class="row g-2">
-                            <div class="col mb-0">
-                                <label for="exampleFormControlSelect1" class="form-label">Concepto no.2</label>
-                                <select class="form-control" name='concepto_2'>
-                                    <option value="0">Sin Asignar</option>
-                                    <?php
-                                    while ($Row1 = mysqli_fetch_array($result3)) {
-                                    ?>
-                                        <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col mb-0">
-                                <label class="form-label" for="basic-icon-default-fullname">Cantidad</label>
-                                <div class="input-group input-group-merge">
-
-                                    <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_oper" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display: none;" id="concepto_3">
-                        <div class="row g-2">
-                            <div class="col mb-0">
-                                <label for="exampleFormControlSelect1" class="form-label">Concepto no.3</label>
-                                <select class="form-control" name='concepto_1'>
-                                    <option value="0">Sin Asignar</option>
-                                    <?php
-                                    while ($Row1 = mysqli_fetch_array($result4)) {
-                                    ?>
-                                        <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col mb-0">
-                                <label class="form-label" for="basic-icon-default-fullname">Cantidad</label>
-                                <div class="input-group input-group-merge">
-                                    <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_oper" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display: none;" id="concepto_4">
-                        <div class="row g-2">
-                            <div class="col mb-0">
-                                <label for="exampleFormControlSelect1" class="form-label">Concepto no.4</label>
-                                <select class="form-control" name='concepto_1'>
-                                    <option value="0">Sin Asignar</option>
-                                    <?php
-                                    while ($Row1 = mysqli_fetch_array($result2)) {
-                                    ?>
-                                        <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col mb-0">
-                                <label class="form-label" for="basic-icon-default-fullname">Cantidad</label>
-                                <div class="input-group input-group-merge">
-
-                                    <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_oper" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">

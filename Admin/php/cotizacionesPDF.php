@@ -1,17 +1,31 @@
 <?php
-//TODO: Hacer que se pueda ver el logo
-echo '<!DOCTYPE html>
+include 'conexion.php';
+$id = 1;
+$cotizacion = $conexion->query("SELECT * FROM cotizaciones WHERE id = $id");
+$datos_cotizacion = $cotizacion->fetch_assoc();
+
+$cliente = $conexion->query("SELECT * FROM clientes WHERE id = " . $datos_cotizacion['id_cliente']);
+$datos_cliente = $cliente->fetch_assoc();
+
+$datos_comercial = explode(",", $datos_cliente['datos_comercial']);
+$conceptos = explode(",", $datos_cotizacion['conceptos']);
+$cantidades = explode(",", $datos_cotizacion['cantidades']);
+$precios = explode(",", $datos_cotizacion['precios']);
+?>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>PDF</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  </head>
-  <body>
+</head>
+
+<body>
   <style>
     .clearfix:after {
       content: "";
@@ -148,175 +162,133 @@ echo '<!DOCTYPE html>
       text-align: center;
     }
   </style>
-    <header class="clearfix">
-    <!-- <div id="logo">
-            <img src="./assets/img/logo.png" />
-        </div> -->
-      <h1>Cotización - 01</h1>
-      <div id="company" class="clearfix">
-        <div><strong>Two logistics</strong></div>
-        <div><strong>314-186-6895</strong></div>
-        <div><strong>REF.CLIENTE:</strong></div>
-        <div>
-          <a href="mailto:company@example.com">comercial@twologistic.com</a>
-        </div>
+  <header class="clearfix">
+    <div id="logo">
+      <img src="./assets/img/logo.png" /> 
+    </div>
+    <h1>Cotización - 01</h1>
+    <div id="company" class="clearfix">
+      <div><strong>Two logistics</strong></div>
+      <div><strong>314-186-6895</strong></div>
+      <div><strong>REF.CLIENTE:</strong></div>
+      <div>
+        <a href="mailto:company@example.com">comercial@twologistic.com</a>
       </div>
-      <div id="project">
-        <div style="border: solid 1px">
-          <strong><span>NOMBRE</span></strong>
-        </div>
-        <div style="border: solid 1px">
-          <strong><span>CONTACTO</span></strong>
-        </div>
-        <div style="border: solid 1px">
-          <strong><span>TEL</span></strong>
-        </div>
-        <div style="border: solid 1px">
-          <strong><span>ADUANA</span></strong>
-        </div>
-        <div style="border: solid 1px">
-          <strong><span>EMAIL</span></strong>
-          <a href="mailto:john@example.com"></a>
-        </div>
-        <div style="border: solid 1px">
-          <strong><span>FECHA</span></strong>
-        </div>
+    </div>
+    <div id="project">
+      <div style="border: solid 1px">
+        <strong><span>NOMBRE: </span><?php echo $datos_cliente['razon_social'] ?></strong>
       </div>
-    </header>
-    <main>
-      <table style="border: solid 1px">
-        <thead style="border: solid 1px; background-color: #2b3f54">
+      <div style="border: solid 1px">
+        <strong><span>CONTACTO: </span><?php echo $datos_comercial[0] ?></strong>
+      </div>
+      <div style="border: solid 1px">
+        <strong><span>TEL: </span><?php echo $datos_comercial[2] ?></strong>
+      </div>
+      <div style="border: solid 1px">
+        <strong><span>ADUANA: </span> TEST</strong>
+      </div>
+      <div style="border: solid 1px">
+        <strong><span>EMAIL: </span></strong>
+        <a href="mailto:john@example.com"> <?php echo $datos_comercial[1] ?></a>
+      </div>
+      <div style="border: solid 1px">
+        <strong><span>FECHA: </span><?php echo $datos_cotizacion['creado'] ?></strong>
+      </div>
+    </div>
+  </header>
+  <main>
+    <table style="border: solid 1px">
+      <thead style="border: solid 1px; background-color: #2b3f54">
+        <tr>
+          <th class="service" style="color: white">SERVICIO</th>
+          <th class="desc" style="color: white">DESCRIPCIÓN</th>
+          <th style="color: white">TARIFA</th>
+          <th style="color: white">CANTIDAD</th>
+          <th style="color: white">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        for ($i = 0; $i < $datos_cotizacion['no_conceptos']; $i++) {
+        ?>
           <tr>
-            <th class="service" style="color: white">SERVICIO</th>
-            <th class="desc" style="color: white">DESCRIPCIÓN</th>
-            <th style="color: white">TARIFA</th>
-            <th style="color: white">CANTIDAD</th>
-            <th style="color: white">TOTAL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="service">x</td>
+            <td class="service"><?php echo $conceptos[$i] ?></td>
             <td class="desc">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Dignissimos, earum? Doloribus cumque laborum soluta reiciendis
               blanditiis excepturi, provident alias distinctio ab fuga accusamus
               error ipsum quae cupiditate unde libero sed!
             </td>
-            <td class="unit">$40.00</td>
-            <td class="qty">26</td>
-            <td class="total">$1,040.00</td>
+            <td class="unit"><?php echo number_format($precios[$i], 2, '.', ',') ?></td>
+            <td class="qty"><?php echo $cantidades[$i] ?></td>
+            <td class="total"><?php echo '$' . number_format($cantidades[$i] * $precios[$i], 2, '.', ',') ?></td>
           </tr>
-          <tr>
-            <td class="service">Development</td>
-            <td class="desc">
-              Developing a Content Management System-based Website
-            </td>
-            <td class="unit">$40.00</td>
-            <td class="qty">80</td>
-            <td class="total">$3,200.00</td>
-          </tr>
-          <tr>
-            <td class="service">SEO</td>
-            <td class="desc">Optimize the site for search engines (SEO)</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">20</td>
-            <td class="total">$800.00</td>
-          </tr>
-          <tr>
-            <td class="service">Training</td>
-            <td class="desc">
-              Initial training sessions for staff responsible for uploading web
-              content
-            </td>
-            <td class="unit">$40.00</td>
-            <td class="qty">4</td>
-            <td class="total">$160.00</td>
-          </tr>
-          <tr>
-            <td colspan="4">SUBTOTAL</td>
-            <td class="total">$5,200.00</td>
-          </tr>
-          <tr>
-            <td colspan="4">TAX 16%</td>
-            <td class="total">$1,300.00</td>
-          </tr>
-          <tr>
-            <td colspan="4" class="grand total">TOTAL</td>
-            <td class="grand total">$6,500.00</td>
-          </tr>
-        </tbody>
-      </table>
-      <div id="notices" style="border: solid 1px">
-        <div style="border: solid 1px; background-color: #2b3f54">
-          <h4 style="color: white"><center>TÉRMINOS Y CONDICIONES</center></h4>
-        </div>
-        <div class="notice">
-          <ul>
-            <li>Tarifa para carga general (NO Peligroso)</li>
-            <li>
-              Es importante mencionar que las tarifas ofertadas no incluyen
-              maniobras, tramitaciones aduanales, seguro de la mercancía y/o del
-              contenedor ni tampoco gastos adicionales ajenos a la operación.
-            </li>
-            <li>
-              El pago de impuestos que cause la mercancía en origen y/o en
-              destino será siempre por cuenta del embarcador y/o consignatario.
-            </li>
-            <li>
-              En caso de ser mercancía IMO, estará sujeto a la aprobación de la
-              línea Naviera en origen y en destino, así como al recargo
-              correspondiente.
-            </li>
-            <li>
-              Los costos pueden cambiar con o sin previo aviso dependiendo de la
-              fecha de zarpe.
-            </li>
-            <li>
-              Solicitar el servicio de recolección con 48 hrs de antelación
-            </li>
-            <li>Flete en falso se cobrará el 100% flete</li>
-            <li>Las tarifas propuestas esta expresadas en pesos USD y MXN</li>
-            <li>
-              Se deberá realizar solicitud de anticipo por la totalidad del
-              embarque a realizar. En caso de incurrir en gastos independientes
-              a la operación, deberán cubrirse en su totalidad con solicitud
-              enviada.
-            </li>
-            <li>
-              Cualquier servicio no especificado en estas tarifas será cotizado
-              por separado.
-            </li>
-            <li>
-              Se factura en USD de acuerdo con el TC que corresponda al zarpe
-            </li>
-            <li>
-              De acuerdo con el pago deber ser anticipado y debe quedar cubierto
-              al envió del Booking.
-            </li>
-            <li>
-              Considerar que las reservas de Booking se pueden realizar al día
-              de la solicitud, solo se debe considerar un tiempo de 24 a 48 hrs
-              para la obtención del Booking Confirmation.
-            </li>
-            <li>Vigencia xxxxxxx</li>
-          </ul>
-        </div>
+
+        <?php
+        }
+        ?>
+      </tbody>
+    </table>
+    <div id="notices" style="border: solid 1px">
+      <div style="border: solid 1px; background-color: #2b3f54">
+        <h4 style="color: white">
+          <center>TÉRMINOS Y CONDICIONES</center>
+        </h4>
       </div>
-    </main>
-  </body>
+      <div class="notice">
+        <ul>
+          <li>Tarifa para carga general (NO Peligroso)</li>
+          <li>
+            Es importante mencionar que las tarifas ofertadas no incluyen
+            maniobras, tramitaciones aduanales, seguro de la mercancía y/o del
+            contenedor ni tampoco gastos adicionales ajenos a la operación.
+          </li>
+          <li>
+            El pago de impuestos que cause la mercancía en origen y/o en
+            destino será siempre por cuenta del embarcador y/o consignatario.
+          </li>
+          <li>
+            En caso de ser mercancía IMO, estará sujeto a la aprobación de la
+            línea Naviera en origen y en destino, así como al recargo
+            correspondiente.
+          </li>
+          <li>
+            Los costos pueden cambiar con o sin previo aviso dependiendo de la
+            fecha de zarpe.
+          </li>
+          <li>
+            Solicitar el servicio de recolección con 48 hrs de antelación
+          </li>
+          <li>Flete en falso se cobrará el 100% flete</li>
+          <li>Las tarifas propuestas esta expresadas en pesos USD y MXN</li>
+          <li>
+            Se deberá realizar solicitud de anticipo por la totalidad del
+            embarque a realizar. En caso de incurrir en gastos independientes
+            a la operación, deberán cubrirse en su totalidad con solicitud
+            enviada.
+          </li>
+          <li>
+            Cualquier servicio no especificado en estas tarifas será cotizado
+            por separado.
+          </li>
+          <li>
+            Se factura en USD de acuerdo con el TC que corresponda al zarpe
+          </li>
+          <li>
+            De acuerdo con el pago deber ser anticipado y debe quedar cubierto
+            al envió del Booking.
+          </li>
+          <li>
+            Considerar que las reservas de Booking se pueden realizar al día
+            de la solicitud, solo se debe considerar un tiempo de 24 a 48 hrs
+            para la obtención del Booking Confirmation.
+          </li>
+          <li>Vigencia xxxxxxx</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</body>
+
 </html>
-';
-//TODO: terminar las funciones de poner en la cotización
-function datoscliente($id)
-{
-  include 'conexion.php';
-  $sql = "UPDATE `clientes` SET `razon_social` = '$razon_social', `rfc` = '$rfc', `cargo` = '$cargo', `contacto` = '$contacto', `tel` = '$tel', `correo` = '$email', `domicilio` = '$domicilio', `estado_empresarial` = '$estado', `nombre_representante` = '$nombre_representante' WHERE `clientes`.`id` = $id ";
-  $resultado = $conexion->query($sql);
-}
-function datos_tipo_servicio($id)
-{
-  include 'conexion.php';
-  $sql = "UPDATE `clientes` SET `razon_social` = '$razon_social', `rfc` = '$rfc', `cargo` = '$cargo', `contacto` = '$contacto', `tel` = '$tel', `correo` = '$email', `domicilio` = '$domicilio', `estado_empresarial` = '$estado', `nombre_representante` = '$nombre_representante' WHERE `clientes`.`id` = $id ";
-  $resultado = $conexion->query($sql);
-}

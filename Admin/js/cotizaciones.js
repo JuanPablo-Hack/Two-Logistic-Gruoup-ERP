@@ -2,9 +2,9 @@ function fnFormatDetails(oTable, nTr) {
   var aData = oTable.fnGetData(nTr);
   var sOut =
     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-  sOut += "<tr><td>Folio:</td><td>" + aData[1] + "</td></tr>";
-  sOut += "<tr><td>Departamento:</td><td>" + aData[2] + "</td></tr>";
-  sOut += "<tr><td>Ingeniero:</td><td>" + aData[3] + "</td></tr>";
+  sOut += "<tr><td>Conceptos:</td><td>" + aData[5] + "</td></tr>";
+  sOut += "<tr><td>Cantidades:</td><td>" + aData[6] + "</td></tr>";
+  sOut += "<tr><td>Precios:</td><td>" + aData[7] + "</td></tr>";
   sOut += "</table>";
 
   return sOut;
@@ -53,39 +53,17 @@ $(document).ready(function () {
   });
 });
 function cambiar_conceptos() {
-  var x = document.getElementById("num_conceptos").value;
-  switch (x) {
-    case "1":
-      document.getElementById("concepto_1").style.display = "inherit";
-      document.getElementById("concepto_2").style.display = "none";
-      document.getElementById("concepto_3").style.display = "none";
-      document.getElementById("concepto_4").style.display = "none";
-      break;
-    case "2":
-      document.getElementById("concepto_1").style.display = "inherit";
-      document.getElementById("concepto_2").style.display = "inherit";
-      document.getElementById("concepto_3").style.display = "none";
-      document.getElementById("concepto_4").style.display = "none";
-      break;
-    case "3":
-      document.getElementById("concepto_1").style.display = "inherit";
-      document.getElementById("concepto_2").style.display = "inherit";
-      document.getElementById("concepto_3").style.display = "inherit";
-      document.getElementById("concepto_4").style.display = "none";
-      break;
-    case "4":
-      document.getElementById("concepto_1").style.display = "inherit";
-      document.getElementById("concepto_2").style.display = "inherit";
-      document.getElementById("concepto_3").style.display = "inherit";
-      document.getElementById("concepto_4").style.display = "inherit";
-      break;
-    case "0":
-      document.getElementById("concepto_1").style.display = "none";
-      document.getElementById("concepto_2").style.display = "none";
-      document.getElementById("concepto_3").style.display = "none";
-      document.getElementById("concepto_4").style.display = "none";
-      break;
-  }
+  var num_conceptos = $("#num_conceptos").val();
+  $.ajax({
+    url: "./templates/modals/cotizaciones/conceptos.php",
+    method: "POST",
+    data: {
+      num_conceptos: num_conceptos,
+    },
+    success: function (respuesta) {
+      $("#conceptos").html(respuesta);
+    },
+  });
 }
 function eliminarCotizacion(id) {
   const swalWithBootstrapButtons = Swal.mixin({
@@ -150,26 +128,62 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 async function AltaCotizacion(e) {
   e.preventDefault();
-  console.log("AltaCotiz")
-  // var form = document.getElementById("AltaCotizacion");
-  // let data = new FormData(form);
-  // data.append("accion", "agregar");
-  // fetch("php/cotizacion_controlle.php", {
-  //   method: "POST",
-  //   body: data,
-  // })
-  //   .then((result) => result.text())
-  //   .then((result) => {
-  //     if (result == 1) {
-  //       document.getElementById("success").style.display = "inherit";
-  //       document.getElementById("decline").style.display = "none";
-  //       setTimeout(function () {
-  //         location.reload();
-  //       }, 2000);
-  //       form.reset();
-  //     } else {
-  //       document.getElementById("success").style.display = "none";
-  //       document.getElementById("decline").style.display = "inherit";
-  //     }
-  //   });
+  var form = document.getElementById("AltaCotizacion");
+  let data = new FormData(form);
+  data.append("accion", "agregar");
+  fetch("php/cotizacion_controlle.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((result) => result.text())
+    .then((result) => {
+      if (result == 1) {
+        document.getElementById("success").style.display = "inherit";
+        document.getElementById("decline").style.display = "none";
+        setTimeout(function () {
+          location.reload();
+        }, 2000);
+        form.reset();
+      } else {
+        document.getElementById("success").style.display = "none";
+        document.getElementById("decline").style.display = "inherit";
+      }
+    });
+}
+function addScript(url) {
+  var script = document.createElement("script");
+  script.type = "application/javascript";
+  script.src = url;
+  document.head.appendChild(script);
+}
+addScript(
+  "https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"
+);
+
+function crearPDF(id) {
+  var opt = {
+    margin: 1,
+    filename: "Cotizacion.pdf",
+    image: {
+      type: "jpeg",
+      quality: 0.98,
+    },
+    html2canvas: {
+      scale: 3,
+    },
+    jsPDF: {
+      unit: "in",
+      format: "a3",
+      orientation: "portrait",
+    },
+  };
+
+  $.ajax({
+    type: "POST",
+    data: "id=" + id,
+    url: "php/cotizacionesPDF.php",
+    success: function (r) {
+      var worker = html2pdf().set(opt).from(r).toPdf().save();
+    },
+  });
 }
