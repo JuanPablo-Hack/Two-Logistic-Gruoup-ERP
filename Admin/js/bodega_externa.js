@@ -70,10 +70,30 @@ function cambiar_conceptos() {
 }
 
 function entrada() {
-  document.getElementById("transporte_entrada").style.display = "inherit";
+  var num_conceptos = $("#num_entradas").val();
+  $.ajax({
+    url: "./templates/modals/bodega_externa/formularios/num_entradas.php",
+    method: "POST",
+    data: {
+      num_conceptos: num_conceptos,
+    },
+    success: function (respuesta) {
+      $("#transporte_entrada").html(respuesta);
+    },
+  });
 }
 function salida() {
-  document.getElementById("transporte_salida").style.display = "inherit";
+  var num_conceptos = $("#num_salidas").val();
+  $.ajax({
+    url: "./templates/modals/bodega_externa/formularios/num_salidas.php",
+    method: "POST",
+    data: {
+      num_conceptos: num_conceptos,
+    },
+    success: function (respuesta) {
+      $("#transporte_salida").html(respuesta);
+    },
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {

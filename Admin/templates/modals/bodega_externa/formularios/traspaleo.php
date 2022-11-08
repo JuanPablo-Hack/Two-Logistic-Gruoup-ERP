@@ -84,10 +84,10 @@ $result5 = mysqli_query($conexion, $sql5);
         </div>
 
     </div>
-    <div class="row g-2">
+    <div class="row g-4">
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Transportista Entrada</label>
-            <select class="form-select" aria-label=" Default select example" required name='transporte_entrada' onchange="entrada()">
+            <select class="form-select" aria-label=" Default select example" required name='transporte_entrada'>
                 <option value="0">Selecciona un transportista</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result4)) {
@@ -99,8 +99,19 @@ $result5 = mysqli_query($conexion, $sql5);
             </select>
         </div>
         <div class="col mb-0">
+            <label for="exampleFormControlSelect1" class="form-label">Numero de entradas</label>
+            <select class="form-select" required name='num_entradas' id="num_entradas" onchange="entrada()">
+                <option value="0">Selecciona un transportista</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Transportista Salida</label>
-            <select class="form-select" aria-label="Default select example" required name='transporte_salida' onchange="salida()">
+            <select class="form-select" aria-label="Default select example" required name='transporte_salida'>
                 <option value="0">Selecciona un transportista</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result5)) {
@@ -111,70 +122,23 @@ $result5 = mysqli_query($conexion, $sql5);
                 ?>
             </select>
         </div>
-    </div>
-    <div id="transporte_entrada" style="display:none;">
-        <div class="row g-4">
-            <div class="col mb-0">
-                <label class="form-label" for="basic-icon-default-fullname">Nombre Operador</label>
-                <div class="input-group input-group-merge">
-
-                    <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="datos_entrada[]" required />
-                </div>
-            </div>
-            <div class="col mb-0">
-                <label class="form-label" for="basic-icon-default-fullname">Placas</label>
-                <div class="input-group input-group-merge">
-
-                    <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="datos_entrada[]" required />
-                </div>
-            </div>
-            <div class="col mb-0">
-                <label class="form-label" for="basic-icon-default-fullname">No. Remolque</label>
-                <div class="input-group input-group-merge">
-
-                    <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="datos_entrada[]" required />
-                </div>
-            </div>
-            <div class="col mb-0">
-                <label class="form-label" for="basic-icon-default-fullname">Teléfono</label>
-                <div class="input-group input-group-merge">
-
-                    <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="datos_entrada[]" required />
-                </div>
-            </div>
+        <div class="col mb-0">
+            <label for="exampleFormControlSelect1" class="form-label">Numero de salidas</label>
+            <select class="form-select" required name='num_salidas' id='num_salidas' onchange="salida()">
+                <option value="0">Selecciona un transportista</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
         </div>
     </div>
-    <div id="transporte_salida" style="display:none;">
-        <div class="row g-4">
-            <div class="col mb-0">
-                <label class="form-label" for="basic-icon-default-fullname">Nombre Operador</label>
-                <div class="input-group input-group-merge">
+    <div id="transporte_entrada">
 
-                    <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="datos_salida[]" required />
-                </div>
-            </div>
-            <div class="col mb-0">
-                <label class="form-label" for="basic-icon-default-fullname">Placas</label>
-                <div class="input-group input-group-merge">
+    </div>
+    <div id="transporte_salida">
 
-                    <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="datos_salida[]" required />
-                </div>
-            </div>
-            <div class="col mb-0">
-                <label class="form-label" for="basic-icon-default-fullname">No. Remolque</label>
-                <div class="input-group input-group-merge">
-
-                    <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="datos_salida[]" required />
-                </div>
-            </div>
-            <div class="col mb-0">
-                <label class="form-label" for="basic-icon-default-fullname">Teléfono</label>
-                <div class="input-group input-group-merge">
-
-                    <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="datos_salida[]" required />
-                </div>
-            </div>
-        </div>
     </div>
     <div class="row">
         <div class="col mb-0">
