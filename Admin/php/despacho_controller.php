@@ -6,8 +6,8 @@ switch ($_POST['accion']) {
     case 'editar':
         editar_despacho($_POST['id'], $_POST['cliente'], $_POST['mercancia'], $_POST['carga'], $_FILES['factura']['name'], $_FILES['lista_embarque']['name'], $_FILES['bl']['name'], $_FILES['ficha_tec']['name'], $_FILES['poliza_seguro']['name'], $_FILES['poliza_transporte']['name'], $_FILES['carta_garantia']['name'], $_FILES['hoja_seguridad']['name'], $_POST['descripcion']);
         break;
-    case 'eliminar':
-        eliminar_despacho($_POST['id']);
+    case 'CambiarEstado':
+        CambiarEstadoDespacho($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
 }
 function agregar_despacho($tipo_oper, $cliente, $proveedor, $aduana, $terminal, $carga, $mercancia, $check_lista, $descripcion)
@@ -23,16 +23,15 @@ function agregar_despacho($tipo_oper, $cliente, $proveedor, $aduana, $terminal, 
         echo 2;
     }
 }
-function eliminar_despacho($id)
+function CambiarEstadoDespacho($IDCotizacion, $EstadoCotizacion)
 {
     include './conexion.php';
-    $sql = "DELETE FROM despacho WHERE id='" . $id . "'";
+    $sql = "UPDATE despacho SET id_estado='$EstadoCotizacion' WHERE id='$IDCotizacion'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;
-    } else {
-        echo 1;
     }
+    echo 1;
 }
 function editar_despacho($id, $cliente, $mercancia, $carga, $factura, $lista_embarque, $bl, $ficha_tec, $poliza_seguro, $poliza_transporte, $carta_garantia, $hoja_seguridad, $descripcion)
 {

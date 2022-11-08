@@ -136,7 +136,7 @@ $precios = explode(",", $datos_cotizacion['precios']);
             text-align: right;
 
         }
-        }
+
 
         table td.service,
         table td.desc {

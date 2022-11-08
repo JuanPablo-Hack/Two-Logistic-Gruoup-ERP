@@ -6,8 +6,8 @@ switch ($_POST['accion']) {
     case 'editar':
         editar_servicio($_POST['id'], $_POST['cliente'], $_POST['cotizacion'], $_POST['contrato'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion']);
         break;
-    case 'eliminar':
-        eliminar_servicios($_POST['id']);
+    case 'CambiarEstado':
+        CambiarEstadoServicio($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
 }
 function agregar_servicio($id_cliente, $id_operador, $fecha_servicio, $descripcion, $tipos_servicios)
@@ -26,16 +26,15 @@ function agregar_servicio($id_cliente, $id_operador, $fecha_servicio, $descripci
         echo 2;
     }
 }
-function eliminar_servicios($id)
+function CambiarEstadoServicio($IDCotizacion, $EstadoServicio)
 {
     include './conexion.php';
-    $sql = "DELETE FROM servicios WHERE id='" . $id . "'";
+    $sql = "UPDATE servicios SET id_estado='$EstadoServicio' WHERE id='$IDCotizacion'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;
-    } else {
-        echo 1;
     }
+    echo 1;
 }
 function editar_servicio($id, $id_cliente, $id_cotizacion, $id_contrato, $id_operador, $fecha_servicio, $descripcion)
 {

@@ -65,7 +65,7 @@ function cambiar_conceptos() {
     },
   });
 }
-function eliminarCotizacion(id) {
+function CambiarEstado(IDCotizacion, EstadoCotizacion) {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: "btn btn-success",
@@ -80,15 +80,16 @@ function eliminarCotizacion(id) {
       text: "¡No podrás revertir esto!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Si, eliminar",
+      confirmButtonText: "Si, cambiar de estado",
       cancelButtonText: "No, cancelar!",
       reverseButtons: true,
     })
     .then((result) => {
       if (result.isConfirmed) {
         let data = new FormData();
-        data.append("id", id);
-        data.append("accion", "eliminar");
+        data.append("IDCotizacion", IDCotizacion);
+        data.append("EstadoCotizacion", EstadoCotizacion);
+        data.append("accion", "CambiarEstado");
         fetch("php/cotizacion_controlle.php", {
           method: "POST",
           body: data,
@@ -97,8 +98,8 @@ function eliminarCotizacion(id) {
           .then((result) => {
             if (result == 1) {
               swalWithBootstrapButtons.fire(
-                "Eliminado!",
-                "Su archivo ha sido eliminado.",
+                "Cambio de Estado!",
+                "El registro ha sido cambiado de estado",
                 "success"
               );
               setTimeout(function () {

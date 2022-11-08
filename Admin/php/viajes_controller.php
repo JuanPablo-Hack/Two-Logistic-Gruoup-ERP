@@ -10,8 +10,8 @@ switch ($_POST['accion']) {
     case 'editar':
         editar_viajes($_POST['id'], $_POST['razon_social'], $_POST['rfc'], $_POST['contacto'], $_POST['tel'], $_POST['cargo'], $_POST['email'], $_POST['domicilio'], $_POST['estado'], $_POST['nombre_representante']);
         break;
-    case 'eliminar':
-        eliminar_viajes($_POST['id']);
+    case 'CambiarEstado':
+        CambiarEstadoCotizacion($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
 }
 function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $linea_naviera, $no_contenedores, $tipo_contenedor, $buque, $viaje, $peso, $bultos, $puerto_carga, $puerto_transbordo, $puerto_destino, $puerto_transito, $tiempo_transito, $cierre, $vgm, $check_lista, $liberacion, $descripcion)
@@ -36,16 +36,15 @@ function agregar_viajes_terrestre($tipo_viaje, $servicio, $cliente, $terminal, $
         echo 2;
     }
 }
-function eliminar_viajes($id)
+function CambiarEstadoCotizacion($IDCotizacion, $EstadoCotizacion)
 {
     include './conexion.php';
-    $sql = "DELETE FROM proveedores WHERE id='" . $id . "'";
+    $sql = "UPDATE viajes SET id_estado='$EstadoCotizacion' WHERE id='$IDCotizacion'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;
-    } else {
-        echo 1;
     }
+    echo 1;
 }
 function editar_viajes($id, $razon_social, $rfc, $contacto, $tel, $cargo, $email, $domicilio, $estado, $nombre_representante)
 {

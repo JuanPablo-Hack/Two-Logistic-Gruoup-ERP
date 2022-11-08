@@ -6,8 +6,8 @@ switch ($_POST['accion']) {
     case 'editar':
         editar_Cotizacion($_POST['id'], $_POST['nombre']);
         break;
-    case 'eliminar':
-        eliminar_Cotizacion($_POST['id']);
+    case 'CambiarEstado':
+        CambiarEstadoCotizacion($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
 }
 function agregar_Cotizacion($nombre, $no_conceptos, $conceptos, $cantidades, $precios)
@@ -21,16 +21,15 @@ function agregar_Cotizacion($nombre, $no_conceptos, $conceptos, $cantidades, $pr
         echo 2;
     }
 }
-function eliminar_Cotizacion($id)
+function CambiarEstadoCotizacion($IDCotizacion, $EstadoCotizacion)
 {
     include './conexion.php';
-    $sql = "DELETE FROM cotizaciones WHERE id='" . $id . "'";
+    $sql = "UPDATE cotizaciones SET id_estado='$EstadoCotizacion' WHERE id='$IDCotizacion'";
     $result = mysqli_query($conexion, $sql);
     if (!$result) {
         echo 2;
-    } else {
-        echo 1;
     }
+    echo 1;
 }
 function editar_Cotizacion($id, $nombre)
 {

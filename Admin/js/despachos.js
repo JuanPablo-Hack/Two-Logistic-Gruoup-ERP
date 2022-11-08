@@ -82,7 +82,7 @@ async function AltaDespacho(e) {
       }
     });
 }
-function eliminarDespacho(id) {
+function CambiarEstado(IDCotizacion, EstadoCotizacion) {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: "btn btn-success",
@@ -97,15 +97,16 @@ function eliminarDespacho(id) {
       text: "¡No podrás revertir esto!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Si, eliminar",
+      confirmButtonText: "Si, cambiar de estado",
       cancelButtonText: "No, cancelar!",
       reverseButtons: true,
     })
     .then((result) => {
       if (result.isConfirmed) {
         let data = new FormData();
-        data.append("id", id);
-        data.append("accion", "eliminar");
+        data.append("IDCotizacion", IDCotizacion);
+        data.append("EstadoCotizacion", EstadoCotizacion);
+        data.append("accion", "CambiarEstado");
         fetch("php/despacho_controller.php", {
           method: "POST",
           body: data,
@@ -114,8 +115,8 @@ function eliminarDespacho(id) {
           .then((result) => {
             if (result == 1) {
               swalWithBootstrapButtons.fire(
-                "Eliminado!",
-                "Su archivo ha sido eliminado.",
+                "Cambio de Estado!",
+                "El registro ha sido cambiado de estado",
                 "success"
               );
               setTimeout(function () {
