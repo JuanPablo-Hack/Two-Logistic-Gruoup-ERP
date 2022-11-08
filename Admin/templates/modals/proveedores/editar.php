@@ -155,7 +155,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     Cerrar
                 </button>
-                <button type="submit" class="btn btn-primary">Editar Proveedor</button>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
             </form>
         </div>
