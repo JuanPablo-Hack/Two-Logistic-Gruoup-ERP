@@ -41,9 +41,9 @@
                         echo $Row['nombre'];
                         ?></td>
                     <td><?php echo $mostrar['creado'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['conceptos'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['cantidades'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['precios'] ?></td>
+                    <td style="display: none;"></td>
+                    <td style="display: none;"></td>
+                    <td style="display: none;"></td>
                     <td>
                         <button type="button" onclick="crearPDF(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Generar PDF"><i class='bx bxs-file-pdf'></i></button>
                         <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,2)" class="btn btn-sm btn-icon item-edit" title="Atender"><i class='bx bxs-file-export'></i></button>

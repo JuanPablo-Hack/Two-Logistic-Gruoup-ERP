@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$id = 1;
+$id = 4;
 $cotizacion = $conexion->query("SELECT * FROM cotizaciones WHERE id = $id");
 $datos_cotizacion = $cotizacion->fetch_assoc();
 
@@ -10,7 +10,12 @@ $datos_cliente = $cliente->fetch_assoc();
 $datos_comercial = explode(",", $datos_cliente['datos_comercial']);
 $conceptos = explode(",", $datos_cotizacion['conceptos']);
 $cantidades = explode(",", $datos_cotizacion['cantidades']);
-$precios = explode(",", $datos_cotizacion['precios']);
+function getTipoServicio($id)
+{
+  include 'conexion.php';
+  $resultado = $conexion->query("SELECT * FROM tipos_servicios WHERE id =$id");
+  return $resultado->fetch_assoc();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -164,7 +169,7 @@ $precios = explode(",", $datos_cotizacion['precios']);
   </style>
   <header class="clearfix">
     <div id="logo">
-      <img src="./assets/img/logo.png" /> 
+      <img src="./assets/img/logo.png" />
     </div>
     <h1>Cotización - 01</h1>
     <div id="company" class="clearfix">
@@ -211,18 +216,17 @@ $precios = explode(",", $datos_cotizacion['precios']);
       <tbody>
         <?php
         for ($i = 0; $i < $datos_cotizacion['no_conceptos']; $i++) {
+          $DatosTipoServicio = getTipoServicio($conceptos[$i]);
         ?>
           <tr>
-            <td class="service"><?php echo $conceptos[$i] ?></td>
+
+            <td class="service"><?php echo $DatosTipoServicio['nombre'] ?></td>
             <td class="desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Dignissimos, earum? Doloribus cumque laborum soluta reiciendis
-              blanditiis excepturi, provident alias distinctio ab fuga accusamus
-              error ipsum quae cupiditate unde libero sed!
+              <?php echo $DatosTipoServicio['descripcion'] ?>
             </td>
-            <td class="unit"><?php echo number_format($precios[$i], 2, '.', ',') ?></td>
+            <td class="unit"><?php echo number_format($DatosTipoServicio['precio'], 2, '.', ',') ?></td>
             <td class="qty"><?php echo $cantidades[$i] ?></td>
-            <td class="total"><?php echo '$' . number_format($cantidades[$i] * $precios[$i], 2, '.', ',') ?></td>
+            <td class="total"><?php echo '$' . number_format($cantidades[$i] * $DatosTipoServicio['precio'], 2, '.', ',') ?></td>
           </tr>
 
         <?php

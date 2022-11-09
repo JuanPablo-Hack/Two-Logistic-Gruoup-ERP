@@ -1,7 +1,7 @@
 <?php
 switch ($_POST['accion']) {
     case 'agregar':
-        agregar_Cotizacion($_POST['cliente'], $_POST['no_conceptos'], implode(',', $_POST['conceptos']), implode(',', $_POST['cantidades']), implode(',', $_POST['precios']));
+        agregar_Cotizacion($_POST['cliente'], $_POST['no_conceptos'], implode(',', $_POST['conceptos']), implode(',', $_POST['cantidades']));
         break;
     case 'editar':
         editar_Cotizacion($_POST['id'], $_POST['nombre']);
@@ -10,16 +10,15 @@ switch ($_POST['accion']) {
         CambiarEstadoCotizacion($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
 }
-function agregar_Cotizacion($nombre, $no_conceptos, $conceptos, $cantidades, $precios)
+function agregar_Cotizacion($nombre, $no_conceptos, $conceptos, $cantidades)
 {
     include 'conexion.php';
-    $sql = "INSERT INTO `cotizaciones` (`id`, `id_cliente`, `no_conceptos`, `conceptos`, `cantidades`, `precios`, `creado`) VALUES (NULL, '$nombre', '$no_conceptos', '$conceptos', '$cantidades', '$precios', current_timestamp())";
+    $sql = "INSERT INTO `cotizaciones` (`id`, `id_cliente`, `no_conceptos`, `conceptos`, `cantidades`, `creado`) VALUES (NULL, '$nombre', '$no_conceptos', '$conceptos', '$cantidades', current_timestamp())";
     $resultado = $conexion->query($sql);
-    if ($resultado) {
-        echo 1;
-    } else {
+    if (!$resultado) {
         echo 2;
     }
+    echo 1;
 }
 function CambiarEstadoCotizacion($IDCotizacion, $EstadoCotizacion)
 {
