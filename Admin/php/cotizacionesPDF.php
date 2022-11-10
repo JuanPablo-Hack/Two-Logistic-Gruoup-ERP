@@ -224,7 +224,7 @@ function getTipoServicio($id)
             <td class="desc">
               <?php echo $DatosTipoServicio['descripcion'] ?>
             </td>
-            <td class="unit"><?php echo number_format($DatosTipoServicio['precio'], 2, '.', ',') ?></td>
+            <td class="unit"><?php echo '$' . number_format($DatosTipoServicio['precio'], 2, '.', ',') ?></td>
             <td class="qty"><?php echo $cantidades[$i] ?></td>
             <td class="total"><?php echo '$' . number_format($cantidades[$i] * $DatosTipoServicio['precio'], 2, '.', ',') ?></td>
           </tr>

@@ -304,9 +304,6 @@ $datos_cliente = $cliente->fetch_assoc();
                 </tr>
             </tbody>
         </table>
-
-
-
 </body>
 
 </html>
