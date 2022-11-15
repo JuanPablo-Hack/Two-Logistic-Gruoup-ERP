@@ -102,12 +102,12 @@
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="entrada_producto.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Entraba de Producto</div>
+                                    <div data-i18n="Text Divider">Entrada de Productos</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="salida_producto.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Salida de Producto</div>
+                                    <div data-i18n="Text Divider">Salida de Productos</div>
                                 </a>
                             </li>
                             <li class="menu-item">
@@ -212,7 +212,7 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    
+
     <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="js/tipo_contenedor.js"></script>
 </body>

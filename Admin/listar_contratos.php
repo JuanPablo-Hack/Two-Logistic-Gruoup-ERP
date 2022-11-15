@@ -100,12 +100,12 @@
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="entrada_producto.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Entraba de Producto</div>
+                                    <div data-i18n="Text Divider">Entrada de Productos</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="salida_producto.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Salida de Producto</div>
+                                    <div data-i18n="Text Divider">Salida de Productos</div>
                                 </a>
                             </li>
                             <li class="menu-item">

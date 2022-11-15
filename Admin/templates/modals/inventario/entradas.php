@@ -1,7 +1,7 @@
 <div class="modal fade" id="EntradasProductos<?php echo $mostrar['id'] ?>" tabindex="-1" aria-hidden="true">
     <?php
     include 'php/conexion.php';
-    $sql = "SELECT * FROM clientes";
+    $sql = "SELECT * FROM productos";
     $result = mysqli_query($conexion, $sql);
 
     ?>
@@ -14,31 +14,20 @@
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Servicio agregado con éxito!</div>
                 <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
-                <form id="AltaServicio">
-                    <div class="row g-3">
-                        <div class="col mb-0">
-                            <label for="exampleFormControlSelect1" class="form-label">Material</label>
-                            <select class="form-control" name='cliente'>
-                                <option value="0">Sin Asignar</option>
-                                <?php
-                                while ($Row1 = mysqli_fetch_array($result)) {
-                                ?>
-                                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
+                <form action="php/producto_controller.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $mostrar['id']; ?>">
+                    <input type="hidden" name="accion" value="entrada">
+                    <div class="row g-2">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Ticket</label>
                             <div class="col-md-10">
-                                <input class="form-control" type="text" id="html5-date-input" name="fecha_servicio" />
+                                <input class="form-control" type="text" id="html5-date-input" name="ticket" />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Placas</label>
                             <div class="col-md-10">
-                                <input class="form-control" type="text" id="html5-date-input" name="fecha_servicio" />
+                                <input class="form-control" type="text" id="html5-date-input" name="placas" />
                             </div>
                         </div>
                     </div>
@@ -46,19 +35,19 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Peso Bruto</label>
                             <div class="col-md-10">
-                                <input class="form-control" type="text" id="html5-date-input" name="fecha_servicio" />
+                                <input class="form-control" type="text" id="html5-date-input" name="peso_bruto" />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Peso Tara</label>
                             <div class="col-md-10">
-                                <input class="form-control" type="text" id="html5-date-input" name="fecha_servicio" />
+                                <input class="form-control" type="text" id="html5-date-input" name="peso_tara" />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Peso Neto</label>
                             <div class="col-md-10">
-                                <input class="form-control" type="text" id="html5-date-input" name="fecha_servicio" />
+                                <input class="form-control" type="text" id="html5-date-input" name="peso_neto" />
                             </div>
                         </div>
                     </div>

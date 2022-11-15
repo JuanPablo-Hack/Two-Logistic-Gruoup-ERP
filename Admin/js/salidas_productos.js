@@ -4,11 +4,11 @@ function fnFormatDetails(oTable, nTr) {
     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
   sOut +=
     "<tr><td>Peso Tara:</td><td>" +
-    aData[5] +
-    "</td><td>Peso Bruto:</td><td>" +
     aData[6] +
+    "</td><td>Peso Bruto:</td><td>" +
+    aData[7] +
     "</td></tr>";
-  sOut += "<tr><td>Peso Neto:</td><td>" + aData[7] + "</td></tr>";
+  sOut += "<tr><td>Peso Neto:</td><td>" + aData[8] + "</td></tr>";
   sOut += "</table>";
   return sOut;
 }
@@ -54,31 +54,3 @@ $(document).ready(function () {
     }
   });
 });
-document.addEventListener("DOMContentLoaded", function () {
-  document
-    .getElementById("AltaProducto")
-    .addEventListener("submit", AltaProducto);
-});
-async function AltaProducto(e) {
-  e.preventDefault();
-  var form = document.getElementById("AltaProducto");
-  let data = new FormData(form);
-  data.append("accion", "agregar");
-  fetch("php/producto_controller.php", {
-    method: "POST",
-    body: data,
-  })
-    .then((result) => result.text())
-    .then((result) => {
-      if (result == 1) {
-        document.getElementById("success").style.display = "inherit";
-        document.getElementById("decline").style.display = "none";
-        setTimeout(function () {
-          location.reload();
-        }, 2000);
-      } else {
-        document.getElementById("success").style.display = "none";
-        document.getElementById("decline").style.display = "inherit";
-      }
-    });
-}

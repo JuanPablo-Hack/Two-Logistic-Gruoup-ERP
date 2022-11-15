@@ -1,28 +1,27 @@
 <?php
 switch ($_POST['accion']) {
     case 'agregar':
-        ingreso_producto($_POST['cliente'], $_POST['nombre_producto'], $_POST['tipo_producto'], $_POST['cantidad'], $_POST['fecha'], $_POST['descripcion']);
+        ingreso_producto($_POST['cliente'], $_POST['nombre_producto'], $_POST['proveedor'], $_POST['descripcion']);
         break;
-    case 'editar':
-        editar_almacenaje($_POST['id'], $_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], sha1($_POST['contra']), $_POST['rol']);
+    case 'entrada':
+        entrada_producto($_POST['id'], $_POST['ticket'], $_POST['placas'], $_POST['peso_bruto'],  $_POST['peso_tara'], $_POST['peso_neto'], $_POST['descripcion']);
         break;
     case 'salida':
-        salida_producto($_POST['producto'], $_POST['cantidad'], $_POST['fecha'], $_POST['descripcion']);
+        salida_producto($_POST['id'], $_POST['ticket'], $_POST['placas'], $_POST['peso_bruto'],  $_POST['peso_tara'], $_POST['peso_neto'], $_POST['descripcion']);
         break;
     case 'eliminar':
         eliminar_producto($_POST['id']);
         break;
 }
-function ingreso_producto($cliente, $nombre_producto, $tipo_producto, $cantidad, $fecha, $descripcion)
+function ingreso_producto($cliente, $nombre_producto, $proveedor, $descripcion)
 {
     include 'conexion.php';
-    $sql = "INSERT INTO `productos` (`nombre`, `cliente`, `tipo_producto`, `cantidad`, `fecha`, `descrip`) VALUES ('$nombre_producto', '$cliente', '$tipo_producto', '$cantidad', '$fecha','$descripcion')";
+    $sql = "INSERT INTO `productos` (`nombre`, `cliente`, `proveedor`, `descrip`) VALUES ('$nombre_producto', '$cliente', '$proveedor', '$descripcion')";
     $resultado = $conexion->query($sql);
-    if ($resultado) {
-        echo 1;
-    } else {
+    if (!$resultado) {
         echo 2;
     }
+    echo 1;
 }
 function eliminar_producto($id)
 {
@@ -35,29 +34,53 @@ function eliminar_producto($id)
         echo 1;
     }
 }
-function salida_producto($producto, $cantidad, $fecha, $descripcion)
+function salida_producto($id, $ticket, $placas, $peso_bruto, $peso_tara, $peso_neto, $descripcion)
 {
+    RestarProducto($id, $peso_bruto, $peso_tara, $peso_neto);
     include 'conexion.php';
-    $obtener_dato = "SELECT cantidad FROM productos WHERE id='$producto'";
-    $resultado = $conexion->query($obtener_dato);
-    $datos = mysqli_fetch_array($resultado);
-    $total = $datos['cantidad'] - $cantidad;
-    $sql = "UPDATE `productos` SET `cantidad` = '$total' WHERE `productos`.`id` =$producto";
+    $sql = "INSERT INTO `salidas_productos` (`material`, `ticket`, `placas`, `peso_bruto`, `peso_tara`, `peso_neto`, `descrip`) VALUES ('$id', '$ticket', '$placas', '$peso_bruto', '$peso_tara', '$peso_neto', '$descripcion')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
-        echo 1;
+        header("Location: ../inventario.php");
     } else {
-        echo 2;
+        header("Location: ../inventario.php");
     }
 }
-function editar_almacenaje($id, $nombre, $cargo, $correo, $tel, $contra, $rol)
+function entrada_producto($id, $ticket, $placas, $peso_bruto, $peso_tara, $peso_neto, $descripcion)
 {
+    SumarProducto($id, $peso_bruto, $peso_tara, $peso_neto);
     include 'conexion.php';
-    $sql = "UPDATE admin SET nombre='$nombre',tel='$tel',correo='$correo',contra='$contra', cargo='$cargo',rol='$rol' WHERE id='$id'";
+    $sql = "INSERT INTO `entradas_productos` (`id`, `material`, `ticket`, `placas`, `peso_bruto`, `peso_tara`, `peso_neto`, `descrip`, `creado`) VALUES (NULL, '$id', '$ticket', '$placas', '$peso_bruto', '$peso_tara', '$peso_neto', '$descripcion', current_timestamp())";
     $resultado = $conexion->query($sql);
     if ($resultado) {
-        echo 1;
+        header("Location: ../inventario.php");
     } else {
-        echo 2;
+        header("Location: ../inventario.php");
     }
+}
+
+function SumarProducto($id, $peso_bruto, $peso_tara, $peso_neto)
+{
+    include 'conexion.php';
+    $obtener_dato = "SELECT peso_bruto,peso_tara,peso_neto FROM productos WHERE id='$id'";
+    $resultado = $conexion->query($obtener_dato);
+    $datos = mysqli_fetch_array($resultado);
+    $peso_bruto_total = $datos['peso_bruto'] + $peso_bruto;
+    $peso_tara_total = $datos['peso_tara'] + $peso_tara;
+    $peso_neto_total = $datos['peso_neto'] + $peso_neto;
+    $sql = "UPDATE `productos` SET `peso_bruto` = '$peso_bruto_total', `peso_tara` = '$peso_tara_total', `peso_neto` = '$peso_neto_total'  WHERE `productos`.`id` =$id";
+    $resultado = $conexion->query($sql);
+}
+
+function RestarProducto($id, $peso_bruto, $peso_tara, $peso_neto)
+{
+    include 'conexion.php';
+    $obtener_dato = "SELECT peso_bruto,peso_tara,peso_neto FROM productos WHERE id='$id'";
+    $resultado = $conexion->query($obtener_dato);
+    $datos = mysqli_fetch_array($resultado);
+    $peso_bruto_total = $datos['peso_bruto'] - $peso_bruto;
+    $peso_tara_total = $datos['peso_tara'] - $peso_tara;
+    $peso_neto_total = $datos['peso_neto'] - $peso_neto;
+    $sql = "UPDATE `productos` SET `peso_bruto` = '$peso_bruto_total', `peso_tara` = '$peso_tara_total', `peso_neto` = '$peso_neto_total'  WHERE `productos`.`id` =$id";
+    $resultado = $conexion->query($sql);
 }

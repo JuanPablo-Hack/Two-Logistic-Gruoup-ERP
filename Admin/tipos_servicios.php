@@ -87,12 +87,6 @@
                             <div data-i18n="Analytics">Despacho Aduanal</div>
                         </a>
                     </li>
-                    <li class="menu-item ">
-                        <a href="bodega_externa.php" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-store"></i>
-                            <div data-i18n="Analytics">Bodega Externa</div>
-                        </a>
-                    </li>
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-paste"></i>
@@ -101,12 +95,12 @@
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="entrada_producto.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Entraba de Producto</div>
+                                    <div data-i18n="Text Divider">Entrada de Productos</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="salida_producto.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Salida de Producto</div>
+                                    <div data-i18n="Text Divider">Salida de Productos</div>
                                 </a>
                             </li>
                             <li class="menu-item">

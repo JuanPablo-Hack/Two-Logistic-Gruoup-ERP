@@ -100,17 +100,17 @@
                             <div data-i18n="Extended UI">Inventario</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item">
+                            <li class="menu-item active">
                                 <a href="entrada_producto.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Entraba de Producto</div>
+                                    <div data-i18n="Text Divider">Entrada de Productos</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="salida_producto.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Salida de Producto</div>
+                                    <div data-i18n="Text Divider">Salida de Productos</div>
                                 </a>
                             </li>
-                            <li class="menu-item active">
+                            <li class="menu-item">
                                 <a href="bitacora_productos.php" class="menu-link">
                                     <div data-i18n="Text Divider">Bitacora de Productos</div>
                                 </a>
@@ -183,8 +183,8 @@
                 <?php include 'templates/profile.php'; ?>
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa /</span> Lista de bodega externa</h4>
-                        <?php include 'templates/modals/inventario/listar.php'; ?>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa /</span> Entrada de Productos</h4>
+                        <?php include 'templates/modals/inventario/listar_entradasproductos.php'; ?>
                     </div>
                     <?php include 'templates/footer.php'; ?>
                     <div class="content-backdrop fade"></div>
@@ -211,7 +211,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-    <script src="js/inventario.js"></script>
+    <script src="js/entradas_productos.js"></script>
 </body>
 
 </html>
