@@ -49,6 +49,34 @@ $(document).ready(function () {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("AltaContratoForm")
+    .addEventListener("submit", AltaContratoForm);
+});
+async function AltaContratoForm(e) {
+  e.preventDefault();
+  var form = document.getElementById("AltaContratoForm");
+  let data = new FormData(form);
+  data.append("accion", "agregar");
+  fetch("php/contratos_controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((result) => result.text())
+    .then((result) => {
+      if (result == 1) {
+        document.getElementById("success").style.display = "inherit";
+        document.getElementById("decline").style.display = "none";
+        setTimeout(function () {
+          location.reload();
+        }, 2000);
+      } else {
+        document.getElementById("success").style.display = "none";
+        document.getElementById("decline").style.display = "inherit";
+      }
+    });
+}
 function eliminarContrato(id) {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
