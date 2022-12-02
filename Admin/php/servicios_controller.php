@@ -12,6 +12,7 @@ switch ($_POST['accion']) {
 }
 function agregar_servicio($id_cliente, $id_operador, $fecha_servicio, $descripcion, $tipos_servicios)
 {
+    include 'email_controller.php';
     $tipos_servicios = [];
     foreach ($_POST['check_lista'] as $seleccion) {
         array_push($tipos_servicios, $seleccion);
@@ -22,6 +23,7 @@ function agregar_servicio($id_cliente, $id_operador, $fecha_servicio, $descripci
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
+        MandarAlertaUsuario($id_operador);
     } else {
         echo 2;
     }
