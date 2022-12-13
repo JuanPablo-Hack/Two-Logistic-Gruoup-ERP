@@ -1,8 +1,8 @@
 <?php
 
-$nombreServidor = "162.241.63.91";
-$nombreUsuario = "twologis_erp";
-$passwordBaseDeDatos = "6Ew&11E@m*lr";
-$nombreBaseDeDatos = "twologis_erp";
+$nombreServidor = "sql726.main-hosting.eu";
+$nombreUsuario = "u288448544_erp";
+$passwordBaseDeDatos = "bJ+h9o3!p59";
+$nombreBaseDeDatos = "u288448544_erp";
 
 $conexion = new mysqli($nombreServidor, $nombreUsuario, $passwordBaseDeDatos, $nombreBaseDeDatos);
