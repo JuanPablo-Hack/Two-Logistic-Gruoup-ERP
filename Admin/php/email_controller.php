@@ -1,10 +1,9 @@
 <?php
 function MandarAlertaUsuario($OperadorSelccionado)
 {
-    // $destinatario = ObtenerCorreoOperador($OperadorSelccionado);
-    $destinatario = "juanpablodejesusfigueroa@gmail.com";
-    $asunto = "Creación de usuario en el sistema ERP de SLG";
-    $cuerpo = ' 
+  $destinatario = ObtenerCorreoOperador($OperadorSelccionado);
+  $asunto = "Creación de usuario en el sistema ERP de SLG";
+  $cuerpo = ' 
     <!DOCTYPE html>
     <html
       lang="en"
@@ -165,19 +164,19 @@ function MandarAlertaUsuario($OperadorSelccionado)
       </body>
     </html>    
   ';
-    //para el envío en formato HTML 
-    $headers = "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-    //dirección del remitente 
-    $headers .= "From: Sitio web <sistemas@twologistic.com>\r\n";
-    mail($destinatario, $asunto, $cuerpo, $headers);
+  //para el envío en formato HTML 
+  $headers = "MIME-Version: 1.0\r\n";
+  $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+  //dirección del remitente 
+  $headers .= "From: Sitio web <sistemas@twologistic.com>\r\n";
+  mail($destinatario, $asunto, $cuerpo, $headers);
 }
 
 function ObtenerCorreoOperador($id)
 {
-    include "conexion.php";
-    $SQL = "SELECT correo as correo FROM trabajador WHERE id=$id";
-    $ResultadoSentencia =  $conexion->query($SQL);
-    $DatosOperador = $ResultadoSentencia->fetch_assoc();
-    return $DatosOperador['correo'];
+  include "conexion.php";
+  $SQL = "SELECT correo as correo FROM trabajador WHERE id=$id";
+  $ResultadoSentencia =  $conexion->query($SQL);
+  $DatosOperador = $ResultadoSentencia->fetch_assoc();
+  return $DatosOperador['correo'];
 }

@@ -41,25 +41,25 @@
                         <span class="menu-header-text">Area Comercial</span>
                     </li>
                     <li class="menu-item ">
-                        <a href="listar_proveedores.php" class="menu-link">
+                        <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-store-alt"></i>
                             <div data-i18n="Analytics">Proveedores</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="listar_clientes.php" class="menu-link">
+                        <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-face"></i>
                             <div data-i18n="Analytics">Clientes</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="listar_cotizaciones.php" class="menu-link">
+                        <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-calendar"></i>
                             <div data-i18n="Analytics">Cotizaciones</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="listar_contratos.php" class="menu-link">
+                        <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-notepad"></i>
                             <div data-i18n="Analytics">Contratos</div>
                         </a>
@@ -71,7 +71,7 @@
 
                     <!-- User interface -->
                     <li class="menu-item ">
-                        <a href="listar_servicios.php" class="menu-link">
+                        <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                             <div data-i18n="Analytics">Servicios</div>
                         </a>
@@ -83,17 +83,30 @@
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="listar_importacion.php" class="menu-link">
+                        <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-package"></i>
                             <div data-i18n="Analytics">Despacho Aduanal</div>
                         </a>
                     </li>
-                    <li class="menu-item ">
-                        <a href="bodega_externa.php" class="menu-link">
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bxs-store"></i>
-                            <div data-i18n="Analytics">Bodega Externa</div>
+                            <div data-i18n="Extended UI">Bodega Externa</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="almacenaje.php" class="menu-link">
+                                    <div data-i18n="Text Divider">Almacenaje</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="traspaleo.php" class="menu-link">
+                                    <div data-i18n="Text Divider">Traspaleo</div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+                    <!-- Extended components -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-paste"></i>
@@ -117,14 +130,9 @@
                             </li>
                         </ul>
                     </li>
-
-
-
-                    <!-- Forms & Tables -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Variables de Entorno</span></li>
-                    <!-- Forms -->
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="usuarios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-group"></i>
                             <div data-i18n="Analytics">Usuarios</div>
                         </a>
@@ -141,19 +149,19 @@
                             <div data-i18n="Analytics">Tipo de Contenedores</div>
                         </a>
                     </li>
-                    <li class="menu-item active">
+                    <li class="menu-item ">
                         <a href="tipos_mercancias.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-copy-alt"></i>
                             <div data-i18n="Analytics">Tipo de Mercancia</div>
                         </a>
                     </li>
-                    <li class="menu-item ">
+                    <li class="menu-item">
                         <a href="agentes_aduanales.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-plane"></i>
                             <div data-i18n="Analytics">Agentes Aduanales</div>
                         </a>
                     </li>
-                    <li class="menu-item ">
+                    <li class="menu-item s">
                         <a href="agentes_aduanales.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-truck"></i>
                             <div data-i18n="Analytics">Transportistas</div>
@@ -195,7 +203,7 @@
                 <?php include 'templates/profile.php'; ?>
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <?php include 'templates/modals/tipo_mercancia/listar.php' ?>
+                        <?php include 'templates/modals/transportistas/listar.php' ?>
                     </div>
                 </div>
                 <?php include 'templates/footer.php'; ?>
@@ -224,10 +232,10 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="js/tipo_mercancia.js"></script>
+    <script src="../libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="js/transportistas.js"></script>
 </body>
 
 </html>

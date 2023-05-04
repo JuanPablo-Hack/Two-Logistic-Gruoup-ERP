@@ -15,7 +15,7 @@ function agregar_despacho($tipo_oper, $cliente, $proveedor, $aduana, $terminal, 
 
     $documentos = implode(",", $check_lista);
     include 'conexion.php';
-    $sql = "INSERT INTO `despacho` (`id`, `tipo_despacho`, `cliente`, `proveedor`, `aduana`, `terminal`, `tipo_mercancia`, `tipo_carga`, `documentacion`, `comentarios`, `creado`) VALUES (NULL, '$tipo_oper', '$cliente', '$proveedor', '$aduana', '$terminal', '$mercancia', '$carga', '$documentos', '$descripcion', current_timestamp())";
+    $sql = "INSERT INTO despacho(tipo_despacho,id_cliente,id_proveedor,aduana,terminal,id_tipo_mercancia,id_tipo_carga,documentacion,comentarios,id_estado) VALUES('$tipo_oper','$cliente','$proveedor','$aduana','$terminal','$carga','$mercancia','$documentos','$descripcion',1)";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

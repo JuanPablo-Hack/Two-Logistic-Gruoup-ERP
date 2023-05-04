@@ -150,6 +150,18 @@
                         </a>
                     </li>
                     <li class="menu-item ">
+                        <a href="agentes_aduanales.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-truck"></i>
+                            <div data-i18n="Analytics">Transportistas</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="agentes_aduanales.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-list-ul"></i>
+                            <div data-i18n="Analytics">Tipos Liberaciones</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
                         <a href="tipos_cargas.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cabinet"></i>
                             <div data-i18n="Analytics">Tipos de Carga</div>

@@ -25,15 +25,15 @@ $(document).ready(function () {
   nCloneTd.innerHTML = '<img src="datatables/details_open.png">';
   nCloneTd.className = "center";
 
-  $("#hidden-table-info thead tr").each(function () {
+  $("#hidden-table-info-2 thead tr").each(function () {
     this.insertBefore(nCloneTh, this.childNodes[0]);
   });
 
-  $("#hidden-table-info tbody tr").each(function () {
+  $("#hidden-table-info-2 tbody tr").each(function () {
     this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
   });
 
-  var oTable = $("#hidden-table-info").dataTable({
+  var oTable = $("#hidden-table-info-2").dataTable({
     aoColumnDefs: [
       {
         bSortable: false,
@@ -48,7 +48,7 @@ $(document).ready(function () {
    * Note that the indicator for showing which row is open is not controlled by DataTables,
    * rather it is done here
    */
-  $("#hidden-table-info tbody td img").on("click", function () {
+  $("#hidden-table-info-2 tbody td img").on("click", function () {
     var nTr = $(this).parents("tr")[0];
     if (oTable.fnIsOpen(nTr)) {
       /* This row is already open - close it */
@@ -61,30 +61,44 @@ $(document).ready(function () {
     }
   });
 });
-function cambiar_conceptos() {
-  var x = document.getElementById("num_conceptos").value;
-  switch (x) {
-    case "1":
-      document.getElementById("concepto_1").style.display = "inherit";
-      document.getElementById("concepto_2").style.display = "none";
-      break;
-    case "2":
-      document.getElementById("concepto_1").style.display = "none";
-      document.getElementById("concepto_2").style.display = "inherit";
-      break;
-  }
+function entrada() {
+  var num_conceptos = $("#num_entradas").val();
+  $.ajax({
+    url: "./templates/modals/bodega_externa/formularios/num_entradas.php",
+    method: "POST",
+    data: {
+      num_conceptos: num_conceptos,
+    },
+    success: function (respuesta) {
+      $("#transporte_entrada").html(respuesta);
+    },
+  });
 }
+function salida() {
+  var num_conceptos = $("#num_salidas").val();
+  $.ajax({
+    url: "./templates/modals/bodega_externa/formularios/num_salidas.php",
+    method: "POST",
+    data: {
+      num_conceptos: num_conceptos,
+    },
+    success: function (respuesta) {
+      $("#transporte_salida").html(respuesta);
+    },
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   document
-    .getElementById("AltaAlmacenaje")
-    .addEventListener("submit", AltaAlmacenaje);
+    .getElementById("AltaTraspaleo")
+    .addEventListener("submit", AltaTraspaleo);
 });
-async function AltaAlmacenaje(e) {
+async function AltaTraspaleo(e) {
   e.preventDefault();
-  var form = document.getElementById("AltaAlmacenaje");
+  var form = document.getElementById("AltaTraspaleo");
   let data = new FormData(form);
   data.append("accion", "agregar");
-  fetch("php/almacenaje_controller.php", {
+  fetch("php/traspaleo_controller.php", {
     method: "POST",
     body: data,
   })
@@ -99,62 +113,6 @@ async function AltaAlmacenaje(e) {
       } else {
         document.getElementById("success").style.display = "none";
         document.getElementById("decline").style.display = "inherit";
-      }
-    });
-}
-function eliminarAlmacenaje(id) {
-  const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: "btn btn-success",
-      cancelButton: "btn btn-danger",
-    },
-    buttonsStyling: false,
-  });
-
-  swalWithBootstrapButtons
-    .fire({
-      title: "Estas seguro?",
-      text: "¡No podrás revertir esto!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Si, eliminar",
-      cancelButtonText: "No, cancelar!",
-      reverseButtons: true,
-    })
-    .then((result) => {
-      if (result.isConfirmed) {
-        let data = new FormData();
-        data.append("id", id);
-        data.append("accion", "eliminar");
-        fetch("php/almacenaje_controller.php", {
-          method: "POST",
-          body: data,
-        })
-          .then((result) => result.text())
-          .then((result) => {
-            if (result == 1) {
-              swalWithBootstrapButtons.fire(
-                "Eliminado!",
-                "Su archivo ha sido eliminado.",
-                "success"
-              );
-              setTimeout(function () {
-                location.reload();
-              }, 3000);
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          "Cancelado",
-          "Tu archivo ha sido salvado",
-          "error"
-        );
       }
     });
 }

@@ -2,9 +2,24 @@ function fnFormatDetails(oTable, nTr) {
   var aData = oTable.fnGetData(nTr);
   var sOut =
     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-  sOut += "<tr><td>Mercancia:</td><td>" + aData[7] + "</td></tr>";
-  sOut += "<tr><td>Carga:</td><td>" + aData[8] + "</td></tr>";
-  sOut += "<tr><td>Documentos:</td><td>" + aData[9] + "</td></tr>";
+  sOut +=
+    "<tr><td>Aduana:</td><td>" +
+    aData[4] +
+    "</td><td>Terminal:</td><td>" +
+    aData[5] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>Mercancia:</td><td>" +
+    aData[8] +
+    "</td><td>Carga:</td><td>" +
+    aData[9] +
+    "</td></tr>";
+  sOut +=
+    "<tr><td>Documentos:</td><td>" +
+    aData[10] +
+    "</td><td>Creado:</td><td>" +
+    aData[7] +
+    "</td></tr>";
   sOut += "</table>";
 
   return sOut;
@@ -37,10 +52,6 @@ $(document).ready(function () {
     buttons: ["excel", "print"],
     aaSorting: [[1, "desc"]],
   });
-  /* Add event listener for opening and closing details
-   * Note that the indicator for showing which row is open is not controlled by DataTables,
-   * rather it is done here
-   */
   $("#hidden-table-info tbody td img").on("click", function () {
     var nTr = $(this).parents("tr")[0];
     if (oTable.fnIsOpen(nTr)) {

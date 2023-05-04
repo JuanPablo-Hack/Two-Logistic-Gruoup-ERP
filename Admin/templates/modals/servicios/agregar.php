@@ -3,7 +3,7 @@
     include 'php/conexion.php';
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conexion, $sql);
-    $sql2 = "SELECT * FROM catalogo_servicios";
+    $sql2 = "SELECT * FROM tipos_servicios";
     $result2 = $conexion->query($sql2);
     $sql4 = "SELECT * FROM trabajador WHERE rol=3";
     $result4 = mysqli_query($conexion, $sql4);
@@ -33,7 +33,7 @@
                             </select>
                         </div>
                         <div class="col mb-0">
-                            <label for="exampleFormControlSelect1" class="form-label">Operador</label>
+                            <label for="exampleFormControlSelect1" class="form-label">Ejecutivo</label>
                             <select class="form-control" name='operador'>
                                 <option value="0">Sin Asignar</option>
                                 <?php

@@ -1,4 +1,5 @@
 <?php
+// TODO: Terminar bien el controlador de los viajes en este apartado
 switch ($_POST['accion']) {
     case 'agregar':
         if ($_POST['tipo_viaje'] == 'Viaje Marítimo' || $_POST['tipo_viaje'] == 'Viaje Áereo') {
@@ -17,7 +18,7 @@ switch ($_POST['accion']) {
 function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $linea_naviera, $no_contenedores, $tipo_contenedor, $buque, $viaje, $peso, $bultos, $puerto_carga, $puerto_transbordo, $puerto_destino, $puerto_transito, $tiempo_transito, $cierre, $vgm, $check_lista, $liberacion, $descripcion)
 {
     include './conexion.php';
-    $sql = "INSERT INTO `viajes` (`id`, `tipo_viaje`, `id_servicio`, `id_cliente`, `terminal`, `fecha_servicio`, `hora`, `booking`, `linea_naviera`, `no_contenedores`, `tipo_contenedores`, `tipo_viaje_terrestre`, `buque`, `viaje`, `peso`, `bultos`, `puerto_carga`, `puerto_transbordo`, `puerto_destino`, `puerto_transito`, `tiempo_transito`, `cierre`, `vgm`, `docu`, `tipo_liberacion`, `agencias_aduanales`, `tipo_mercancia`, `tipo_plataforma`, `transporte`, `descrip`, `creado`) VALUES (NULL, '$tipo_viaje', '$servicio', '$cliente', NULL, NULL, NULL, '$booking', '$linea_naviera', '$no_contenedores', '$tipo_contenedor', NULL, '$buque', '$viaje', '$peso', '$bultos', '$puerto_carga', '$puerto_transbordo', '$puerto_destino', '$puerto_transito', '$tiempo_transito', '$cierre', '$vgm', '$check_lista', '$liberacion', NULL, NULL, NULL, NULL, '$descripcion', current_timestamp())";
+    $sql = "INSERT INTO viajes(tipo_viaje,id_servicio,id_cliente,booking,naviera,no_contenedores,tipo_contenedores,buque,viaje,peso,bultos,puerto_carga,puerto_transbordo,puerto_destino,puerto_transito,tiempo_transito,cierre_documental,vgm,carta_instru,id_tipo_liberacion,comentarios,id_estado) VALUES(1,1,'1','asdas','asdas',5,'asdasdasd','asdas','asdasd',15.5,5,'asdasd','asdasd','asdasd','asdasd','asdasd','2023-05-04','2023-05-04','Si',1,'asdasda',1)";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
@@ -28,7 +29,7 @@ function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $l
 function agregar_viajes_terrestre($tipo_viaje, $servicio, $cliente, $terminal, $fecha_servicio, $hora, $no_contenedores, $tipo_contenedor, $tipo_viaje_terrestre, $peso, $bultos, $agente_aduanal, $tipo_mercancia, $tipo_plataforma, $transporte, $descripcion)
 {
     include './conexion.php';
-    $sql = "INSERT INTO `viajes` (`id`, `tipo_viaje`, `id_servicio`, `id_cliente`, `terminal`, `fecha_servicio`, `hora`, `booking`, `linea_naviera`, `no_contenedores`, `tipo_contenedores`, `tipo_viaje_terrestre`, `buque`, `viaje`, `peso`, `bultos`, `puerto_carga`, `puerto_transbordo`, `puerto_destino`, `puerto_transito`, `tiempo_transito`, `cierre`, `vgm`, `docu`, `tipo_liberacion`, `agencias_aduanales`, `tipo_mercancia`, `tipo_plataforma`, `transporte`, `descrip`, `creado`) VALUES (NULL, '$tipo_viaje', '$cliente', '$servicio', '$terminal', '$fecha_servicio', '$hora', NULL, NULL, '$no_contenedores', '$tipo_contenedor', '$tipo_viaje_terrestre', NULL, NULL, '$peso', '$bultos', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$agente_aduanal', '$tipo_mercancia', '$tipo_plataforma', '$transporte', '$descripcion', current_timestamp())";
+    $sql = "INSERT INTO viajes_terrestres(id_cliente,id_servicio,terminal,fecha_servicio,hora,no_contenedores,tipo_contenedores,tipo_viaje,peso,bultos,id_agente_aduanal,id_tipo_mercancia,id_plataforma,transportista,comentarios,id_estado) VALUES(1,1,'ASDSAD','2023-05-04','ASDSA',5,'ASDASD','ASDAS',15.5,5,1,1,1,1,'ASDAS',1)";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
