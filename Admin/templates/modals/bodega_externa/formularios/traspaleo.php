@@ -1,7 +1,7 @@
 <?php
 $sql = "SELECT id,razon_social FROM clientes";
 $result = mysqli_query($conexion, $sql);
-$sql2 = "SELECT id FROM servicios";
+$sql2 = "SELECT * FROM tipo_producto";
 $result2 = mysqli_query($conexion, $sql2);
 $sql3 = "SELECT * FROM tipo_embalaje";
 $result3 = mysqli_query($conexion, $sql3);
@@ -26,13 +26,13 @@ $result5 = mysqli_query($conexion, $sql5);
             </select>
         </div>
         <div class="col mb-0">
-            <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
+            <label for="exampleFormControlSelect1" class="form-label">Tipo de producto</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
                 <option value="0">Selecciona un mercancia</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result2)) {
                 ?>
-                    <option value=<?php echo $Row1['id']; ?>><?php echo 'OTL-' . date('Y') . '-' . $Row1['id']; ?></option>
+                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                 <?php
                 }
                 ?>

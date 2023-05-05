@@ -33,12 +33,6 @@
                     </div>
                     <div class="row g-3">
                         <div class="col mb-0">
-                            <label for="exampleFormControlSelect1" class="form-label">Peso Bruto</label>
-                            <div class="col-md-10">
-                                <input class="form-control" type="text" id="html5-date-input" name="peso_bruto" />
-                            </div>
-                        </div>
-                        <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Peso Tara</label>
                             <div class="col-md-10">
                                 <input class="form-control" type="text" id="html5-date-input" name="peso_tara" />

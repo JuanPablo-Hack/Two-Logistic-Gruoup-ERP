@@ -15,7 +15,7 @@ function agregar_traspaleo($cliente, $servicio, $peso, $cubicaje, $temperatura, 
     $datos_entrada_transporte = implode(",", $datos_entrada);
     $datos_salida_transporte = implode(",", $datos_salida);
     include 'conexion.php';
-    $sql = "INSERT INTO `traspaleo` (`id`, `cliente`, `tipo_producto`, `peso`, `cubicaje`, `tipo_embalaje`, `no_contenedores`, `transportista_entrada`, `transportista_salida`, `datos_entrada`, `datos_salida`, `descrip`) VALUES (NULL, '$cliente', '$servicio', '$peso', '$cubicaje', '$temperatura', '$no_contenedores', '$transporte_entrada', '$transporte_salida', '$datos_entrada_transporte', '$datos_salida_transporte', '$descripcion')";
+    $sql = "INSERT INTO `traspaleo` (`id`, `cliente`, `tipo_producto`, `peso`, `cubicaje`, `temp`, `tipo_embalaje`, `no_contenedores`, `transportista_entrada`, `transportista_salida`, `datos_entrada`, `datos_salida`, `descrip`) VALUES (NULL, '$cliente', '$servicio', '$peso', '$cubicaje', '$temperatura', '$tipo_embalaje', '$no_contenedores', '$transporte_entrada', '$transporte_salida', '$datos_entrada_transporte', '$datos_salida_transporte', '$descripcion')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;

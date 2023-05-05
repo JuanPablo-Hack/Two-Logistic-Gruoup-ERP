@@ -4,10 +4,10 @@ switch ($_POST['accion']) {
         ingreso_producto($_POST['cliente'], $_POST['nombre_producto'], $_POST['proveedor'], $_POST['descripcion']);
         break;
     case 'entrada':
-        entrada_producto($_POST['id'], $_POST['ticket'], $_POST['placas'], $_POST['peso_bruto'],  $_POST['peso_tara'], $_POST['peso_neto'], $_POST['descripcion']);
+        entrada_producto($_POST['id'], $_POST['ticket'], $_POST['placas'],  $_POST['peso_tara'], $_POST['peso_neto'], $_POST['descripcion']);
         break;
     case 'salida':
-        salida_producto($_POST['id'], $_POST['ticket'], $_POST['placas'], $_POST['peso_bruto'],  $_POST['peso_tara'], $_POST['peso_neto'], $_POST['descripcion']);
+        salida_producto($_POST['id'], $_POST['ticket'], $_POST['placas'], $_POST['peso_tara'], $_POST['peso_neto'], $_POST['descripcion']);
         break;
     case 'eliminar':
         eliminar_producto($_POST['id']);
@@ -34,28 +34,30 @@ function eliminar_producto($id)
         echo 1;
     }
 }
-function salida_producto($id, $ticket, $placas, $peso_bruto, $peso_tara, $peso_neto, $descripcion)
+function salida_producto($id, $ticket, $placas, $peso_tara, $peso_neto, $descripcion)
 {
+    $peso_bruto = $peso_tara + $peso_neto;
     RestarProducto($id, $peso_bruto, $peso_tara, $peso_neto);
     include 'conexion.php';
     $sql = "INSERT INTO `salidas_productos` (`material`, `ticket`, `placas`, `peso_bruto`, `peso_tara`, `peso_neto`, `descrip`) VALUES ('$id', '$ticket', '$placas', '$peso_bruto', '$peso_tara', '$peso_neto', '$descripcion')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
-        header("Location: ../inventario.php");
+        header("Location: ../bitacora_productos.php");
     } else {
-        header("Location: ../inventario.php");
+        header("Location: ../bitacora_productoss.php");
     }
 }
-function entrada_producto($id, $ticket, $placas, $peso_bruto, $peso_tara, $peso_neto, $descripcion)
+function entrada_producto($id, $ticket, $placas, $peso_tara, $peso_neto, $descripcion)
 {
+    $peso_bruto = $peso_tara + $peso_neto;
     SumarProducto($id, $peso_bruto, $peso_tara, $peso_neto);
     include 'conexion.php';
     $sql = "INSERT INTO `entradas_productos` (`id`, `material`, `ticket`, `placas`, `peso_bruto`, `peso_tara`, `peso_neto`, `descrip`, `creado`) VALUES (NULL, '$id', '$ticket', '$placas', '$peso_bruto', '$peso_tara', '$peso_neto', '$descripcion', current_timestamp())";
     $resultado = $conexion->query($sql);
     if ($resultado) {
-        header("Location: ../inventario.php");
+        header("Location: ../bitacora_productos.php");
     } else {
-        header("Location: ../inventario.php");
+        header("Location: ../bitacora_productos.php");
     }
 }
 

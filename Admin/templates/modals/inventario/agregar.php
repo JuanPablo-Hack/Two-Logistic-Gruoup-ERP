@@ -53,7 +53,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     Cerrar
                 </button>
-                <button type="submit" class="btn btn-primary">Agregar Servicio</button>
+                <button type="submit" class="btn btn-primary">Agregar Producto</button>
             </div>
             </form>
         </div>
