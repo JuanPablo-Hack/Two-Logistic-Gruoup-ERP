@@ -150,3 +150,42 @@ function CambiarEstado(IDCotizacion, EstadoCotizacion) {
       }
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("btn-imprimir")
+    .addEventListener("click", imprimirHtmlPdf);
+});
+
+
+const imprimirHtmlPdf = () => {
+  var form = document.getElementById("AltaDespacho");
+  let data = new FormData(form);
+  fetch("php/despacho_imprimir.php", {
+    method: "POST",
+    body: data,
+  }).then((r) => r.text())
+    .then((r) => {
+      html2pdf()
+        .set({
+          margin: 1,
+          filename: 'Despacho_Aduanal.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.98
+          },
+          html2canvas: {
+            scale: 3, // A mayor escala, mejores gráficos, pero más peso
+            letterRendering: true,
+          },
+          jsPDF: {
+            unit: "in",
+            format: "a3",
+            orientation: 'portrait' // landscape o portrait
+          }
+        })
+        .from(r)
+        .save()
+        .catch(err => console.log(err));
+    })
+}
