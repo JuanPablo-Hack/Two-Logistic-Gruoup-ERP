@@ -18,7 +18,7 @@ $result6 = mysqli_query($conexion, $sql6);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                <option value="0">Selecciona un cliente</option>
+                <option selected disabled>-Selecciona un cliente-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result)) {
                 ?>
@@ -31,7 +31,7 @@ $result6 = mysqli_query($conexion, $sql6);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
-                <option value="0">Selecciona una referencia</option>
+                <option selected disabled>-Selecciona un servicio-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result2)) {
                 ?>
@@ -79,7 +79,7 @@ $result6 = mysqli_query($conexion, $sql6);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Tipo de Viaje</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_viaje_terrestre" required>
-                <option selected>Selecciona un tipo de viaje</option>
+                <option selected disabled>-Selecciona un tipo de viaje-</option>
                 <option value="1">Local</option>
                 <option value="2">Foraneo</option>
             </select>
@@ -103,7 +103,7 @@ $result6 = mysqli_query($conexion, $sql6);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Agente Aduanal</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" name="agente_aduanal" required>
-                <option selected>Selecciona un agente aduanal</option>
+                <option selected disabled>-Selecciona un agente aduanal-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result3)) {
                 ?>
@@ -116,7 +116,7 @@ $result6 = mysqli_query($conexion, $sql6);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Tipo de Mercancia</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_mercancia" required>
-                <option selected>Selecciona un tipo de mercancia</option>
+                <option selected disabled>-Selecciona un tipo de mercancia-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result4)) {
                 ?>
@@ -129,7 +129,7 @@ $result6 = mysqli_query($conexion, $sql6);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Tipo de Plataforma</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" name="tipo_plataforma" required>
-                <option selected>Selecciona un tipo de plataforma</option>
+                <option selected disabled>-Selecciona un tipo de plataforma-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result5)) {
                 ?>
@@ -142,7 +142,7 @@ $result6 = mysqli_query($conexion, $sql6);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Transportista</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" name="transporte" required>
-                <option selected>Selecciona un transportista</option>
+                <option selected disabled>-Selecciona un transportista-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result6)) {
                 ?>

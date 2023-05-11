@@ -11,6 +11,7 @@
                 <th>Cliente</th>
                 <th>Proveedor</th>
                 <th>Descripción</th>
+                <th style="display: none;">Creado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -21,24 +22,23 @@
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
                 <tr>
-
-                    <td><a href="./detalles_cliente.php?id_cliente=<?php echo $mostrar['id_cliente'] ?>"><?php
-                                                                                                            $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
-                                                                                                            $result1 = mysqli_query($conexion, $sql1);
-                                                                                                            $Row = mysqli_fetch_array($result1);
-                                                                                                            echo $Row['razon_social'];
-                                                                                                            ?></a></td>
-                    <td><a href="./detalles_cliente.php?id_cliente=<?php echo $mostrar['id_cliente'] ?>"><?php
-                                                                                                            $sql1 = "SELECT * FROM proveedores WHERE id='" . $mostrar['id_proveedor'] . "'";
-                                                                                                            $result1 = mysqli_query($conexion, $sql1);
-                                                                                                            $Row = mysqli_fetch_array($result1);
-                                                                                                            echo $Row['razon_social'];
-                                                                                                            ?></a></td>
-
-
+                    <td><?php
+                        $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
+                        $result1 = mysqli_query($conexion, $sql1);
+                        $Row = mysqli_fetch_array($result1);
+                        echo $Row['razon_social'];
+                        ?></td>
+                    <td><?php
+                        $sql1 = "SELECT * FROM proveedores WHERE id='" . $mostrar['id_proveedor'] . "'";
+                        $result1 = mysqli_query($conexion, $sql1);
+                        $Row = mysqli_fetch_array($result1);
+                        echo $Row['razon_social'];
+                        ?></td>
                     <td><?php echo $mostrar['descripcion'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['creado'] ?></td>
                     <td>
-                        <button type="button" onclick="eliminarContrato(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Generar PDF"><i class='bx bxs-file-pdf'></i></button>
+                        <!-- TODO: terminar el pdf de los contratos  -->
+                        <button type="button" onclick="" class="btn btn-sm btn-icon item-edit" title="Generar PDF"><i class='bx bxs-file-pdf'></i></button>
                         <button type="button" onclick="eliminarContrato(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
                     </td>
                 </tr>

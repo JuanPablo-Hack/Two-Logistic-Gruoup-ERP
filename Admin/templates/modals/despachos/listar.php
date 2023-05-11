@@ -5,6 +5,7 @@
             Agregar Despacho Aduanal
         </button>
     </div>
+    <br>
     <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
         <thead>
             <tr>
@@ -64,11 +65,20 @@
                                                 ?></td>
                     <td style="display: none;"><?php echo $mostrar['documentacion'] ?></td>
                     <td>
-                        <!-- TODO: Terminar el editar de este apartado -->
-                        <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarDespacho<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
-                        <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,2)" class="btn btn-sm btn-icon item-edit" title="Atender"><i class='bx bxs-file-export'></i></button>
-                        <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,3)" class="btn btn-sm btn-icon item-edit" title="Finalizar"><i class='bx bx-badge-check'></i></button>
-                        <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,4)" class="btn btn-sm btn-icon item-edit" title="Cancelar"><i class='bx bx-x-circle'></i></button>
+                        <?php
+                        if ($mostrar['id_estado'] < 3) {
+                        ?>
+
+                            <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,2)" class="btn btn-sm btn-icon item-edit" title="Atender"><i class='bx bxs-file-export'></i></button>
+                            <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,3)" class="btn btn-sm btn-icon item-edit" title="Finalizar"><i class='bx bx-badge-check'></i></button>
+                            <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,4)" class="btn btn-sm btn-icon item-edit" title="Cancelar"><i class='bx bx-x-circle'></i></button>
+                        <?php
+                        } else {
+                        ?>
+                            <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarDespacho<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
+                        <?php
+                        }
+                        ?>
                     </td>
                 </tr>
                 <?php include 'templates/modals/despachos/editar.php'; ?>

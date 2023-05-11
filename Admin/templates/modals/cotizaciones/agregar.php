@@ -12,13 +12,12 @@
             </div>
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Cotizacion agregado con éxito!</div>
-                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
+                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, verifica que todos los campos estén llenados por favor!</div>
                 <form id="AltaCotizacion">
                     <div class="row g-2">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                            <select class="form-control" name='cliente'>
-                                <option value="0">Sin Asignar</option>
+                            <select class="form-control" name='cliente' required>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
@@ -26,6 +25,7 @@
                                 <?php
                                 }
                                 ?>
+                                <option value="0" selected disabled>-Selecciona un cliente-</option>
                             </select>
                         </div>
                         <div class="col mb-0">

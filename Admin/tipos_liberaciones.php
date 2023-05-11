@@ -125,7 +125,7 @@
                             <div data-i18n="Extended UI">Inventario</div>
                         </a>
                         <ul class="menu-sub">
-                           
+
                             <li class="menu-item">
                                 <a href="bitacora_productos.php" class="menu-link">
                                     <div data-i18n="Text Divider">Bitacora de Productos</div>
@@ -165,13 +165,13 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="agentes_aduanales.php" class="menu-link">
+                        <a href="transportistas.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-truck"></i>
                             <div data-i18n="Analytics">Transportistas</div>
                         </a>
                     </li>
                     <li class="menu-item active">
-                        <a href="agentes_aduanales.php" class="menu-link">
+                        <a href="tipos_liberaciones.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-list-ul"></i>
                             <div data-i18n="Analytics">Tipos Liberaciones</div>
                         </a>

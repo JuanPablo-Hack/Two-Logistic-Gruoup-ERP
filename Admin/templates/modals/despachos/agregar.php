@@ -18,13 +18,13 @@
             </div>
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Despacho Aduanal agregado con éxito!</div>
-                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
+                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor revisa que todos los campos hayan sido llenados!</div>
                 <form id="AltaDespacho">
                     <div class="row g-3">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Tipo de operación</label>
                             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='tipo_oper'>
-                                <option selected>Selecciona un tipo de operación</option>
+                                <option selected disabled>Selecciona un tipo de operación</option>
                                 <option value="Importación">Importación</option>
                                 <option value="Exportación">Exportación</option>
                             </select>
@@ -32,7 +32,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
                             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                                <option value="0">Selecciona un cliente</option>
+                                <option selected disabled>Selecciona un cliente</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
@@ -45,7 +45,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>
                             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='proveedor'>
-                                <option value="0">Selecciona un proveedor</option>
+                                <option selected disabled>Selecciona un proveedor</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result4)) {
                                 ?>
@@ -76,7 +76,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Tipo de mercancia</label>
                             <select class="form-select" id="num_conceptos" aria-label="Default select example" name="mercancia" required>
-                                <option selected>Selecciona un tipo de mercancia</option>
+                                <option selected disabled>-Selecciona un tipo de mercancia-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result2)) {
                                 ?>
@@ -89,7 +89,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Tipo de Carga</label>
                             <select class="form-select" id="num_conceptos" aria-label="Default select example" name="carga" required>
-                                <option selected>Selecciona un tipo de carga</option>
+                                <option selected disabled>-Selecciona un tipo de carga-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result3)) {
                                 ?>

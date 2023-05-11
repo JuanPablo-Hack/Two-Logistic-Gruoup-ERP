@@ -19,7 +19,7 @@
             </div>
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Viaje agregado con éxito!</div>
-                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
+                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor verifica que todos los campos hayan sido llenados!</div>
                 <div class="row">
                     <div class="col mb-0">
                         <label for="exampleFormControlSelect1" class="form-label">Tipo de Viaje</label>

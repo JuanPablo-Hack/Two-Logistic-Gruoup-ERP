@@ -11,8 +11,8 @@ $result4 = mysqli_query($conexion, $sql4);
     <div class="row g-2">
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
-            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
-                <option value="0">Selecciona un servicio</option>
+            <select class="form-select" id="num_conceptos" required name='servicio'>
+                <option selected disabled>-Selecciona un servicio-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result3)) {
                 ?>
@@ -25,7 +25,7 @@ $result4 = mysqli_query($conexion, $sql4);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                <option value="0">Selecciona un cliente</option>
+                <option selected disabled>-Selecciona un cliente-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result)) {
                 ?>
@@ -154,7 +154,7 @@ $result4 = mysqli_query($conexion, $sql4);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Tipo de liberación</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='liberacion'>
-                <option value="0">Selecciona un cliente</option>
+                <option selected disabled>-Selecciona un tipo de liberación-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result4)) {
                 ?>

@@ -61,13 +61,9 @@ $(document).ready(function () {
       },
     ],
     dom: "Bfrtip",
-    buttons: ["excel", "print"],
+    buttons: ["excel"],
     aaSorting: [[1, "desc"]],
   });
-  /* Add event listener for opening and closing details
-   * Note that the indicator for showing which row is open is not controlled by DataTables,
-   * rather it is done here
-   */
   $("#hidden-table-info tbody td img").on("click", function () {
     var nTr = $(this).parents("tr")[0];
     if (oTable.fnIsOpen(nTr)) {

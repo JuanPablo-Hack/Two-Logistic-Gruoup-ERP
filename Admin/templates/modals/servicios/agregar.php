@@ -16,13 +16,13 @@
             </div>
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Servicio agregado con éxito!</div>
-                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
+                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, revisa que todos los campos se hayan llenado por favor!</div>
                 <form id="AltaServicio">
                     <div class="row g-3">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                            <select class="form-control" name='cliente'>
-                                <option value="0">Sin Asignar</option>
+                            <select class="form-control" name='cliente' required>
+                                <option value="0" selected disabled>-Selecciona un cliente-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
@@ -34,8 +34,8 @@
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Ejecutivo</label>
-                            <select class="form-control" name='operador'>
-                                <option value="0">Sin Asignar</option>
+                            <select class="form-control" name='operador' required>
+                                <option value="0" selected disabled>-Selecciona un ejecutivo-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result4)) {
                                 ?>

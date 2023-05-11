@@ -49,7 +49,7 @@ $(document).ready(function () {
       },
     ],
     dom: "Bfrtip",
-    buttons: ["excel", "print"],
+    buttons: ["excel"],
     aaSorting: [[1, "desc"]],
   });
   $("#hidden-table-info tbody td img").on("click", function () {

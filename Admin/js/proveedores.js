@@ -33,9 +33,6 @@ function fnFormatDetails(oTable, nTr) {
   return sOut;
 }
 $(document).ready(function () {
-  /*
-   * Insert a 'details' column to the table
-   */
   var nCloneTh = document.createElement("th");
   var nCloneTd = document.createElement("td");
   nCloneTd.innerHTML = '<img src="datatables/details_open.png">';
@@ -57,7 +54,7 @@ $(document).ready(function () {
       },
     ],
     dom: "Bfrtip",
-    buttons: ["excel", "print"],
+    buttons: ["excel"],
     aaSorting: [[1, "desc"]],
   });
   /* Add event listener for opening and closing details

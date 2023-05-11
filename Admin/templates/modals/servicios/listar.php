@@ -52,7 +52,7 @@
                     <td style="display: none;"><?php echo $mostrar['descripcion'] ?></td>
                     <td>
                         <?php
-                        if ($mostrar['id_estado'] != 3) {
+                        if ($mostrar['id_estado'] < 3) {
                         ?>
                             <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarServicio<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
                             <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,2)" class="btn btn-sm btn-icon item-edit" title="Atender"><i class='bx bxs-file-export'></i></button>
