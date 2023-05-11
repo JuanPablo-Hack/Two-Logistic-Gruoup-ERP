@@ -18,6 +18,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
                             <select class="form-control" name='cliente' required>
+                                <option value="0" selected disabled>-Selecciona un cliente-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
@@ -25,7 +26,6 @@
                                 <?php
                                 }
                                 ?>
-                                <option value="0" selected disabled>-Selecciona un cliente-</option>
                             </select>
                         </div>
                         <div class="col mb-0">

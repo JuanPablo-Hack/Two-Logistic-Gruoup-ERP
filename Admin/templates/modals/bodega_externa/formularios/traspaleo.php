@@ -15,7 +15,7 @@ $result5 = mysqli_query($conexion, $sql5);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
             <select class="form-select" aria-label="Default select example" required name='cliente'>
-                <option value="0">Selecciona un cliente</option>
+                <option value="0" selected disabled>-Selecciona un cliente-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result)) {
                 ?>
@@ -28,7 +28,7 @@ $result5 = mysqli_query($conexion, $sql5);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Tipo de producto</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
-                <option value="0">Selecciona un mercancia</option>
+                <option value="0" selected disabled>Selecciona un mercancia</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result2)) {
                 ?>
@@ -88,7 +88,7 @@ $result5 = mysqli_query($conexion, $sql5);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Transportista Entrada</label>
             <select class="form-select" aria-label=" Default select example" required name='transporte_entrada'>
-                <option value="0">Selecciona un transportista</option>
+                <option value="0" selected disabled>-Selecciona un transportista-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result4)) {
                 ?>
@@ -112,7 +112,7 @@ $result5 = mysqli_query($conexion, $sql5);
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Transportista Salida</label>
             <select class="form-select" aria-label="Default select example" required name='transporte_salida'>
-                <option value="0">Selecciona un transportista</option>
+                <option value="0" selected disabled>-Selecciona un transportista-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result5)) {
                 ?>
