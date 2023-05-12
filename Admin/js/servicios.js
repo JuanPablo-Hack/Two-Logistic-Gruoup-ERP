@@ -153,3 +153,19 @@ function CambiarEstado(IDCotizacion, EstadoCotizacion) {
       }
     });
 }
+
+function verificarSelectCliente() {
+  const x = document.getElementById("selectClient").value;
+  x != 0
+    ? (document.getElementById("defaultFormControlHelp").style =
+        "display: none;")
+    : (document.getElementById("defaultFormControlHelp").style =
+        "display: inherit;");
+}
+
+function verificarSelectEjecutivo() {
+  const x = document.getElementById("selectEjecutivo").value;
+  x != 0
+    ? (document.getElementById("avisoEjecutivo").style = "display: none;")
+    : (document.getElementById("avisoEjecutivo").style = "display: inherit;");
+}

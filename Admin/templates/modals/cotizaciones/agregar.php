@@ -17,7 +17,7 @@
                     <div class="row g-2">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                            <select class="form-control" name='cliente' required>
+                            <select class="form-control" name='cliente' required id="selectClient" onblur="verificarSelectCliente()">
                                 <option value="0" selected disabled>-Selecciona un cliente-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
@@ -27,6 +27,7 @@
                                 }
                                 ?>
                             </select>
+                            <div id="defaultFormControlHelp" style="display: none;" class="form-text">Es necesario seleccionar a un cliente, de no existir ninguno, por favor de ir a crear en la sección de <a href="listar_clientes.php" target="_blank">Clientes</a>.</div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">No. de conceptos</label>

@@ -157,22 +157,22 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", imprimirHtmlPdf);
 });
 
-
 const imprimirHtmlPdf = () => {
   var form = document.getElementById("AltaDespacho");
   let data = new FormData(form);
   fetch("php/despacho_imprimir.php", {
     method: "POST",
     body: data,
-  }).then((r) => r.text())
+  })
+    .then((r) => r.text())
     .then((r) => {
       html2pdf()
         .set({
           margin: 1,
-          filename: 'Despacho_Aduanal.pdf',
+          filename: "Despacho_Aduanal.pdf",
           image: {
-            type: 'jpeg',
-            quality: 0.98
+            type: "jpeg",
+            quality: 0.98,
           },
           html2canvas: {
             scale: 3, // A mayor escala, mejores gráficos, pero más peso
@@ -181,11 +181,26 @@ const imprimirHtmlPdf = () => {
           jsPDF: {
             unit: "in",
             format: "a3",
-            orientation: 'portrait' // landscape o portrait
-          }
+            orientation: "portrait", // landscape o portrait
+          },
         })
         .from(r)
         .save()
-        .catch(err => console.log(err));
-    })
+        .catch((err) => console.log(err));
+    });
+};
+function verificarSelectCliente() {
+  const x = document.getElementById("selectClient").value;
+  console.log(x);
+  x != 0
+    ? (document.getElementById("defaultFormControlHelp").style =
+        "display: none;")
+    : (document.getElementById("defaultFormControlHelp").style =
+        "display: inherit;");
+}
+function verificarSelectProovedor() {
+  const x = document.getElementById("selectProovedor").value;
+  x != 0
+    ? (document.getElementById("proveedorAviso").style = "display: none;")
+    : (document.getElementById("proveedorAviso").style = "display: inherit;");
 }

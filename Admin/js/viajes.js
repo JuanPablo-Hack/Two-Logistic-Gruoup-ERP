@@ -90,7 +90,6 @@ $(document).ready(function () {
 });
 function cambiar_conceptos() {
   var x = document.getElementById("num_conceptos").value;
-  console.log(x);
   switch (x) {
     case "1":
       document.getElementById("concepto_1").style.display = "inherit";
@@ -273,4 +272,18 @@ function CambiarEstado(IDCotizacion, EstadoCotizacion) {
         );
       }
     });
+}
+function verificarSelectCliente() {
+  const x = document.getElementById("selectClient").value;
+  x != 0
+    ? (document.getElementById("defaultFormControlHelp").style =
+        "display: none;")
+    : (document.getElementById("defaultFormControlHelp").style =
+        "display: inherit;");
+}
+function verificarSelectServicio() {
+  const x = document.getElementById("selectServicios").value;
+  x != 0
+    ? (document.getElementById("avisoServicio").style = "display: none;")
+    : (document.getElementById("avisoServicio").style = "display: inherit;");
 }

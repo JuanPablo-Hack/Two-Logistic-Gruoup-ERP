@@ -11,8 +11,8 @@ $result4 = mysqli_query($conexion, $sql4);
     <div class="row g-2">
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
-            <select class="form-select" id="num_conceptos" required name='servicio'>
-                <option selected disabled>-Selecciona un servicio-</option>
+            <select class="form-select" required name='servicio' id="selectServicios" onblur="verificarSelectServicio()">
+                <option value="0" selected disabled>-Selecciona un servicio-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result3)) {
                 ?>
@@ -21,11 +21,12 @@ $result4 = mysqli_query($conexion, $sql4);
                 }
                 ?>
             </select>
+            <div id="avisoServicio" style="display: none;" class="form-text">Es necesario seleccionar un servicio, de no existir ninguno, por favor de ir a crear en la sección de <a href="listar_servicios.php" target="_blank">Servicios</a>.</div>
         </div>
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                <option selected disabled>-Selecciona un cliente-</option>
+            <select class="form-select" aria-label=" Default select example" required name='cliente' id="selectClient" onblur="verificarSelectCliente()">
+                <option value="0" selected disabled>-Selecciona un cliente-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result)) {
                 ?>
@@ -34,6 +35,7 @@ $result4 = mysqli_query($conexion, $sql4);
                 }
                 ?>
             </select>
+            <div id="defaultFormControlHelp" style="display: none;" class="form-text">Es necesario seleccionar a un cliente, de no existir ninguno, por favor de ir a crear en la sección de <a href="listar_clientes.php" target="_blank">Clientes</a>.</div>
         </div>
     </div>
     <div class="row g-3">

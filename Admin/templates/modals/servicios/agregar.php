@@ -21,7 +21,7 @@
                     <div class="row g-3">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                            <select class="form-control" name='cliente' required>
+                            <select class="form-control" name='cliente' required id="selectClient" onblur="verificarSelectCliente()">
                                 <option value="0" selected disabled>-Selecciona un cliente-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
@@ -31,10 +31,11 @@
                                 }
                                 ?>
                             </select>
+                            <div id="defaultFormControlHelp" style="display: none;" class="form-text">Es necesario seleccionar a un cliente, de no existir ninguno, por favor de ir a crear en la sección de <a href="listar_clientes.php" target="_blank">Clientes</a>.</div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Ejecutivo</label>
-                            <select class="form-control" name='operador' required>
+                            <select class="form-control" name='operador' required id="selectEjecutivo" onblur="verificarSelectEjecutivo()">
                                 <option value="0" selected disabled>-Selecciona un ejecutivo-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result4)) {
@@ -44,6 +45,7 @@
                                 }
                                 ?>
                             </select>
+                            <div id="avisoEjecutivo" style="display: none;" class="form-text">Es necesario seleccionar a un ejecutivo, de no existir ninguno, por favor avisar al encargado del sistema de crear al respectivo ejecutivo.</div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Fecha de Servicio</label>

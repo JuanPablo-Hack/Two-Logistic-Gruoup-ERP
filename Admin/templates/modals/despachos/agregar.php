@@ -31,29 +31,31 @@
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
+                            <select class="form-select" aria-label="Default select example" required name='cliente' id="selectClient" onblur="verificarSelectCliente()">
                                 <option value="0">Selecciona un cliente</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
-                                <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
+                            <div id="defaultFormControlHelp" style="display: none;" class="form-text">Es necesario seleccionar a un cliente, de no existir ninguno, por favor de ir a crear en la sección de <a href="listar_clientes.php" target="_blank">Clientes</a>.</div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>
-                            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='proveedor'>
-                                <option value="0">Selecciona un proveedor</option>
+                            <select class="form-control" name='proveedor' required id="selectProovedor" onblur="verificarSelectProovedor()">
+                                <option value="0" selected disabled>-Selecciona un proovedor-</option>
                                 <?php
-                                while ($Row1 = mysqli_fetch_array($result4)) {
+                                while ($Row1 = mysqli_fetch_array($result2)) {
                                 ?>
-                                <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
+                            <div id="proveedorAviso" style="display: none;" class="form-text">Es necesario seleccionar a un proovedor, de no existir ninguno, por favor de ir a crear en la sección de <a href="listar_proveedores.php" target="_blank">Proveedores</a>.</div>
                         </div>
                     </div>
                     <br>
@@ -61,17 +63,13 @@
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-fullname">Aduana de despacho</label>
                             <div class="input-group input-group-merge">
-                                <input type="text" class="form-control" id="basic-icon-default-fullname"
-                                    aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="aduana"
-                                    required />
+                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="aduana" required />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-fullname">Terminal portuaria</label>
                             <div class="input-group input-group-merge">
-                                <input type="text" class="form-control" id="basic-icon-default-fullname"
-                                    aria-label="John Doe" aria-describedby="basic-icon-default-fullname2"
-                                    name="terminal" required />
+                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="terminal" required />
                             </div>
                         </div>
                     </div>
@@ -84,7 +82,7 @@
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result2)) {
                                 ?>
-                                <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                 <?php
                                 }
                                 ?>
@@ -97,7 +95,7 @@
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result3)) {
                                 ?>
-                                <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
+                                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
                                 <?php
                                 }
                                 ?>
@@ -109,43 +107,35 @@
                             <div class="col-md">
                                 <label for="exampleFormControlSelect1" class="form-label">Documentación</label>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="Factura" id="defaultCheck1"
-                                        name="check_lista[]" />
+                                    <input class="form-check-input" type="checkbox" value="Factura" id="defaultCheck1" name="check_lista[]" />
                                     <label class="form-check-label" for="defaultCheck1"> Factura</label>
                                 </div>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="Lista de Embarque"
-                                        id="defaultCheck1" name="check_lista[]" />
+                                    <input class="form-check-input" type="checkbox" value="Lista de Embarque" id="defaultCheck1" name="check_lista[]" />
                                     <label class="form-check-label" for="defaultCheck1"> Lista de Embarque</label>
                                 </div>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="BL" id="defaultCheck1"
-                                        name="check_lista[]" />
+                                    <input class="form-check-input" type="checkbox" value="BL" id="defaultCheck1" name="check_lista[]" />
                                     <label class="form-check-label" for="defaultCheck1"> BL</label>
                                 </div>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="Ficha Técnica"
-                                        id="defaultCheck1" name="check_lista[]" />
+                                    <input class="form-check-input" type="checkbox" value="Ficha Técnica" id="defaultCheck1" name="check_lista[]" />
                                     <label class="form-check-label" for="defaultCheck1"> Ficha Técnica</label>
                                 </div>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="Póliza de Seguro"
-                                        id="defaultCheck1" name="check_lista[]" />
+                                    <input class="form-check-input" type="checkbox" value="Póliza de Seguro" id="defaultCheck1" name="check_lista[]" />
                                     <label class="form-check-label" for="defaultCheck1"> Póliza de Seguro</label>
                                 </div>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="Póliza de Transporte"
-                                        id="defaultCheck1" name="check_lista[]" />
+                                    <input class="form-check-input" type="checkbox" value="Póliza de Transporte" id="defaultCheck1" name="check_lista[]" />
                                     <label class="form-check-label" for="defaultCheck1"> Póliza de Transporte</label>
                                 </div>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="Carta Garantía"
-                                        id="defaultCheck1" name="check_lista[]" />
+                                    <input class="form-check-input" type="checkbox" value="Carta Garantía" id="defaultCheck1" name="check_lista[]" />
                                     <label class="form-check-label" for="defaultCheck1"> Carta Garantía</label>
                                 </div>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="Hoja de Seguridad"
-                                        id="defaultCheck1" name="check_lista[]" />
+                                    <input class="form-check-input" type="checkbox" value="Hoja de Seguridad" id="defaultCheck1" name="check_lista[]" />
                                     <label class="form-check-label" for="defaultCheck1"> Hoja de Seguridad</label>
                                 </div>
                             </div>
@@ -155,8 +145,7 @@
                     <div class="row">
                         <div class="col mb-0">
                             <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                name="descripcion"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
                         </div>
                     </div>
             </div>

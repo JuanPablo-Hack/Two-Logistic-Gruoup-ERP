@@ -131,3 +131,19 @@ function eliminarContrato(id) {
       }
     });
 }
+
+function verificarSelectCliente() {
+  const x = document.getElementById("selectClient").value;
+  x != 0
+    ? (document.getElementById("defaultFormControlHelp").style =
+        "display: none;")
+    : (document.getElementById("defaultFormControlHelp").style =
+        "display: inherit;");
+}
+
+function verificarSelectProovedor() {
+  const x = document.getElementById("selectProovedor").value;
+  x != 0
+    ? (document.getElementById("proveedorAviso").style = "display: none;")
+    : (document.getElementById("proveedorAviso").style = "display: inherit;");
+}

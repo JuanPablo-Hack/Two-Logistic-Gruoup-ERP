@@ -24,7 +24,7 @@
                     <div class="col mb-0">
                         <label for="exampleFormControlSelect1" class="form-label">Tipo de Viaje</label>
                         <select class="form-select" id="num_conceptos" aria-label="Default select example" name="no_conceptos" required onchange="cambiar_conceptos()">
-                            <option selected>Selecciona un cliente</option>
+                            <option selected>-Seleciona el tipo de viaje-</option>
                             <option value="1">Maritimos</option>
                             <option value="2">Terrestres</option>
                             <option value="3">Áereos</option>
