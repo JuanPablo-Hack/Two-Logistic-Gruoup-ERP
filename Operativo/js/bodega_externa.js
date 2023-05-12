@@ -35,7 +35,7 @@ $(document).ready(function () {
       },
     ],
     dom: "Bfrtip",
-    buttons: ["excel", "print"],
+    buttons: ["excel"],
     aaSorting: [[1, "desc"]],
   });
   /* Add event listener for opening and closing details
