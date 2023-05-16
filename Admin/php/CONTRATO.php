@@ -1,6 +1,16 @@
 <?php
+include_once 'conexion.php';
 
-echo '
+$id = $_POST['id'];
+
+$contratos = $conexion->query("SELECT * FROM contratos WHERE id = $id");
+$contratos_data = $contratos->fetch_assoc();
+
+$cliente = $conexion->query("SELECT * FROM clientes WHERE id = " . $contratos_data['id_cliente']);
+$clientef = $cliente->fetch_assoc();
+
+$datos_comercial = explode(",", $clientef['datos_comercial']);
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,50 +25,6 @@ echo '
 </head>
 
 <body>
-  <style>
-    body {
-      background: lightgrey;
-      display: flex;
-      justify-content: center;
-    }
-
-    .page {
-      padding: 50px 80px;
-      margin: 50px;
-      background: white;
-      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
-      max-width: 800px;
-      min-width: 500px;
-    }
-
-    #terms-and-conditions {
-      font-size: 14px;
-    }
-
-    #terms-and-conditions h1 {
-      font-size: 34px;
-    }
-
-    #terms-and-conditions ol {
-      counter-reset: item;
-    }
-
-    #terms-and-conditions li {
-      display: block;
-      margin: 20px 0;
-      position: relative;
-      color: black;
-    }
-
-    #terms-and-conditions li:before {
-      position: absolute;
-      top: 0;
-      margin-left: -50px;
-      color: black;
-      content: counters(item, ".") "    ";
-      counter-increment: item;
-    }
-  </style>
   <div class="page">
     <div id="terms-and-conditions">
       <p>
@@ -67,16 +33,17 @@ echo '
           PARTE LA EMPRESA TWO LOGISTIC SOLUCIONES INTERNACIONALES S. DE
           R.L. de C.V., REPRESENTADA LEGALMENTE POR LA C. NORMA YASMIN
           FREGOSO VELASCO, A QUIEN EN LO SUCESIVO SE LE DENOMINARÁ “EL
-          PRESTADOR” Y POR LA OTRA PARTE CLIENTE XXXX REPRESENTADA
-          LEGALMENTE POR C XXXX A QUIEN EN LO SUCESIVO SE LE DENOMINARÁ
+          PRESTADOR” Y POR LA OTRA PARTE CLIENTE <?php echo $clientef['razon_social'] ?> REPRESENTADA
+          LEGALMENTE POR C <?php echo $datos_comercial[0] ?> A QUIEN EN LO SUCESIVO SE LE DENOMINARÁ
           “EL CLIENTE”, DE ACUERDO CON LAS DECLARACIONES Y CLÁUSULAS
           SIGUIENTES
         </strong>
       </p>
-      <h1>D E C L A R A C I O N E S</h1>
-
+      <center>
+        <h1>D E C L A R A C I O N E S</h1>
+      </center>
+      <br>
       <ol>
-
         <li>
           <b>Declara “EL PRESTADOR” por conducto de representante legal y bajo protesta de
             decir verdad</b>
@@ -118,7 +85,7 @@ echo '
               Ser una sociedad constituida de conformidad con las leyes mexicanas, según
               escritura XXX de fecha XX de diciembre de XX, pasada ante la fe del Lic. XXX,
               notario público titular número XX del entonces denominado XX; y registrada bajo
-              inscripción folio XX del registro de comercio del XX con RFC: XXX
+              inscripción folio XX del registro de comercio del XX con RFC: <?php echo $clientef['rfc'] ?>
             </li>
             <li>Que dentro de su objeto social se permite la celebración del presente contrato
             </li>
@@ -140,7 +107,7 @@ echo '
               son de procedencia lícita y han cumplido con la normativa legal aplicable para su
               obtención, propiedad y posesión legítima.</li>
             <li> Que señala como domicilio convencional para todos los efectos del presente
-              acuerdo el ubicado en XXXXX</li>
+              acuerdo el ubicado en <?php echo $clientef['domicilio'] ?></li>
             <li>Que para la celebración de este contrato fue debidamente asesorada por los
               profesionistas designados para tales efectos.s</li>
           </ol>
@@ -163,7 +130,10 @@ echo '
         </li>
       </ol>
       <br> <br> <br> <br> <br>
-      <h1>C L Á U S U L A S</h1>
+      <center>
+        <h1>C L Á U S U L A S</h1>
+      </center>
+      <br>
       <b>PRIMERA. - EL OBJETO DEL CONTRATO. -</b>
       <p>
         “EL PRESTADOR" prestará a favor de “EL CLIENTE” los servicios, en adelante “LOS
@@ -171,6 +141,7 @@ echo '
         al presente contrato, la(s) cual(es) forma(n) parte integral del mismo y que en adelante se
         referirán como “LA(S) COTIZACIÓN(ES)”.
       </p>
+
       <b>SEGUNDA. - DE LA CONTRAPRESTACIÓN. -</b>
       <p>
         “EL CLIENTE” pagará a “EL PRESTADOR” por “LOS SERVICIOS”, las cantidades de
@@ -413,7 +384,7 @@ echo '
             </li>
             <li>Por “EL CLIENTE”:
               <br>
-              <a href="mailto:"></a>
+              <a href="mailto:<?php echo $datos_comercial[1] ?>"><?php echo $datos_comercial[1] ?></a>
             </li>
           </ol>
         </li>
@@ -446,9 +417,10 @@ echo '
         lo firman en contrapartes, por duplicado, uno para cada parte, de común acuerdo, en la ciudad
         de Manzanillo, Colima, México a los 15 días del mes de marzo de 2022.
       </p>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
   </div>
 
 </body>
 
-</html>';
+</html>
