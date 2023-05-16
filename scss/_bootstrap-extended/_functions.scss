@@ -73,7 +73,7 @@
 }
 
 //RGBA to HEX
-@function rgba-to-hex($color, $background: #fff) {
+@function rgba-to-hex($color, $background: #FFF) {
   @if $color and alpha($color) != 1 {
     $percent: alpha($color) * 100%;
     $opaque: opacify($color, 1);
@@ -112,7 +112,7 @@
   $contrast-percent: divide(contrast-value($bg), 255);
   $contrast-percent-inverted: 1 - $contrast-percent;
 
-  $opacity: if($active-color == #fff, 0.6 + (0.4 * $contrast-percent), 0.6 + (0.4 * (1 - $contrast-percent)));
+  $opacity: if($active-color == #FFF, 0.6 + (0.4 * $contrast-percent), 0.6 + (0.4 * (1 - $contrast-percent)));
 
   $color: if(
     $inactive-color,

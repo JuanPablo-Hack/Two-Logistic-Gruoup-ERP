@@ -38,7 +38,7 @@
                     <td style="display: none;"><?php echo $mostrar['creado'] ?></td>
                     <td>
                         <!-- TODO: terminar el pdf de los contratos  -->
-                        <button type="button" onclick="" class="btn btn-sm btn-icon item-edit" title="Generar PDF"><i class='bx bxs-file-pdf'></i></button>
+                        <button type="button" onclick="crearPDF(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Generar PDF"><i class='bx bxs-file-pdf'></i></button>
                         <button type="button" onclick="eliminarContrato(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
                     </td>
                 </tr>

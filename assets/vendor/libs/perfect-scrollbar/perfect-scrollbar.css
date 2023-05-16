@@ -198,7 +198,7 @@
 .light-style .ps-inverted .ps__rail-y:focus > .ps__thumb-y,
 .light-style .ps-inverted .ps__rail-x.ps--clicking > .ps__thumb-x,
 .light-style .ps-inverted .ps__rail-y.ps--clicking > .ps__thumb-y {
-  background-color: #fff;
+  background-color: #FFF;
 }
 
 @supports (-moz-appearance: none) {

@@ -40,7 +40,7 @@ $datos_cliente = $cliente->fetch_assoc();
             height: 29.7cm;
             margin: 0 auto;
             color: #001028;
-            background: #ffffff;
+            background: #FFFfff;
             font-family: Arial, sans-serif;
             font-size: 12px;
             font-family: Arial;
@@ -61,7 +61,7 @@ $datos_cliente = $cliente->fetch_assoc();
 
         h1 {
             border: solid 1px;
-            background-color: #2b3f54;
+            background-color: #FFF;
             color: white;
             font-size: 2.4em;
             line-height: 1.4em;
@@ -191,7 +191,7 @@ $datos_cliente = $cliente->fetch_assoc();
     </header>
     <main>
         <table style="border: solid 1px">
-            <thead style="border: solid 1px; background-color: #2b3f54">
+            <thead style="border: solid 1px; background-color: #FFF">
                 <tr>
                     <th class="service" style="color: white; text-align:center;">BL / BKG</th>
                 </tr>
@@ -211,7 +211,7 @@ $datos_cliente = $cliente->fetch_assoc();
             </tbody>
         </table>
         <table style="border: solid 1px">
-            <thead style="border: solid 1px; background-color: #2b3f54">
+            <thead style="border: solid 1px; background-color: #FFF">
                 <tr>
                     <th class="service" style="color: white; text-align:center;">Transporte</th>
                 </tr>
@@ -230,7 +230,7 @@ $datos_cliente = $cliente->fetch_assoc();
             </tbody>
         </table>
         <table style="border: solid 1px">
-            <thead style="border: solid 1px; background-color: #2b3f54">
+            <thead style="border: solid 1px; background-color: #FFF">
                 <tr>
                     <th class="service" style="color: white; text-align:center;">Contenedores</th>
 
@@ -250,7 +250,7 @@ $datos_cliente = $cliente->fetch_assoc();
             </tbody>
         </table>
         <table style="border: solid 1px">
-            <thead style="border: solid 1px; background-color: #2b3f54">
+            <thead style="border: solid 1px; background-color: #FFF">
                 <tr>
                     <th class="service" style="color: white">Fecha</th>
                     <th class="desc" style="color: white">Observaciones</th>
@@ -286,7 +286,7 @@ $datos_cliente = $cliente->fetch_assoc();
             </tbody>
         </table>
         <table style="border: solid 1px">
-            <thead style="border: solid 1px; background-color: #2b3f54">
+            <thead style="border: solid 1px; background-color: #FFF">
                 <tr>
                     <th class="service" style="color: white; text-align:center;">Check List</th>
                 </tr>

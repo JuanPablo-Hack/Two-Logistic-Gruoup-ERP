@@ -33,7 +33,7 @@ function getTipoServicio($id)
     height: 29.7cm;
     margin: 0 auto;
     color: #001028;
-    background: #ffffff;
+    background: #FFFfff;
     font-family: Arial, sans-serif;
     font-size: 12px;
     font-family: Arial;

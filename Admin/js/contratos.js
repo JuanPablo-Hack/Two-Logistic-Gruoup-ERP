@@ -147,3 +147,42 @@ function verificarSelectProovedor() {
     ? (document.getElementById("proveedorAviso").style = "display: none;")
     : (document.getElementById("proveedorAviso").style = "display: inherit;");
 }
+
+function addScript(url) {
+  var script = document.createElement("script");
+  script.type = "application/javascript";
+  script.src = url;
+  document.head.appendChild(script);
+}
+
+addScript(
+  "https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"
+);
+
+function crearPDF(id) {
+  var opt = {
+    margin: 1,
+    filename: "Contrato.pdf",
+    image: {
+      type: "jpeg",
+      quality: 0.98,
+    },
+    html2canvas: {
+      scale: 1,
+    },
+    jsPDF: {
+      unit: "in",
+      format: "a3",
+      orientation: "portrait",
+    },
+  };
+
+  $.ajax({
+    type: "POST",
+    data: "id=" + id,
+    url: "php/CONTRATO.php",
+    success: function (r) {
+      var worker = html2pdf().set(opt).from(r).toPdf().save();
+    },
+  });
+}

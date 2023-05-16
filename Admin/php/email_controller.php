@@ -52,7 +52,7 @@ function MandarAlertaUsuario($OperadorSelccionado)
           margin: 0;
           padding: 0;
           word-spacing: normal;
-          background-color: #ffffff;
+          background-color: #FFFfff;
         "
       >
         <div
@@ -63,7 +63,7 @@ function MandarAlertaUsuario($OperadorSelccionado)
             text-size-adjust: 100%;
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
-            background-color: #fff;
+            background-color: #FFF;
           "
         >
           <table
@@ -108,13 +108,13 @@ function MandarAlertaUsuario($OperadorSelccionado)
                             height: auto;
                             border: none;
                             text-decoration: none;
-                            color: #ffffff;
+                            color: #FFFfff;
                           "
                       /></a>
                     </td>
                   </tr>
                   <tr>
-                    <td style="padding: 30px; background-color: #ffffff">
+                    <td style="padding: 30px; background-color: #FFFfff">
                       <h1
                         style="
                           margin-top: 0;
@@ -142,15 +142,15 @@ function MandarAlertaUsuario($OperadorSelccionado)
                         padding: 30px;
                         text-align: center;
                         font-size: 12px;
-                        background-color: #2b3f54;
-                        color: #fff;
+                        background-color: #FFF;
+                        color: #FFF;
                       "
                     >
                       <p style="margin: 0; font-size: 14px; line-height: 20px">
                         &reg; Twologistic, todos los derechos reservados 2022<br /><a
                           class="unsub"
                           href="https://twologistic.com/"
-                          style="color: #fff; text-decoration: underline"
+                          style="color: #FFF; text-decoration: underline"
                           >www.twologistic.com</a
                         >
                       </p>

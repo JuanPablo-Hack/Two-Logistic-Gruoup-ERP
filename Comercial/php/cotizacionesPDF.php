@@ -49,7 +49,7 @@ function getTipoServicio($id)
       height: 29.7cm;
       margin: 0 auto;
       color: #001028;
-      background: #ffffff;
+      background: #FFFfff;
       font-family: Arial, sans-serif;
       font-size: 12px;
       font-family: Arial;
@@ -70,7 +70,7 @@ function getTipoServicio($id)
 
     h1 {
       border: solid 1px;
-      background-color: #2b3f54;
+      background-color: #FFF;
       color: white;
       font-size: 2.4em;
       line-height: 1.4em;
@@ -204,7 +204,7 @@ function getTipoServicio($id)
   </header>
   <main>
     <table style="border: solid 1px">
-      <thead style="border: solid 1px; background-color: #2b3f54">
+      <thead style="border: solid 1px; background-color: #FFF">
         <tr>
           <th class="service" style="color: white">SERVICIO</th>
           <th class="desc" style="color: white">DESCRIPCIÓN</th>
@@ -235,7 +235,7 @@ function getTipoServicio($id)
       </tbody>
     </table>
     <div id="notices" style="border: solid 1px">
-      <div style="border: solid 1px; background-color: #2b3f54">
+      <div style="border: solid 1px; background-color: #FFF">
         <h4 style="color: white">
           <center>TÉRMINOS Y CONDICIONES</center>
         </h4>

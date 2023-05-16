@@ -13,7 +13,7 @@
 // *******************************************************************************
 
 // scss-docs-start gray-color-variables
-$white: #fff !default;
+$white: #FFF !default;
 $black: #435971 !default;
 $gray-25: rgba($black, 0.025) !default; // (C)
 $gray-50: rgba($black, 0.05) !default; // (C)
@@ -38,7 +38,7 @@ $grays: (
 // scss-docs-start color-variables
 $blue: #007bff !default;
 $indigo: #6610f2 !default;
-$purple: #696cff !default;
+$purple: #68C0C0 !default;
 $pink: #e83e8c !default;
 $red: #ff3e1d !default;
 $orange: #fd7e14 !default;
@@ -113,7 +113,7 @@ $sizes-px: (
   auto: auto
 ) !default; // (C)
 
-$rgba-to-hex-bg: #fff !default; // (C)
+$rgba-to-hex-bg: #FFF !default; // (C)
 $rgba-to-hex-bg-inverted: #000 !default; // (C)
 
 // * Body
