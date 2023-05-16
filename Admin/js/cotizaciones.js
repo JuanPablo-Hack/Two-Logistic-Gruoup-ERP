@@ -170,7 +170,7 @@ function crearPDF(id) {
       quality: 0.98,
     },
     html2canvas: {
-      scale: 3,
+      scale: 1,
     },
     jsPDF: {
       unit: "in",
@@ -193,7 +193,7 @@ function verificarSelectCliente() {
   const x = document.getElementById("selectClient").value;
   x != 0
     ? (document.getElementById("defaultFormControlHelp").style =
-        "display: none;")
+      "display: none;")
     : (document.getElementById("defaultFormControlHelp").style =
-        "display: inherit;");
+      "display: inherit;");
 }

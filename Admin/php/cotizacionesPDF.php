@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$id = 4;
+$id = $_POST['id'];
 $cotizacion = $conexion->query("SELECT * FROM cotizaciones WHERE id = $id");
 $datos_cotizacion = $cotizacion->fetch_assoc();
 
@@ -18,281 +18,291 @@ function getTipoServicio($id)
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <title>Document</title>
 </head>
+<style>
+  body {
+    position: relative;
+    width: 21cm;
+    height: 29.7cm;
+    margin: 0 auto;
+    color: #001028;
+    background: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-family: Arial;
+  }
+
+  .containerTitulo {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .containerTitulo img {
+    width: 150px;
+    height: 80px;
+  }
+
+  #containerTitulos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #44546A;
+  }
+
+  #containerTitulos h1 {
+    color: #44546A;
+    margin-bottom: -22px;
+  }
+
+  .containerHeader {
+    margin-bottom: -20px;
+    margin-top: 30px;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    height: 45px;
+    background-color: #44546A;
+    color: #FFF;
+    margin: auto;
+  }
+
+  .containerHeader p {
+    font-size: 18px;
+  }
+
+  #containerTabla {
+    margin-top: 20px;
+    width: 70%;
+    align-items: center;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  #containerTabla tbody tr td {
+    text-align: center;
+    border: 1px solid;
+    font-size: 17px;
+    padding: 3px;
+  }
+
+  #containerTabla tbody tr td:nth-child(odd) {
+    background-color: #44546A;
+    border-color: black;
+    color: #FFF;
+  }
+
+  #containerTabla2 {
+    width: 70%;
+    margin: auto;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  #containerTabla2 thead tr th {
+    border: 1px solid;
+    background-color: #44546A;
+    padding: 10px 5px;
+  }
+
+  #containerTabla2 thead tr th:nth-child(even) {
+    border-color: #000;
+    color: #FFF;
+  }
+
+  #containerTabla2 thead tr th:nth-child(odd) {
+    border-color: #000;
+    color: #FFF;
+  }
+
+  #containerTabla2 tbody tr:nth-child(odd) {
+    background-color: #EDEDED;
+  }
+
+  #containerTabla2 tbody tr td {
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+  }
+
+  .containerTabla34 {
+    width: 70%;
+    margin: auto;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .containerTabla34 tbody tr td {
+    font-size: 17px;
+    padding: 5px;
+  }
+</style>
 
 <body>
-  <style>
-    .clearfix:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-    a {
-      color: #5d6975;
-      text-decoration: underline;
-    }
-
-    body {
-      position: relative;
-      width: 21cm;
-      height: 29.7cm;
-      margin: 0 auto;
-      color: #001028;
-      background: #ffffff;
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      font-family: Arial;
-    }
-
-    header {
-      padding: 10px 0;
-      margin-bottom: 30px;
-    }
-
-    #logo {
-      text-align: center;
-    }
-
-    #logo img {
-      width: 350px;
-    }
-
-    h1 {
-      border: solid 1px;
-      background-color: #2b3f54;
-      color: white;
-      font-size: 2.4em;
-      line-height: 1.4em;
-      font-weight: normal;
-      text-align: center;
-      margin: 0 0 20px 0;
-    }
-
-    #project {
-      float: left;
-    }
-
-    #project span {
-      color: #5d6975;
-      text-align: right;
-      width: 52px;
-      margin-right: 10px;
-      display: inline-block;
-      font-size: 0.8em;
-    }
-
-    #company {
-      float: right;
-      text-align: right;
-    }
-
-    #project div,
-    #company div {
-      white-space: nowrap;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      border-spacing: 0;
-      margin-bottom: 20px;
-    }
-
-    table tr:nth-child(2n-1) td {
-      background: #f5f5f5;
-    }
-
-    table th,
-    table td {
-      text-align: center;
-    }
-
-    table th {
-      padding: 5px 20px;
-      color: #5d6975;
-      border-bottom: 1px solid #c1ced9;
-      white-space: nowrap;
-      font-weight: normal;
-    }
-
-    table .service,
-    table .desc {
-      text-align: left;
-    }
-
-    table td {
-      padding: 20px;
-      text-align: right;
-    }
-
-    table td.service,
-    table td.desc {
-      vertical-align: top;
-    }
-
-    table td.unit,
-    table td.qty,
-    table td.total {
-      font-size: 1.2em;
-    }
-
-    table td.grand {
-      border-top: 1px solid #5d6975;
-    }
-
-    #notices .notice {
-      color: #5d6975;
-      font-size: 1.2em;
-    }
-
-    footer {
-      color: #5d6975;
-      width: 100%;
-      height: 30px;
-      position: absolute;
-      bottom: 0;
-      border-top: 1px solid #c1ced9;
-      padding: 8px 0;
-      text-align: center;
-    }
-  </style>
-  <header class="clearfix">
-    <div id="logo">
-      <img src="./assets/img/logo.png" />
+  <div class="containerTitulo">
+    <img src="./assets/cocacola-logo.jpg" alt="">
+    <div id="containerTitulos">
+      <h1>Cotización de Servicio</h1>
+      <h3>Anexo comercial</h3>
     </div>
-    <h1>Cotización - 01</h1>
-    <div id="company" class="clearfix">
-      <div><strong>Two logistics</strong></div>
-      <div><strong>314-186-6895</strong></div>
-      <div><strong>REF.CLIENTE:</strong></div>
-      <div>
-        <a href="mailto:company@example.com">comercial@twologistic.com</a>
-      </div>
-    </div>
-    <div id="project">
-      <div style="border: solid 1px">
-        <strong><span>NOMBRE: </span><?php echo $datos_cliente['razon_social'] ?></strong>
-      </div>
-      <div style="border: solid 1px">
-        <strong><span>CONTACTO: </span><?php echo $datos_comercial[0] ?></strong>
-      </div>
-      <div style="border: solid 1px">
-        <strong><span>TEL: </span><?php echo $datos_comercial[2] ?></strong>
-      </div>
-      <div style="border: solid 1px">
-        <strong><span>ADUANA: </span> TEST</strong>
-      </div>
-      <div style="border: solid 1px">
-        <strong><span>EMAIL: </span></strong>
-        <a href="mailto:john@example.com"> <?php echo $datos_comercial[1] ?></a>
-      </div>
-      <div style="border: solid 1px">
-        <strong><span>FECHA: </span><?php echo $datos_cotizacion['creado'] ?></strong>
-      </div>
-    </div>
-  </header>
-  <main>
-    <table style="border: solid 1px">
-      <thead style="border: solid 1px; background-color: #2b3f54">
+  </div>
+  <div class="containerHeader">
+    <p>Datos del cliente</p>
+  </div>
+  <table id="containerTabla">
+    <tbody>
+      <tr>
+        <td>Razon social:</td>
+        <td><?php echo $datos_cliente['razon_social'] ?></td>
+        <td class="color">Referencia:</td>
+        <td><?php echo $id ?></td>
+      </tr>
+      <tr>
+        <td>Contacto:</td>
+        <td><?php echo $datos_comercial[0] ?></td>
+        <td class="color">Fecha:</td>
+        <td><?php echo $datos_cotizacion['creado'] ?></td>
+      </tr>
+      <tr>
+        <td>RFC:</td>
+        <td><?php echo $datos_cliente['rfc'] ?></td>
+        <td class="color">Aduana:</td>
+        <td>Mazanillo</td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><?php echo $datos_comercial[1] ?></td>
+        <td class="color">Tel/Cel</td>
+        <td><?php echo $datos_comercial[2] ?></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="containerHeader">
+    <p>Propuesta Economica</p>
+  </div>
+  <table id="containerTabla2">
+    <thead>
+      <tr>
+        <th>Servicio</th>
+        <th>Descripcion</th>
+        <th>Tarifa</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      for ($i = 0; $i < $datos_cotizacion['no_conceptos']; $i++) {
+        $DatosTipoServicio = getTipoServicio($conceptos[$i]);
+      ?>
         <tr>
-          <th class="service" style="color: white">SERVICIO</th>
-          <th class="desc" style="color: white">DESCRIPCIÓN</th>
-          <th style="color: white">TARIFA</th>
-          <th style="color: white">CANTIDAD</th>
-          <th style="color: white">TOTAL</th>
+          <td><?php echo $DatosTipoServicio['nombre'] ?></td>
+          <td>
+            <?php echo $DatosTipoServicio['descripcion'] ?>
+          </td>
+          <td><?php echo '$' . number_format($DatosTipoServicio['precio'], 2, '.', ',') ?></td>
+          <td><?php echo $cantidades[$i] ?></td>
+          <td><?php echo '$' . number_format($cantidades[$i] * $DatosTipoServicio['precio'], 2, '.', ',') ?></td>
         </tr>
-      </thead>
-      <tbody>
-        <?php
-        for ($i = 0; $i < $datos_cotizacion['no_conceptos']; $i++) {
-          $DatosTipoServicio = getTipoServicio($conceptos[$i]);
-        ?>
-          <tr>
+      <?php
+      }
+      ?>
+    </tbody>
+  </table>
 
-            <td class="service"><?php echo $DatosTipoServicio['nombre'] ?></td>
-            <td class="desc">
-              <?php echo $DatosTipoServicio['descripcion'] ?>
-            </td>
-            <td class="unit"><?php echo '$' . number_format($DatosTipoServicio['precio'], 2, '.', ',') ?></td>
-            <td class="qty"><?php echo $cantidades[$i] ?></td>
-            <td class="total"><?php echo '$' . number_format($cantidades[$i] * $DatosTipoServicio['precio'], 2, '.', ',') ?></td>
-          </tr>
+  <div class="containerHeader">
+    <p>Condiciones Especiales Del Servicio</p>
+  </div>
+  <table class="containerTabla34">
+    <tbody>
+      <tr>
+        <td>1.-Se cuenta con credito de 15 dias a partir del envio de la factura</td>
+      </tr>
+      <tr>
+        <td>2.- 21 días libres de demoras</td>
+      </tr>
+      <tr>
+        <td>3.- Servicio LINER</td>
+      </tr>
+    </tbody>
+  </table>
 
-        <?php
-        }
-        ?>
-      </tbody>
-    </table>
-    <div id="notices" style="border: solid 1px">
-      <div style="border: solid 1px; background-color: #2b3f54">
-        <h4 style="color: white">
-          <center>TÉRMINOS Y CONDICIONES</center>
-        </h4>
-      </div>
-      <div class="notice">
-        <ul>
-          <li>Tarifa para carga general (NO Peligroso)</li>
-          <li>
-            Es importante mencionar que las tarifas ofertadas no incluyen
-            maniobras, tramitaciones aduanales, seguro de la mercancía y/o del
-            contenedor ni tampoco gastos adicionales ajenos a la operación.
-          </li>
-          <li>
-            El pago de impuestos que cause la mercancía en origen y/o en
-            destino será siempre por cuenta del embarcador y/o consignatario.
-          </li>
-          <li>
-            En caso de ser mercancía IMO, estará sujeto a la aprobación de la
-            línea Naviera en origen y en destino, así como al recargo
-            correspondiente.
-          </li>
-          <li>
-            Los costos pueden cambiar con o sin previo aviso dependiendo de la
-            fecha de zarpe.
-          </li>
-          <li>
-            Solicitar el servicio de recolección con 48 hrs de antelación
-          </li>
-          <li>Flete en falso se cobrará el 100% flete</li>
-          <li>Las tarifas propuestas esta expresadas en pesos USD y MXN</li>
-          <li>
-            Se deberá realizar solicitud de anticipo por la totalidad del
-            embarque a realizar. En caso de incurrir en gastos independientes
-            a la operación, deberán cubrirse en su totalidad con solicitud
-            enviada.
-          </li>
-          <li>
-            Cualquier servicio no especificado en estas tarifas será cotizado
-            por separado.
-          </li>
-          <li>
-            Se factura en USD de acuerdo con el TC que corresponda al zarpe
-          </li>
-          <li>
-            De acuerdo con el pago deber ser anticipado y debe quedar cubierto
-            al envió del Booking.
-          </li>
-          <li>
-            Considerar que las reservas de Booking se pueden realizar al día
-            de la solicitud, solo se debe considerar un tiempo de 24 a 48 hrs
-            para la obtención del Booking Confirmation.
-          </li>
-          <li>Vigencia xxxxxxx</li>
-        </ul>
-      </div>
-    </div>
-  </main>
+  <div class="containerHeader">
+    <p>Términos y Condiciones</p>
+  </div>
+  <table class="containerTabla34">
+    <tbody>
+      <tr>
+        <td>• Tarifa son más IVA</td>
+      </tr>
+      <tr>
+        <td>• Es importante mencionar que las tarifas ofertadas no incluyen maniobras, tramites aduanales,
+          seguro de la mercancía y/o del contenedor ni tampoco gastos adicionales ajenos a la operación.</td>
+      </tr>
+      <tr>
+        <td>• El pago de impuestos que cause la mercancía en origen y/o en destino será siempre por cuenta del
+          embarcador y/o consignatario.</td>
+      </tr>
+      <tr>
+        <td>• En caso de ser mercancía IMO, estará sujeto a la aprobación de la línea Naviera en origen y en
+          destino, así como al recargo correspondiente.</td>
+      </tr>
+      <tr>
+        <td>• Los costos pueden cambiar sin previo aviso dependiendo de la fecha de zarpe.</td>
+      </tr>
+      <tr>
+        <td>• Solicitar el servicio de recolección con 48 hrs de antelación</td>
+      </tr>
+      <tr>
+        <td>• Flete en falso se cobrará el 100% flete</td>
+      </tr>
+      <tr>
+        <td>• Las tarifas propuestas esta expresadas en pesos MXN</td>
+      </tr>
+      <tr>
+        <td>• Las tarifas propuestas esta expresadas en USD</td>
+      </tr>
+      <tr>
+        <td>• Se deberá realizar solicitud de anticipo por la totalidad del embarque a realizar. En caso de
+          incurrir en gastos independientes a la operación, deberán cubrirse en su totalidad con solicitud
+          enviada.</td>
+      </tr>
+      <tr>
+        <td>• Cualquier servicio no especificado en estas tarifas será cotizado por separado.</td>
+      </tr>
+      <tr>
+        <td>• Se factura en USD de acuerdo con el TC que corresponda al zarpe</td>
+      </tr>
+      <tr>
+        <td>• De acuerdo con el pago deber ser anticipado y debe quedar cubierto al envió del Booking.</td>
+      </tr>
+      <tr>
+        <td>• Vigencia xxxxxx </td>
+      </tr>
+      <tr>
+        <td>• Considerar que las reservas de Booking se pueden realizar al día de la solicitud, solo se debe
+          considerar un tiempo de 24 a 48 hrs para la obtención del Booking Confirmation.</td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 
 </html>
