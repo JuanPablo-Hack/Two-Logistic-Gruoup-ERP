@@ -79,7 +79,7 @@ $result5 = mysqli_query($conexion, $sql5);
         <div class="col mb-0">
             <label class="form-label" for="basic-icon-default-fullname">No. de contenedores</label>
             <div class="input-group input-group-merge">
-                <input type="number" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="no_contenedores" required />
+                <input type="number" min="0" class="form-control" id="basic-icon-default-fullname" min="0" name="no_contenedores" required />
             </div>
         </div>
 

@@ -133,13 +133,13 @@
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-company">Días de Crédito</label>
                             <div class="input-group input-group-merge">
-                                <input type="number" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="credito" required />
+                                <input type="number" min="0" id="basic-icon-default-company" class="form-control" min="0" name="credito" required />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-company">Días de almacenamiento</label>
                             <div class="input-group input-group-merge">
-                                <input type="number" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="almacenamiento" required />
+                                <input type="number" min="0" id="basic-icon-default-company" class="form-control" min="0" name="almacenamiento" required />
                             </div>
                         </div>
                     </div>
