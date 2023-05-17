@@ -20,7 +20,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
                             <select class="form-control" name='cliente' required id="selectClient" onblur="verificarSelectCliente()">
-                                <option value="0" selected disabled>-Selecciona un cliente-</option>
+                                <option value="0" selected>-Selecciona un cliente-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
@@ -34,7 +34,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>
                             <select class="form-control" name='proveedor' required id="selectProovedor" onblur="verificarSelectProovedor()">
-                                <option value="0" selected disabled>-Selecciona un proovedor-</option>
+                                <option value="0" selected>-Selecciona un proovedor-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result2)) {
                                 ?>

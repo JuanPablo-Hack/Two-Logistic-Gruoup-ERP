@@ -113,7 +113,7 @@
                             <div data-i18n="Extended UI">Inventario</div>
                         </a>
                         <ul class="menu-sub">
-                           
+
                             <li class="menu-item">
                                 <a href="bitacora_productos.php" class="menu-link">
                                     <div data-i18n="Text Divider">Bitacora de Productos</div>
@@ -152,7 +152,7 @@
                             <div data-i18n="Analytics">Agentes Aduanales</div>
                         </a>
                     </li>
-                    <li class="menu-item s">
+                    <li class="menu-item active">
                         <a href="transportistas.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-truck"></i>
                             <div data-i18n="Analytics">Transportistas</div>
