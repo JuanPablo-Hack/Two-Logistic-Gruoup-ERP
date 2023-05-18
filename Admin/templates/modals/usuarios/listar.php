@@ -12,10 +12,10 @@
                     <thead>
                         <tr>
                             <th>Nombre Completo</th>
-                            <th>Correo</th>
-                            <th>Cargo</th>
-                            <th>Rol</th>
-                            <th>Teléfono</th>
+                            <th style="display: none;">Correo</th>
+                            <th style="display: none;">Cargo</th>
+                            <th style="display: none;">Rol</th>
+                            <th style="display: none;">Teléfono</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -28,25 +28,19 @@
                             <tr>
 
                                 <td><?php echo $mostrar['nombre'] ?></td>
-                                <td><?php echo $mostrar['correo'] ?></td>
-                                <td><?php echo $mostrar['cargo'] ?></td>
+                                <td style="display: none;"><?php echo $mostrar['correo'] ?></td>
+                                <td style="display: none;"><?php echo $mostrar['cargo'] ?></td>
 
-                                <td><?php
-                                    $sql1 = "SELECT * FROM roles WHERE id='" . $mostrar['rol'] . "'";
-                                    $result1 = mysqli_query($conexion, $sql1);
-                                    $Row = mysqli_fetch_array($result1);
-                                    echo $Row['rol'];
-                                    ?></td>
-                                <td><?php echo $mostrar['tel'] ?></td>
+                                <td style="display: none;"><?php
+                                                            $sql1 = "SELECT * FROM roles WHERE id='" . $mostrar['rol'] . "'";
+                                                            $result1 = mysqli_query($conexion, $sql1);
+                                                            $Row = mysqli_fetch_array($result1);
+                                                            echo $Row['rol'];
+                                                            ?></td>
+                                <td style="display: none;"><?php echo $mostrar['tel'] ?></td>
                                 <td>
-                                    <div class="demo-inline-spacing">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#EditarUsuario<?php echo $mostrar['id'] ?>">
-                                            <span class="tf-icons bx bx-pencil"></span>
-                                        </button>
-                                        <button type="button" class="btn btn-danger" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)">
-                                            <span class="tf-icons bx bx-x-circle"></span>
-                                        </button>
-                                    </div>
+                                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarUsuario<?php echo $mostrar['id'] ?>"><i class=" bx bxs-edit"></i></button>
+                                    <button type="button" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
                                 </td>
                             </tr>
                             <?php include('templates/modals/usuarios/editar.php'); ?>

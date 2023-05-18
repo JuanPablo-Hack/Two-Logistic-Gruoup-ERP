@@ -24,12 +24,8 @@
                             <tr>
                                 <td><?php echo $mostrar['nombre'] ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#EditarTipoMercancia<?php echo $mostrar['id'] ?>">
-                                        <span class="tf-icons bx bx-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger" onclick="eliminarTipoMercancia(<?php echo $mostrar['id'] ?>)">
-                                        <span class="tf-icons bx bx-x-circle"></span>
-                                    </button>
+                                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarTipoMercancia<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
+                                    <button type="button" onclick="eliminarTipoMercancia(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
                                 </td>
                             </tr>
                             <?php include 'templates/modals/tipo_mercancia/editar.php' ?>

@@ -26,14 +26,8 @@
                                 <td><?php echo $mostrar['id'] ?></td>
                                 <td><?php echo $mostrar['nombre'] ?></td>
                                 <td>
-                                    <div class="demo-inline-spacing">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#EditarTipoEmbalaje<?php echo $mostrar['id'] ?>">
-                                            <span class="tf-icons bx bx-pencil"></span>
-                                        </button>
-                                        <button type="button" class="btn btn-danger" onclick="eliminarTipoEmbalaje(<?php echo $mostrar['id'] ?>)">
-                                            <span class="tf-icons bx bx-x-circle"></span>
-                                        </button>
-                                    </div>
+                                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarTipoEmbalaje<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
+                                    <button type="button" onclick="eliminarTipoEmbalaje(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
                                 </td>
                             </tr>
                             <?php include 'templates/modals/tipos_embalaje/editar.php' ?>
