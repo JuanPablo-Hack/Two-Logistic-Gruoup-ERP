@@ -140,6 +140,12 @@
                             <div data-i18n="Analytics">Usuarios</div>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="tipos_servicios.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-money-withdraw"></i>
+                            <div data-i18n="Analytics">Catálogo de Servicios</div>
+                        </a>
+                    </li>
                     <li class="menu-item ">
                         <a href="tipos_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
