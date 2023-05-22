@@ -14,6 +14,9 @@ switch ($_POST['accion']) {
     case 'CambiarEstado':
         CambiarEstadoCotizacion($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
+    case 'CambiarEstadoTerrestre':
+        CambiarEstadoTerrestre($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
+        break;
 }
 function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $linea_naviera, $no_contenedores, $tipo_contenedor, $buque, $viaje, $peso, $bultos, $puerto_carga, $puerto_transbordo, $puerto_destino, $puerto_transito, $tiempo_transito, $cierre, $vgm, $check_lista, $liberacion, $descripcion)
 {
@@ -57,4 +60,14 @@ function editar_viajes($id, $razon_social, $rfc, $contacto, $tel, $cargo, $email
     } else {
         echo 2;
     }
+}
+function CambiarEstadoTerrestre($IDCotizacion, $EstadoCotizacion)
+{
+    include './conexion.php';
+    $sql = "UPDATE viajes_terrestres SET id_estado='$EstadoCotizacion' WHERE id='$IDCotizacion'";
+    $result = mysqli_query($conexion, $sql);
+    if (!$result) {
+        echo 2;
+    }
+    echo 1;
 }
