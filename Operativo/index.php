@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
-    data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 
 <head>
     <?php
-  include 'templates/head.php';
-  include 'php/contadores.php';
-  session_start();
-  if (!isset($_SESSION['id'])) {
-    header("location: ../error_login.html");
-  }
-  ?>
+    include 'templates/head.php';
+    include 'php/contadores.php';
+    session_start();
+    if (!isset($_SESSION['id'])) {
+        header("location: ../error_login.html");
+    }
+    ?>
+    ?>
 </head>
 
 <body>
@@ -22,21 +22,23 @@
                     <a href="index.html" class="app-brand-link">
                         <img src="../assets/img/logo.png" alt="twologisticlogo" width="200px" height="175px">
                     </a>
-                    <a href="javascript:void(0);"
-                        class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a>
                 </div>
+
                 <div class="menu-inner-shadow"></div>
+
                 <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
                     <li class="menu-item active">
                         <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-desktop"></i>
                             <div data-i18n="Analytics">Panel de control</div>
                         </a>
                     </li>
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Area Operativa</span>
-                    </li>
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Area Operativa</span></li>
                     <li class="menu-item ">
                         <a href="listar_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
@@ -88,17 +90,13 @@
                                             <div class="card-body">
                                                 <h5 class="card-title text-primary">Bienvenido Ejecutivo! 🎉</h5>
                                                 <p class="mb-4">
-                                                    No se te olvide de checar los pendientes de la semana. Esperamos que
-                                                    puedas contar con toda la actitud para comenzar bien la semana.
+                                                    No se te olvide de checar los pendientes de la semana. Esperamos que puedas contar con toda la actitud para comenzar bien la semana.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-sm-5 text-center text-sm-left">
                                             <div class="card-body pb-0 px-0 px-md-4">
-                                                <img src="../assets/img/illustrations/man-with-laptop-light.png"
-                                                    height="140" alt="View Badge User"
-                                                    data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                                                    data-app-light-img="illustrations/man-with-laptop-light.png" />
+                                                <img src="../assets/img/illustrations/man-with-laptop-light.png" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png" />
                                             </div>
                                         </div>
                                     </div>
@@ -109,11 +107,9 @@
                                     <div class="col-lg-6 col-md-12 col-6 mb-4">
                                         <div class="card">
                                             <div class="card-body">
-                                                <div
-                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <img src="../assets/img/icons/unicons/chart-success.png"
-                                                            alt="chart success" class="rounded" />
+                                                        <i class="menu-icon tf-icons bx bx-cube-alt" style="color:#68C0C0;"></i>
                                                     </div>
                                                 </div>
                                                 <span class="fw-semibold d-block mb-1">Servicios</span>
@@ -125,16 +121,13 @@
                                     <div class="col-lg-6 col-md-12 col-6 mb-4">
                                         <div class="card">
                                             <div class="card-body">
-                                                <div
-                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <img src="../assets/img/icons/unicons/wallet-info.png"
-                                                            alt="Credit Card" class="rounded" />
+                                                        <i class="menu-icon tf-icons bx bxs-ship" style="color:#68C0C0;"></i>
                                                     </div>
                                                 </div>
                                                 <span>Viajes Marítimos</span>
-                                                <h3 class="card-title text-nowrap mb-1"><?php echo viajesTotales(); ?>
-                                                </h3>
+                                                <h3 class="card-title text-nowrap mb-1"><?php echo viajesTotales(); ?></h3>
 
                                             </div>
                                         </div>
@@ -146,16 +139,13 @@
                                     <div class="col-6 mb-4">
                                         <div class="card">
                                             <div class="card-body">
-                                                <div
-                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <img src="../assets/img/icons/unicons/paypal.png"
-                                                            alt="Credit Card" class="rounded" />
+                                                        <i class="menu-icon tf-icons bx bxs-truck" style="color:#68C0C0;"></i>
                                                     </div>
                                                 </div>
                                                 <span class="d-block mb-1">Viajes Terrestres</span>
-                                                <h3 class="card-title text-nowrap mb-2">
-                                                    <?php echo viajesTerrestresTotales(); ?></h3>
+                                                <h3 class="card-title text-nowrap mb-2"><?php echo viajesTerrestresTotales(); ?></h3>
 
                                             </div>
                                         </div>
@@ -163,11 +153,9 @@
                                     <div class="col-6 mb-4">
                                         <div class="card">
                                             <div class="card-body">
-                                                <div
-                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <img src="../assets/img/icons/unicons/cc-primary.png"
-                                                            alt="Credit Card" class="rounded" />
+                                                        <i class="menu-icon tf-icons bx bxs-plane" style="color:#68C0C0;"></i>
                                                     </div>
                                                 </div>
                                                 <span class="fw-semibold d-block mb-1">Viajes Áereos</span>

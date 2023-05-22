@@ -1,12 +1,6 @@
 <?php include 'templates/modals/servicios/agregar.php';
 $IdOperador = $_SESSION['id']; ?>
 <div class="card">
-    <div class="demo-inline-spacing">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#largeModal">
-            Agregar Servicio
-        </button>
-    </div>
-    <br>
     <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
         <thead>
             <tr>
