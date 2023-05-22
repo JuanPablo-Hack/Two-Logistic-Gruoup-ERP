@@ -4,7 +4,7 @@ switch ($_POST['accion']) {
         agregar_trabajador($_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], sha1($_POST['contra']), $_POST['rol']);
         break;
     case 'editar':
-        editar_trabajador($_POST['id'], $_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], sha1($_POST['contra']), $_POST['rol']);
+        editar_trabajador($_POST['id'], $_POST['nombre'], $_POST['cargo'], $_POST['email'], $_POST['tel'], $_POST['rol']);
         break;
     case 'eliminar':
         eliminar_trabajador($_POST['id']);
@@ -32,7 +32,7 @@ function eliminar_trabajador($id)
         echo 1;
     }
 }
-function editar_trabajador($id, $nombre, $cargo, $correo, $tel, $contra, $rol)
+function editar_trabajador($id, $nombre, $cargo, $correo, $tel, $rol)
 {
     include 'conexion.php';
     $sql = "UPDATE `trabajador` SET `nombre` = '$nombre ', `correo` = '$correo', `tel` = '$tel', `cargo` = '$cargo', `pwd` = '$contra', `rol` = '$rol' WHERE `trabajador`.`id` = $id";

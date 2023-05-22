@@ -12,7 +12,6 @@
 <body>
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
-
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
         <div class="app-brand demo">
           <a href="index.html" class="app-brand-link">
@@ -180,9 +179,6 @@
           </li>
         </ul>
       </aside>
-      <!-- / Menu -->
-
-      <!-- Layout container -->
       <div class="layout-page">
         <?php include 'templates/profile.php'; ?>
         <div class="content-wrapper">
@@ -214,7 +210,7 @@
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
+                            <i class="menu-icon tf-icons bx bx-cube-alt" style="color:#68C0C0;"></i>
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Servicios</span>
@@ -228,7 +224,7 @@
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded" />
+                            <i class="menu-icon tf-icons bx bxs-ship" style="color:#68C0C0;"></i>
                           </div>
                         </div>
                         <span>Viajes Marítimos</span>
@@ -246,7 +242,7 @@
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                            <i class="menu-icon tf-icons bx bxs-truck" style="color:#68C0C0;"></i>
                           </div>
                         </div>
                         <span class="d-block mb-1">Viajes Terrestres</span>
@@ -260,7 +256,7 @@
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                            <i class="menu-icon tf-icons bx bxs-plane" style="color:#68C0C0;"></i>
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Viajes Áereos</span>

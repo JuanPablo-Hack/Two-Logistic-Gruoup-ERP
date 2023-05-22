@@ -39,7 +39,7 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="../index.html">
+                        <a class="dropdown-item" href="../php/logout.php">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Cerrar Sesión</span>
                         </a>

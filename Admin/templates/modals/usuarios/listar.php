@@ -40,10 +40,12 @@
                                 <td style="display: none;"><?php echo $mostrar['tel'] ?></td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarUsuario<?php echo $mostrar['id'] ?>"><i class=" bx bxs-edit"></i></button>
+                                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Cambiar Contraseña" data-bs-toggle="modal" data-bs-target="#CambiarContra<?php echo $mostrar['id'] ?>"><i class=" bx bxs-key"></i></button>
                                     <button type="button" onclick="eliminarUsuario(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
                                 </td>
                             </tr>
                             <?php include('templates/modals/usuarios/editar.php'); ?>
+                            <?php include('templates/modals/usuarios/cambiar_contraseña.php'); ?>
                         <?php
                         }
                         ?>

@@ -34,19 +34,12 @@
                             <div class="form-text">Tienes que poner un correo electrónico válido.</div>
                         </div>
                     </div>
-                    <div class="row g-3">
+                    <div class="row g-2">
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-phone">Teléfono</label>
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
                                 <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" name="tel" value="<?php echo $mostrar['tel']; ?>" />
-                            </div>
-                        </div>
-                        <div class="col mb-0">
-                            <label class="form-label" for="basic-default-password12">Password</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="basic-default-password12" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="basic-default-password2" name="contra" value="<?php echo $mostrar['pwd']; ?>" />
-                                <span id="basic-default-password2" class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                             </div>
                         </div>
                         <div class="col mb-0">
