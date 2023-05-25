@@ -1,5 +1,7 @@
 <?php include 'templates/modals/servicios/agregar.php';
-$IdOperador = $_SESSION['id']; ?>
+$IdOperador = $_SESSION['id'];
+echo $IdOperador;
+?>
 <div class="card">
     <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
         <thead>
@@ -16,7 +18,7 @@ $IdOperador = $_SESSION['id']; ?>
         </thead>
         <tbody>
             <?php
-            $sql = "SELECT * FROM servicios";
+            $sql = "SELECT * FROM servicios WHERE id_operador=11";
             $resultado = $conexion->query($sql);
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
