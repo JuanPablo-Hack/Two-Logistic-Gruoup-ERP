@@ -16,7 +16,7 @@ $IdOperador = $_SESSION['id']; ?>
         </thead>
         <tbody>
             <?php
-            $sql = "SELECT * FROM servicios WHERE id_operador =$IdOperador";
+            $sql = "SELECT * FROM servicios";
             $resultado = $conexion->query($sql);
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
