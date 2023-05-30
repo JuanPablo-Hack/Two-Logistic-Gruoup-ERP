@@ -19,7 +19,7 @@
         <div class="layout-container">
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="index.html" class="app-brand-link">
+                    <a href="index.php" class="app-brand-link">
                         <img src="../assets/img/logo.png" alt="twologisticlogo" width="200px" height="175px">
                     </a>
 
