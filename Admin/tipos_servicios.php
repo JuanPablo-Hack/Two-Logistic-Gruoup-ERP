@@ -93,7 +93,7 @@
                             <div data-i18n="Extended UI">Inventario</div>
                         </a>
                         <ul class="menu-sub">
-                           
+
                             <li class="menu-item">
                                 <a href="bitacora_productos.php" class="menu-link">
                                     <div data-i18n="Text Divider">Bitacora de Productos</div>
@@ -108,7 +108,7 @@
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Variables de Entorno</span></li>
                     <!-- Forms -->
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="usuarios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-group"></i>
                             <div data-i18n="Analytics">Usuarios</div>
                         </a>
@@ -120,7 +120,7 @@
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="tipo_contenedores.php" class="menu-link">
+                        <a href="catalogo_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-buildings"></i>
                             <div data-i18n="Analytics">Tipo de Contenedores</div>
                         </a>

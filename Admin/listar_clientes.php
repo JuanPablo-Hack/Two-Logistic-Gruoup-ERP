@@ -100,7 +100,7 @@
                             <div data-i18n="Extended UI">Inventario</div>
                         </a>
                         <ul class="menu-sub">
-                           
+
                             <li class="menu-item">
                                 <a href="bitacora_productos.php" class="menu-link">
                                     <div data-i18n="Text Divider">Bitacora de Productos</div>
@@ -121,12 +121,12 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="tipos_servicios.php" class="menu-link">
+                        <a href="catalogo_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-money-withdraw"></i>
                             <div data-i18n="Analytics">Catálogo de Servicios</div>
                         </a>
                     </li>
-<li class="menu-item ">
+                    <li class="menu-item ">
                         <a href="tipos_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
                             <div data-i18n="Analytics">Tipos de Servicios</div>

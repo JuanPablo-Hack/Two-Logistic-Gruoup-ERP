@@ -115,19 +115,13 @@
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Variables de Entorno</span></li>
                     <!-- Forms -->
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="usuarios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-group"></i>
                             <div data-i18n="Analytics">Usuarios</div>
                         </a>
                     </li>
                     <li class="menu-item active">
-                        <a href="tipos_servicios.php" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-money-withdraw"></i>
-                            <div data-i18n="Analytics">Catálogo de Servicios</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="tipos_servicios.php" class="menu-link">
+                        <a href="catalogo_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-money-withdraw"></i>
                             <div data-i18n="Analytics">Catálogo de Servicios</div>
                         </a>

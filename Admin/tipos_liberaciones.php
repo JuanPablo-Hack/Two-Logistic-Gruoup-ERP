@@ -71,54 +71,29 @@
 
                     <!-- User interface -->
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="listar_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                             <div data-i18n="Analytics">Servicios</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="viajes.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-ship"></i>
-                            <div data-i18n="Analytics">Viajes Maritimos / Áereos</div>
+                            <div data-i18n="Analytics">Viajes</div>
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-truck"></i>
-                            <div data-i18n="Analytics">Viajes Terrestres</div>
-                        </a>
-                    </li>
-                    <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-plane-land"></i>
-                            <div data-i18n="Analytics">Viajes Áereos</div>
-                        </a>
-                    </li>
-                    <li class="menu-item ">
-                        <a href="index.php" class="menu-link">
+                        <a href="listar_importacion.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-package"></i>
                             <div data-i18n="Analytics">Despacho Aduanal</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                    <li class="menu-item ">
+                        <a href="bodega_externa.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-store"></i>
-                            <div data-i18n="Extended UI">Bodega Externa</div>
+                            <div data-i18n="Analytics">Bodega Externa</div>
                         </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="almacenaje.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Almacenaje</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="traspaleo.php" class="menu-link">
-                                    <div data-i18n="Text Divider">Traspaleo</div>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
-                    <!-- Extended components -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-paste"></i>
@@ -141,12 +116,12 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="tipos_servicios.php" class="menu-link">
+                        <a href="catalogo_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-money-withdraw"></i>
                             <div data-i18n="Analytics">Catálogo de Servicios</div>
                         </a>
                     </li>
-<li class="menu-item ">
+                    <li class="menu-item ">
                         <a href="tipos_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
                             <div data-i18n="Analytics">Tipos de Servicios</div>

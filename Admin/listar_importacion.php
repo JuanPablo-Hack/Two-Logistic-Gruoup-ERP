@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
-    data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 
 <head>
@@ -21,8 +20,7 @@
                         <img src="../assets/img/logo.png" alt="twologisticlogo" width="200px" height="175px">
                     </a>
 
-                    <a href="javascript:void(0);"
-                        class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a>
                 </div>
@@ -121,12 +119,12 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="tipos_servicios.php" class="menu-link">
+                        <a href="catalogo_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-money-withdraw"></i>
                             <div data-i18n="Analytics">Catálogo de Servicios</div>
                         </a>
                     </li>
-<li class="menu-item ">
+                    <li class="menu-item ">
                         <a href="tipos_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
                             <div data-i18n="Analytics">Tipos de Servicios</div>
@@ -221,9 +219,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/despachos.js"></script>
 </body>
 
