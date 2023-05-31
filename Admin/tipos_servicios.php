@@ -126,7 +126,7 @@
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="catalogo_servicios.php" class="menu-link">
+                        <a href="tipo_contenedores.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-buildings"></i>
                             <div data-i18n="Analytics">Tipo de Contenedores</div>
                         </a>
