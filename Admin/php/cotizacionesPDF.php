@@ -18,291 +18,541 @@ function getTipoServicio($id)
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
 </head>
+
 <style>
-  body {
-    position: relative;
-    width: 21cm;
-    height: 29.7cm;
-    margin: 0 auto;
-    color: #001028;
-    background: #FFFfff;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    font-family: Arial;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
-  .containerTitulo {
+  .cabecera {
+    background-color: #2b3f54;
+    width: 80%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    width: 70%;
+    border-radius: 0 0 100px 0;
+    padding: 10px;
+    color: #fff;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
-    margin: auto;
-    margin-bottom: 20px;
   }
 
-  .containerTitulo img {
-    width: 150px;
-    height: 80px;
+  .cabecera img {
+    width: 400px;
+    height: 100px;
   }
 
-  #containerTitulos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    color: #44546A;
-  }
-
-  #containerTitulos h1 {
-    color: #44546A;
-    margin-bottom: -22px;
-  }
-
-  .containerHeader {
-    margin-bottom: -20px;
-    margin-top: 30px;
-    display: flex;
-    width: 70%;
+  .containerInfos {
     justify-content: center;
-    height: 45px;
-    background-color: #44546A;
-    color: #FFF;
-    margin: auto;
+    align-items: center;
+    width: 300px;
+    padding: 5px;
   }
 
-  .containerHeader p {
+  .containerInfo {
+    margin-top: 5px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  .containerInfo h1 {
+    margin-left: 20px;
+  }
+
+  .containerInfo div {
+    margin-left: 20px;
+  }
+
+  .medioT {
+    width: 40px;
+    height: 100px;
+    background-color: #4db8b0;
+    position: absolute;
+    top: 0px;
+    right: 120px;
+    border-radius: 0 0 100px 0;
+  }
+
+  .page {
+    width: 51%;
+    background-color: #4db8b0;
+    padding: 30px;
+    border-radius: 0 0 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+
+  .page h1 {
+    font-size: 30px;
+    color: #fff;
+    margin-right: 150px;
+  }
+
+  .linea {
+    margin: 0 100px;
+    color: #000;
+  }
+
+  .containerTabla {
+    background-color: #4db8b0;
+    margin-top: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 100px;
+    padding: 10px 40px;
+    border-radius: 50px;
+  }
+
+  .containerTabla h1 {
+    font-size: 25px;
+  }
+
+  .containerTabla2 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 100px;
+    padding: 10px 40px;
+    align-items: center;
+  }
+
+  .containerTabla2 p {
     font-size: 18px;
   }
 
-  #containerTabla {
-    margin-top: 20px;
-    width: 70%;
-    align-items: center;
-    border: 1px solid;
-    border-collapse: collapse;
-    margin: auto;
-    margin-bottom: 20px;
+  .fontweight {
+    font-weight: bold;
   }
 
-  #containerTabla tbody tr td {
-    text-align: center;
-    border: 1px solid;
-    font-size: 17px;
-    padding: 3px;
+  .containerVacio {
+    height: 100px;
+    margin: 20px 100px 40px 100px;
+    background-color: #eff0f2;
   }
 
-  #containerTabla tbody tr td:nth-child(odd) {
-    background-color: #44546A;
-    border-color: black;
-    color: #FFF;
+  .terminos {
+    display: flex;
+    position: absolute;
+    background-color: #2b3f54;
+    margin: -12px 100px;
+    width: 30%;
+    padding: 10px 25px;
+    border-radius: 50px;
+    color: #fff;
   }
 
-  #containerTabla2 {
-    width: 70%;
-    margin: auto;
-    border: 1px solid;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+  .terminos p {
+    font-size: 25px;
   }
 
-  #containerTabla2 thead tr th {
-    border: 1px solid;
-    background-color: #44546A;
-    padding: 10px 5px;
+  .terminos2 {
+    display: flex;
+    position: absolute;
+    background-color: #4db8b0;
+    margin: -15px 100px;
+    width: 27%;
+    padding: 12px 25px;
+    border-radius: 50px;
+    color: #fff;
   }
 
-  #containerTabla2 thead tr th:nth-child(even) {
-    border-color: #000;
-    color: #FFF;
+  .terminos2 p {
+    font-size: 25px;
   }
 
-  #containerTabla2 thead tr th:nth-child(odd) {
-    border-color: #000;
-    color: #FFF;
+  .containerTerminos {
+    background-color: #eff0f2;
+    margin: 10px 100px;
+    padding: 60px 20px 35px 20px;
   }
 
-  #containerTabla2 tbody tr:nth-child(odd) {
-    background-color: #EDEDED;
+  .textInfo {
+    margin: 0 100px;
+    margin-top: 25px;
+    font-weight: bold;
   }
 
-  #containerTabla2 tbody tr td {
-    padding: 10px;
-    text-align: center;
-    font-size: 17px;
+  .clienteInfo {
+    position: absolute;
+    right: 270px;
+    top: 195px;
+    width: 300px;
   }
 
-  .containerTabla34 {
-    width: 70%;
-    margin: auto;
-    border: 1px solid;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+  .clienteInfo p {
+    font-size: 25px;
+    font-weight: bold;
   }
 
-  .containerTabla34 tbody tr td {
-    font-size: 17px;
-    padding: 5px;
+  .cliente {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+    justify-content: space-between;
+  }
+
+  .footer {
+    margin-top: 30px;
+    width: 50%;
+    height: 30px;
+    background-color: #4db8b0;
+    position: absolute;
+    right: 0;
+    border-radius: 20px 0 0 0;
+  }
+
+  @media (max-width: 1276px) {
+    .terminos p {
+      font-size: 20px;
+    }
+
+    .terminos2 p {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 1120px) {
+    .medioT {
+      width: 40px;
+      height: 100px;
+      background-color: #4db8b0;
+      position: absolute;
+      top: 0px;
+      right: 90px;
+      border-radius: 0 0 100px 0;
+    }
+
+    .clienteInfo {
+      right: 180px;
+    }
+
+    .clienteInfo p {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 956px) {
+    .terminos p {
+      font-size: 17px;
+    }
+
+    .terminos2 p {
+      font-size: 17px;
+    }
+
+    .medioT {
+      right: 50px;
+    }
+
+    .clienteInfo {
+      right: 120px;
+    }
+
+    .clienteInfo p {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .cabecera img {
+      width: 400px;
+      height: 100px;
+    }
+
+    .page {
+      width: 50%;
+      background-color: #4db8b0;
+      margin-bottom: 100px;
+    }
+
+    .page h1 {
+      font-size: 18px;
+      color: #fff;
+      margin-left: 100px;
+    }
+
+    .linea {
+      margin: 0 10px;
+    }
+
+    .textInfo {
+      margin: 0 10px;
+      margin-top: 25px;
+      font-size: 15px;
+    }
+
+    .containerInfo {
+      display: none;
+    }
+
+    .clienteInfo {
+      top: 150px;
+      right: 50px;
+    }
+
+    .clienteInfo p {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .containerTabla {
+      margin: 20px 5px;
+    }
+
+    .containerTabla h1 {
+      font-size: 18px;
+    }
+
+    .containerTabla2 {
+      margin: 20px 5px;
+    }
+
+    .containerTabla2 div p {
+      font-size: 15px;
+    }
+
+    .containerVacio {
+      margin: 20px 10px 40px 10px;
+    }
+
+    .terminos {
+      margin: 0 10px;
+      width: 70%;
+    }
+
+    .terminos p {
+      font-size: 18px;
+    }
+
+    .terminos2 {
+      margin: 0 10px;
+      width: 50%;
+    }
+
+    .terminos2 p {
+      font-size: 18px;
+    }
+
+    .containerTerminos {
+      margin: 10px 10px;
+    }
+
+    .containerTerminos p {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .cabecera img {
+      width: 400px;
+      height: 50px;
+    }
+
+    .medioT {
+      display: none;
+    }
+
+    .page {
+      width: 50%;
+      background-color: #4db8b0;
+      margin-bottom: 150px;
+    }
+
+    .page h1 {
+      font-size: 10px;
+      color: #fff;
+      margin-left: 100px;
+    }
+
+    .linea {
+      margin: 0 10px;
+    }
+
+    .textInfo {
+      margin: 0 10px;
+      margin-top: 25px;
+      font-size: 12px;
+    }
+
+    .containerInfo {
+      display: none;
+    }
+
+    .clienteInfo {
+      right: 50px;
+    }
+
+    .clienteInfo p {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .containerTabla {
+      margin: 20px 5px;
+    }
+
+    .containerTabla h1 {
+      font-size: 13px;
+    }
+
+    .containerTabla2 {
+      margin: 20px 5px;
+    }
+
+    .containerTabla2 div p {
+      font-size: 10px;
+    }
+
+    .containerVacio {
+      margin: 20px 10px 40px 10px;
+    }
+
+    .terminos {
+      margin: 0 10px;
+      width: 70%;
+    }
+
+    .terminos p {
+      font-size: 15px;
+    }
+
+    .terminos2 {
+      margin: 0 10px;
+      width: 50%;
+    }
+
+    .terminos2 p {
+      font-size: 15px;
+    }
+
+    .containerTerminos {
+      margin: 10px 10px;
+    }
+
+    .containerTerminos p {
+      font-size: 13px;
+    }
   }
 </style>
 
 <body>
-  <div class="containerTitulo">
-    <img src="./assets/cocacola-logo.jpg" alt="">
-    <div id="containerTitulos">
-      <h1>Cotización de Servicio</h1>
-      <h3>Anexo comercial</h3>
+  <div class="cabecera">
+    <img src="./assets/img/BLANCO.png" alt="logo">
+    <div class="containerInfos">
+      <div class="containerInfo">
+        <i class="fa-sharp fa-solid fa-phone-volume" style="color: #fff;"></i>
+        <h1>314 357 8752</h1>
+      </div>
+      <div class="containerInfo">
+        <i class="fa-solid fa-location-dot" style="color: #fff;"></i>
+        <div>
+          <p>AV. MANZANILLO 35 – B</p>
+          <p>COL. NUEVO SALAGUA </p>
+          <p>MANZANILLO, COLIMA, MEX.</p>
+          <p>C.P. 28869 </p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="containerHeader">
-    <p>Datos del cliente</p>
+  <div class="page">
+    <h1>WWW.TWOLOGISTIC.COM</h1>
   </div>
-  <table id="containerTabla">
-    <tbody>
-      <tr>
-        <td>Razon social:</td>
-        <td><?php echo $datos_cliente['razon_social'] ?></td>
-        <td class="color">Referencia:</td>
-        <td><?php echo $id ?></td>
-      </tr>
-      <tr>
-        <td>Contacto:</td>
-        <td><?php echo $datos_comercial[0] ?></td>
-        <td class="color">Fecha:</td>
-        <td><?php echo $datos_cotizacion['creado'] ?></td>
-      </tr>
-      <tr>
-        <td>RFC:</td>
-        <td><?php echo $datos_cliente['rfc'] ?></td>
-        <td class="color">Aduana:</td>
-        <td>Mazanillo</td>
-      </tr>
-      <tr>
-        <td>Email:</td>
-        <td><?php echo $datos_comercial[1] ?></td>
-        <td class="color">Tel/Cel</td>
-        <td><?php echo $datos_comercial[2] ?></td>
-      </tr>
-    </tbody>
-  </table>
+  <hr class="linea">
+  <p class="textInfo">
+    Por este conducto, nos permitimos hacerle llegar la presente
+    cotización por nuestros servicios de Flete terrestre en modalidad caja seca
+    53` y termos por la Aduana de Manzanillo:
+  </p>
+  <div class="containerTabla">
+    <h1>CONCEPTO</h1>
+    <h1>DESCRIPCIÓN</h1>
+    <h1>PRECIO</h1>
+  </div>
+  <div class="containerTabla2">
+    <?php
+    for ($i = 0; $i < $datos_cotizacion['no_conceptos']; $i++) {
+      $DatosTipoServicio = getTipoServicio($conceptos[$i]);
+    ?>
+      <div>
+        <p class="fontweight"><?php echo $DatosTipoServicio['nombre'] ?></p>
+      </div>
+      <div>
+        <p> <?php echo $DatosTipoServicio['descripcion'] ?></p>
+      </div>
+      <div>
+        <p class="fontweight"><?php echo '$' . number_format($DatosTipoServicio['precio'], 2, '.', ',') ?></p>
+      </div>
+    <?php
+    }
+    ?>
+  </div>
+  <div class="containerVacio">
+  </div>
+  <div class="terminos">
+    <p>TERMINOS Y CONDICIONES: </p>
+  </div>
+  <div class="containerTerminos">
+    <p>• Estos precios son más IVA (16%)</p>
+    <p>• NO incluye seguro de mercancías, seguro de contenedor, maniobras de ningún tipo. </p>
+    <p>• Todas nuestras unidades cuentan con rastreo satelital en tracto</p>
+    <p>
+      • Tienen 12 horas libres para carga y descarga de las unidades, después de ese tiempo se generarían estadías a razón de $5,500.00 más IVA por día
+      o fracción.
+    </p>
+    <p>• Costo por día de pernoctaje en origen $4,500.00.</p>
+    <p>
+      • Las mercancías y el(los) contenedor(es) viajan por cuenta y riesgo del cliente, ya que la tarifa ofertada y pactada no incluye el seguro, la responsabilidad de EL TRANSPORTISTA por daños, averías o pérdidas queda expresamente limitada de conformidad con los artículos 66 y 67 de la Ley de
+      Caminos, Puentes y Autotransporte Federal vigente.
+    </p>
+  </div>
+  <div class="terminos2">
+    <p>FORMA DE PAGO: </p>
+  </div>
+  <div class="containerTerminos">
+    <p>• No se cuenta con crédito y los servicios deberán ser cubiertos con anticipo de la totalidad de la operación.</p>
+  </div>
+  <div class="terminos">
+    <p>VIGENCIA: </p>
+  </div>
+  <div class="containerTerminos">
+    <p>• Todos los costos mencionados son más IVA y las tarifas cuentan con una vigencia al 31 de diciembre 2023.</p>
+  </div>
+  <div class="footer">
 
-  <div class="containerHeader">
-    <p>Propuesta Economica</p>
   </div>
-  <table id="containerTabla2">
-    <thead>
-      <tr>
-        <th>Servicio</th>
-        <th>Descripcion</th>
-        <th>Tarifa</th>
-        <th>Cantidad</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      for ($i = 0; $i < $datos_cotizacion['no_conceptos']; $i++) {
-        $DatosTipoServicio = getTipoServicio($conceptos[$i]);
-      ?>
-        <tr>
-          <td><?php echo $DatosTipoServicio['nombre'] ?></td>
-          <td>
-            <?php echo $DatosTipoServicio['descripcion'] ?>
-          </td>
-          <td><?php echo '$' . number_format($DatosTipoServicio['precio'], 2, '.', ',') ?></td>
-          <td><?php echo $cantidades[$i] ?></td>
-          <td><?php echo '$' . number_format($cantidades[$i] * $DatosTipoServicio['precio'], 2, '.', ',') ?></td>
-        </tr>
-      <?php
-      }
-      ?>
-    </tbody>
-  </table>
 
-  <div class="containerHeader">
-    <p>Condiciones Especiales Del Servicio</p>
-  </div>
-  <table class="containerTabla34">
-    <tbody>
-      <tr>
-        <td>1.-Se cuenta con credito de 15 dias a partir del envio de la factura</td>
-      </tr>
-      <tr>
-        <td>2.- 21 días libres de demoras</td>
-      </tr>
-      <tr>
-        <td>3.- Servicio LINER</td>
-      </tr>
-    </tbody>
-  </table>
 
-  <div class="containerHeader">
-    <p>Términos y Condiciones</p>
+  <div class="clienteInfo">
+    <div class="cliente">
+      <p>CLIENTE</p>
+      <p><?php echo $datos_cliente['razon_social'] ?></p>
+    </div>
+    <div class="cliente">
+      <p>CONTACTO</p>
+      <p><?php echo $datos_comercial[2] ?></p>
+    </div>
+    <div class="cliente">
+      <p>FECHA</p>
+      <p><?php echo $datos_cotizacion['creado'] ?></p>
+    </div>
   </div>
-  <table class="containerTabla34">
-    <tbody>
-      <tr>
-        <td>• Tarifa son más IVA</td>
-      </tr>
-      <tr>
-        <td>• Es importante mencionar que las tarifas ofertadas no incluyen maniobras, tramites aduanales,
-          seguro de la mercancía y/o del contenedor ni tampoco gastos adicionales ajenos a la operación.</td>
-      </tr>
-      <tr>
-        <td>• El pago de impuestos que cause la mercancía en origen y/o en destino será siempre por cuenta del
-          embarcador y/o consignatario.</td>
-      </tr>
-      <tr>
-        <td>• En caso de ser mercancía IMO, estará sujeto a la aprobación de la línea Naviera en origen y en
-          destino, así como al recargo correspondiente.</td>
-      </tr>
-      <tr>
-        <td>• Los costos pueden cambiar sin previo aviso dependiendo de la fecha de zarpe.</td>
-      </tr>
-      <tr>
-        <td>• Solicitar el servicio de recolección con 48 hrs de antelación</td>
-      </tr>
-      <tr>
-        <td>• Flete en falso se cobrará el 100% flete</td>
-      </tr>
-      <tr>
-        <td>• Las tarifas propuestas esta expresadas en pesos MXN</td>
-      </tr>
-      <tr>
-        <td>• Las tarifas propuestas esta expresadas en USD</td>
-      </tr>
-      <tr>
-        <td>• Se deberá realizar solicitud de anticipo por la totalidad del embarque a realizar. En caso de
-          incurrir en gastos independientes a la operación, deberán cubrirse en su totalidad con solicitud
-          enviada.</td>
-      </tr>
-      <tr>
-        <td>• Cualquier servicio no especificado en estas tarifas será cotizado por separado.</td>
-      </tr>
-      <tr>
-        <td>• Se factura en USD de acuerdo con el TC que corresponda al zarpe</td>
-      </tr>
-      <tr>
-        <td>• De acuerdo con el pago deber ser anticipado y debe quedar cubierto al envió del Booking.</td>
-      </tr>
-      <tr>
-        <td>• Vigencia xxxxxx </td>
-      </tr>
-      <tr>
-        <td>• Considerar que las reservas de Booking se pueden realizar al día de la solicitud, solo se debe
-          considerar un tiempo de 24 a 48 hrs para la obtención del Booking Confirmation.</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="medioT">
+
+  </div>
 </body>
+<script src="https://kit.fontawesome.com/ce214fef7b.js" crossorigin="anonymous"></script>
 
 </html>
