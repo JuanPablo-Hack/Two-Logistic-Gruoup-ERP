@@ -174,8 +174,8 @@ function crearPDF(id) {
     },
     jsPDF: {
       unit: "in",
-      format: "a3",
-      orientation: "portrait",
+      format: "b2",
+      orientation: "p",
     },
   };
 

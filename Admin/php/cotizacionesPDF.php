@@ -554,5 +554,4 @@ function getTipoServicio($id)
   </div>
 </body>
 <script src="https://kit.fontawesome.com/ce214fef7b.js" crossorigin="anonymous"></script>
-
 </html>
