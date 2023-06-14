@@ -19,14 +19,14 @@
                             <label class="form-label" for="basic-icon-default-fullname">Razón Social</label>
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="razon_social" required />
+                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="razon_social"  />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-company">RFC</label>
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="rfc" required />
+                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="rfc"  />
                             </div>
                         </div>
                     </div>
@@ -35,14 +35,14 @@
                             <label class="form-label" for="basic-icon-default-fullname">Nombre comercial</label>
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_comer" required />
+                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_comer"  />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-email">Email</label>
                             <div class="input-group input-group-merge">
                                 <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_comer" required />
+                                <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_comer"  />
                                 <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
                             </div>
 
@@ -60,14 +60,14 @@
                             <label class="form-label" for="basic-icon-default-fullname">Nombre operativo</label>
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_oper" required />
+                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_oper"  />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-email">Email</label>
                             <div class="input-group input-group-merge">
                                 <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_oper" required />
+                                <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_oper"  />
                                 <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
                             </div>
 
@@ -85,14 +85,14 @@
                             <label class="form-label" for="basic-icon-default-fullname">Nombre administrativo</label>
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_admin" required />
+                                <input type="text" class="form-control" id="basic-icon-default-fullname" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="contacto_admin"  />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-email">Email</label>
                             <div class="input-group input-group-merge">
                                 <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_admin" required />
+                                <input type="text" id="basic-icon-default-email" class="form-control" aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email_admin"  />
                                 <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
                             </div>
 
@@ -110,12 +110,12 @@
                             <label class="form-label" for="basic-icon-default-company">Domicilio</label>
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="domicilio" required />
+                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="domicilio"  />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Situación Fiscal</label>
-                            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="estado" required>
+                            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="estado" >
                                 <option selected>Selecciona un estado</option>
                                 <option value="1">Persona Física</option>
                                 <option value="2">Persona Moral</option>
@@ -127,13 +127,13 @@
                             <label class="form-label" for="basic-icon-default-company">Nombre del representante</label>
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante" required />
+                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="nombre_representante"  />
                             </div>
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-company">CAAT</label>
                             <div class="input-group input-group-merge">
-                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="caat" required />
+                                <input type="text" id="basic-icon-default-company" class="form-control" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="caat"  />
                             </div>
                         </div>
                     </div>
