@@ -1,4 +1,3 @@
-<!-- TODO: Terminar la zona de edición de los clientes -->
 <div class="modal fade" id="EditarCliente<?php echo $mostrar['id'] ?>" tabindex="-1" aria-hidden="true">
     <?php
     include 'php/conexion.php';
@@ -12,9 +11,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="alert alert-success" role="alert" style="display:none;" id="success">Cliente agregado con éxito!</div>
-                <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
-                <form id="AltaProveedor">
+                <form action="php/clientes_controller.php" method="post">
+                    <input type="hidden" name="accion" value="editar">
                     <input type="hidden" name="id" value="<?php echo $mostrar['id'] ?>">
                     <div class="row g-2">
                         <div class="col mb-0">

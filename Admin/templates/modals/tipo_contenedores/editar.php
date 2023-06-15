@@ -8,7 +8,8 @@
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Tipo de Contenedor agregado con éxito!</div>
                 <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor!</div>
-                <form method="post" action="php/editar/editar_tipocontenedor.php">
+                <form method="post" action="php/clientes_controller.php">
+                    <input type="hidden" name="accion" value="editar">
                     <input type="hidden" name="id" value="<?php echo $mostrar['id']; ?>">
                     <div class="mb-3">
                         <label class="form-label" for="basic-icon-default-fullname">Nombre</label>

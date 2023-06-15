@@ -12,8 +12,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="AltaProveedor">
+                <form action="php/proveedor_controller.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $mostrar['id'] ?>">
+                    <input type="hidden" name="accion" value="editar">
                     <div class="row g-2">
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-fullname">Razón Social</label>
