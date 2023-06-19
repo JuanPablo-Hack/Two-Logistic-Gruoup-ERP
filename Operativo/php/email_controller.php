@@ -96,7 +96,7 @@ function MandarAlertaUsuario($OperadorSelccionado)
                       "
                     >
                       <a
-                        href="https://gruposoca.com.mx/"
+                        href="https://twologistic.com/"
                         style="text-decoration: none"
                         ><img
                           src="http://twologistic.com/images/twologistic.png"
