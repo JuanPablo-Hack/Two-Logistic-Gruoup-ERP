@@ -11,7 +11,6 @@
         header("location: ../error_login.html");
     }
     ?>
-    ?>
 </head>
 
 <body>
