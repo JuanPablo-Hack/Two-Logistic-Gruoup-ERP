@@ -2,7 +2,7 @@
 function MandarAlertaUsuario($OperadorSelccionado)
 {
   $destinatario = ObtenerCorreoOperador($OperadorSelccionado);
-  $asunto = "Creación de usuario en el sistema ERP de SLG";
+  $asunto = "Asignación de servicio en sistema ERP";
   $cuerpo = ' 
     <!DOCTYPE html>
     <html
