@@ -22,7 +22,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
                             <select class="form-control" name='cliente'>
-                                <option value="<?php echo $mostrar['id']; ?>">Sin Asignar</option>
+                                <option value="<?php echo $mostrar['id']; ?>" selected>Sin Asignar</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
@@ -35,7 +35,7 @@
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Operador</label>
                             <select class="form-control" name='operador'>
-                                <option value="<?php echo $mostrar['id']; ?>">Sin Asignar</option>
+                                <option value="<?php echo $mostrar['id']; ?>" selected>Sin Asignar</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result4)) {
                                 ?>
