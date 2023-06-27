@@ -249,8 +249,8 @@ function CambiarEstado(IDCotizacion, EstadoCotizacion) {
           .then((result) => {
             if (result == 1) {
               swalWithBootstrapButtons.fire(
-                "Eliminado!",
-                "Su archivo ha sido eliminado.",
+                "Cambio de Estado!",
+                "El registro ha sido cambiado de estado",
                 "success"
               );
               setTimeout(function () {
