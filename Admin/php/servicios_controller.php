@@ -40,18 +40,13 @@ function CambiarEstadoServicio($IDCotizacion, $EstadoServicio)
 }
 function editar_servicio($id, $id_cliente, $id_cotizacion, $id_contrato, $id_operador, $fecha_servicio, $descripcion)
 {
-
-    include 'conexion.php';
-    $tipos_servicios = [];
-    foreach ($_POST['check_lista'] as $seleccion) {
-        array_push($tipos_servicios, $seleccion);
-    }
-    $datos_tipos_servicios = implode(",", $tipos_servicios);
-    $sql = "UPDATE `servicios` SET `id_cliente` = '6', `fecha_servicio` = '2023-06-20', `id_operador` = '13', `tipos_servicios` = 'Flete foráneoasdasd', `descripcion` = 'Hugo - Revisar si no tiene sobrepeso asdasdsad' WHERE `servicios`.`id` = 4";
-    $resultado = $conexion->query($sql);
-    if ($resultado) {
-        header("Location: ../listar_servicios.php");
-    } else {
-        header("Location: ../listar_servicios.php");
-    }
+    echo "Editar";
+    // include 'conexion.php';
+    // $sql = "UPDATE `servicios` SET `id_cliente` = '6', `fecha_servicio` = '2023-06-20', `id_operador` = '13', `tipos_servicios` = 'Flete foráneoasdasd', `descripcion` = 'Hugo - Revisar si no tiene sobrepeso asdasdsad' WHERE `servicios`.`id` = 4";
+    // $resultado = $conexion->query($sql);
+    // if ($resultado) {
+    //     header("Location: ../listar_servicios.php");
+    // } else {
+    //     header("Location: ../listar_servicios.php");
+    // }
 }

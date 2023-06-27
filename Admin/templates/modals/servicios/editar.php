@@ -16,8 +16,8 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="php/servicios_controller.php">
-                    <input type="hidden" name="id" value="<?php echo $mostrar['id']; ?>">
                     <input type="hidden" name="accion" value="editar">
+                    <input type="hidden" name="id" value="<?php echo $mostrar['id']; ?>">
                     <div class="row g-3">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
