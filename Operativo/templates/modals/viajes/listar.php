@@ -153,7 +153,7 @@
         </thead>
         <tbody>
             <?php
-            $sql = "SELECT * FROM viajes_terrestres";
+            $sql = "SELECT * FROM viajes_terrestres WHERE id_operador = '$IdOperador'";
             $resultado = $conexion->query($sql);
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
