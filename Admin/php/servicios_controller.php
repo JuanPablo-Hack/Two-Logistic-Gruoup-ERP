@@ -38,7 +38,7 @@ function CambiarEstadoServicio($IDCotizacion, $EstadoServicio)
     }
     echo 1;
 }
-function editar_servicio($id, $id_cliente, $id_cotizacion, $id_contrato, $id_operador, $fecha_servicio, $descripcion)
+function editar_servicio($id, $id_cliente, $id_operador, $fecha_servicio, $descripcion)
 {
     echo "Editar";
     // include 'conexion.php';
