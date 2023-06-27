@@ -10,6 +10,7 @@
     if (!isset($_SESSION['id'])) {
         header("location: ../error_login.html");
     }
+    $IdOperador = $_SESSION['id'];
     ?>
 </head>
 
@@ -87,7 +88,7 @@
                                     <div class="d-flex align-items-end row">
                                         <div class="col-sm-7">
                                             <div class="card-body">
-                                                <h5 class="card-title text-primary">Bienvenido Ejecutivo! 🎉</h5>
+                                                <h5 class="card-title text-primary">Bienvenido <?php echo $IdOperador ?>! 🎉</h5>
                                                 <p class="mb-4">
                                                     No se te olvide de checar los pendientes de la semana. Esperamos que puedas contar con toda la actitud para comenzar bien la semana.
                                                 </p>
