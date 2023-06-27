@@ -49,6 +49,14 @@ function tipos_servicio($id)
     return $result;
 }
 
+function operador($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM trabajador WHERE id ='$id'";
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
+}
+
 function tipos_contenedor($id)
 {
     include 'conexion.php';
