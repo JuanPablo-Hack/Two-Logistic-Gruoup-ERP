@@ -8,6 +8,7 @@ $result4 = mysqli_query($conexion, $sql4);
 ?>
 <form id="AltaviajeAereo">
     <input type="hidden" value="Viaje Áereo" name="tipo_viaje">
+    <input type="hidden" name="operador" value="<?php echo $IdOperador; ?>">
     <div class="row g-2">
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>

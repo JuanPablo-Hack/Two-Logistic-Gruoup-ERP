@@ -1,11 +1,9 @@
 <div class="modal fade" id="largeModal" tabindex="-1" aria-hidden="true">
     <?php
     include 'php/conexion.php';
-
+    $IdOperador = $_SESSION['id'];
     $sql2 = "SELECT id,razon_social FROM clientes";
     $result2 = mysqli_query($conexion, $sql2);
-
-
     $sql5 = "SELECT id FROM servicios";
     $result5 = mysqli_query($conexion, $sql5);
     $sql6 = "SELECT * FROM tipos_liberacion";

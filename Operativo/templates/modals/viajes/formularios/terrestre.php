@@ -14,6 +14,7 @@ $result6 = mysqli_query($conexion, $sql6);
 ?>
 <form id="AltaviajeTerrestre">
     <input type="hidden" value="Viaje Terrestre" name="tipo_viaje">
+    <input type="hidden" name="operador" value="<?php echo $IdOperador; ?>">
     <div class="row g-2">
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>

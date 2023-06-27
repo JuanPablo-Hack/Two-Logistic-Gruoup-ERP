@@ -3,7 +3,7 @@
 switch ($_POST['accion']) {
     case 'agregar':
         if ($_POST['tipo_viaje'] == 'Viaje Marítimo' || $_POST['tipo_viaje'] == 'Viaje Áereo') {
-            agregar_viajes_maritimos($_POST['tipo_viaje'], $_POST['servicio'], $_POST['cliente'], $_POST['booking'], $_POST['linea_naviera'], $_POST['no_contenedores'], $_POST['tipo_contenedor'], $_POST['buque'], $_POST['viaje'], $_POST['peso'], $_POST['bultos'], $_POST['puerto_carga'], $_POST['puerto_transbordo'], $_POST['puerto_destino'], $_POST['puerto_transito'], $_POST['tiempo_transito'], $_POST['cierre'], $_POST['vgm'], $_POST['check_lista'], $_POST['liberacion'], $_POST['descripcion']);
+            agregar_viajes_maritimos($_POST['tipo_viaje'], $_POST['servicio'], $_POST['cliente'], $_POST['booking'], $_POST['linea_naviera'], $_POST['no_contenedores'], $_POST['tipo_contenedor'], $_POST['buque'], $_POST['viaje'], $_POST['peso'], $_POST['bultos'], $_POST['puerto_carga'], $_POST['puerto_transbordo'], $_POST['puerto_destino'], $_POST['puerto_transito'], $_POST['tiempo_transito'], $_POST['cierre'], $_POST['vgm'], $_POST['check_lista'], $_POST['liberacion'], $_POST['descripcion'], $_POST['operador']);
         } else {
             agregar_viajes_terrestre($_POST['tipo_viaje'], $_POST['servicio'], $_POST['cliente'], $_POST['terminal'], $_POST['fecha_servicio'], $_POST['hora'], $_POST['no_contenedores'], $_POST['tipo_contenedor'], $_POST['tipo_viaje_terrestre'], $_POST['peso'], $_POST['bultos'], $_POST['agente_aduanal'], $_POST['tipo_mercancia'], $_POST['tipo_plataforma'], $_POST['transporte'], $_POST['descripcion']);
         }
@@ -15,10 +15,10 @@ switch ($_POST['accion']) {
         CambiarEstadoCotizacion($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
 }
-function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $linea_naviera, $no_contenedores, $tipo_contenedor, $buque, $viaje, $peso, $bultos, $puerto_carga, $puerto_transbordo, $puerto_destino, $puerto_transito, $tiempo_transito, $cierre, $vgm, $check_lista, $liberacion, $descripcion)
+function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $linea_naviera, $no_contenedores, $tipo_contenedor, $buque, $viaje, $peso, $bultos, $puerto_carga, $puerto_transbordo, $puerto_destino, $puerto_transito, $tiempo_transito, $cierre, $vgm, $check_lista, $liberacion, $descripcion, $operador)
 {
     include './conexion.php';
-    $sql = "INSERT INTO viajes(tipo_viaje,id_servicio,id_cliente,booking,naviera,no_contenedores,tipo_contenedores,buque,viaje,peso,bultos,puerto_carga,puerto_transbordo,puerto_destino,puerto_transito,tiempo_transito,cierre_documental,vgm,carta_instru,id_tipo_liberacion,comentarios,id_estado) VALUES('$tipo_viaje','$servicio','$cliente','$booking','$linea_naviera','$no_contenedores','$tipo_contenedor','$buque','$viaje','$peso','$bultos','$puerto_carga','$puerto_transbordo','$puerto_destino','$puerto_transito','$tiempo_transito','$cierre','$vgm','$check_lista','$liberacion','$descripcion',1)";
+    $sql = "INSERT INTO viajes(tipo_viaje,id_servicio,id_cliente,booking,naviera,no_contenedores,tipo_contenedores,buque,viaje,peso,bultos,puerto_carga,puerto_transbordo,puerto_destino,puerto_transito,tiempo_transito,cierre_documental,vgm,carta_instru,id_tipo_liberacion,comentarios,id_estado,id_operador) VALUES('$tipo_viaje','$servicio','$cliente','$booking','$linea_naviera','$no_contenedores','$tipo_contenedor','$buque','$viaje','$peso','$bultos','$puerto_carga','$puerto_transbordo','$puerto_destino','$puerto_transito','$tiempo_transito','$cierre','$vgm','$check_lista','$liberacion','$descripcion',1,'$operador')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
