@@ -153,6 +153,14 @@ function operadores()
     return $result;
 }
 
+function operador($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM trabajador WHERE id ='$id'";
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
+}
+
 function servicios()
 {
     include 'conexion.php';
@@ -166,7 +174,7 @@ function servicio($id)
     include 'conexion.php';
     $sql = "SELECT * FROM servicios WHERE id = $id";
     $result = $GLOBALS["mysqli"]->query($sql);
-    return $result;
+    return mysqli_fetch_array($result);
 }
 
 
