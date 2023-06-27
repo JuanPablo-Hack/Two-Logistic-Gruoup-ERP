@@ -38,7 +38,8 @@
         </thead>
         <tbody>
             <?php
-            $sql = "SELECT * FROM viajes";
+            $IdOperador = $_SESSION['id'];
+            $sql = "SELECT * FROM viajes WHERE id_operador = '$IdOperador'";
             $resultado = $conexion->query($sql);
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
