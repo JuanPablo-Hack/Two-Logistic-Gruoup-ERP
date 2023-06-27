@@ -40,13 +40,12 @@ function CambiarEstadoServicio($IDCotizacion, $EstadoServicio)
 }
 function editar_servicio($id, $id_cliente, $id_operador, $fecha_servicio, $descripcion)
 {
-    echo "Editar";
-    // include 'conexion.php';
-    // $sql = "UPDATE `servicios` SET `id_cliente` = '6', `fecha_servicio` = '2023-06-20', `id_operador` = '13', `tipos_servicios` = 'Flete foráneoasdasd', `descripcion` = 'Hugo - Revisar si no tiene sobrepeso asdasdsad' WHERE `servicios`.`id` = 4";
-    // $resultado = $conexion->query($sql);
-    // if ($resultado) {
-    //     header("Location: ../listar_servicios.php");
-    // } else {
-    //     header("Location: ../listar_servicios.php");
-    // }
+    include 'conexion.php';
+    $sql = "UPDATE `servicios` SET `id_cliente` = '$id_cliente', `fecha_servicio` = '$fecha_servicio', `id_operador` = '$id_operador', `descripcion` = '$descripcion' WHERE `servicios`.`id` = $id";
+    $resultado = $conexion->query($sql);
+    if ($resultado) {
+        header("Location: ../listar_servicios.php");
+    } else {
+        header("Location: ../listar_servicios.php");
+    }
 }

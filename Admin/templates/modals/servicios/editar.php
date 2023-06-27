@@ -54,21 +54,6 @@
                     </div>
                     <div class="row">
                         <div class="col mb-0">
-                            <label for="exampleFormControlSelect1" class="form-label">Tipo de servicios</label>
-                            <?php
-                            while ($Row1 = mysqli_fetch_array($result2)) {
-                            ?>
-                                <div class="form-check form-check-inline mt-3">
-                                    <input class="form-check-input" type="checkbox" value="<?php echo $Row1['nombre']; ?>" id="defaultCheck1" name="check_lista[]" />
-                                    <label class="form-check-label" for="defaultCheck1"> <?php echo $Row1['nombre']; ?> </label>
-                                </div>
-                            <?php
-                            }
-                            ?>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mb-0">
                             <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"><?php echo $mostrar['descripcion']; ?></textarea>
                         </div>
