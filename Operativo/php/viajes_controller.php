@@ -28,7 +28,7 @@ function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $l
 function agregar_viajes_terrestre($tipo_viaje, $servicio, $cliente, $terminal, $fecha_servicio, $hora, $no_contenedores, $tipo_contenedor, $tipo_viaje_terrestre, $peso, $bultos, $agente_aduanal, $tipo_mercancia, $tipo_plataforma, $transporte, $descripcion, $operador)
 {
     include './conexion.php';
-    $sql = "INSERT INTO viajes_terrestres(id_cliente,id_servicio,terminal,fecha_servicio,hora,no_contenedores,tipo_contenedores,tipo_viaje,peso,bultos,id_agente_aduanal,id_tipo_mercancia,id_plataforma,transportista,comentarios,id_estado) VALUES($cliente,$servicio,'$terminal','$fecha_servicio','$hora','$no_contenedores','$tipo_contenedor','$tipo_viaje_terrestre','$peso','$bultos','$agente_aduanal','$tipo_mercancia','$tipo_plataforma','$transporte','$descripcion',1.'$operador')";
+    $sql = "INSERT INTO viajes_terrestres(id_cliente,id_servicio,terminal,fecha_servicio,hora,no_contenedores,tipo_contenedores,tipo_viaje,peso,bultos,id_agente_aduanal,id_tipo_mercancia,id_plataforma,transportista,comentarios,id_estado,id_operador) VALUES($cliente,$servicio,'$terminal','$fecha_servicio','$hora','$no_contenedores','$tipo_contenedor','$tipo_viaje_terrestre','$peso','$bultos','$agente_aduanal','$tipo_mercancia','$tipo_plataforma','$transporte','$descripcion',1.'$operador')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
