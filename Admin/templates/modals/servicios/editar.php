@@ -15,8 +15,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="AltaProveedor">
+                <form method="post" action="php/servicios_controller.php">
                     <input type="hidden" name="id" value="<?php echo $mostrar['id']; ?>">
+                    <input type="hidden" name="accion" value="editar">
                     <div class="row g-3">
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Cliente</label>

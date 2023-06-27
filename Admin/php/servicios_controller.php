@@ -4,7 +4,7 @@ switch ($_POST['accion']) {
         agregar_servicio($_POST['cliente'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion'], $_POST['check_lista']);
         break;
     case 'editar':
-        editar_servicio($_POST['id'], $_POST['cliente'], $_POST['cotizacion'], $_POST['contrato'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion']);
+        editar_servicio($_POST['id'], $_POST['cliente'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion']);
         break;
     case 'CambiarEstado':
         CambiarEstadoServicio($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
@@ -42,11 +42,16 @@ function editar_servicio($id, $id_cliente, $id_cotizacion, $id_contrato, $id_ope
 {
 
     include 'conexion.php';
-    $sql = "UPDATE `servicios` SET `id_cliente` = '$id_cliente', `id_cotizacion` = '$id_cotizacion', `id_contrato` = '$id_contrato', `fecha_servicio` = '$fecha_servicio', `id_operador` = '$id_operador', `descripcion` = '$descripcion' WHERE `servicios`.`id` = $id";
+    $tipos_servicios = [];
+    foreach ($_POST['check_lista'] as $seleccion) {
+        array_push($tipos_servicios, $seleccion);
+    }
+    $datos_tipos_servicios = implode(",", $tipos_servicios);
+    $sql = "UPDATE `servicios` SET `id_cliente` = '6', `fecha_servicio` = '2023-06-20', `id_operador` = '13', `tipos_servicios` = 'Flete foráneoasdasd', `descripcion` = 'Hugo - Revisar si no tiene sobrepeso asdasdsad' WHERE `servicios`.`id` = 4";
     $resultado = $conexion->query($sql);
     if ($resultado) {
-        echo 1;
+        header("Location: ../listar_servicios.php");
     } else {
-        echo 2;
+        header("Location: ../listar_servicios.php");
     }
 }
