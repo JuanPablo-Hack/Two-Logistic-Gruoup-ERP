@@ -1,8 +1,8 @@
 <?php
-$nombreServidor = "localhost";
-$nombreUsuario = "root";
-$passwordBaseDeDatos = "";
-$nombreBaseDeDatos = "twoerp";
+$nombreServidor = "sql726.main-hosting.eu";
+$nombreUsuario = "u288448544_twlerp";
+$passwordBaseDeDatos = "%A4ocJIw@nw4DBGH8a96";
+$nombreBaseDeDatos = "u288448544_twlerp";  
 
 
 
