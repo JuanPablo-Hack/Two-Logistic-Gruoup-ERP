@@ -4,7 +4,7 @@ switch ($_POST['accion']) {
         agregar_servicio($_POST['cliente'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion'], $_POST['check_lista']);
         break;
     case 'editar':
-        editar_servicio($_POST['id'], $_POST['cliente'], $_POST['cotizacion'], $_POST['contrato'], $_POST['operador'], $_POST['fecha_servicio'], $_POST['descripcion']);
+        editar_servicio($_POST['id'],  $_POST['descripcion']);
         break;
     case 'CambiarEstado':
         CambiarEstadoServicio($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
@@ -21,12 +21,8 @@ function agregar_servicio($id_cliente, $id_operador, $fecha_servicio, $descripci
     include 'conexion.php';
     $sql = "INSERT INTO `servicios` (`id`, `id_cliente`, `fecha_servicio`, `id_operador`, `tipos_servicios`, `descripcion`) VALUES (NULL, '$id_cliente', '$fecha_servicio', '$id_operador', '$datos_tipos_servicios', '$descripcion')";
     $resultado = $conexion->query($sql);
-    if ($resultado) {
-        echo 1;
-        MandarAlertaUsuario($id_operador);
-    } else {
-        echo 2;
-    }
+    echo 1;
+    MandarAlertaUsuario($id_operador);
 }
 function CambiarEstadoServicio($IDCotizacion, $EstadoServicio)
 {
@@ -38,15 +34,15 @@ function CambiarEstadoServicio($IDCotizacion, $EstadoServicio)
     }
     echo 1;
 }
-function editar_servicio($id, $id_cliente, $id_cotizacion, $id_contrato, $id_operador, $fecha_servicio, $descripcion)
+function editar_servicio($id,  $descripcion)
 {
 
     include 'conexion.php';
-    $sql = "UPDATE `servicios` SET `id_cliente` = '$id_cliente', `id_cotizacion` = '$id_cotizacion', `id_contrato` = '$id_contrato', `fecha_servicio` = '$fecha_servicio', `id_operador` = '$id_operador', `descripcion` = '$descripcion' WHERE `servicios`.`id` = $id";
+    $sql = "UPDATE `servicios` SET  `descripcion` = '$descripcion' WHERE `servicios`.`id` = $id";
     $resultado = $conexion->query($sql);
     if ($resultado) {
-        echo 1;
+        header("Location: ../listar_servicios.php");
     } else {
-        echo 2;
+        header("Location: ../listar_servicios.php");
     }
 }

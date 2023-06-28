@@ -6,10 +6,11 @@
     <?php
     include 'templates/head.php';
     include 'php/conexion.php';
-    session_start();
+    include 'php/selects.php';
     if (!isset($_SESSION['id'])) {
         header("location: ../error_login.html");
     }
+    $datosOperador = operador($_SESSION['id']);
     ?>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
@@ -23,13 +24,17 @@
                     <a href="index.php" class="app-brand-link">
                         <img src="../assets/img/logo.png" alt="twologisticlogo" width="200px" height="175px">
                     </a>
+
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a>
                 </div>
+
                 <div class="menu-inner-shadow"></div>
+
                 <ul class="menu-inner py-1">
-                    <li class="menu-item active">
+                    <!-- Dashboard -->
+                    <li class="menu-item ">
                         <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-desktop"></i>
                             <div data-i18n="Analytics">Panel de control</div>
@@ -45,7 +50,13 @@
                     <li class="menu-item ">
                         <a href="viajes.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-ship"></i>
-                            <div data-i18n="Analytics">Viajes</div>
+                            <div data-i18n="Analytics">Viajes Maritimos / Áereos</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="viajes_terrestres.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-truck"></i>
+                            <div data-i18n="Analytics">Viajes Terrestres</div>
                         </a>
                     </li>
                     <li class="menu-item ">
@@ -54,19 +65,20 @@
                             <div data-i18n="Analytics">Despacho Aduanal</div>
                         </a>
                     </li>
-                    <li class="menu-item ">
+                    <li class="menu-item">
                         <a href="bodega_externa.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-store"></i>
                             <div data-i18n="Analytics">Bodega Externa</div>
                         </a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item active">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-paste"></i>
                             <div data-i18n="Extended UI">Inventario</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item">
+
+                            <li class="menu-item active">
                                 <a href="bitacora_productos.php" class="menu-link">
                                     <div data-i18n="Text Divider">Bitacora de Productos</div>
                                 </a>

@@ -12,10 +12,11 @@ function agregar_contrato($id_cliente, $id_proveedor, $descripcion)
     include 'conexion.php';
     $sql = "INSERT INTO `contratos` (id_cliente, id_proveedor, descripcion) VALUES ('$id_cliente', '$id_proveedor', '$descripcion')";
     $resultado = $conexion->query($sql);
-    if (!$resultado) {
-        echo 2;
+    if ($resultado) {
+        echo 1;
+        exit;
     }
-    echo 1;
+    echo 2;
 }
 function eliminar_contrato($id)
 {

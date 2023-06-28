@@ -1,73 +1,14 @@
-function fnFormatDetails(oTable, nTr) {
-  var aData = oTable.fnGetData(nTr);
-  var sOut =
-    '<table cellpadding="5" cellspacing="0" border="3" style="padding-left:50px;">';
-  sOut +=
-    "<tr><td>Correo:</td><td>" +
-    aData[2] +
-    "</td><td>Cargo:</td><td>" +
-    aData[3] +
-    "</td><td>Rol:</td><td>" +
-    aData[4] +
-    "</td><td>Teléfono:</td><td>" +
-    aData[5] +
-    "</td></tr>";
-  sOut += "</table>";
-
-  return sOut;
-}
-$(document).ready(function () {
-  /*
-   * Insert a 'details' column to the table
-   */
-  var nCloneTh = document.createElement("th");
-  var nCloneTd = document.createElement("td");
-  nCloneTd.innerHTML = '<img src="datatables/details_open.png">';
-  nCloneTd.className = "center";
-
-  $("#hidden-table-info thead tr").each(function () {
-    this.insertBefore(nCloneTh, this.childNodes[0]);
-  });
-
-  $("#hidden-table-info tbody tr").each(function () {
-    this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
-  });
-
-  var oTable = $("#hidden-table-info").dataTable({
-    aoColumnDefs: [
-      {
-        bSortable: false,
-        aTargets: [0],
-      },
-    ],
-    dom: "Bfrtip",
-    buttons: ["excel"],
-    aaSorting: [[1, "desc"]],
-  });
-  $("#hidden-table-info tbody td img").on("click", function () {
-    var nTr = $(this).parents("tr")[0];
-    if (oTable.fnIsOpen(nTr)) {
-      /* This row is already open - close it */
-      this.src = "datatables/details_open.png";
-      oTable.fnClose(nTr);
-    } else {
-      /* Open this row */
-      this.src = "datatables/details_close.png";
-      oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), "details");
-    }
-  });
-});
 document.addEventListener("DOMContentLoaded", function () {
   document
-    .getElementById("AgregarUsuario")
-    .addEventListener("submit", CrearUsuario);
+    .getElementById("AltaServicio")
+    .addEventListener("submit", AltaServicio);
 });
-async function CrearUsuario(e) {
+async function AltaServicio(e) {
   e.preventDefault();
-  var form = document.getElementById("AgregarUsuario");
+  var form = document.getElementById("AltaServicio");
   let data = new FormData(form);
   data.append("accion", "agregar");
-  fetch("php/usuarios_controller.php", {
+  fetch("php/catalogo_servicios_controller.php", {
     method: "POST",
     body: data,
   })
@@ -85,8 +26,7 @@ async function CrearUsuario(e) {
       }
     });
 }
-
-function eliminarUsuario(id) {
+function eliminarServicio(id) {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: "btn btn-success",
@@ -110,7 +50,7 @@ function eliminarUsuario(id) {
         let data = new FormData();
         data.append("id", id);
         data.append("accion", "eliminar");
-        fetch("php/usuarios_controller.php", {
+        fetch("php/catalogo_servicios_controller.php", {
           method: "POST",
           body: data,
         })

@@ -24,6 +24,7 @@
                     <a href="index.php" class="app-brand-link">
                         <img src="../assets/img/logo.png" alt="twologisticlogo" width="200px" height="175px">
                     </a>
+
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a>
@@ -39,20 +40,24 @@
                             <div data-i18n="Analytics">Panel de control</div>
                         </a>
                     </li>
+                    <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Area Operativa</span></li>
+                    <!-- Cards -->
+
+                    <!-- User interface -->
                     <li class="menu-item ">
                         <a href="listar_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                             <div data-i18n="Analytics">Servicios</div>
                         </a>
                     </li>
-                    <li class="menu-item active">
+                    <li class="menu-item ">
                         <a href="viajes.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-ship"></i>
                             <div data-i18n="Analytics">Viajes Maritimos / Áereos</div>
                         </a>
                     </li>
-                    <li class="menu-item ">
+                    <li class="menu-item active">
                         <a href="viajes_terrestres.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-truck"></i>
                             <div data-i18n="Analytics">Viajes Terrestres</div>
@@ -91,7 +96,7 @@
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa /</span> Lista de viajes</h4>
-                        <?php include 'templates/modals/viajes/listar.php'; ?>
+                        <?php include 'templates/modals/viajes/listar_terrestres.php'; ?>
                     </div>
                     <?php include 'templates/footer.php'; ?>
                     <div class="content-backdrop fade"></div>
@@ -118,7 +123,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-    <script src="js/viajes.js"></script>
+    <script src="js/viajes_terrestres.js"></script>
 </body>
 
 </html>

@@ -6,10 +6,11 @@
     <?php
     include 'templates/head.php';
     include 'php/conexion.php';
-    session_start();
+    include 'php/selects.php';
     if (!isset($_SESSION['id'])) {
         header("location: ../error_login.html");
     }
+    $datosOperador = operador($_SESSION['id']);
     ?>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
@@ -23,20 +24,32 @@
                     <a href="index.php" class="app-brand-link">
                         <img src="../assets/img/logo.png" alt="twologisticlogo" width="200px" height="175px">
                     </a>
+
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a>
                 </div>
+
                 <div class="menu-inner-shadow"></div>
+
                 <ul class="menu-inner py-1">
-                    <li class="menu-item active">
+                    <!-- Dashboard -->
+                    <li class="menu-item ">
                         <a href="index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-desktop"></i>
                             <div data-i18n="Analytics">Panel de control</div>
                         </a>
                     </li>
+
+
+
+
+                    <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Area Operativa</span></li>
-                    <li class="menu-item ">
+                    <!-- Cards -->
+
+                    <!-- User interface -->
+                    <li class="menu-item active">
                         <a href="listar_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                             <div data-i18n="Analytics">Servicios</div>
@@ -45,7 +58,13 @@
                     <li class="menu-item ">
                         <a href="viajes.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-ship"></i>
-                            <div data-i18n="Analytics">Viajes</div>
+                            <div data-i18n="Analytics">Viajes Maritimos / Áereos</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="viajes_terrestres.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-truck"></i>
+                            <div data-i18n="Analytics">Viajes Terrestres</div>
                         </a>
                     </li>
                     <li class="menu-item ">
@@ -66,6 +85,7 @@
                             <div data-i18n="Extended UI">Inventario</div>
                         </a>
                         <ul class="menu-sub">
+
                             <li class="menu-item">
                                 <a href="bitacora_productos.php" class="menu-link">
                                     <div data-i18n="Text Divider">Bitacora de Productos</div>
@@ -89,6 +109,7 @@
         </div>
         <div class="layout-overlay layout-menu-toggle"></div>
     </div>
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../assets/vendor/libs/popper/popper.js"></script>
     <script src="../assets/vendor/js/bootstrap.js"></script>
     <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

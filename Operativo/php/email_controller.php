@@ -96,7 +96,7 @@ function MandarAlertaUsuario($OperadorSelccionado)
                       "
                     >
                       <a
-                        href="https://twologistic.com/"
+                        href="https://erp.twologistic.com/"
                         style="text-decoration: none"
                         ><img
                           src="http://twologistic.com/images/twologistic.png"
@@ -149,7 +149,7 @@ function MandarAlertaUsuario($OperadorSelccionado)
                       <p style="margin: 0; font-size: 14px; line-height: 20px">
                         &reg; Twologistic, todos los derechos reservados 2022<br /><a
                           class="unsub"
-                          href="https://twologistic.com/"
+                          href="https://erp.twologistic.com/"
                           style="color: #FFF; text-decoration: underline"
                           >www.twologistic.com</a
                         >

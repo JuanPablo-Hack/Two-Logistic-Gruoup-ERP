@@ -1,14 +1,13 @@
 <?php
 $sql = "SELECT id,razon_social FROM clientes";
 $result = mysqli_query($conexion, $sql);
-$sql3 = "SELECT id FROM servicios";
+$sql3 = "SELECT id FROM servicios WHERE id_estado =1";
 $result3 = mysqli_query($conexion, $sql3);
 $sql4 = "SELECT * FROM tipos_liberacion";
 $result4 = mysqli_query($conexion, $sql4);
 ?>
 <form id="AltaviajeMaritimo">
     <input type="hidden" value="Viaje Marítimo" name="tipo_viaje">
-    <input type="hidden" name="operador" value="<?php echo $IdOperador; ?>">
     <div class="row g-2">
         <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
