@@ -84,16 +84,11 @@ async function AltaServicio(e) {
   })
     .then((result) => result.text())
     .then((result) => {
-      if (result == 1) {
-        document.getElementById("success").style.display = "inherit";
-        document.getElementById("decline").style.display = "none";
-        setTimeout(function () {
-          location.reload();
-        }, 2000);
-      } else {
-        document.getElementById("success").style.display = "none";
-        document.getElementById("decline").style.display = "inherit";
-      }
+      document.getElementById("success").style.display = "inherit";
+      document.getElementById("decline").style.display = "none";
+      setTimeout(function () {
+        location.reload();
+      }, 2000);
     });
 }
 function CambiarEstado(IDCotizacion, EstadoCotizacion) {
