@@ -77,7 +77,13 @@
           <li class="menu-item ">
             <a href="viajes.php" class="menu-link">
               <i class="menu-icon tf-icons bx bxs-ship"></i>
-              <div data-i18n="Analytics">Viajes</div>
+              <div data-i18n="Analytics">Viajes Maritimos / Áereos</div>
+            </a>
+          </li>
+          <li class="menu-item ">
+            <a href="viajes_terrestres.php" class="menu-link">
+              <i class="menu-icon tf-icons bx bxs-truck"></i>
+              <div data-i18n="Analytics">Viajes Terrestres</div>
             </a>
           </li>
           <li class="menu-item ">

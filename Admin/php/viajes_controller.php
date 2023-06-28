@@ -1,5 +1,4 @@
 <?php
-// TODO: Terminar bien el controlador de los viajes en este apartado
 switch ($_POST['accion']) {
     case 'agregar':
         if ($_POST['tipo_viaje'] == 'Viaje Marítimo' || $_POST['tipo_viaje'] == 'Viaje Áereo') {
@@ -8,8 +7,8 @@ switch ($_POST['accion']) {
             agregar_viajes_terrestre($_POST['tipo_viaje'], $_POST['servicio'], $_POST['cliente'], $_POST['terminal'], $_POST['fecha_servicio'], $_POST['hora'], $_POST['no_contenedores'], $_POST['tipo_contenedor'], $_POST['tipo_viaje_terrestre'], $_POST['peso'], $_POST['bultos'], $_POST['agente_aduanal'], $_POST['tipo_mercancia'], $_POST['tipo_plataforma'], $_POST['transporte'], $_POST['descripcion']);
         }
         break;
-    case 'editar':
-        editar_viajes($_POST['id'], $_POST['razon_social'], $_POST['rfc'], $_POST['contacto'], $_POST['tel'], $_POST['cargo'], $_POST['email'], $_POST['domicilio'], $_POST['estado'], $_POST['nombre_representante']);
+    case 'comentarios':
+        agregar_comentarios($_POST['id'], $_POST['descripcion']);
         break;
     case 'CambiarEstado':
         CambiarEstadoCotizacion($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
@@ -18,10 +17,13 @@ switch ($_POST['accion']) {
         CambiarEstadoTerrestre($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
 }
+
 function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $linea_naviera, $no_contenedores, $tipo_contenedor, $buque, $viaje, $peso, $bultos, $puerto_carga, $puerto_transbordo, $puerto_destino, $puerto_transito, $tiempo_transito, $cierre, $vgm, $check_lista, $liberacion, $descripcion)
 {
     include './conexion.php';
-    $sql = "INSERT INTO viajes(tipo_viaje,id_servicio,id_cliente,booking,naviera,no_contenedores,tipo_contenedores,buque,viaje,peso,bultos,puerto_carga,puerto_transbordo,puerto_destino,puerto_transito,tiempo_transito,cierre_documental,vgm,carta_instru,id_tipo_liberacion,comentarios,id_estado) VALUES('$tipo_viaje','$servicio','$cliente','$booking','$linea_naviera','$no_contenedores','$tipo_contenedor','$buque','$viaje','$peso','$bultos','$puerto_carga','$puerto_transbordo','$puerto_destino','$puerto_transito','$tiempo_transito','$cierre','$vgm','$check_lista','$liberacion','$descripcion',1)";
+    $Operador = ObtenerOperadorServicio($servicio);
+    $sql = "INSERT INTO viajes(tipo_viaje,id_servicio,id_cliente,booking,naviera,no_contenedores,tipo_contenedores,buque,viaje,peso,bultos,puerto_carga,puerto_transbordo,puerto_destino,puerto_transito,tiempo_transito,cierre_documental,vgm,carta_instru,id_tipo_liberacion,comentarios,id_estado,id_operador) VALUES('$tipo_viaje','$servicio','$cliente','$booking','$linea_naviera','$no_contenedores','$tipo_contenedor','$buque','$viaje','$peso','$bultos','$puerto_carga','$puerto_transbordo','$puerto_destino','$puerto_transito','$tiempo_transito','$cierre','$vgm','$check_lista','$liberacion','$descripcion',1,$Operador)";
+    CambiarEstadoServicio($servicio, 2);
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
@@ -32,7 +34,9 @@ function agregar_viajes_maritimos($tipo_viaje, $servicio, $cliente, $booking, $l
 function agregar_viajes_terrestre($tipo_viaje, $servicio, $cliente, $terminal, $fecha_servicio, $hora, $no_contenedores, $tipo_contenedor, $tipo_viaje_terrestre, $peso, $bultos, $agente_aduanal, $tipo_mercancia, $tipo_plataforma, $transporte, $descripcion)
 {
     include './conexion.php';
-    $sql = "INSERT INTO viajes_terrestres(id_cliente,id_servicio,terminal,fecha_servicio,hora,no_contenedores,tipo_contenedores,tipo_viaje,peso,bultos,id_agente_aduanal,id_tipo_mercancia,id_plataforma,transportista,comentarios,id_estado) VALUES($cliente,$servicio,'$terminal','$fecha_servicio','$hora','$no_contenedores','$tipo_contenedor','$tipo_viaje_terrestre','$peso','$bultos','$agente_aduanal','$tipo_mercancia','$tipo_plataforma','$transporte','$descripcion',1)";
+    $Operador = ObtenerOperadorServicio($servicio);
+    CambiarEstadoServicio($servicio, 2);
+    $sql = "INSERT INTO viajes_terrestres(id_cliente,id_servicio,terminal,fecha_servicio,hora,no_contenedores,tipo_contenedores,tipo_viaje,peso,bultos,id_agente_aduanal,id_tipo_mercancia,id_plataforma,transportista,comentarios,id_estado,id_operador) VALUES($cliente,$servicio,'$terminal','$fecha_servicio','$hora','$no_contenedores','$tipo_contenedor','$tipo_viaje_terrestre','$peso','$bultos','$agente_aduanal','$tipo_mercancia','$tipo_plataforma','$transporte','$descripcion',1,'$Operador')";
     $resultado = $conexion->query($sql);
     if ($resultado) {
         echo 1;
@@ -70,4 +74,31 @@ function CambiarEstadoTerrestre($IDCotizacion, $EstadoCotizacion)
         echo 2;
     }
     echo 1;
+}
+
+function ObtenerOperadorServicio($id)
+{
+    include './conexion.php';
+    $sql = "SELECT id_operador FROM servicios WHERE id=$id";
+    $result = mysqli_fetch_array($conexion->query($sql));
+    return $result["id_operador"];
+}
+
+function CambiarEstadoServicio($id, $estado)
+{
+    include './conexion.php';
+    $sql = "UPDATE `servicios` SET `id_estado` = '$estado' WHERE `servicios`.`id` = $id";
+    $result = $conexion->query($sql);
+}
+
+function agregar_comentarios($id, $comentarios)
+{
+    include './conexion.php';
+    $sql = "UPDATE `viajes` SET `comentarios_finales` = '$comentarios' WHERE `viajes`.`id` = $id";
+    $result = $conexion->query($sql);
+    if ($resultado) {
+        header("Location: ../viajes.php");
+    } else {
+        header("Location: ../viajes.php");
+    }
 }

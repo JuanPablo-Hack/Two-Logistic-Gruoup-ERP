@@ -64,12 +64,7 @@
                             <div data-i18n="Analytics">Contratos</div>
                         </a>
                     </li>
-
-                    <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Area Operativa</span></li>
-                    <!-- Cards -->
-
-                    <!-- User interface -->
                     <li class="menu-item ">
                         <a href="listar_servicios.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
@@ -79,7 +74,13 @@
                     <li class="menu-item active">
                         <a href="viajes.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-ship"></i>
-                            <div data-i18n="Analytics">Viajes</div>
+                            <div data-i18n="Analytics">Viajes Maritimos / Áereos</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="viajes_terrestres.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-truck"></i>
+                            <div data-i18n="Analytics">Viajes Terrestres</div>
                         </a>
                     </li>
                     <li class="menu-item ">
@@ -221,7 +222,6 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <script src="js/viajes.js"></script>
-    <script src="js/viajes_terrestres.js"></script>
 </body>
 
 </html>

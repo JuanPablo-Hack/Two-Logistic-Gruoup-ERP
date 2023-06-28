@@ -11,10 +11,6 @@
     ?>
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel3">Agregar Viaje</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
                 <div class="alert alert-success" role="alert" style="display:none;" id="success">Viaje agregado con éxito!</div>
                 <div class="alert alert-danger" role="alert" style="display:none;" id="decline">Tuvimos un problema con la base de datos revisa tus datos, por favor verifica que todos los campos hayan sido llenados!</div>

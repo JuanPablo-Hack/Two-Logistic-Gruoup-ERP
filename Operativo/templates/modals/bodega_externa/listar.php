@@ -1,11 +1,5 @@
 <?php include 'templates/modals/bodega_externa/agregar.php'; ?>
 <div class="card">
-    <div class="demo-inline-spacing">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#largeModal">
-            Agregar Registro
-        </button>
-    </div>
-    <br>
     <h5><strong>Registros de almacenaje</strong></h5>
     <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
         <thead>

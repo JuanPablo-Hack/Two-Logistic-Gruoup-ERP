@@ -1,7 +1,7 @@
 <?php
 $sql = "SELECT id,razon_social FROM clientes";
 $result = mysqli_query($conexion, $sql);
-$sql2 = "SELECT id FROM servicios";
+$sql2 = "SELECT id FROM servicios WHERE id_estado =1";
 $result2 = mysqli_query($conexion, $sql2);
 $sql3 = "SELECT id,nombre FROM agencias_aduanales";
 $result3 = mysqli_query($conexion, $sql3);

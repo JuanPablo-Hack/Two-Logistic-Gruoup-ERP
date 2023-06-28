@@ -18,40 +18,6 @@
                 <form method="post" action="php/servicios_controller.php">
                     <input type="hidden" name="accion" value="editar">
                     <input type="hidden" name="id" value="<?php echo $mostrar['id']; ?>">
-                    <div class="row g-3">
-                        <div class="col mb-0">
-                            <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                            <select class="form-control" name='cliente'>
-                                <option value="<?php echo $mostrar['id']; ?>" selected>Sin Asignar</option>
-                                <?php
-                                while ($Row1 = mysqli_fetch_array($result)) {
-                                ?>
-                                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col mb-0">
-                            <label for="exampleFormControlSelect1" class="form-label">Operador</label>
-                            <select class="form-control" name='operador'>
-                                <option value="<?php echo $mostrar['id']; ?>" selected>Sin Asignar</option>
-                                <?php
-                                while ($Row1 = mysqli_fetch_array($result4)) {
-                                ?>
-                                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['nombre']; ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col mb-0">
-                            <label for="exampleFormControlSelect1" class="form-label">Fecha de Servicio</label>
-                            <div class="col-md-10">
-                                <input class="form-control" type="date" id="html5-date-input" name="fecha_servicio" value="<?php echo $mostrar['fecha_servicio']; ?>" />
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col mb-0">
                             <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
