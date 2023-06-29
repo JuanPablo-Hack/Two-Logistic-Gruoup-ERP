@@ -3,6 +3,7 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info-2">
         <thead>
             <tr>
+                <th>Tipo de viaje</th>
                 <th>Ref. Interna</th>
                 <th>Cliente</th>
                 <th>Peso</th>
@@ -30,6 +31,7 @@
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
                 <tr>
+                    <td>Viaje Terrestre</td>
                     <td><?php echo 'OTL-' . date('Y') . '-' . $mostrar['id_servicio']; ?></td>
                     <td><?php
                         $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
