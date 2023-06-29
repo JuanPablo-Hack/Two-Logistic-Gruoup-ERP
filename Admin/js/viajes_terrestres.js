@@ -27,6 +27,7 @@ function fnFormatDetails(oTable, nTr) {
     aData[16] +
     "</td></tr>";
   sOut += "<tr><td>Transportista:</td><td>" + aData[17] + "</td></tr>";
+  sOut += "<tr><td>Comentarios Finales:</td><td>" + aData[18] + "</td></tr>";
   sOut += "</table>";
 
   return sOut;

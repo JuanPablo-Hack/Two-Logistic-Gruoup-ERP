@@ -3,7 +3,6 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info-2">
         <thead>
             <tr>
-                <th>Tipo de viaje</th>
                 <th>Ref. Interna</th>
                 <th>Cliente</th>
                 <th>Peso</th>
@@ -21,6 +20,7 @@
                 <th style="display:none;">Tipo Mercancia</th>
                 <th style="display:none;">Tipo Plataforma</th>
                 <th style="display:none;">Transportista</th>
+                <th style="display:none;">Comentarios Finales</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -31,7 +31,6 @@
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
                 <tr>
-                    <td>Viaje Terrestre</td>
                     <td><?php echo 'OTL-' . date('Y') . '-' . $mostrar['id_servicio']; ?></td>
                     <td><?php
                         $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
@@ -98,6 +97,9 @@
                         $Row = mysqli_fetch_array($result1);
                         echo $Row['nombre'];
                         ?>
+                    </td>
+                    <td style="display:none;">
+                        <?php echo $mostrar['comentarios_finales'] ?>
                     </td>
                     <td>
                         <?php

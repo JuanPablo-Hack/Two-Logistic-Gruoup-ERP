@@ -10,6 +10,9 @@ switch ($_POST['accion']) {
     case 'comentarios':
         agregar_comentarios($_POST['id'], $_POST['descripcion']);
         break;
+    case 'comentarios_terrestre':
+        agregar_comentarios_terrestres($_POST['id'], $_POST['descripcion']);
+        break;
     case 'CambiarEstado':
         CambiarEstadoCotizacion($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
         break;
@@ -100,5 +103,18 @@ function agregar_comentarios($id, $comentarios)
         header("Location: ../viajes.php");
     } else {
         header("Location: ../viajes.php");
+    }
+}
+
+function agregar_comentarios_terrestres($id, $comentarios)
+{
+
+    include './conexion.php';
+    $sql = "UPDATE `viajes_terrestres` SET `comentarios_finales` = '$comentarios' WHERE `viajes_terrestres`.`id` = $id";
+    $result = $conexion->query($sql);
+    if ($resultado) {
+        header("Location: ../viajes_terrestres.php");
+    } else {
+        header("Location: ../viajes_terrestres.php");
     }
 }

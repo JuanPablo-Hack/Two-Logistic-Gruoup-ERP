@@ -42,6 +42,7 @@ function fnFormatDetails(oTable, nTr) {
     "</td><td>Tipo liberacion:</td><td>" +
     aData[23] +
     "</td></tr>";
+  sOut += "<tr><td>Comentarios Finales:</td><td>" + aData[24] + "</td></tr>";
   sOut += "</table>";
 
   return sOut;
