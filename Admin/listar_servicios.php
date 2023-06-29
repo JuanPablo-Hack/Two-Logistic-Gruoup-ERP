@@ -5,7 +5,12 @@
 <head>
     <?php
     include 'templates/head.php';
-    include 'php/conexion.php'
+    include 'php/conexion.php';
+    include 'php/selects.php';
+    if (!isset($_SESSION['id'])) {
+        header("location: ../error_login.html");
+    }
+    $datosOperador = operador($_SESSION['id']);
     ?>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">

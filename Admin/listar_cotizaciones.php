@@ -5,7 +5,12 @@
 <head>
     <?php
     include 'templates/head.php';
-    include 'php/conexion.php'
+    include 'php/conexion.php';
+    include 'php/selects.php';
+    if (!isset($_SESSION['id'])) {
+        header("location: ../error_login.html");
+    }
+    $datosOperador = operador($_SESSION['id']);
     ?>
 </head>
 

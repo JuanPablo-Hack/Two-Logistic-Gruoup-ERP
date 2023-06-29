@@ -23,8 +23,8 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">Super Administrador</span>
-                                    <small class="text-muted">Admin</small>
+                                    <span class="fw-semibold d-block"><?php echo $datosOperador['nombre'] ?></span>
+                                    <small class="text-muted"><?php echo $datosOperador['cargo'] ?></small>
                                 </div>
                             </div>
                         </a>
