@@ -28,16 +28,16 @@ function operador($id)
 function folio_creacion($folio)
 {
     switch ($folio) {
-        case $folio < 10:
+        case $folio < 9:
             return "000" . $folio;
             break;
-        case $folio < 100 && $folio > 10:
+        case $folio < 99 && $folio > 9:
             return "00" . $folio;
             break;
-        case $folio < 1000 && $folio > 100:
+        case $folio < 999 && $folio > 99:
             return "0" . $folio;
             break;
-        case $folio < 10000 && $folio > 1000:
+        case $folio < 9999 && $folio > 999:
             return $folio;
             break;
     }
