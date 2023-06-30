@@ -45,7 +45,7 @@
             ?>
                 <tr>
                     <td><?php echo $mostrar['tipo_viaje'] ?></td>
-                    <td> <?php echo    'OTL-' . date('Y') . '-' . folio_creacion($mostrar['id']); ?>
+                    <td> <?php echo    'OTL-' . date('Y') . '-' . folio_creacion($mostrar['id_servicio']); ?>
                     <td><?php
                         $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
                         $result1 = mysqli_query($conexion, $sql1);

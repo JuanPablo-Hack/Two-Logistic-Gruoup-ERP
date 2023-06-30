@@ -199,7 +199,7 @@ async function AltaviajeTerrestre(e) {
   var form = document.getElementById("AltaviajeTerrestre");
   let data = new FormData(form);
   data.append("accion", "agregar");
-  fetch("php/viajes_terrestres.php", {
+  fetch("php/viajes_controller.php", {
     method: "POST",
     body: data,
   })
@@ -209,7 +209,7 @@ async function AltaviajeTerrestre(e) {
         document.getElementById("success").style.display = "inherit";
         document.getElementById("decline").style.display = "none";
         setTimeout(function () {
-          location.reload();
+          location.replace("viajes_terrestres.php");
         }, 2000);
       } else {
         document.getElementById("success").style.display = "none";
