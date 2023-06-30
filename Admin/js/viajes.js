@@ -199,7 +199,7 @@ async function AltaviajeTerrestre(e) {
   var form = document.getElementById("AltaviajeTerrestre");
   let data = new FormData(form);
   data.append("accion", "agregar");
-  fetch("php/viajes_controller.php", {
+  fetch("php/viajes_terrestres.php", {
     method: "POST",
     body: data,
   })
