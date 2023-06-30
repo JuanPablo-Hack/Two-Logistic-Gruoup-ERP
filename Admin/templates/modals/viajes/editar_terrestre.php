@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="php/viajes_controller.php">
-                    <input type="hidden" name="accion" value="comentarios">
+                    <input type="hidden" name="accion" value="comentarios_terrestre">
                     <input type="hidden" name="id" value="<?php echo $mostrar['id']; ?>">
                     <div class="row">
                         <div class="col mb-0">

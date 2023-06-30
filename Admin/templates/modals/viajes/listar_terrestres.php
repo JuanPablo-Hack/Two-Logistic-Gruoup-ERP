@@ -113,7 +113,7 @@
                         }
                 ?>
                 </tr>
-                <?php include 'templates/modals/viajes/editar.php'; ?>
+                <?php include 'templates/modals/viajes/editar_terrestre.php'; ?>
             <?php
             }
             ?>

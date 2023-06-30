@@ -16,19 +16,6 @@ $result6 = mysqli_query($conexion, $sql6);
     <input type="hidden" value="Viaje Terrestre" name="tipo_viaje">
     <div class="row g-2">
         <div class="col mb-0">
-            <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='cliente'>
-                <option selected disabled>-Selecciona un cliente-</option>
-                <?php
-                while ($Row1 = mysqli_fetch_array($result)) {
-                ?>
-                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
-                <?php
-                }
-                ?>
-            </select>
-        </div>
-        <div class="col mb-0">
             <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
             <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
                 <option selected disabled>-Selecciona un servicio-</option>
