@@ -70,7 +70,7 @@ $(document).ready(function () {
     ],
     dom: "Bfrtip",
     buttons: ["excel"],
-    aaSorting: [[1, "desc"]],
+    aaSorting: [[8, "asc"]],
   });
   /* Add event listener for opening and closing details
    * Note that the indicator for showing which row is open is not controlled by DataTables,

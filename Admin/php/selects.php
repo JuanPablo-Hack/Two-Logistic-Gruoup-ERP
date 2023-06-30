@@ -41,6 +41,25 @@ function tipo_cargas()
     return $result;
 }
 
+
+function folio_creacion($folio)
+{
+    switch ($folio) {
+        case $folio < 10:
+            return "000" . $folio;
+            break;
+        case $folio < 100 && $folio > 10:
+            return "00" . $folio;
+            break;
+        case $folio < 1000 && $folio > 100:
+            return "0" . $folio;
+            break;
+        case $folio < 10000 && $folio > 1000:
+            return $folio;
+            break;
+    }
+}
+
 function operador($id)
 {
     include 'conexion.php';

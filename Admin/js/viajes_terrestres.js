@@ -55,7 +55,7 @@ $(document).ready(function () {
     ],
     dom: "Bfrtip",
     buttons: ["excel"],
-    aaSorting: [[1, "desc"]],
+    aaSorting: [[7, "asc"]],
   });
   $("#hidden-table-info-2 tbody td img").on("click", function () {
     var nTr = $(this).parents("tr")[0];

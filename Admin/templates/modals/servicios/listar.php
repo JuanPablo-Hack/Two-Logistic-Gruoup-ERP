@@ -26,7 +26,7 @@
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
                 <tr>
-                    <td> <?php echo 'OTL-' . date('Y') . '-' . $mostrar['id']; ?>
+                    <td> <?php echo    'OTL-' . date('Y') . '-' . folio_creacion($mostrar['id']); ?>
                     </td>
                     <td><?php
                         $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";

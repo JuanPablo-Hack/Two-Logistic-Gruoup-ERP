@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col mb-0">
                             <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"><?php echo $mostrar['comentarios_finales']; ?></textarea>
                         </div>
                     </div>
             </div>
