@@ -4,21 +4,21 @@ function fnFormatDetails(oTable, nTr) {
     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
   sOut +=
     "<tr><td>Aduana:</td><td>" +
-    aData[4] +
+    aData[7] +
     "</td><td>Terminal:</td><td>" +
-    aData[5] +
+    aData[8] +
     "</td></tr>";
   sOut +=
     "<tr><td>Mercancia:</td><td>" +
-    aData[8] +
-    "</td><td>Carga:</td><td>" +
     aData[9] +
+    "</td><td>Carga:</td><td>" +
+    aData[10] +
     "</td></tr>";
   sOut +=
     "<tr><td>Documentos:</td><td>" +
-    aData[10] +
+    aData[11] +
     "</td><td>Creado:</td><td>" +
-    aData[7] +
+    aData[12] +
     "</td></tr>";
   sOut += "</table>";
 

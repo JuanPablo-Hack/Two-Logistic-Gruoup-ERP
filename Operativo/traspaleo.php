@@ -40,6 +40,8 @@
                             <div data-i18n="Analytics">Panel de control</div>
                         </a>
                     </li>
+
+
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Area Operativa</span></li>
                     <!-- Cards -->
@@ -75,12 +77,12 @@
                             <div data-i18n="Extended UI">Bodega Externa</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item active">
-                                <a href="bodega_externa.php" class="menu-link ">
+                            <li class="menu-item">
+                                <a href="bodega_externa.php" class="menu-link">
                                     <div data-i18n="Text Divider">Almacenaje</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item active">
                                 <a href="traspaleo.php" class="menu-link">
                                     <div data-i18n="Text Divider">Traspaleo</div>
                                 </a>
@@ -108,7 +110,7 @@
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Area Operativa /</span> Lista de bodega externa</h4>
-                        <?php include 'templates/modals/bodega_externa/listar.php'; ?>
+                        <?php include 'templates/modals/bodega_externa/listar_traspaleo.php'; ?>
                     </div>
                     <?php include 'templates/footer.php'; ?>
                     <div class="content-backdrop fade"></div>
@@ -135,7 +137,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-    <script src="js/bodega_externa.js"></script>
+    <script src="js/traspaleo.js"></script>
 </body>
 
 </html>
