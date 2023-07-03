@@ -48,7 +48,7 @@
                             <select class="form-control" name='proveedor' required id="selectProovedor" onblur="verificarSelectProovedor()">
                                 <option value="0" selected disabled>-Selecciona un proovedor-</option>
                                 <?php
-                                while ($Row1 = mysqli_fetch_array($result2)) {
+                                while ($Row1 = mysqli_fetch_array($result4)) {
                                 ?>
                                     <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
                                 <?php
