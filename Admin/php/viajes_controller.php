@@ -128,3 +128,4 @@ function ObtenerClienteServicio($id)
     $result = mysqli_fetch_array($conexion->query($sql));
     return $result["id_cliente"];
 }
+

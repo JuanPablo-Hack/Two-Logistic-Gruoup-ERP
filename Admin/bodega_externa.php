@@ -99,11 +99,23 @@
                             <div data-i18n="Analytics">Despacho Aduanal</div>
                         </a>
                     </li>
-                    <li class="menu-item active ">
-                        <a href="bodega_externa.php" class="menu-link">
+                    <li class="menu-item active">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bxs-store"></i>
-                            <div data-i18n="Analytics">Bodega Externa</div>
+                            <div data-i18n="Extended UI">Bodega Externa</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item active">
+                                <a href="bodega_externa.php" class="menu-link ">
+                                    <div data-i18n="Text Divider">Almacenaje</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="traspaleo.php" class="menu-link">
+                                    <div data-i18n="Text Divider">Traspaleo</div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -232,7 +244,6 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <script src="js/bodega_externa.js"></script>
-    <script src="js/traspaleo.js"></script>
 </body>
 
 </html>

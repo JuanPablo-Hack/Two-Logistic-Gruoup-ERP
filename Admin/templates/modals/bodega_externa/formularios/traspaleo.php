@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT id,razon_social FROM clientes";
+$sql = "SELECT id FROM servicios WHERE id_estado =1";
 $result = mysqli_query($conexion, $sql);
 $sql2 = "SELECT * FROM tipo_producto";
 $result2 = mysqli_query($conexion, $sql2);
@@ -13,13 +13,13 @@ $result5 = mysqli_query($conexion, $sql5);
 <form id="AltaTraspaleo">
     <div class="row g-2">
         <div class="col mb-0">
-            <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-            <select class="form-select" aria-label="Default select example" required name='cliente'>
-                <option value="0" selected disabled>-Selecciona un cliente-</option>
+            <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
+            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='ref'>
+                <option selected disabled>-Selecciona un servicio-</option>
                 <?php
                 while ($Row1 = mysqli_fetch_array($result)) {
                 ?>
-                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                    <option value=<?php echo $Row1['id']; ?>><?php echo 'OTL-' . date('Y') . '-' . $Row1['id']; ?></option>
                 <?php
                 }
                 ?>

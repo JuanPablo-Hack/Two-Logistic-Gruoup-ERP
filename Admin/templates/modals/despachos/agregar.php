@@ -1,7 +1,7 @@
 <div class="modal fade" id="largeModal" tabindex="-1" aria-hidden="true">
     <?php
     include 'php/conexion.php';
-    $sql = "SELECT * FROM clientes";
+    $sql = "SELECT id FROM servicios WHERE id_estado =1";
     $result = mysqli_query($conexion, $sql);
     $sql2 = "SELECT * FROM tipo_mercancia";
     $result2 = mysqli_query($conexion, $sql2);
@@ -30,18 +30,17 @@
                             </select>
                         </div>
                         <div class="col mb-0">
-                            <label for="exampleFormControlSelect1" class="form-label">Cliente</label>
-                            <select class="form-select" aria-label="Default select example" required name='cliente' id="selectClient" onblur="verificarSelectCliente()">
-                                <option value="0">Selecciona un cliente</option>
+                            <label for="exampleFormControlSelect1" class="form-label">Ref. Interna</label>
+                            <select class="form-select" id="num_conceptos" aria-label="Default select example" required name='servicio'>
+                                <option selected disabled>-Selecciona un servicio-</option>
                                 <?php
                                 while ($Row1 = mysqli_fetch_array($result)) {
                                 ?>
-                                    <option value=<?php echo $Row1['id']; ?>><?php echo $Row1['razon_social']; ?></option>
+                                    <option value=<?php echo $Row1['id']; ?>><?php echo 'OTL-' . date('Y') . '-' . $Row1['id']; ?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
-                            <div id="defaultFormControlHelp" style="display: none;" class="form-text">Es necesario seleccionar a un cliente, de no existir ninguno, por favor de ir a crear en la sección de <a href="listar_clientes.php" target="_blank">Clientes</a>.</div>
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Proveedor</label>

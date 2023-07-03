@@ -106,7 +106,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="almacenaje.php" class="menu-link">
+                                <a href="bodega_externa.php" class="menu-link">
                                     <div data-i18n="Text Divider">Almacenaje</div>
                                 </a>
                             </li>

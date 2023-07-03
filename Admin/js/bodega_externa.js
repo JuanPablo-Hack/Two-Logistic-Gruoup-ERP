@@ -4,18 +4,18 @@ function fnFormatDetails(oTable, nTr) {
     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
   sOut +=
     "<tr><td>Entrada a Almacen:</td><td>" +
-    aData[7] +
+    aData[9] +
     "</td><td>Salida de Almacen:</td><td>" +
-    aData[8] +
+    aData[10] +
     "</td></tr>";
   sOut +=
     "<tr><td>Tipo de Producto:</td><td>" +
-    aData[5] +
+    aData[7] +
     "</td><td>Tipo de embalaje:</td><td>" +
-    aData[6] +
+    aData[8] +
     "</td></tr>";
-  sOut += "<tr><td>Documentos:</td><td>" + aData[9] + "</td></tr>";
-  sOut += "<tr><td>Descripción:</td><td>" + aData[10] + "</td></tr>";
+  sOut += "<tr><td>Documentos:</td><td>" + aData[11] + "</td></tr>";
+  sOut += "<tr><td>Descripción:</td><td>" + aData[12] + "</td></tr>";
   sOut += "</table>";
   return sOut;
 }
@@ -155,6 +155,61 @@ function eliminarAlmacenaje(id) {
           "Tu archivo ha sido salvado",
           "error"
         );
+      }
+    });
+}
+function entrada() {
+  var num_conceptos = $("#num_entradas").val();
+  $.ajax({
+    url: "./templates/modals/bodega_externa/formularios/num_entradas.php",
+    method: "POST",
+    data: {
+      num_conceptos: num_conceptos,
+    },
+    success: function (respuesta) {
+      $("#transporte_entrada").html(respuesta);
+    },
+  });
+}
+function salida() {
+  var num_conceptos = $("#num_salidas").val();
+  $.ajax({
+    url: "./templates/modals/bodega_externa/formularios/num_salidas.php",
+    method: "POST",
+    data: {
+      num_conceptos: num_conceptos,
+    },
+    success: function (respuesta) {
+      $("#transporte_salida").html(respuesta);
+    },
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("AltaTraspaleo")
+    .addEventListener("submit", AltaTraspaleo);
+});
+async function AltaTraspaleo(e) {
+  e.preventDefault();
+  var form = document.getElementById("AltaTraspaleo");
+  let data = new FormData(form);
+  data.append("accion", "agregar");
+  fetch("php/traspaleo_controller.php", {
+    method: "POST",
+    body: data,
+  })
+    .then((result) => result.text())
+    .then((result) => {
+      if (result == 1) {
+        document.getElementById("success").style.display = "inherit";
+        document.getElementById("decline").style.display = "none";
+        setTimeout(function () {
+          location.replace("traspaleo.php");
+        }, 2000);
+      } else {
+        document.getElementById("success").style.display = "none";
+        document.getElementById("decline").style.display = "inherit";
       }
     });
 }
