@@ -27,9 +27,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Site Title -->
-    <title>General Purpose Invoice-3</title>
+    <title>General Purpose Invoice</title>
+    <link rel="stylesheet" href="https://invoma.vercel.app/assets/css/style.css">
     <script type="text/javascript"
-        src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=jZWIEGLtPmU6ciCDyqUCB2djJafpR6bhhsBN9_Wp7qXEnNiG8M6uOzg7uOK_aA9V8AZa6dGRQh0db0uoIrMPRg"
+        src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=1Zf4m47r_4-H5GzJwDWZWDwFEDjKHDEcfQM44vhmQhe-jCThKMCbxdWXoyOQkD1PITpW0GaInksK_aSVQfxSeA"
         charset="UTF-8"></script>
 </head>
 
@@ -2864,25 +2865,44 @@ hr {
 <body>
     <div class="tm_container">
         <div class="tm_invoice_wrap">
-            <div class="tm_invoice tm_style1 tm_type1" id="tm_download_section">
+            <div class="tm_invoice tm_style1 tm_type2" id="tm_download_section">
+                <div class="tm_bars">
+                    <span class="tm_accent_bg"></span>
+                    <span class="tm_accent_bg"></span>
+                    <span class="tm_accent_bg"></span>
+                </div>
+                <div class="tm_bars tm_type1">
+                    <span class="tm_accent_bg"></span>
+                    <span class="tm_accent_bg"></span>
+                    <span class="tm_accent_bg"></span>
+                </div>
+                <div class="tm_shape">
+                    <div class="tm_shape_in tm_accent_bg"></div>
+                </div>
+                <div class="tm_shape_2 tm_primary_color">
+                    <div class="tm_shape_2_in tm_accent_color"></div>
+                </div>
+                <div class="tm_shape_2 tm_type1 tm_primary_color">
+                    <div class="tm_shape_2_in tm_accent_color"></div>
+                </div>
+                <!-- <div class="tm_shape_4 tm_primary_bg"></div> -->
+                <div class="tm_shape tm_type1">
+                    <div class="tm_shape_in tm_accent_bg"></div>
+                </div>
                 <div class="tm_invoice_in">
-                    <!-- TODO: Terminar el diseño mañana -->
-                    <div class="tm_invoice_head tm_top_head tm_mb15 tm_align_center">
+                    <div class="tm_invoice_head tm_align_center tm_mb20">
                         <div class="tm_invoice_left">
                             <div class="tm_logo"><img src="http://twologistic.com/images/twologistic.png" alt="Logo">
                             </div>
                         </div>
-                        <div class="tm_invoice_right tm_text_right tm_mobile_hide">
-                            <div class="tm_f50 tm_text_uppercase tm_white_color">COTIZACION</div>
+                        <div class="tm_invoice_right tm_text_right">
                         </div>
-                        <div class="tm_shape_bg tm_accent_bg tm_mobile_hide"></div>
                     </div>
-                    <div class="tm_invoice_info tm_mb25">
-                        <div class="tm_invoice_info_list tm_white_color">
-                            <p class="tm_invoice_number tm_m0">Invoice No: <b>#LL93784</b></p>
-                            <p class="tm_invoice_date tm_m0">Date: <b>01.07.2022</b></p>
+                    <div class="tm_invoice_info tm_mb20">
+                        <div class="tm_invoice_info_list">
+                            <p class="tm_invoice_date tm_m0">Date: <b class="tm_primary_color">01.07.2022</b></p>
+                            <p class="tm_invoice_number tm_m0">Invoice No: <b class="tm_primary_color">#LL93784</b></p>
                         </div>
-                        <div class="tm_invoice_seperator tm_accent_bg"></div>
                     </div>
                     <div class="tm_invoice_head tm_mb10">
                         <div class="tm_invoice_left">
@@ -2893,7 +2913,7 @@ hr {
                                 lowell@gmail.com
                             </p>
                         </div>
-                        <div class="tm_invoice_right tm_text_right">
+                        <div class="tm_invoice_right">
                             <p class="tm_mb2"><b class="tm_primary_color">Empresa emisora:</b></p>
                             <p>
                                 Laralink Ltd <br>
@@ -2903,17 +2923,19 @@ hr {
                             </p>
                         </div>
                     </div>
-                    <div class="tm_table tm_style1">
+                    <div class="tm_table tm_style1 tm_mb30">
                         <div class="">
                             <div class="tm_table_responsive">
                                 <table>
                                     <thead>
-                                        <tr class="tm_accent_bg">
-                                            <th class="tm_width_3 tm_semi_bold tm_white_color">Servicio</th>
-                                            <th class="tm_width_4 tm_semi_bold tm_white_color">Descripción</th>
-                                            <th class="tm_width_2 tm_semi_bold tm_white_color">Precio</th>
-                                            <th class="tm_width_1 tm_semi_bold tm_white_color">Cantidad</th>
-                                            <th class="tm_width_2 tm_semi_bold tm_white_color tm_text_right">Total</th>
+                                        <tr>
+                                            <th class="tm_width_3 tm_medium tm_white_color tm_accent_bg">Servicio</th>
+                                            <th class="tm_width_4 tm_medium tm_white_color tm_accent_bg">Descripción
+                                            </th>
+                                            <th class="tm_width_2 tm_medium tm_white_color tm_accent_bg">Precio</th>
+                                            <th class="tm_width_1 tm_medium tm_white_color tm_accent_bg">Cantidad</th>
+                                            <th class="tm_width_2 tm_medium tm_white_color tm_accent_bg tm_text_right">
+                                                Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2950,51 +2972,38 @@ hr {
                                 </table>
                             </div>
                         </div>
-                        <div class="tm_invoice_footer tm_border_top tm_mb15 tm_m0_md">
+                        <div class="tm_invoice_footer">
                             <div class="tm_left_footer">
 
                             </div>
                             <div class="tm_right_footer">
-                                <table class="tm_mb15">
+                                <table>
                                     <tbody>
-                                        <tr class="tm_gray_bg ">
-                                            <td class="tm_width_3 tm_primary_color tm_bold">Subtotal</td>
-                                            <td class="tm_width_3 tm_primary_color tm_bold tm_text_right">$1650</td>
+                                        <tr>
+                                            <td class="tm_width_3 tm_primary_color tm_border_none tm_bold">Subtotal</td>
+                                            <td
+                                                class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_bold">
+                                                $1650</td>
                                         </tr>
-                                        <tr class="tm_gray_bg">
-                                            <td class="tm_width_3 tm_primary_color">I.V.A <span
-                                                    class="tm_ternary_color">(16%)</span></td>
-                                            <td class="tm_width_3 tm_primary_color tm_text_right">+$82</td>
+                                        <tr>
+                                            <td class="tm_width_3 tm_primary_color tm_border_none tm_pt0">I.V.A <span
+                                                    class="tm_ternary_color">(5%)</span></td>
+                                            <td class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_pt0">
+                                                +$82</td>
                                         </tr>
-                                        <tr class="tm_accent_bg">
-                                            <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_white_color">TOTAL
+                                        <tr class="tm_border_top">
+                                            <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_primary_color">TOTAL
                                             </td>
                                             <td
-                                                class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_white_color tm_text_right">
+                                                class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_primary_color tm_text_right">
                                                 $1732</td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </div>
-                        <div class="tm_invoice_footer tm_type1">
-                            <div class="tm_left_footer"></div>
-                            <div class="tm_right_footer">
-                                <div class="tm_sign tm_text_center">
-                                    <br><br>
-                                    <p class="tm_m0 tm_ternary_color">Shiomara Fregoso Gamiño</p>
-                                    <p class="tm_m0 tm_f16 tm_primary_color">Directora General</p>
-                                </div>
+                                <div class="tm_shape_3 tm_accent_bg_10"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="tm_note tm_text_center tm_font_style_normal">
-                        <hr class="tm_mb15">
-                        <p class="tm_mb2"><b class="tm_primary_color">Terms & Conditions:</b></p>
-                        <p class="tm_m0">All claims relating to quantity or shipping errors shall be waived by Buyer
-                            unless made in writing to <br>Seller within thirty (30) days after delivery of goods to the
-                            address stated.</p>
-                    </div><!-- .tm_note -->
                 </div>
             </div>
         </div>

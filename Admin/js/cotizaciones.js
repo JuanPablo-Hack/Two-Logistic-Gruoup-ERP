@@ -165,20 +165,7 @@ function crearPDF(id) {
   var opt = {
     margin: 1,
     filename: "Cotizacion.pdf",
-    image: {
-      type: "jpeg",
-      quality: 0.98,
-    },
-    html2canvas: {
-      scale: 1,
-    },
-    jsPDF: {
-      unit: "in",
-      format: "b2",
-      orientation: "p",
-    },
   };
-
   $.ajax({
     type: "POST",
     data: "id=" + id,
