@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$id = $_POST['id'];
+$id = 1;
 $cotizacion = $conexion->query("SELECT * FROM cotizaciones WHERE id = $id");
 $datos_cotizacion = $cotizacion->fetch_assoc();
 
@@ -2870,11 +2870,14 @@ function getTipoServicio($id)
                     <!-- TODO: Terminar el diseño mañana -->
                     <div class="tm_invoice_head tm_top_head tm_mb15 tm_align_center">
                         <div class="tm_invoice_left">
-                            <div class="tm_logo"><img src="http://twologistic.com/images/twologistic.png" alt="Logo">
+                            <div class="tm_logo">
                             </div>
                         </div>
                         <div class="tm_invoice_right tm_text_right tm_mobile_hide">
-                            <div class="tm_f50 tm_text_uppercase tm_white_color">COTIZACION</div>
+                            <div class="tm_f50 tm_text_uppercase tm_white_color">
+                                <div class="tm_logo"><img src="http://twologistic.com/images/BLANCO.png" alt="Logo">
+                                </div>
+                            </div>
                         </div>
                         <div class="tm_shape_bg tm_accent_bg tm_mobile_hide"></div>
                     </div>
