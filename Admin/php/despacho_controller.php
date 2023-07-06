@@ -4,7 +4,7 @@ switch ($_POST['accion']) {
         agregar_despacho($_POST['tipo_oper'], $_POST['servicio'], $_POST['proveedor'],  $_POST['aduana'], $_POST['terminal'], $_POST['carga'], $_POST['mercancia'],  $_POST['check_lista'], $_POST['descripcion']);
         break;
     case 'editar':
-        editar_despacho($_POST['id'], $_POST['cliente'], $_POST['mercancia'], $_POST['carga'], $_FILES['factura']['name'], $_FILES['lista_embarque']['name'], $_FILES['bl']['name'], $_FILES['ficha_tec']['name'], $_FILES['poliza_seguro']['name'], $_FILES['poliza_transporte']['name'], $_FILES['carta_garantia']['name'], $_FILES['hoja_seguridad']['name'], $_POST['descripcion']);
+        editar_despacho($_POST['id'], $_POST['descripcion']);
         break;
     case 'CambiarEstado':
         CambiarEstadoDespacho($_POST['IDCotizacion'], $_POST['EstadoCotizacion']);
@@ -35,15 +35,15 @@ function CambiarEstadoDespacho($IDCotizacion, $EstadoCotizacion)
     }
     echo 1;
 }
-function editar_despacho($id, $cliente, $mercancia, $carga, $factura, $lista_embarque, $bl, $ficha_tec, $poliza_seguro, $poliza_transporte, $carta_garantia, $hoja_seguridad, $descripcion)
+function editar_despacho($id, $comentarios)
 {
-    include 'conexion.php';
-    $sql = "UPDATE `despachoes` SET `cliente` = '$cliente', `tipo_mercancia` = '$mercancia', `tipo_carga` = '$carga', `factura` = '$factura', `lista_embarque` = '$lista_embarque', `bl` = '$bl', `ficha_tec` = '$ficha_tec', `poliza_seguro` = '$poliza_seguro', `poliza_transporte` = '$poliza_transporte', `carta_garan` = '$carta_garantia', `hoja_seguridad` = '$hoja_seguridad', `descrip` = '$descripcion' WHERE `despachoes`.`id` = $id ";
-    $resultado = $conexion->query($sql);
+    include './conexion.php';
+    $sql = "UPDATE `despacho` SET `comentarios` = '$comentarios' WHERE `despacho`.`id` = $id";
+    $result = $conexion->query($sql);
     if ($resultado) {
-        echo 1;
+        header("Location: ../listar_importacion.php");
     } else {
-        echo 2;
+        header("Location: ../listar_importacion.php");
     }
 }
 
