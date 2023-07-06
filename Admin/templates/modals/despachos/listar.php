@@ -21,6 +21,7 @@
                 <th style="display: none;">Mercancia</th>
                 <th style="display: none;">Carga</th>
                 <th style="display: none;">Documentación</th>
+                <th style="display: none;">Comentarios</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -74,6 +75,7 @@
                                                 echo $Row['nombre'];
                                                 ?></td>
                     <td style="display: none;"><?php echo $mostrar['documentacion'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['comentarios'] ?></td>
                     <td>
                         <?php
                         if ($mostrar['id_estado'] < 3) {

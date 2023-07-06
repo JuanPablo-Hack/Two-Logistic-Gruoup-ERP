@@ -21,13 +21,13 @@
                 <th style="display: none;">Mercancia</th>
                 <th style="display: none;">Carga</th>
                 <th style="display: none;">Documentación</th>
+                <th style="display: none;">Comentarios</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $IdOperador = $_SESSION['id'];
-            $sql = "SELECT * FROM despacho WHERE id_operador = '$IdOperador'";
+            $sql = "SELECT * FROM despacho";
             $resultado = $conexion->query($sql);
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
@@ -75,11 +75,12 @@
                                                 echo $Row['nombre'];
                                                 ?></td>
                     <td style="display: none;"><?php echo $mostrar['documentacion'] ?></td>
+                    <td style="display: none;"><?php echo $mostrar['comentarios'] ?></td>
                     <td>
                         <?php
                         if ($mostrar['id_estado'] < 3) {
                         ?>
-
+                            <button type="button" class="btn btn-sm btn-icon item-edit" title="Finalizar" data-bs-toggle="modal" data-bs-target="#EditarServicio<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
                             <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,2)" class="btn btn-sm btn-icon item-edit" title="Atender"><i class='bx bxs-file-export'></i></button>
                             <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,3)" class="btn btn-sm btn-icon item-edit" title="Finalizar"><i class='bx bx-badge-check'></i></button>
                             <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,4)" class="btn btn-sm btn-icon item-edit" title="Cancelar"><i class='bx bx-x-circle'></i></button>

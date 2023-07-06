@@ -10,16 +10,18 @@ function fnFormatDetails(oTable, nTr) {
     "</td></tr>";
   sOut +=
     "<tr><td>Mercancia:</td><td>" +
-    aData[9] +
-    "</td><td>Carga:</td><td>" +
     aData[10] +
+    "</td><td>Carga:</td><td>" +
+    aData[11] +
     "</td></tr>";
   sOut +=
     "<tr><td>Documentos:</td><td>" +
-    aData[11] +
-    "</td><td>Creado:</td><td>" +
     aData[12] +
+    "</td><td>Creado:</td><td>" +
+    aData[9] +
     "</td></tr>";
+  sOut += "<tr><td>Documentos:</td><td>" + aData[13];
+  ("</td></tr>");
   sOut += "</table>";
 
   return sOut;
