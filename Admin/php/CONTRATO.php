@@ -12,415 +12,571 @@ $clientef = $cliente->fetch_assoc();
 $datos_comercial = explode(",", $clientef['datos_comercial']);
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+
+  .containerHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 100px;
+  }
+
+  .containerHeader p {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .containerDeclaraciones {
+    padding: 10px 80px;
+  }
+
+  .containerDeclaraciones p {
+    margin-top: 20px;
+  }
+
+  .declaraciones {
+    font-weight: bold;
+  }
+
+  .abc {
+    display: flex;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .abc p {
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .color {
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .negritas {
+    width: 100%;
+  }
+
+  .color2 {
+    font-weight: bold;
+  }
+
+  .interlineado {
+    line-height: 1.5;
+  }
+
+  .unodostres {
+    display: flex;
+    width: 100%;
+    padding: 0 50px;
+  }
+
+  .unodostres p {
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .firmas1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .color3 {
+    font-weight: bold;
+    width: 50%;
+    text-align: center;
+  }
+
+  .firma {
+    margin: 40px 10px 0 10px;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+  }
+</style>
 
 <body>
-  <div class="page">
-    <div id="terms-and-conditions">
+  <div class="containerHeader">
+    <p>
+      CONTRATO DE PRESTACIÓN DE SERVICIOS DE TRANSPORTE POR VÍA TERRESTRE QUE
+      CELEBRAN POR UNA PARTE TWO LOGISTIC SOLUCIONES INTERNACIONALES S DE RL
+      DE CV., REPRESENTADA POR NORMA YASMIN FREGOSO VELASCO, A QUIEN EN LO
+      SUCESIVO Y PARA LOS EFECTOS DEL PRESENTE CONTRATO SE LE DENOMINARA COMO
+      “EL PORTEADOR” Y POR LA OTRA <strong>
+        <p style="text-transform: uppercase;">"<?php echo $clientef['razon_social'] ?>"</p>
+      </strong>,
+      REPRESENTADA POR <strong>
+        <p style="text-transform: uppercase;">"<?php echo $datos_comercial[0] ?>"</p>
+      </strong>, A QUIEN EN
+      LO SUCESIVO SE LE DENOMINARA “EL CARGADOR”, Y A QUIENES DE MANERA
+      CONJUNTA SE LES DENOMINARA “LAS PARTES”, POR LO QUE CONVIENEN EN
+      CELEBRAR EL PRESENTE CONTRATO AL TENOR DE LAS SIGUIENTES:
+    </p>
+  </div>
+  <div class="containerDeclaraciones">
+    <h3>
+      <center>DECLARACIONES</center>
+    </h3>
+    <p class="declaraciones">
+      Declara EL PORTEADOR por medio de sus representantes:
+    </p>
+    <div class="abc">
+      <p class="color">a)</p>
       <p>
-        <strong>
-          CONTRATO DE PRESTACIÓN DE SERVICIOS QUE CELEBRAN POR UNA
-          PARTE LA EMPRESA TWO LOGISTIC SOLUCIONES INTERNACIONALES S. DE
-          R.L. de C.V., REPRESENTADA LEGALMENTE POR LA C. NORMA YASMIN
-          FREGOSO VELASCO, A QUIEN EN LO SUCESIVO SE LE DENOMINARÁ “EL
-          PRESTADOR” Y POR LA OTRA PARTE CLIENTE <?php echo $clientef['razon_social'] ?> REPRESENTADA
-          LEGALMENTE POR C <?php echo $datos_comercial[0] ?> A QUIEN EN LO SUCESIVO SE LE DENOMINARÁ
-          “EL CLIENTE”, DE ACUERDO CON LAS DECLARACIONES Y CLÁUSULAS
-          SIGUIENTES
-        </strong>
+        Que es una Sociedad Anónima, legalmente constituida conforme a las
+        leyes mexicanas según consta en Escritura Pública Número 19,819, de
+        fecha 26 de enero de 2022, pasada ante la fe del Notario Público
+        Número 03, Lic. Marcelino Romero Vargas, con ejercicio en la Ciudad y
+        Puerto de Manzanillo, Colima., misma que quedó debidamente inscrita en
+        el Registro Público de la Propiedad y del Comercio de la misma ciudad,
+        siendo su objeto social principal el de La operación y explotación del
+        servicio de carga pública federal.
       </p>
-      <center>
-        <h1>D E C L A R A C I O N E S</h1>
-      </center>
-      <br>
-      <ol>
-        <li>
-          <b>Declara “EL PRESTADOR” por conducto de representante legal y bajo protesta de
-            decir verdad</b>
-          <ol>
-            <li>
-              Que es una persona moral constituida conforme a las leyes mexicanas según lo
-              acredita con la Escritura Pública No. 19819 de fecha 26 de enero de 2022 otorgada
-              ante la Fe del Lic. Marcelino Romero Vargas, Notario Público No. 3 de
-              Manzanillo, Colima.
-            </li>
-            <li>
-              Que dentro de su objeto social se permite la celebración del presente contrato.
-            </li>
-            <li>Que se encuentra inscrita al Registro Federal de Contribuyentes del Servicio de
-              Administración Tributaria con la clave TLS2201263L9</li>
-            <li>Que su representante legal cuenta con las facultades necesarias para la suscripción
-              de este documento, lo que acredita con la escritura señalada, mismas facultades
-              que no le han sido modificadas, revocadas, ni limitadas de forma alguna</li>
-            <li>Que es su deseo celebrar el presente acuerdo.</li>
-            <li>Que cuenta con los recursos humanos, materiales y económicos, necesarios y
-              suficientes, para la celebración de este contrato, los cuales son de procedencia
-              lícita</li>
-            <li>Que señala como domicilio convencional para todos los efectos del presente
-              acuerdo el ubicado en Avenida El Dorado, 230-B, Colonia Barrio Nuevo Salagua,
-              en Manzanillo, Colima, México, C.P. 28869.
-            </li>
-            <li>
-              Que para la celebración de este contrato fue debidamente asesorada por los
-              profesionistas designados para tales efectos.
-            </li>
-          </ol>
-        </li>
-        <li>
-          <b>Declara “EL CLIENTE”, a través de su representante legal y bajo protesta de decir
-            verdad:
-          </b>
-          <ol>
-            <li>
-              Ser una sociedad constituida de conformidad con las leyes mexicanas, según
-              escritura XXX de fecha XX de diciembre de XX, pasada ante la fe del Lic. XXX,
-              notario público titular número XX del entonces denominado XX; y registrada bajo
-              inscripción folio XX del registro de comercio del XX con RFC: <?php echo $clientef['rfc'] ?>
-            </li>
-            <li>Que dentro de su objeto social se permite la celebración del presente contrato
-            </li>
-            <li>Que se encuentra inscrita al Registro Federal de Contribuyentes del Servicio de
-              Administración Tributaria con la clave XXX</li>
-            <li>Que su representante cuenta con facultades legales para obligarla, mismas que a
-              la fecha no le han sido revocadas o restringidas en forma alguna, de conformidad
-              con la Escritura Pública XXX de fecha XX de noviembre del XXXX pasada ante
-              la fe del Lic. XXX, notario público titular número XXX del XX.
-            </li>
-            <li>
-              Que es su deseo celebrar el presente acuerdo
-            </li>
-            <li>Que cuenta con los recursos humanos, materiales y económicos, necesarios y
-              suficientes, para la celebración y cumplimiento de este contrato, los cuales son de
-              procedencia lícita.</li>
-            <li>Que los bienes, mercancías o productos, en adelante “LOS PRODUCTOS” que
-              proporcionará a “EL PRESTADOR” para la ejecución de “LOS SERVICIOS”
-              son de procedencia lícita y han cumplido con la normativa legal aplicable para su
-              obtención, propiedad y posesión legítima.</li>
-            <li> Que señala como domicilio convencional para todos los efectos del presente
-              acuerdo el ubicado en <?php echo $clientef['domicilio'] ?></li>
-            <li>Que para la celebración de este contrato fue debidamente asesorada por los
-              profesionistas designados para tales efectos.s</li>
-          </ol>
-        </li>
-        <li>
-          <b>Declaran “LAS PARTES”, bajo protesta de decir verdad:
-          </b>
-          <ol>
-            <li>
-              Que es su deseo celebrar el presente contrato de conformidad con los términos y
-              condiciones establecidos en el mismo.
-            </li>
-            <li>Que ambas se reconocen de manera mutua su capacidad y personalidad para
-              celebrar el presente contrato.
-            </li>
-            <li>Que antes y durante la celebración de este instrumento no ha existido dolo, mala
-              fe, error o violencia alguna y por lo mismo el presente contrato se encuentra libre de
-              cualquier vicio del consentimiento que pudiera invalidarlo.</li>
-          </ol>
-        </li>
-      </ol>
-      <br> <br> <br> <br> <br>
-      <center>
-        <h1>C L Á U S U L A S</h1>
-      </center>
-      <br>
-      <b>PRIMERA. - EL OBJETO DEL CONTRATO. -</b>
+    </div>
+    <div class="abc">
+      <p class="color">b)</p>
       <p>
-        “EL PRESTADOR" prestará a favor de “EL CLIENTE” los servicios, en adelante “LOS
-        SERVICIOS” en los términos y condiciones que se señalan en la(s) cotización(es) adjunta(s)
-        al presente contrato, la(s) cual(es) forma(n) parte integral del mismo y que en adelante se
-        referirán como “LA(S) COTIZACIÓN(ES)”.
+        Su representante cuenta con las facultades suficientes para celebrar
+        el presente contrato, mismas que a la fecha no le han sido limitadas,
+        modificadas o revocadas de forma alguna, según se desprende de la
+        Escritura Pública Número 19,819, de fecha 26 de enero de 2022, pasada
+        ante la fe del Notario Público Número 03, Lic. Marcelino Romero
+        Vargas, con ejercicio en la Ciudad y Puerto de Manzanillo, Colima.
+        misma que quedó debidamente inscrita en el Registro Público de la
+        Propiedad y del Comercio de la misma ciudad.
       </p>
-
-      <b>SEGUNDA. - DE LA CONTRAPRESTACIÓN. -</b>
+    </div>
+    <div class="abc">
+      <p class="color">c)</p>
       <p>
-        “EL CLIENTE” pagará a “EL PRESTADOR” por “LOS SERVICIOS”, las cantidades de
-        dinero o tarifas, incluida su vigencia, que se señalan en “LA(S) COTIZACIÓN(ES) mediante
-        transferencia electrónica de fondos de la cuenta bancaria propiedad de “EL CLIENTE” y
-        abonados a la cuenta bancaria propiedad de “EL PRESTADOR” conforme se lo indique. <br> <br>
-        “EL PRESTADOR” se compromete a emitir y entregar a favor de “EL CLIENTE” los
-        comprobantes fiscales digitales (CFDI) correspondientes, cumpliendo con todos los
-        requisitos que las leyes de la materia exigen, contra la entrega de los pagos correspondientes,
-        incluidos anticipos, debiendo especificar el importe recibido y relacionarlo con el presente
-        contrato, así como desglosar el impuesto al valor agregado. El CFDI deberá ser enviado al
-        correo electrónico que al efecto indique “EL CLIENTE”. <br> <br>
-        Toda vez que “LA(S) COTIZACIÓN(ES)” se presenten en dólares americanos, el cliente
-        pagara a “EL PRESTADOR” en esa misma moneda de curso legal en los Estados Unidos de
-        América. <br> <br>
-        La contraprestación pactada a favor de “EL PRESTADOR” es justa y lo compensará por
-        todos los gastos directos o indirectos, que se originen como consecuencia de este contrato.
+        Que el domicilio convencional de EL PORTEADOR para oír y recibir toda
+        clase de notificaciones, así como el cumplimiento de todas las
+        obligaciones que deriven del presente, se encuentra ubicado en Av. El
+        dorado No.230-B colonia Nuevo Salagua, C.P 28869 Manzanillo, Colima.
+        México
       </p>
-      <b>TERCERA. – VIGENCIA DE CONTRATO. -</b>
+    </div>
+    <p class="declaraciones">
+      Declara EL CARGADOR por medio de sus representantes:
+    </p>
+    <div class="abc">
+      <p class="color">c)</p>
       <p>
-        “LAS PARTES” están conformes y acuerdan que el presente contrato, tendrá una vigencia
-        obligatoria conforme al plazo de un año contado a partir de la firma de este contrato y que
-        las tarifas de “LOS SERVICIOS” que se señalan en “LA(S) COTIZACIÓN(ES) se
-        mantendrán vigentes por el periodo que dure el presente contrato.
+        Ser una Sociedad de Responsabilidad Limitada de Capital Variable,
+        legalmente constituida y válidamente existente conforme a las leyes
+        mexicanas según consta en Escritura Pública Número --------, de fecha
+        -------------------------, pasada ante la fe del, Lic.
+        ----------------------------------------, Notario Público número
+        --------- - con ejercicio en
+        -----------------------------------------, siendo su objeto social
+        principal el de -------------------------------------------------;
+        ajustándose en todo tiempo, en principio, a las Leyes Mexicanas
+        aplicables al Ramo, a la Ley de Comercio Exterior, en su caso, así
+        como a los Tratados Internacionales.
       </p>
-      <b>CUARTA. - TERMINACIÓN ANTICIPADA.-</b>
+    </div>
+    <div class="abc">
+      <p class="color">c)</p>
       <p>
-        “LAS PARTES”, de común acuerdo, podrán dar por terminado anticipadamente el presente
-        contrato. <br> <br>
-        Una vez terminado el contrato “LAS PARTES” se otorgarán el más amplio finiquito que en
-        derecho corresponda no pudiendo reservarse acción y/o derecho que ejercitar una en contra
-        de la otra. <br> <br>
-        Queda expresamente pactado por las partes, que no tendrán responsabilidad civil por los
-        daños y perjuicios que pudieran causarse a consecuencia de caso fortuito o fuerza mayor,
-        entendiéndose por esto a todo acontecimiento, presente o futuro, ya sea fenómeno de la
-        naturaleza o no, que esté fuera del dominio de la voluntad, que no pueda preverse o que aún
-        previéndose no pueda evitarse. <br> <br>
-        “LAS PARTES” podrán también, de común acuerdo, suspender los efectos de este contrato,
-        sin que ello traiga como consecuencia su terminación; una vez desaparecida la causa de
-        suspensión continuarán los efectos del mismo.
+        Su representante <?php echo $datos_comercial[0] ?>, cuenta con las facultades
+        suficientes para celebrar el presente contrato, mismas que a la fecha
+        no le han sido limitadas, modificadas o revocadas de forma alguna,
+        según se desprende de la Escritura Pública Número ---------- de fecha
+        -------------------------, otorgada ante la fe del Licenciado
+        ----------------------- Titular de la Notaría Pública Número -----,
+        con ejercicio en ------------------------------------.
       </p>
-      <b>QUINTA. - CAUSALES DE RESCISIÓN. -</b>
+    </div>
+    <div class="abc">
+      <p class="color">c)</p>
       <p>
-        Serán causas de rescisión del presente contrato las siguientes:
+        Que el domicilio convencional de EL CARGADOR para oír y recibir toda
+        clase de notificaciones, así como el cumplimiento de todas las
+        obligaciones que deriven del presente, se encuentra ubicado en
+        <?php echo $clientef['domicilio'] ?>.
       </p>
-      <ol>
-        <li>Las causas previstas en las leyes de la materia;</li>
-        <li>En caso de concurso, quiebra, liquidación o insolvencia económica de cualquiera de
-          “LAS PARTES”.</li>
-        <li>Porque alguna de las partes haya dado, declarado, entregado o manifestado a la otra,
-          información falsa o inexacta para la celebración de este contrato.</li>
-        <li>Por incumplir con cualquiera de las obligaciones a su cargo, que se señalan en el
-          presente contrato.</li>
-      </ol>
+    </div>
+    <p class="declaraciones">Declaran LAS PARTES en conjunto:</p>
+    <div class="abc">
+      <p class="color">a)</p>
       <p>
-        La parte que haya dado motivo a la rescisión deberá pagar a la otra los daños y perjuicios que
-        se ocasionen con motivo de la rescisión. <br> <br>
-        El procedimiento para rescindir será el siguiente:
+        Que BAJO PROTESTA DE DECIR VERDAD tienen la representación legal y
+        cuentan a la fecha con las facultades necesarias y suficientes para la
+        celebración de este acto, mismas que se contienen en Actas, Documentos
+        y/o Testimonios Públicos Legales de sus respectivos representados y
+        que en caso de Revocación o Limitación posterior a este Instrumento,
+        harán del conocimiento inmediato a la otra parte, por escrito u otro
+        medio indubitable: por lo tanto se reconocen mutuamente su
+        Personalidad y capacidad Jurídica, en aras de la Buena fe y los usos y
+        costumbres comerciales para la celeridad del trato que celebran.
       </p>
-      <ol>
-        <li>Quien haya sufrido la causal de recisión notificará a su contraparte que el contrato
-          queda rescindido y en su caso el monto de los daños y perjuicios que estima
-          ocasionados, quedando expedito su derecho para hacer el reclamo que corresponda.</li>
-        <li>En caso de que haya sido “EL CLIENTE” quien dio motivo a la causal de rescisión,
-          “EL PRESTADOR” podrá retener en garantía los bienes o materiales propiedad de
-          “EL CLIENTE” que en su caso tenga en su posesión, hasta por un monto equivalente
-          de 2 a 1 de los posibles daños y perjuicios ocasionados. </li>
-        <li>A partir de la fecha en que se notifique a la parte que dio motivo a la rescisión, se
-          deberán detener los trabajos que estuviesen pendiente de iniciarse y únicamente se
-          deberán concluir aquellos que estuvieran ya en ejecución y que hubieran sido
-          cubiertos por “EL CLIENTE” a satisfacción de “EL PRESTADOR”.</li>
-        <li>Si “EL PRESTADOR” fue quien dio motivo a la rescisión, deberá concluir los
-          trabajos que estuvieran ya en ejecución, sin que eso le dé derecho a pago de
-          contraprestación alguna.</li>
-      </ol>
-      <p>Queda expresamente pactado por “LAS PARTES”, que no tendrán responsabilidad civil por
-        los daños y perjuicios que pudieran causarse a consecuencia de caso fortuito o fuerza mayor,
-        entendiéndose por esto a todo acontecimiento, presente o futuro, ya sea fenómeno de la
-        naturaleza o no, que esté fuera del dominio de la voluntad, que no pueda preverse o que aún
-        previéndose no pueda evitarse, incluida(s) la(s) pandemia(s) declarada(s) oficialmente por
-        las autoridades sanitarias. Podrán suspenderse los efectos de este contrato, sin que ello traiga
-        como consecuencia su terminación; una vez desaparecida la causa de suspensión continuarán
-        los efectos del mismo.</p>
-
-      <b>SEXTA. - OBLIGACIONES DE “EL PRESTADOR”.-</b>
+    </div>
+    <p style="margin-bottom: 20px">
+      Enteradas las partes de las anteriores declaraciones, sujetan el
+      presente contrato al tenor de las siguientes:
+    </p>
+    <h3>
+      <center>Clausulas</center>
+    </h3>
+    <p class="interlineado">
+      <strong>PRIMERA.- OBJETO DEL SERVICIO. EL PORTEADOR</strong> se obliga
+      por el presente, al transporte de los bienes y objetos permitidos por la
+      legislación Federal, Común y los Tratados internacionales; garantizando
+      a <strong>EL CARGADOR </strong>que es capaz y competente para desempeñar
+      la obligación contraída baja este instrumento y que cumplirá conforme a
+      las normas de eficiencia y seguridad las labores para las cuales se le
+      requirió; obligándose ambos a utilizar exclusivamente el idioma español
+      en toda la documentación relativa al servicio solicitado. Página 3 de 7
+      Por lo que <strong>EL PORTEADOR</strong>, será responsable de poner las
+      cosas transportadas, en el estado en que las recibe, a disposición del
+      consignatario que sea señalado por <strong>EL CARGADOR</strong>, en el
+      plazo, lugar y condiciones previstas en el presente contrato.
+    </p>
+    <p class="interlineado">
+      <strong>SEGUNDA.- VIGENCIA.</strong> El presente contrato tendrá
+      vigencia de un año contado a partir de la firma, mismo que podrá
+      prorrogarse por el mismo tiempo previo acuerdo de las partes.
+    </p>
+    <p>
+      <strong>TERCERA.- OBLIGACIONES.</strong> EL PORTEADOR, se obliga de
+      manera enunciativa más no limitativa a lo siguiente:
+    </p>
+    <div class="abc">
+      <p class="color">a.</p>
       <p>
-        “EL PRESTADOR” tendrá las siguientes obligaciones enunciativas, más no limitativas:
+        Suministrar todas las provisiones, abastecimientos, salarios,
+        honorarios y gastos de representación que correspondan a los vehículos
+        y choferes así como los relativos al traslado de los bienes objeto del
+        servicio.
       </p>
-      <ol>
-        <li>Prestar “LOS SERVICIOS” de conformidad con la oferta realizada a “EL CLIENTE”
-          a través de “LA(S) COTIZACIÓN(ES)” </li>
-        <li>Proteger, cuidar, mantener y utilizar correctamente los bienes, materiales y demás
-          elementos que suministre “EL CLIENTE”, utilizándolos única y exclusivamente para
-          los alcances del presente contrato.</li>
-        <li>Corregir cualquier defecto o vicio oculto relacionado a los servicios que haya
-          ejecutado y que “EL CLIENTE” le reclame</li>
-        <li>Sacar en paz y a salvo a “EL CLIENTE” de cualquier reclamación que algún tercero
-          le pudiera hacer derivado de la ejecución de los servicios a su cargo.
-        </li>
-        <li>Las demás obligaciones que se establecen a su cargo en este contrato o en las
-          disposiciones de ley aplicables.
-        </li>
-      </ol>
-      <b>SÉPTIMA. - OBLIGACIONES DE “EL CLIENTE”.-</b>
-      <p>“EL CLIENTE” se obliga a:</p>
-      <ol>
-        <li>Proporcionar a “EL CLIENTE” toda la información y detalles este requiera para el
-          cumplimiento del objetivo de este contrato.</li>
-        <li>Pagar oportunamente a “EL PRESTADOR” el monto de la contraprestación pactada
-          a su favor por la ejecución de “LOS SERVICIOS”.</li>
-        <li>Las demás obligaciones que se establecen a su cargo en este contrato o en las
-          disposiciones de ley aplicables.
-        </li>
-      </ol>
-      <b>OCTAVA. - CONFIDENCIALIDAD Y RESERVA DE INFORMACIÓN. -</b>
+    </div>
+    <div class="abc">
+      <p class="color">b.</p>
       <p>
-        “LAS PARTES” se obligan a guardar la debida confidencialidad de los documentos,
-        estrategias comerciales, información, datos, revelaciones existentes con motivo del presente
-        contrato, planos y en general respecto a cualquier información que adquieran de la otra parte,
-        incluyendo, sin limitar, en relación a los procesos, modelos, métodos, técnicas, sistemas,
-        patentes y marcas que se empleen para la realización de los servicios. <br><br>
-        Ninguna información arriba mencionada podrá divulgarse a terceros, reproducirse,
-        publicarse, revelarse o permitirse el acceso sin el previo consentimiento escrito de la otra
-        parte. <br><br>
-        “LAS PARTES” en todo momento serán responsables por los daños y perjuicios que se
-        causen a la parte a quien pertenece la información de que se trate, por el manejo, empleo o
-        divulgación no autorizada de dicha información. <br><br>
-        Toda la información que resulte de la ejecución de este contrato, así como la que se
-        compartan “LAS PARTES” incluyendo información técnica o comercial, será considerada
-        como secreto industrial, y por ende reservada, por lo que no podrá ser usada para cualquier
-        otro propósito distinto que no sea para el cumplimiento de las obligaciones en este contrato.
+        Los bienes u objetos se transportarán a riesgo y cuenta de EL
+        CARGADOR, con las excepciones previstas en los artículos 66, 67 y 69
+        de la Ley de Caminos, Puentes y Autotransporte Federal; pero EL
+        PORTEADOR mantendrá vigentes los seguros que sean necesarios y que
+        amparen daños materiales de los vehículos y los que puedan cometerse a
+        terceros.
       </p>
-      <b>NOVENA.- RELACIONES LABORALES.-</b>
-      <p>Cada parte será considerada como única responsable del personal que ocupe o utilice con
-        motivo de la prestación de los servicios materia de este contrato y por ende será la única
-        responsable de las obligaciones derivadas de las disposiciones legales y demás
-        ordenamientos en materia de trabajo y de seguridad social. <br><br>
-        En caso de algún trabajador de “LAS PARTES” llegare entablar demanda laboral o acción
-        legal de cualquier índole en contra de la otra parte, estas se sujetarán a lo que a continuación
-        se señala:</p>
-      <ol>
-        <li>La parte a quien recae la relación laboral con el trabajador de que se trate asumirá la
-          carga y costo del procedimiento por el trabajador liberando a la otra parte de cualquier
-          responsabilidad.
-        </li>
-        <li>En caso de emplazamiento a huelga o de cualquier otro conflicto colectivo del
-          trabajo, la parte a quien corresponda asumirá la relación laboral con los trabajadores
-          de que se trate, asumiendo la carga y costo del conflicto, liberando a la otra parte de
-          cualquier responsabilidad</li>
-        <li>En caso de emplazamiento a huelga o de cualquier otro conflicto colectivo del
-          trabajo, la parte a quien corresponda asumirá la relación laboral con los trabajadores
-          de que se trate, asumiendo la carga y costo del conflicto, liberando a la otra parte de
-          cualquier responsabilidad.</li>
-        <li>Los trabajadores, empleados, directivos y funcionarios de “LAS PARTES” quedaran
-          sujetos a las prohibiciones y a las responsabilidades antes señaladas y por ese solo
-          hecho obligan a la parte infractora a pagar a la parte afectada los daños y perjuicios
-          causados, en caso de que estos incurran en alguna violación.
-        </li>
-      </ol>
-      <p>El presente contrato no será considerado bajo ninguna circunstancia como de asociación o
-        sociedad entre “LAS PARTES” ni los considera socios o accionistas uno del otro; por lo que
-        cada parte es ajena a los vínculos o relaciones que cada una de ellas establezca con terceros;
-        así como con sus respectivos empleados, funcionarios, socios y/o el nombre con el que se les
-        designe. Asimismo “EL PRESTADOR” libera a “EL CLIENTE” de cualquier reclamación
-        laboral del personal de “EL PRESTADOR” a “EL CLIENTE”.</p>
-      <b>DÉCIMA. - MISCELÁNEOS.-</b>
-      <ol>
-        <li>Cada parte será responsable de los impuestos que les corresponda pagar de
-          conformidad con las leyes fiscales vigentes</li>
-        <li>Por el hecho de haber celebrado el presente contrato “LAS PARTES” aceptan todos
-          los términos establecidos en el mismo, incluyendo:
-          <ol>
-            <li>Que todas las declaraciones e información proporcionadas por “LAS
-              PARTES” son ciertas bajo protesta de decir verdad, exactas y completas.</li>
-            <li>Que autorizan a investigar y verificar los datos e información proporcionados
-              durante el presente contrato.
-            </li>
-            <li>Que cualquier dato e información de “LAS PARTES” que pueda ser revelado
-              a las autoridades que así lo soliciten en caso de alguna investigación, esto
-              siempre y cuando dicha información sea solicitada en forma legal.</li>
-          </ol>
-        </li>
-        <li>“EL PRESTADOR” se obliga a informar a “EL CLIENTE”, cuantas veces le sea
-          requerido, del estado que guarda el desarrollo de las actividades contratadas, así como
-          a rendir un informe general en cualquier tiempo. </li>
-        <li>Nada de lo estipulado en el presente contrato, ni durante las discusiones, ni las
-          revelaciones hechas en términos del presente, serán consideradas como un
-          compromiso u obligación de “LAS PARTES” para comprometerse en alguna relación
-          de negocios, contrato o negociaciones futuras con su contraria, o que limiten el
-          derecho de las partes a sostener discusiones o llevar a cabo actividades similares a
-          aquellas relacionadas con el presente con partes distintas.</li>
-        <li>“LAS PARTES” establecen que el presente contrato no constituye ni implica una
-          asociación, alianza, representación legal, sociedad o cualquier otra forma de
-          organización al amparo de las leyes mexicanas. </li>
-        <li>“LAS PARTES” no están autorizadas a asumir convenios o firmar documentos de
-          ningún tipo en nombre de la otra; así como tampoco se delegan facultad de gestión o
-          representación.
-        </li>
-        <li>El presente contrato, así como cualquier documento que deba ser otorgado o
-          entregado de acuerdo con lo que aquí se establece, contiene el acuerdo total entre
-          “LAS PARTES” con respecto a las materias aquí incluidas y extingue todos los
-          acuerdos, negociaciones, convenios, escritos anteriores entre ellas con relación a la
-          materia del presente, por lo que si alguna parte en específico de este contrato se
-          declarara ilegal o nula, solo invalidará dicha parte en específico pero no afectará la
-          validez de lo demás que no fue declarado nulo o ilegal.</li>
-        <li>“EL CLIENTE” manifiesta bajo protesta de decir verdad que “LOS PRODUCTOS”
-          los tiene en legítima posesión, y que están sujetos a “LOS SERVICIOS” que se
-          describen en “LA(S) COTIZACIÓN(ES)”, son de procedencia lícita y se obtuvieron
-          cumpliendo con la normativa legal aplicable al caso concreto, por lo que releva a “EL
-          PRESTADOR” de cualesquiera obligaciones de verificar su origen o procedencia, así
-          como la legitimidad de su propiedad o posesión.</li>
-        <li>“EL CLIENTE” deberá notificar por escrito a “EL PRESTADOR”, las
-          especificaciones y precauciones especiales requeridas por los “LOS PRODUCTOS”. </li>
-        <li>“EL PRESTADOR” no será responsable de ninguna pérdida, daño o perjuicio de
-          “LOS PRODUCTOS” en caso de que “EL CLIENTE” no notifique a “EL
-          PRESTADOR” respecto de los cuidados especiales y precauciones que deban tenerse
-          con “LOS PRODUCTOS” al momento de realizarse “LOS SERVICIOS”.</li>
-        <li>En caso de que “EL CLIENTE” desee que “EL PRESTADOR” proporcione servicios
-          distintos con respecto a otros productos y mercancías distintos de “LOS
-          PRODUCTOS” que se refiere(n) “LA(S) COTIZACIÓN(ES)” deberá notificárselo
-          por escrito a “EL PRESTADOR” indicándole las características y cuidados especiales
-          para esos productos y mercancías, de tal forma que “EL PRESTADOR” pueda
-          analizar la posibilidad de llevar a cabo nuevos servicios con relación a los nuevos
-          productos. “EL PRESTADOR” no quedará obligado a prestar los nuevos servicios
-          con relación a nuevos productos. “EL PRESTADOR” deberá presentar una nueva
-          cotización por dichos nuevos servicios.
-        </li>
-        <li>“EL CLIENTE” será responsable de los daños y perjuicios sufridos por “EL
-          PRESTADOR” que se deriven de la negligencia, dolo, engaño o mala fe de “EL
-          CLIENTE”, debido a la información errónea, incompleta, inexacta o falsa
-          proporcionada a “EL PRESTADOR” con relación a “LOS PRODUCTOS”.</li>
-        <li>Para efectos de cualquier notificación relacionada con el presente contrato, incluido
-          el procedimiento de rescisión, “LAS PARTES” señalan como sus domicilios
-          convencionales para oír y recibir toda clase de notificaciones los domicilios
-          mencionados en las declaraciones de cada una de “LAS PARTES” así como los
-          siguientes correos electrónicos:
-          <ol>
-            <li>Por “EL PRESTADOR”: <br>
-              <a href="mailto:comercial@twologistic.com">comercial@twologistic.com</a>
-            </li>
-            <li>Por “EL CLIENTE”:
-              <br>
-              <a href="mailto:<?php echo $datos_comercial[1] ?>"><?php echo $datos_comercial[1] ?></a>
-            </li>
-          </ol>
-        </li>
-        <li>Acepta “EL CLIENTE” que, para el caso que “LOS PRODUCTOS” estando en
-          posesión de “EL PRESTADOR” por virtud de la vigencia de este contrato y se viesen
-          involucrados en algún procedimiento de investigación de cualquier índole, juicio
-          penal o juicio autónomo de extinción de dominio, por causas imputables a “EL
-          CLIENTE”, desde ese momento lo exonera y expresamente manifiesta que “EL
-          PRESTADOR” no tiene ninguna responsabilidad legal derivada de “LOS
-          SERVICIOS” que ejecuta al amparo de este contrato y con relación a “LOS
-          PRODUCTOS”.
-        </li>
-      </ol>
-      <b>DÉCIMA PRIMERA. - JURISDICCIÓN. -</b>
+    </div>
+    <div class="abc">
+      <p class="color">c.</p>
+      <p>A recibir las mercancías en el tiempo y lugar convenidos;</p>
+    </div>
+    <div class="abc">
+      <p class="color">d.</p>
       <p>
-        Para la interpretación y cumplimiento de este CONTRATO y para todo aquello que no esté
-        expresamente estipulado en el mismo, las partes se someten expresamente a la legislación de
-        la Ciudad de Manzanillo, Colima, así como a la jurisdicción de los tribunales de fuero común
-        de dicha ciudad, por lo tanto "EL CLIENTE" y “EL PRESTADOR” renuncian expresamente
-        al fuero que por razón de sus domicilios presentes o futuros pudieran corresponderles.
+        A emprender y concluir el viaje dentro del plazo estipulado,
+        precisamente por el camino que se señale el contrato si es el caso;
       </p>
-      <b>DÉCIMA SEGUNDA. - BUENA FE ENTRE LAS PARTES.</b>
+    </div>
+    <div class="abc">
+      <p class="color">e.</p>
       <p>
-        “LAS PARTES” que firman este contrato acuerdan que es su voluntad llevar a buen término,
-        este acuerdo. Sin presión alguna y para la consecución del objeto de este Contrato no hay
-        dolo, ni mala fe o cualquier motivo de interpretación mal encaminado, además convienen en
-        que cualquier escrito adicionado a mano tendrá la misma validez si las partes firmantes así
-        lo deciden siempre que no haya tachaduras o enmendaduras al texto original.
-        Leído que fue por ambas partes este contrato y una vez enterados de su contenido y alcance,
-        lo firman en contrapartes, por duplicado, uno para cada parte, de común acuerdo, en la ciudad
-        de Manzanillo, Colima, México a los 15 días del mes de marzo de 2022.
+        A verificar el viaje, desde luego, si no hay término ajustado; y en el
+        más próximo a la fecha del contrato, si acostumbrare hacerlos
+        periódicamente;
       </p>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <div class="abc">
+      <p class="color">f.</p>
+      <p>
+        A cuidar y conservar las mercancías bajo su exclusiva responsabilidad,
+        desde que las reciba hasta que las entregue a satisfacción del
+        consignatario designado por <strong>EL CARGADOR;</strong>
+      </p>
+    </div>
+    <div class="abc">
+      <p class="color">g.</p>
+      <p>
+        A entregar las mercancías al tenedor de la carta de porte o de la
+        orden respectiva en defecto de ella, entregada por
+        <strong>EL CARGADOR;</strong>
+      </p>
+    </div>
+    <div class="abc">
+      <p class="color">g.</p>
+      <p>
+        A entregar las mercancías por peso, cuenta y medida, si así están
+        consideradas en la carta de porte, a no ser que estén en barricas,
+        cajones o fardos, pues entonces cumplirá con entregar éstos sin lesión
+        exterior;
+      </p>
+    </div>
+    <div class="abc">
+      <p class="color">g.</p>
+      <p>
+        A probar que las pérdidas o averías de las mercancías, o el retardo en
+        el viaje, no han sido por causa, culpa o negligencia de EL PORTEADOR,
+        cuando éste alegue que dichas pérdidas o averías de las mercancías, no
+        fueron generadas por su responsabilidad en esos acontecimientos;
+      </p>
+    </div>
+    <p>
+      <strong>EL CARGADOR.- </strong>Se obliga a lo convenido en este
+      instrumento, y a lo dispuesto por las leyes y reglamentos mexicanos
+      aplicables y a lo estipulado en la Carta Porte, así como a lo siguiente:
+    </p>
+    <div class="abc">
+      <p class="color">a.</p>
+      <p>
+        A entregar las mercancías en las condiciones, lugar y tiempo
+        convenidos;
+      </p>
+    </div>
+    <div class="abc">
+      <p class="color">a.</p>
+      <p>
+        A dar los documentos necesarios, así fiscales como municipales para el
+        libre tránsito y pasaje de la carga;
+      </p>
+    </div>
+    <div class="abc">
+      <p class="color">a.</p>
+      <p>
+        A sufrir las pérdidas y averías de las mercancías que procedan de
+        vicio propio de ellas o de casos fortuitos, salvo lo dispuesto en los
+        incisos IX y X del art. 590 del Código de Comercio vigente en el país;
+      </p>
+    </div>
+    <div class="abc">
+      <p class="color">a.</p>
+      <p>
+        A remitir con oportunidad la carta de porte al consignatario, de
+        manera que pueda hacer uso de ella al tiempo de llegar la carga a su
+        final destino, la cual contendrá los siguientes requisitos:
+      </p>
+    </div>
+    <div class="unodostres">
+      <p class="color">1.</p>
+      <p>El nombre, apellido y domicilio del cargador;</p>
+    </div>
+    <div class="unodostres">
+      <p class="color">2.</p>
+      <p>El nombre, apellido y domicilio del porteador;</p>
+    </div>
+    <div class="unodostres">
+      <p class="color">3.</p>
+      <p>
+        El nombre, apellido y domicilio de la persona a quien o a cuya orden
+        vayan dirigidos los efectos, o si han de entregarse al portador de la
+        misma carta;
+      </p>
+    </div>
+    <div class="unodostres">
+      <p class="color">4.</p>
+      <p>
+        La designación de los efectos, con expresión de su calidad genérica,
+        de su peso y de las marcas o signos exteriores de los bultos en que se
+        contengan;
+      </p>
+    </div>
+    <div class="unodostres">
+      <p class="color">5.</p>
+      <p>El precio del transporte;</p>
+    </div>
+    <div class="unodostres">
+      <p class="color">6.</p>
+      <p>La fecha en que se hace la expedición;</p>
+    </div>
+    <div class="unodostres">
+      <p class="color">7.</p>
+      <p>El lugar de la entrega al porteador;</p>
+    </div>
+    <div class="unodostres">
+      <p class="color">8.</p>
+      <p>
+        El lugar y el plazo en que habrá de hacerse la entrega al
+        consignatario;
+      </p>
+    </div>
+    <div class="unodostres">
+      <p class="color">9.</p>
+      <p>
+        La indemnización que haya de abonar el porteador en caso de retardo,
+        si sobre este punto mediare algún pacto.
+      </p>
+    </div>
+    <p>
+      <strong>CUARTA.- FUERZA MAYOR.</strong> Ni
+      <strong> EL CARGADOR</strong>, ni <strong>EL PORTEADOR,</strong> ni sus
+      representantes ni su personal serán responsables por cualquier perdida,
+      retrasos o daños ocasionados por caso fortuito, o fuerza mayor,
+      condiciones climatológicas adversas de tiempo, actos de guerra, enemigos
+      públicos, delincuencia, por restricciones de cualquier gobierno, por
+      embargos, motín o asonada civil, por epidemias o cuarentenas, quedando
+      dispensados de sus obligaciones estipuladas en este servicio de
+      transporte, situación que otorgara a <strong></strong> y/o a
+      <strong>El PORTEADO</strong> el derecho de rescindirlo. No se consideran
+      caso fortuito o fuerza mayor, cualquier acontecimiento resultante de
+      alguna falta de previsión o negligencia por alguna de
+      <strong>LAS PARTES</strong>.
+    </p>
+    <p>
+      <strong>QUINTA.- ESPACIO DISPONIBLE PARA EL CARGADOR. EL PORTEADOR</strong>
+      garantiza que todos los compartimientos del vehículo y/o espacios de
+      carga y/o transporte al momento de realizar el servicio a
+      <strong>El CARGADOR</strong> y durante toda la vigencia del servicio,
+      estarán en condiciones óptimas de operación y limpieza, quedando
+      exclusivamente a disposición de
+      <strong>El CARGADOR. EL PORTEADOR</strong> deberá incluir servicio de
+      Tecnología de Punta (Rastreo Satelital), cuyo costo se entenderá
+      incluido en el servicio de conformidad al tarifario previamente
+      convenido entre las Partes.
+    </p>
+    <p>
+      <strong>SEXTA.- RESCISION DEL SERVICIO. EL CARGADOR</strong> podrá en
+      todo momento rescindir el servicio, para lo cual deberá dar aviso a
+      <strong>EL PORTEADOR</strong> ya sea antes o después de comenzarse el
+      viaje, pagando a <strong>EL PORTEADOR</strong>, la indemnización que
+      para tal efecto establezca el tarifario correspondiente, y siendo
+      obligación suya recibir los efectos en el punto y en el día en que la
+      rescisión se verifique. Si no cumpliere con esa obligación, o no
+      cubriere el porte al contado, el contrato no quedará rescindido, salvo
+      si se dieran cualquiera de las siguientes causas, por lo que dicha
+      rescisión operara de inmediato sin necesidad de declaración judicial:
+    </p>
+    <div class="abc">
+      <p class="color">a.</p>
+      <p>
+        Si <strong>EL PORTEADOR</strong> no inicia el servicio de transporte
+        en la fecha acordada por escrito.
+      </p>
+    </div>
+    <div class="abc">
+      <p class="color">a.</p>
+      <p>
+        Si <strong>EL PORTEADOR</strong> suspende la prestación de los
+        servicios por cualquier causa que le sea imputable a este.
+      </p>
+    </div>
+    <div class="abc">
+      <p class="color">a.</p>
+      <p>
+        Si <strong>EL PORTEADOR</strong> en violación de cualquier ley,
+        reglamento o por disposición gubernamental, que este en vigor durante
+        la vigencia del servicio, o por falta de algún permiso por causa que
+        le sea imputable, está imposibilitado para continuarlo.
+      </p>
+    </div>
+    <p>
+      A su vez <strong>EL PORTEADOR</strong> podrá rescindirlo en todo tiempo
+      si:
+    </p>
+    <p>
+      Los bienes a transportar en favor de <strong>EL CARGADOR</strong> no
+      estén permitidos por las leyes o incumplan con las especificaciones
+      legales correspondientes o tengan alguna anomalía de tipo legal,
+      administrativo comercial o de origen que pudiera afectar en cualesquier
+      forma a <strong>EL PORTEADOR</strong>. No obstante lo anterior,
+      <strong>EL PORTEADOR</strong> tendrá en todo momento la obligación de
+      revisar toda la documentación y especificaciones legales provistas por
+      <strong>EL CARGADOR.</strong>
+    </p>
+    <p>
+      En general por el incumplimiento de alguna o ambas partes a cualquiera
+      de las obligaciones derivadas de este servicio y sus anexos, a las leyes
+      y reglamentos aplicables
+    </p>
+    <p>
+      <strong>SEPTIMA.- IMPUESTOS.</strong> Cada parte conviene en pagar todas
+      y cada una de las contribuciones y demás cargas fiscales que conforme a
+      las leyes federales y estatales, tengan la obligación de cubrir durante
+      la vigencia, ejecución y cumplimiento del presente servicio de
+      transporte de carga.
+    </p>
+    <p>
+      <strong> OCTAVA.- TARIFARIO.-</strong> Se incluye el anexo 1 TARIFARIO
+      en el que se establecerán los montos pactados para la prestación del
+      servicio, el cual incluirá las indemnizaciones que habrán de pagarse en
+      caso de a) retardo en la entrega, b) retardo en la descarga, y
+      cancelación de servicio. Estas tarifas mencionadas en el anexo pueden
+      llegar a variar de acuerdo a la inflación, aumento de combustible,
+      casetas entre otros.
+    </p>
+    <p>
+      <strong>NOVENA.- JURISDICCION Y COMPETENCIA.</strong> El presente
+      contrato se regirá por lo establecido en el por
+      <strong>LAS PARTES</strong>; en lo no previsto por ellas, por lo
+      dispuesto en el Código de Comercio, leyes especiales, así como usos
+      mercantiles aplicables, por lo que sus condiciones no son limitativas,
+      sino enunciativas; conviniendo en que para resolver cualquier cuestión
+      derivada de lo pactado, su interpretación y cumplimiento, las Partes se
+      someten expresamente a las Autoridades Competentes que conforme a su
+      Potestad ejerzan Jurisdicción en el municipio de
+      <strong>la Ciudad de Manzanillo</strong>, Colima, a efecto de resolver
+      cualquier controversia o litigio por lo que renuncian a cualquier fuero
+      distinto, que por razón de sus domicilios presentes o futuros pudiera
+      corresponderles. Entregado por cualquier vía el presente documento,
+      <strong>LAS PARTES</strong> quedan enteradas del contenido, valor y
+      consecuencias legales todas y cada una de sus condiciones, por lo que la
+      mera solicitud del servicio, la entrega y recepción de los bienes u
+      objetos, materia del mismo entre ambas, implican su aceptación tácita,
+      sin que sea necesaria la firma autógrafa, acordando lo anterior es
+      suficiente para que surta sus efectos.
+    </p>
+    <p>
+      <strong> DECIMA.- LAS PARTES</strong> convienen que este Contrato y sus
+      Anexos contienen su voluntad expresa en cuanto a lo que en los mismos se
+      especifica, cualquier otro Convenio, Contrato o arreglo en forma verbal
+      o escrita que se haya elaborado o que tácitamente pudiera implicarse
+      queda desde ahora sin efectos; las posteriores modificaciones que se
+      realicen a este documento deberán ser por escrito y firmadas por ambas
+      partes.
+    </p>
+    <p style="margin-bottom: 50px">
+      Habiendo sido leído el presente Contrato por
+      <strong>LAS PARTES</strong> y enteradas del contenido y alcance legal de
+      cada una de sus estipulaciones, lo firman por duplicado, en presencia de
+      dos testigos que lo suscriben en la Ciudad de Manzanillo, Colima, al día
+      "<?php echo $contratos_data["creado"] ?>".
+    </p>
+    <div class="firmas1">
+      <p class="color3">
+        POR “EL PORTEADOR” TWO LOGISTIC SOLUCIONES INTERNACIONALES S D RL DE
+        CV
+      </p>
+      <p class="color3">
+        POR “EL CARGADOR” <br />
+        <?php echo $datos_comercial[0] ?>
+      </p>
+    </div>
+    <div class="firmas1">
+      <div class="firma"></div>
+      <div class="firma"></div>
+    </div>
+    <div class="firmas1">
+      <p class="color3">NORMA YASMIN FREGOSO VELASCO <br />REPRESENTANTE LEGAL</p>
+      <p class="color3"><?php echo $datos_comercial[0] ?> <br />REPRESENTANTE LEGAL</p>
+    </div>
+    <div class="firmas1" style="margin-top: 70px">
+      <p class="color3">TESTIGO</p>
+      <p class="color3">TESTIGO</p>
+    </div>
+    <div class="firmas1" style="margin-bottom: 50px">
+      <div class="firma"></div>
+      <div class="firma"></div>
     </div>
   </div>
-
 </body>
 
 </html>

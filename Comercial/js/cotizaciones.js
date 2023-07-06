@@ -165,20 +165,7 @@ function crearPDF(id) {
   var opt = {
     margin: 1,
     filename: "Cotizacion.pdf",
-    image: {
-      type: "jpeg",
-      quality: 0.98,
-    },
-    html2canvas: {
-      scale: 1,
-    },
-    jsPDF: {
-      unit: "in",
-      format: "a3",
-      orientation: "portrait",
-    },
   };
-
   $.ajax({
     type: "POST",
     data: "id=" + id,
@@ -193,7 +180,7 @@ function verificarSelectCliente() {
   const x = document.getElementById("selectClient").value;
   x != 0
     ? (document.getElementById("defaultFormControlHelp").style =
-      "display: none;")
+        "display: none;")
     : (document.getElementById("defaultFormControlHelp").style =
-      "display: inherit;");
+        "display: inherit;");
 }

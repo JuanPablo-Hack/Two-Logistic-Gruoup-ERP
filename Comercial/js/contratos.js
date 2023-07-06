@@ -163,16 +163,9 @@ function crearPDF(id) {
   var opt = {
     margin: 1,
     filename: "Contrato.pdf",
-    image: {
-      type: "jpeg",
-      quality: 0.98,
-    },
-    html2canvas: {
-      scale: 1,
-    },
     jsPDF: {
       unit: "in",
-      format: "a3",
+      format: "a2",
       orientation: "portrait",
     },
   };
