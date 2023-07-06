@@ -119,12 +119,8 @@ $datos_comercial = explode(",", $clientef['datos_comercial']);
       CELEBRAN POR UNA PARTE TWO LOGISTIC SOLUCIONES INTERNACIONALES S DE RL
       DE CV., REPRESENTADA POR NORMA YASMIN FREGOSO VELASCO, A QUIEN EN LO
       SUCESIVO Y PARA LOS EFECTOS DEL PRESENTE CONTRATO SE LE DENOMINARA COMO
-      “EL PORTEADOR” Y POR LA OTRA <strong>
-        <p style="text-transform: uppercase;">"<?php echo $clientef['razon_social'] ?>"</p>
-      </strong>,
-      REPRESENTADA POR <strong>
-        <p style="text-transform: uppercase;">"<?php echo $datos_comercial[0] ?>"</p>
-      </strong>, A QUIEN EN
+      “EL PORTEADOR” Y POR LA OTRA <strong>"<?php echo $clientef['razon_social'] ?>"</strong>,
+      REPRESENTADA POR <strong>"<?php echo $datos_comercial[0] ?>"</strong>, A QUIEN EN
       LO SUCESIVO SE LE DENOMINARA “EL CARGADOR”, Y A QUIENES DE MANERA
       CONJUNTA SE LES DENOMINARA “LAS PARTES”, POR LO QUE CONVIENEN EN
       CELEBRAR EL PRESENTE CONTRATO AL TENOR DE LAS SIGUIENTES:
@@ -548,7 +544,7 @@ $datos_comercial = explode(",", $clientef['datos_comercial']);
       <strong>LAS PARTES</strong> y enteradas del contenido y alcance legal de
       cada una de sus estipulaciones, lo firman por duplicado, en presencia de
       dos testigos que lo suscriben en la Ciudad de Manzanillo, Colima, al día
-      "<?php echo $contratos_data["creado"] ?>".
+      XXXXXX.
     </p>
     <div class="firmas1">
       <p class="color3">
