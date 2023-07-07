@@ -120,16 +120,16 @@ function tipos_producto($id)
 {
     include 'conexion.php';
     $sql = "SELECT * FROM tipo_producto WHERE id = $id";
-    $result = $GLOBALS["mysqli"]->query($sql);
-    return $result;
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
 }
 
 function tipos_embalaje($id)
 {
     include 'conexion.php';
     $sql = "SELECT * FROM tipo_embalaje WHERE id = $id";
-    $result = $GLOBALS["mysqli"]->query($sql);
-    return $result;
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
 }
 
 function proveedor($id)
