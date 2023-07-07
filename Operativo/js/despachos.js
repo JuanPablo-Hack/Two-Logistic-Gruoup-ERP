@@ -20,7 +20,7 @@ function fnFormatDetails(oTable, nTr) {
     "</td><td>Creado:</td><td>" +
     aData[9] +
     "</td></tr>";
-  sOut += "<tr><td>Documentos:</td><td>" + aData[13];
+  sOut += "<tr><td>Comentarios:</td><td>" + aData[13];
   ("</td></tr>");
   sOut += "</table>";
 
