@@ -25,47 +25,56 @@
             $resultado = $conexion->query($sql);
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
-                <tr>
-                    <td> <?php echo    'OTL-' . date('Y') . '-' . folio_creacion($mostrar['id']); ?>
-                    </td>
-                    <td><?php
+            <tr>
+                <td> <?php echo    'OTL-' . date('Y') . '-' . folio_creacion($mostrar['id']); ?>
+                </td>
+                <td><?php
                         $sql1 = "SELECT * FROM clientes WHERE id='" . $mostrar['id_cliente'] . "'";
                         $result1 = mysqli_query($conexion, $sql1);
                         $Row = mysqli_fetch_array($result1);
                         echo $Row['razon_social'];
                         ?></td>
-                    <td><?php
+                <td><?php
                         $sql1 = "SELECT * FROM trabajador WHERE id='" . $mostrar['id_operador'] . "'";
                         $result1 = mysqli_query($conexion, $sql1);
                         $Row = mysqli_fetch_array($result1);
                         echo $Row['nombre'];
                         ?></td>
 
-                    <td><?php echo $mostrar['fecha_servicio'] ?></td>
-                    <td><?php
+                <td><?php echo $mostrar['fecha_servicio'] ?></td>
+                <td><?php
                         $sql1 = "SELECT nombre FROM estados WHERE id='" . $mostrar['id_estado'] . "'";
                         $result1 = mysqli_query($conexion, $sql1);
                         $Row = mysqli_fetch_array($result1);
                         echo $Row['nombre'];
                         ?></td>
-                    <td style="display: none;"><?php echo $mostrar['tipos_servicios'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['descripcion'] ?></td>
-                    <td>
-                        <?php
+                <td style="display: none;"><?php echo $mostrar['tipos_servicios'] ?></td>
+                <td style="display: none;"><?php echo $mostrar['descripcion'] ?></td>
+                <td>
+                    <?php
                         if ($mostrar['id_estado'] < 3) {
                         ?>
-                            <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarServicio<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
-                            <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,4)" class="btn btn-sm btn-icon item-edit" title="Cancelar"><i class='bx bx-x-circle'></i></button>
-                        <?php
+                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Detalles" data-bs-toggle="modal"
+                        data-bs-target="#VerDetalles<?php echo $mostrar['id'] ?>"><i
+                            class='bx bx-plus-circle'></i></button>
+                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal"
+                        data-bs-target="#EditarServicio<?php echo $mostrar['id'] ?>"><i
+                            class="bx bxs-edit"></i></button>
+                    <button type="button" onclick="CambiarEstado(<?php echo $mostrar['id'] ?>,4)"
+                        class="btn btn-sm btn-icon item-edit" title="Cancelar"><i class='bx bx-x-circle'></i></button>
+                    <?php
                         } else {
                         ?>
-                            <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarServicio<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
-                        <?php
+                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal"
+                        data-bs-target="#EditarServicio<?php echo $mostrar['id'] ?>"><i
+                            class="bx bxs-edit"></i></button>
+                    <?php
                         }
                         ?>
-                    </td>
-                </tr>
-                <?php include 'templates/modals/servicios/editar.php'; ?>
+                </td>
+            </tr>
+            <?php include 'templates/modals/servicios/editar.php'; ?>
+            <?php include 'templates/modals/servicios/detalles.php'; ?>
             <?php
             }
             ?>

@@ -28,29 +28,36 @@
             $resultado = $conexion->query($sql);
             while ($mostrar = mysqli_fetch_array($resultado)) {
             ?>
-                <tr>
+            <tr>
 
-                    <td><?php echo $mostrar['razon_social'] ?></td>
-                    <td><?php echo $mostrar['rfc'] ?></td>
-                    <td><?php echo $mostrar['domicilio'] ?></td>
-                    <td><?php
+                <td><?php echo $mostrar['razon_social'] ?></td>
+                <td><?php echo $mostrar['rfc'] ?></td>
+                <td><?php echo $mostrar['domicilio'] ?></td>
+                <td><?php
                         $sql1 = "SELECT nombre FROM situacion_fiscal WHERE id='" . $mostrar['estado_empresarial'] . "'";
                         $result1 = mysqli_query($conexion, $sql1);
                         $Row = mysqli_fetch_array($result1);
                         echo $Row['nombre'];
                         ?></td>
-                    <td><?php echo $mostrar['nombre_representante'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['datos_comercial'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['datos_operacion'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['datos_admin'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['tipo_servicio'] ?></td>
-                    <td style="display: none;"><?php echo $mostrar['caat'] ?></td>
-                    <td>
-                        <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal" data-bs-target="#EditarProveedor<?php echo $mostrar['id'] ?>"><i class="bx bxs-edit"></i></button>
-                        <button type="button" onclick="eliminarProveedor(<?php echo $mostrar['id'] ?>)" class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
-                    </td>
-                </tr>
-                <?php include 'templates/modals/proveedores/editar.php'; ?>
+                <td><?php echo $mostrar['nombre_representante'] ?></td>
+                <td style="display: none;"><?php echo $mostrar['datos_comercial'] ?></td>
+                <td style="display: none;"><?php echo $mostrar['datos_operacion'] ?></td>
+                <td style="display: none;"><?php echo $mostrar['datos_admin'] ?></td>
+                <td style="display: none;"><?php echo $mostrar['tipo_servicio'] ?></td>
+                <td style="display: none;"><?php echo $mostrar['caat'] ?></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Detalles" data-bs-toggle="modal"
+                        data-bs-target="#VerDetalles<?php echo $mostrar['id'] ?>"><i
+                            class='bx bx-plus-circle'></i></button>
+                    <button type="button" class="btn btn-sm btn-icon item-edit" title="Editar" data-bs-toggle="modal"
+                        data-bs-target="#EditarProveedor<?php echo $mostrar['id'] ?>"><i
+                            class="bx bxs-edit"></i></button>
+                    <button type="button" onclick="eliminarProveedor(<?php echo $mostrar['id'] ?>)"
+                        class="btn btn-sm btn-icon item-edit" title="Eliminar"><i class='bx bx-x-circle'></i></button>
+                </td>
+            </tr>
+            <?php include 'templates/modals/proveedores/editar.php'; ?>
+            <?php include 'templates/modals/proveedores/detalles.php'; ?>
             <?php
             }
             ?>

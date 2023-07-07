@@ -96,16 +96,16 @@ function agencia_aduanal($id)
 {
     include 'conexion.php';
     $sql = "SELECT * FROM agencias_aduanales WHERE id = $id";
-    $result = $GLOBALS["mysqli"]->query($sql);
-    return $result;
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
 }
 
 function tipos_carga($id)
 {
     include 'conexion.php';
     $sql = "SELECT * FROM tipo_carga WHERE id = $id";
-    $result = $GLOBALS["mysqli"]->query($sql);
-    return $result;
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
 }
 
 function tipos_plataforma($id)
@@ -196,11 +196,18 @@ function servicio($id)
     return $result;
 }
 
-
 function agencias_aduanales()
 {
     include 'conexion.php';
     $sql = "SELECT * FROM agencias_aduanales";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result;
+}
+
+function agencias_aduanal($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM agencias_aduanales WHERE id = $id";
     $result = mysqli_query($conexion, $sql);
     return $result;
 }
@@ -213,12 +220,28 @@ function tipos_mercancias()
     return $result;
 }
 
+function tipo_mercancia($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_mercancia WHERE id = $id";
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
+}
+
 function tipos_plataformas()
 {
     include 'conexion.php';
     $sql = "SELECT * FROM tipo_plataforma";
     $result = mysqli_query($conexion, $sql);
     return $result;
+}
+
+function tipo_plataforma($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_plataforma WHERE id =$id";
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
 }
 
 function transportes()
@@ -228,6 +251,15 @@ function transportes()
     $result = mysqli_query($conexion, $sql);
     return $result;
 }
+
+function transporte($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM transporte WHERE id = $id";
+    $result = mysqli_query($conexion, $sql);
+    return mysqli_fetch_array($result);
+}
+
 
 function viajes_maritimo($id)
 {
