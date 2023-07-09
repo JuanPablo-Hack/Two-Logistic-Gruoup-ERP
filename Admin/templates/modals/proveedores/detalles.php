@@ -61,9 +61,10 @@
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-phone2" class="input-group-text"><i
                                         class="bx bx-phone"></i></span>
-                                <input type="text" id="basic-icon-default-phone" class="form-control phone-mask"
-                                    aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2"
-                                    name="tel_comer" value="<?php echo $datos_comercial[2] ?>" />
+                                <input type="text" id="basic-icon-default-phone" readonly
+                                    class="form-control phone-mask" aria-label="658 799 8941"
+                                    aria-describedby="basic-icon-default-phone2" name="tel_comer"
+                                    value="<?php echo $datos_comercial[2] ?>" />
                             </div>
                         </div>
                     </div>
@@ -94,9 +95,10 @@
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-phone2" class="input-group-text"><i
                                         class="bx bx-phone"></i></span>
-                                <input type="text" id="basic-icon-default-phone" class="form-control phone-mask"
-                                    aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2"
-                                    name="tel_oper" value="<?php echo $datos_operacion[2] ?>" />
+                                <input type="text" id="basic-icon-default-phone" readonly
+                                    class="form-control phone-mask" aria-label="658 799 8941"
+                                    aria-describedby="basic-icon-default-phone2" name="tel_oper"
+                                    value="<?php echo $datos_operacion[2] ?>" />
                             </div>
                         </div>
                     </div>
@@ -127,9 +129,10 @@
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-phone2" class="input-group-text"><i
                                         class="bx bx-phone"></i></span>
-                                <input type="text" id="basic-icon-default-phone" class="form-control phone-mask"
-                                    aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2"
-                                    name="tel_admin" value="<?php echo $datos_admin[2] ?>" />
+                                <input type="text" id="basic-icon-default-phone" readonly
+                                    class="form-control phone-mask" aria-label="658 799 8941"
+                                    aria-describedby="basic-icon-default-phone2" name="tel_admin"
+                                    value="<?php echo $datos_admin[2] ?>" />
                             </div>
                         </div>
                     </div>
@@ -146,13 +149,14 @@
                         </div>
                         <div class="col mb-0">
                             <label for="exampleFormControlSelect1" class="form-label">Situación Fiscal</label>
-                            <select class="form-select" id="exampleFormControlSelect1"
-                                aria-label="Default select example" name="estado">
-                                <option selected value="<?php echo $mostrar['estado_empresarial'] ?>">Selecciona un
-                                    estado</option>
-                                <option value="1">Persona Física</option>
-                                <option value="2">Persona Moral</option>
-                            </select>
+                            <input type="text" id="basic-icon-default-company" class="form-control" readonly
+                                value="<?php
+                                                                                                                    $sql1 = " SELECT nombre FROM situacion_fiscal WHERE id='" . $mostrar['estado_empresarial']
+                                                                                                                        . "'";
+                                                                                                                    $result1 = mysqli_query($conexion, $sql1);
+                                                                                                                    $Row = mysqli_fetch_array($result1);
+                                                                                                                    echo
+                                                                                                                    $Row['nombre']; ?>" />
                         </div>
                         <div class="col mb-0">
                             <label class="form-label" for="basic-icon-default-company">Nombre del representante</label>
@@ -166,14 +170,11 @@
                             </div>
                         </div>
                     </div>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     Cerrar
                 </button>
-                <button type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
             </form>
         </div>

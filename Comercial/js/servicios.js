@@ -24,21 +24,9 @@ function fnFormatDetails(oTable, nTr) {
   return sOut;
 }
 $(document).ready(function () {
-  /*
-   * Insert a 'details' column to the table
-   */
-  var nCloneTh = document.createElement("th");
-  var nCloneTd = document.createElement("td");
-  nCloneTd.innerHTML = '<img src="datatables/details_open.png">';
-  nCloneTd.className = "center";
 
-  $("#hidden-table-info thead tr").each(function () {
-    this.insertBefore(nCloneTh, this.childNodes[0]);
-  });
 
-  $("#hidden-table-info tbody tr").each(function () {
-    this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
-  });
+
 
   var oTable = $("#hidden-table-info").dataTable({
     aoColumnDefs: [
@@ -55,18 +43,7 @@ $(document).ready(function () {
    * Note that the indicator for showing which row is open is not controlled by DataTables,
    * rather it is done here
    */
-  $("#hidden-table-info tbody td img").on("click", function () {
-    var nTr = $(this).parents("tr")[0];
-    if (oTable.fnIsOpen(nTr)) {
-      /* This row is already open - close it */
-      this.src = "datatables/details_open.png";
-      oTable.fnClose(nTr);
-    } else {
-      /* Open this row */
-      this.src = "datatables/details_close.png";
-      oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), "details");
-    }
-  });
+
 });
 document.addEventListener("DOMContentLoaded", function () {
   document
@@ -158,9 +135,9 @@ function verificarSelectCliente() {
   const x = document.getElementById("selectClient").value;
   x != 0
     ? (document.getElementById("defaultFormControlHelp").style =
-        "display: none;")
+      "display: none;")
     : (document.getElementById("defaultFormControlHelp").style =
-        "display: inherit;");
+      "display: inherit;");
 }
 
 function verificarSelectEjecutivo() {

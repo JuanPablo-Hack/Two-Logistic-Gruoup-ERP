@@ -92,6 +92,14 @@ function tipos_mercancia($id)
     return $result;
 }
 
+function situacion_fiscal($id)
+{
+    include 'conexion.php';
+    $sql = "SELECT * FROM tipo_mercancia WHERE id = $id";
+    $result = $GLOBALS["mysqli"]->query($sql);
+    return $result["nombre"];
+}
+
 function agencia_aduanal($id)
 {
     include 'conexion.php';
