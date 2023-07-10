@@ -24,10 +24,6 @@ function fnFormatDetails(oTable, nTr) {
   return sOut;
 }
 $(document).ready(function () {
-
-
-
-
   var oTable = $("#hidden-table-info").dataTable({
     aoColumnDefs: [
       {
@@ -37,13 +33,12 @@ $(document).ready(function () {
     ],
     dom: "Bfrtip",
     buttons: ["excel"],
-    aaSorting: [[4, "asc"]],
+    aaSorting: [[0, "asc"]],
   });
   /* Add event listener for opening and closing details
    * Note that the indicator for showing which row is open is not controlled by DataTables,
    * rather it is done here
    */
-
 });
 document.addEventListener("DOMContentLoaded", function () {
   document
@@ -130,9 +125,9 @@ function verificarSelectCliente() {
   const x = document.getElementById("selectClient").value;
   x != 0
     ? (document.getElementById("defaultFormControlHelp").style =
-      "display: none;")
+        "display: none;")
     : (document.getElementById("defaultFormControlHelp").style =
-      "display: inherit;");
+        "display: inherit;");
 }
 
 function verificarSelectEjecutivo() {

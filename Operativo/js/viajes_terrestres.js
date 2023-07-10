@@ -44,7 +44,7 @@ $(document).ready(function () {
     ],
     dom: "Bfrtip",
     buttons: ["excel"],
-    aaSorting: [[7, "asc"]],
+    aaSorting: [[0, "asc"]],
   });
 
 });

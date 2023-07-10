@@ -22,7 +22,7 @@ $(document).ready(function () {
         aTargets: [0],
       },
     ],
-    aaSorting: [[1, "desc"]],
+    aaSorting: [[0, "desc"]],
   });
   /* Add event listener for opening and closing details
    * Note that the indicator for showing which row is open is not controlled by DataTables,
