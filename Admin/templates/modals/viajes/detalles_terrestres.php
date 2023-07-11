@@ -22,7 +22,7 @@
                                 <input type="text" class="form-control" id="basic-icon-default-fullname"
                                     aria-label="John Doe" aria-describedby="basic-icon-default-fullname2"
                                     name="terminal" readonly
-                                    value="<td> <?php echo    'OTL-' . date('Y') . '-' . folio_creacion($mostrar['id_servicio']); ?>" />
+                                    value="<?php echo    'OTL-' . date('Y') . '-' . folio_creacion($mostrar['id_servicio']); ?>" />
                             </div>
                         </div>
                     </div>
